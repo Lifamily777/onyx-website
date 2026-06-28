@@ -1,0 +1,422 @@
+.wrap {
+  overflow-x: hidden;
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero {
+  text-align: center;
+  padding: 48px 22px 64px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.heroEyebrow {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink3);
+  margin-bottom: 4px;
+}
+
+.heroEyebrowZh {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink3);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-size: clamp(40px, 6vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.07143;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.heroSub {
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 400;
+  letter-spacing: 0.007em;
+  line-height: 1.14286;
+  color: var(--ink2);
+  margin-bottom: 16px;
+}
+
+.heroDesc {
+  font-size: 17px;
+  color: var(--ink3);
+  line-height: 1.47059;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.heroLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.linkPrimary,
+.linkSecondary {
+  background: none;
+  border: none;
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--blue);
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.011em;
+}
+
+.linkPrimary:hover,
+.linkSecondary:hover {
+  text-decoration: underline;
+}
+
+/* ── ADVISOR STRIP ────────────────────────────────────────── */
+.advisorStrip {
+  background: var(--bg-alt);
+  padding: 48px 22px;
+}
+
+.advisorInner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.advisorLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.advisorName {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.advisorRole {
+  font-size: 17px;
+  color: var(--ink2);
+  margin-bottom: 28px;
+}
+
+.credList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 32px;
+  margin-bottom: 20px;
+}
+
+.cred {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.credEn {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.credZh {
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+.emailLink {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+/* ── SERVICE TILES ────────────────────────────────────────── */
+.tile {
+  text-align: center;
+  padding: 64px 22px 72px;
+}
+
+.tileDark {
+  background: var(--bg-dark);
+  color: var(--ink-light);
+}
+
+.tileLight {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+.tileEyebrow {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.tileTitle {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  line-height: 1.08349;
+  max-width: 720px;
+  margin: 0 auto 12px;
+}
+
+.tileDark .tileTitle { color: #ececee; }
+.tileLight .tileTitle { color: var(--ink); }
+
+.tileDesc {
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.381;
+  max-width: 520px;
+  margin: 0 auto 20px;
+  opacity: 0.75;
+}
+
+.tileLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.tileLink {
+  background: none;
+  border: none;
+  font-size: 21px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+}
+
+.tileDark .tileLink { color: #2997ff; }
+.tileLight .tileLink { color: var(--blue); }
+
+.tileLink:hover { text-decoration: underline; }
+
+/* ── PERSONAS ─────────────────────────────────────────────── */
+.personas {
+  padding: 64px 22px;
+  background: var(--bg);
+}
+
+.sectionHead {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sectionTitle {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.sectionSub {
+  font-size: 21px;
+  color: var(--ink2);
+}
+
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.pcard {
+  background: var(--bg-alt);
+  border-radius: 18px;
+  padding: 28px 24px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pcard:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.pNum {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pName {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.pNameZh {
+  font-size: 14px;
+  color: var(--blue);
+  margin-bottom: 8px;
+}
+
+.pAge {
+  font-size: 12px;
+  color: var(--ink3);
+  margin-bottom: 10px;
+}
+
+.pDesc {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+
+.pDescZh {
+  font-size: 13px;
+  color: var(--ink3);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+.pTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.ptag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--ink2);
+}
+
+/* ── METHOD ───────────────────────────────────────────────── */
+.method {
+  padding: 64px 22px;
+  background: var(--bg-alt);
+}
+
+.fwgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.fw {
+  background: var(--bg);
+  border-radius: 18px;
+  padding: 28px 24px;
+}
+
+.fwN {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.fwEn {
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.fwZh {
+  font-size: 14px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.fwDescEn {
+  font-size: 14px;
+  color: var(--ink2);
+  line-height: 1.5;
+}
+
+.fwDescZh {
+  font-size: 13px;
+  color: var(--ink3);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+/* ── CTA ──────────────────────────────────────────────────── */
+.ctaSection {
+  text-align: center;
+  padding: 72px 22px 88px;
+  background: var(--bg-dark);
+  color: var(--ink-light);
+}
+
+.ctaTitle {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.003em;
+  margin-bottom: 8px;
+  color: #ececee;
+}
+
+.ctaSub {
+  font-size: 21px;
+  color: #a8a8ad;
+  margin-bottom: 24px;
+}
+
+.ctaBtn {
+  background: var(--blue);
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.ctaBtn:hover {
+  background: var(--blue-hover);
+}
+
+.ctaEmail {
+  display: block;
+  font-size: 17px;
+  color: #2997ff;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pgrid,
+  .fwgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .credList {
+    flex-direction: column;
+    align-items: center;
+  }
+}
