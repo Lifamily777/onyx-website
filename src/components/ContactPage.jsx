@@ -16,14 +16,14 @@ export default function ContactPage() {
 
         {/* ── LEFT ── */}
         <div className={styles.left}>
-          <h1 className={styles.h1}>Book Your Free Consultation.</h1>
-          <div className={styles.h1Zh}>预约免费咨询</div>
+          <h1 className={styles.h1}>Initiate Your Free Diagnostic.</h1>
+          <div className={styles.h1Zh}>启动免费系统诊断</div>
           <p className={styles.pEn}>
-            15 minutes. We'll understand your situation and show you exactly what's
-            possible across tax planning, insurance, and wellness.
+            15 minutes. We map your current system state and show you exactly where tax,
+            risk, and health entropy can be reduced.
           </p>
           <p className={styles.pZh}>
-            15分钟，评估筹税、保障、健康三个维度能做到什么。
+            15分钟，定位税务、风险、健康三套系统当前的熵值状态。
           </p>
           <div className={styles.am}>
             <div className={styles.amName}>{advisor.name}</div>

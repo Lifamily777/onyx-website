@@ -20,7 +20,7 @@ export default function ServicePage({ data, setPage, openVideo }) {
         </div>
 
         <div className={styles.audience}>
-          <div className={styles.ml}>Who This Serves · 适合人群</div>
+          <div className={styles.ml}>Target Profile · 适配人群</div>
           {data.audiences.map((a, i) => (
             <div key={i} className={styles.mi}>
               <span className={styles.miDot} />
@@ -43,7 +43,7 @@ export default function ServicePage({ data, setPage, openVideo }) {
       </div>
 
       <div className={styles.hookbox}>
-        <div className={styles.hookEy}>Client Story · 真实场景</div>
+        <div className={styles.hookEy}>Field Data · 真实场景</div>
         <p className={styles.hookEn}>"{data.quote.en}"</p>
         <p className={styles.hookZh}>{data.quote.zh}</p>
       </div>

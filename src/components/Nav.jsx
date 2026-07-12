@@ -26,11 +26,11 @@ export default function Nav({ page, setPage }) {
             className={`${styles.fit} ${page === 'survey' ? styles.fitOn : ''}`}
             onClick={() => setPage('survey')}
           >
-            <span className={styles.fitMain}>Find Your Fit</span>
-            <span className={styles.fitSub}>免费画像测评</span>
+            <span className={styles.fitMain}>System Scan</span>
+            <span className={styles.fitSub}>免费熵值测评</span>
           </button>
           <button className={styles.cta} onClick={() => setPage('contact')}>
-            Book a Call
+            Run Diagnostic
           </button>
         </div>
       </div>

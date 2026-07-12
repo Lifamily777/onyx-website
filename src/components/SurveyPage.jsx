@@ -92,9 +92,9 @@ export default function SurveyPage({ setPage }) {
                   {tierLabels[key].en} · {tierLabels[key].zh}
                 </span>
                 <span className={styles.tierChipDesc}>
-                  {key === 'tax' && 'Tax structure & asset building · 筹税节税与资产积累'}
-                  {key === 'risk' && 'Insurance, cash value & legacy · 保险理财与长期传承'}
-                  {key === 'wellness' && 'Health, energy & prevention · 身体养护与精力管理'}
+                  {key === 'tax' && 'Structural tax leakage & compounding · 税务结构漏损与资产复利'}
+                  {key === 'risk' && 'Protection subsystem & liquidity · 保障子系统与流动性设计'}
+                  {key === 'wellness' && 'Biological signal monitoring · 生理信号监测与预防干预'}
                 </span>
               </div>
             ))}
@@ -216,10 +216,10 @@ export default function SurveyPage({ setPage }) {
 
           <div className={styles.resultActions}>
             <button type="button" className={styles.primaryBtn} onClick={() => setPage('contact')}>
-              Book Free Consultation · 预约咨询
+              Run Free Diagnostic · 启动系统诊断
             </button>
             <button type="button" className={styles.secondaryBtn} onClick={startSurvey}>
-              Retake · 重新测试
+              Re-scan · 重新测试
             </button>
             <button type="button" className={styles.textBtn} onClick={() => setPage('home')}>
               Back to Home

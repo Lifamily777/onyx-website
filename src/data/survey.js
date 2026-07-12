@@ -4,8 +4,8 @@
 import { brand } from './content'
 
 export const surveyIntro = {
-  title: 'Find Your Fit',
-  titleZh: '了解您的规划阶段',
+  title: 'System Scan',
+  titleZh: '获取您的熵值画像',
   subtitle:
     `Ten quick questions to understand where you are today — and which ${brand.name} services fit best. Takes about 5–8 minutes. No sensitive personal identifiers required.`,
   subtitleZh: '十个简短问题，了解您当下的阶段与最匹配的服务方向。约 5–8 分钟，无需提供身份证号、精确收入等敏感信息。',
@@ -17,9 +17,9 @@ export const surveyIntro = {
 export const TIER_IDS = ['tax', 'risk', 'wellness']
 
 export const tierLabels = {
-  tax: { en: 'Tax Efficiency', zh: '节税' },
-  risk: { en: 'Risk Protection', zh: '避险' },
-  wellness: { en: 'Wellness', zh: '养生' },
+  tax: { en: 'Tax Entropy', zh: '税务熵减' },
+  risk: { en: 'Risk Entropy', zh: '风险熵减' },
+  wellness: { en: 'Bio Entropy', zh: '生理熵减' },
 }
 
 export const surveyQuestions = [
@@ -355,24 +355,24 @@ export const serviceCatalog = {
     tier: 'tax',
     title: 'Tax Planning',
     titleZh: '筹税规划',
-    desc: 'Income structure, deductible expenses, and legal strategies to keep more of what you earn.',
-    descZh: '收入结构优化、费用合理入账、合法节税策略。',
+    desc: 'Income structure, deduction flow, and legal strategy — engineered to stop the leak.',
+    descZh: '收入结构、费用抵扣流、合规策略——系统级堵住漏损。',
   },
   ins: {
     id: 'ins',
     tier: 'risk',
     title: 'Life Insurance',
     titleZh: '人寿保险',
-    desc: 'Family protection, cash value growth, legacy planning, and liquidity when life changes.',
-    descZh: '家庭保障、现金值增值、传承规划，需要时可灵活周转。',
+    desc: 'Protection, compounding cash value, legacy structure, and on-demand liquidity — one subsystem.',
+    descZh: '家庭保障、现金值复利、传承结构、按需流动性——同一套子系统。',
   },
   health: {
     id: 'health',
     tier: 'wellness',
     title: 'USANA Wellness',
     titleZh: 'USANA 健康管理',
-    desc: 'Medical-grade nutrition tailored to your age, stress level, and health profile.',
-    descZh: '按年龄、压力与健康状态定制医疗级营养方案。',
+    desc: 'Medical-grade nutrition, calibrated to your age, stress load, and biological signals.',
+    descZh: '按年龄、压力负荷与生理信号，校准医疗级营养方案。',
   },
 }
 
@@ -381,18 +381,18 @@ export const TIER_SERVICE_KEY = { tax: 'tax', risk: 'ins', wellness: 'health' }
 export const tierProfiles = {
   tax: {
     id: 'tax',
-    name: 'Tax Efficiency',
-    nameZh: '节税档',
+    name: 'Tax Entropy',
+    nameZh: '税务熵减档',
     color: '#fdf2f6',
     accent: '#c76b8a',
-    badge: 'Tax & Asset Building',
-    badgeZh: '筹税节税 · 原始资产积累',
-    headline: 'Your focus: keep more of what you earn.',
-    headlineZh: '当前重点：合法筹税节税，积累原始资产',
+    badge: 'Tax Entropy · Asset Compounding',
+    badgeZh: '税务熵减 · 资产复利',
+    headline: 'Primary variable: capital leakage.',
+    headlineZh: '当前重点：定位税务结构漏损，启动资产复利',
     summary:
-      'Your profile points to building financial foundation through smart tax structure — optimizing what you keep from each dollar earned.',
+      'Your system shows structural tax leakage. Closing it — through income design and compliant deductions — is the highest-leverage move available right now.',
     summaryZh:
-      '您的画像指向通过合理税务结构夯实财务基础——让辛苦赚来的每一分钱都发挥更大作用。',
+      '您的画像显示税务结构存在漏损。通过收入设计与合规抵扣修补这套系统，是当前杠杆最高的动作。',
     traits: [
       { en: 'Tax-efficient structure can free cash flow for other goals', zh: '合规税务结构能释放现金流，支撑其他目标', context: 'any' },
       { en: 'Dependent children create additional legitimate tax-planning opportunities', zh: '未成年子女可带来额外的合规节税空间', context: 'hasChildren' },
@@ -404,18 +404,18 @@ export const tierProfiles = {
   },
   risk: {
     id: 'risk',
-    name: 'Risk Protection',
-    nameZh: '避险档',
+    name: 'Risk Entropy',
+    nameZh: '风险熵减档',
     color: '#eef4fc',
     accent: '#4a8fd4',
-    badge: 'Risk & Family Planning',
-    badgeZh: '风险规划 · 长期保障与传承',
-    headline: 'Your focus: protect your family and build long-term security.',
-    headlineZh: '当前重点：避险规划，保险理财与长期传承',
+    badge: 'Risk Entropy · Family Failsafe',
+    badgeZh: '风险熵减 · 家庭故障保护',
+    headline: 'Primary variable: system failure exposure.',
+    headlineZh: '当前重点：降低系统故障暴露，建立长期保障闭环',
     summary:
-      'Debt, income disruption, or family obligations would significantly impact your household. Long-term protection, cash value growth, and estate planning deserve attention now.',
+      'A debt load, income disruption, or family obligation would strain your system under stress. Long-term protection, compounding cash value, and estate structure need attention now.',
     summaryZh:
-      '负债、收入中断或家庭责任一旦遇险，对家庭冲击较大。现阶段应关注长期保障、保单现金值复利与传承布局。',
+      '负债、收入中断或家庭责任一旦触发，系统将承压运行。现阶段需建立长期保障、现金值复利与传承结构。',
     traits: [
       { en: 'Young or school-age children increase protection urgency', zh: '年幼子女使家庭保障需求更紧迫', context: 'hasChildren' },
       { en: 'Household relies on your income continuity — protection closes the gap', zh: '家庭依赖您的收入连续性，保障规划可填补风险缺口', context: 'noChildren' },
@@ -427,18 +427,18 @@ export const tierProfiles = {
   },
   wellness: {
     id: 'wellness',
-    name: 'Wellness',
-    nameZh: '养生档',
+    name: 'Bio Entropy',
+    nameZh: '生理熵减档',
     color: '#eef8f0',
     accent: '#4a9d6e',
-    badge: 'Wellness & Performance',
-    badgeZh: '身体养护 · 精力与形象管理',
-    headline: 'Your focus: invest in the health that supports everything else.',
-    headlineZh: '当前重点：保养身体，保持精力与专业形象',
+    badge: 'Bio Entropy · Performance Output',
+    badgeZh: '生理熵减 · 精力输出管理',
+    headline: 'Primary variable: biological drift.',
+    headlineZh: '当前重点：校正生理漂移，维持精力与状态输出',
     summary:
-      'With fewer dependent-child obligations — or children already independent — your priority shifts to sustaining energy, managing subhealth, and maintaining the performance your career and life demand.',
+      'Fewer dependent obligations shift your system\'s priority toward sustaining energy, managing subhealth signals, and maintaining the output your work and life demand.',
     summaryZh:
-      '随着孩子独立或家庭抚养负担减轻，重心转向维持精力、管理亚健康，以及支撑事业与生活状态的身体资本。',
+      '抚养负担减轻后，系统重心转向维持精力、管理亚健康信号，支撑事业与生活所需的持续输出。',
     traits: [
       { en: 'Economic foundation or career phase allows focus beyond basic survival', zh: '经济基础或事业阶段已允许关注健康投资', context: 'any' },
       { en: 'Fatigue, travel, or health signals deserve proactive attention', zh: '疲劳、出差或健康指标宜尽早干预', context: 'any' },

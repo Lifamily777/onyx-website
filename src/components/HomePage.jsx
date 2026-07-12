@@ -12,19 +12,20 @@ export default function HomePage({ setPage, openVideo, servicePages }) {
         <p className={styles.heroEyebrow}>{brand.name}</p>
         <p className={styles.heroEyebrowZh}>{brand.nameZh}</p>
         <h1 className={styles.heroTitle}>
-          Protect your wealth.<br />
-          Invest in your health.
+          Reduce entropy.<br />
+          Compound order.
         </h1>
         <p className={styles.heroSub}>
-          合法省税 · 智慧保障 · 科学养生
+          税务熵减 · 风险熵减 · 生理熵减
         </p>
         <p className={styles.heroDesc}>
-          We serve families and business owners across North America — helping you keep more of
-          what you earn, build lasting protection, and invest in your wellbeing strategically.
+          A closed-loop system for families and business owners across North America — minimizing
+          tax leakage, engineering lasting protection, and calibrating long-term health, all in
+          one structure.
         </p>
         <div className={styles.heroLinks}>
           <button className={styles.linkPrimary} onClick={() => setPage('contact')}>
-            Book Free Consultation
+            Run Free Diagnostic
           </button>
           <button className={styles.linkSecondary} onClick={() => setPage('tax')}>
             Learn more ›
@@ -36,7 +37,7 @@ export default function HomePage({ setPage, openVideo, servicePages }) {
       <section className={styles.advisorStrip}>
         <div className={styles.advisorInner}>
           <div className={styles.advisorInfo}>
-            <p className={styles.advisorLabel}>Your Advisor</p>
+            <p className={styles.advisorLabel}>System Architect</p>
             <h2 className={styles.advisorName}>{advisor.name}</h2>
             <p className={styles.advisorRole}>{advisor.role}</p>
           </div>
@@ -78,8 +79,8 @@ export default function HomePage({ setPage, openVideo, servicePages }) {
       {/* ── PERSONAS ── */}
       <section className={styles.personas}>
         <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>Who we serve.</h2>
-          <p className={styles.sectionSub}>三类家庭，一套体系</p>
+          <h2 className={styles.sectionTitle}>Three profiles. One system.</h2>
+          <p className={styles.sectionSub}>三类家庭，一套系统闭环</p>
         </div>
         <div className={styles.pgrid}>
           {personas.map((p) => (
@@ -102,7 +103,7 @@ export default function HomePage({ setPage, openVideo, servicePages }) {
       <section className={styles.method}>
         <div className={styles.sectionHead}>
           <h2 className={styles.sectionTitle}>{brand.method}</h2>
-          <p className={styles.sectionSub}>{brand.methodZh} · 一生二，二生三，三生万物</p>
+          <p className={styles.sectionSub}>{brand.methodZh} · 输入无序，输出有序</p>
         </div>
         <div className={styles.fwgrid}>
           {flywheel.map((fw) => (
@@ -119,10 +120,10 @@ export default function HomePage({ setPage, openVideo, servicePages }) {
 
       {/* ── CTA ── */}
       <section className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>Ready to get started?</h2>
-        <p className={styles.ctaSub}>15 minutes. No obligation. 预约免费咨询。</p>
+        <h2 className={styles.ctaTitle}>Ready to close the loop?</h2>
+        <p className={styles.ctaSub}>15 minutes. Zero obligation. 系统诊断，即刻启动。</p>
         <button className={styles.ctaBtn} onClick={() => setPage('contact')}>
-          Book Free Consultation
+          Run Free Diagnostic
         </button>
         <a className={styles.ctaEmail} href={`mailto:${advisor.email}`}>
           Or email us at {advisor.email}
