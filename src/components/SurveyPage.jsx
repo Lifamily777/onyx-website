@@ -1,20 +1,19 @@
-import React, { useState } from 'react'
-import { brand } from '../data/content'
-import { surveyIntro, surveyQuestions, tierLabels, tierProfiles, TIER_IDS } from '../data/survey'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
+import { surveyQuestions, TIER_IDS, TIER_ROUTE } from '../data/survey'
 import { calculateSurveyResult } from '../utils/surveyScore'
 import styles from './SurveyPage.module.css'
 
-const TENDENCY_ROLES = [
-  { en: 'Primary', zh: '主要倾向' },
-  { en: 'Secondary', zh: '次要倾向' },
-  { en: 'Supplementary', zh: '补充倾向' },
-]
-
-export default function SurveyPage({ setPage }) {
+export default function SurveyPage() {
+  const { t, localePath } = useLocale()
   const [phase, setPhase] = useState('intro')
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState({})
   const [result, setResult] = useState(null)
+
+  useDocumentMeta(`${t('survey.meta.title')} · ONYX`, t('survey.meta.subtitle'))
 
   const totalSteps = surveyQuestions.length
   const current = surveyQuestions[step]
@@ -79,152 +78,95 @@ export default function SurveyPage({ setPage }) {
     return (
       <div className={`${styles.wrap} page-enter`}>
         <div className={styles.intro}>
-          <p className={styles.eyebrow}>{brand.fitCheck}</p>
-          <h1 className={styles.title}>{surveyIntro.title}</h1>
-          <p className={styles.titleZh}>{surveyIntro.titleZh}</p>
-          <p className={styles.sub}>{surveyIntro.subtitle}</p>
-          <p className={styles.subZh}>{surveyIntro.subtitleZh}</p>
-
-          <div className={styles.tierPreview}>
-            {TIER_IDS.map((key) => (
-              <div key={key} className={`${styles.tierChip} ${styles[key]}`}>
-                <span className={styles.tierChipLabel}>
-                  {tierLabels[key].en} · {tierLabels[key].zh}
-                </span>
-                <span className={styles.tierChipDesc}>
-                  {key === 'tax' && 'Structural tax leakage & compounding · 税务结构漏损与资产复利'}
-                  {key === 'risk' && 'Protection subsystem & liquidity · 保障子系统与流动性设计'}
-                  {key === 'wellness' && 'Biological signal monitoring · 生理信号监测与预防干预'}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <p className={styles.privacy}>{surveyIntro.privacy}</p>
-          <p className={styles.privacyZh}>{surveyIntro.privacyZh}</p>
+          <h1 className={styles.title}>{t('survey.meta.title')}</h1>
+          <p className={styles.sub}>{t('survey.meta.subtitle')}</p>
+          <p className={styles.description}>{t('survey.intro.description')}</p>
+          <p className={styles.timeNote}>{t('survey.intro.timeNote')}</p>
+          <p className={styles.privacy}>{t('survey.intro.privacyNote')}</p>
 
           <button type="button" className={styles.startBtn} onClick={startSurvey}>
-            Start · 开始（约 5–8 分钟）
+            {t('survey.intro.startCta')}
           </button>
+
+          <p className={styles.disclaimer}>{t('survey.disclaimer')}</p>
         </div>
       </div>
     )
   }
 
   if (phase === 'result' && result) {
-    const { profile, percentages, rankedServices, rankedTiers, tier } = result
+    const { tier, percentages, rankedTiers } = result
+    const nextSteps = t(`survey.results.${tier}.nextSteps`)
+    const otherTiers = rankedTiers.filter((rt) => rt.id !== tier)
 
     return (
       <div className={`${styles.wrap} page-enter`}>
-        <div
-          className={styles.resultHero}
-          style={{ background: profile.color, borderColor: profile.accent }}
-        >
-          <span className={styles.resultBadge} style={{ color: profile.accent }}>
-            {profile.badge} · {profile.badgeZh}
-          </span>
-          <h1 className={styles.resultTitle}>{profile.nameZh}</h1>
-          <p className={styles.resultHeadline}>{profile.headline}</p>
-          <p className={styles.resultHeadlineZh}>{profile.headlineZh}</p>
+        <div className={styles.resultHero}>
+          <p className={styles.eyebrow}>{t('survey.resultPage.eyebrow')}</p>
+          <h1 className={styles.resultTitle}>{t(`survey.results.${tier}.name`)}</h1>
         </div>
 
         <div className={styles.resultBody}>
-          <p className={styles.resultSummary}>{profile.summary}</p>
-          <p className={styles.resultSummaryZh}>{profile.summaryZh}</p>
+          <p className={styles.resultSummary}>{t(`survey.results.${tier}.summary`)}</p>
 
           <div className={styles.scoreBars}>
-            <h3 className={styles.scoreTitle}>Your profile mix · 阶段分布</h3>
-            {TIER_IDS.map((t) => (
-              <div key={t} className={styles.scoreRow}>
-                <span className={`${styles.scoreLabel} ${styles[`label_${t}`]}`}>
-                  {tierLabels[t].en} · {tierLabels[t].zh}
-                  {t === tier && <span className={styles.primaryTag}>主要</span>}
+            <h2 className={styles.scoreTitle}>{t('survey.resultPage.mixHeading')}</h2>
+            {TIER_IDS.map((id) => (
+              <div key={id} className={styles.scoreRow}>
+                <span className={`${styles.scoreLabel} ${styles[`label_${id}`]}`}>
+                  {t(`survey.results.${id}.name`)}
+                  {id === tier && (
+                    <span className={styles.primaryTag}>{t('survey.resultPage.primaryTag')}</span>
+                  )}
                 </span>
                 <div className={styles.scoreTrack}>
                   <div
-                    className={`${styles.scoreFill} ${styles[`fill_${t}`]}`}
-                    style={{ width: `${percentages[t]}%` }}
+                    className={`${styles.scoreFill} ${styles[`fill_${id}`]}`}
+                    style={{ width: `${percentages[id]}%` }}
                   />
                 </div>
-                <span className={styles.scorePct}>{percentages[t]}%</span>
+                <span className={styles.scorePct}>{percentages[id]}%</span>
               </div>
             ))}
           </div>
 
-          <div className={styles.tendencyBox}>
-            <h3 className={styles.blockTitle}>Your tendencies · 倾向概览</h3>
-            {rankedTiers.map((t, i) => (
-              <div
-                key={t.id}
-                className={`${styles.tendencyRow} ${i === 0 ? styles.tendencyPrimary : ''}`}
-              >
-                <span className={styles.tendencyRole}>
-                  {TENDENCY_ROLES[i].zh} {TENDENCY_ROLES[i].en}
-                </span>
-                <span className={`${styles.tendencyName} ${styles[`label_${t.id}`]}`}>
-                  {t.label.zh}档
-                </span>
-                <span className={styles.tendencyPct}>{t.percentage}%</span>
-              </div>
-            ))}
-          </div>
-
-          <div className={styles.traits}>
-            <h3 className={styles.blockTitle}>Why this fits you · 为何匹配</h3>
-            <ul className={styles.traitList}>
-              {profile.traits.map((t, i) => (
-                <li key={i}>
-                  {t.en}
-                  <span className={styles.traitZh}>{t.zh}</span>
-                </li>
+          <div className={styles.nextStepsBlock}>
+            <h2 className={styles.blockTitle}>{t('survey.resultPage.nextStepsHeading')}</h2>
+            <ul className={styles.nextStepsList}>
+              {nextSteps.map((item, i) => (
+                <li key={i}>{item}</li>
               ))}
             </ul>
           </div>
 
-          <div className={styles.services}>
-            <h3 className={styles.blockTitle}>
-              Recommended services · 服务导向
-              <span className={styles.servicesHint}>（按上方百分比排序）</span>
-            </h3>
-            {rankedServices.map((s) => (
-              <div key={s.id} className={styles.serviceCard}>
-                <div className={styles.serviceTop}>
-                  <div className={styles.serviceMeta}>
-                    <span
-                      className={styles.servicePriority}
-                      style={{ color: tierProfiles[s.tier].accent }}
-                    >
-                      {s.priority} · {s.priorityZh}
-                    </span>
-                    <span className={`${styles.servicePct} ${styles[`label_${s.tier}`]}`}>
-                      {s.tierLabel.zh} {s.percentage}%
-                    </span>
-                  </div>
-                  <button
-                    type="button"
-                    className={styles.serviceLink}
-                    onClick={() => setPage(s.id)}
-                  >
-                    {s.title} · {s.titleZh} ›
-                  </button>
-                </div>
-                <p className={styles.serviceDesc}>{s.desc}</p>
-                <p className={styles.serviceDescZh}>{s.descZh}</p>
+          <div className={styles.resultActions}>
+            <Link className={styles.primaryBtn} to={localePath(`/${TIER_ROUTE[tier]}`)}>
+              {t(`survey.results.${tier}.cta`)}
+            </Link>
+          </div>
+
+          <div className={styles.reviewOthers}>
+            <h2 className={styles.blockTitle}>{t('survey.resultPage.reviewOthersHeading')}</h2>
+            {otherTiers.map((rt) => (
+              <div key={rt.id} className={styles.reviewCard}>
+                <span className={styles.reviewName}>{t(`survey.results.${rt.id}.name`)}</span>
+                <Link className={styles.reviewLink} to={localePath(`/${TIER_ROUTE[rt.id]}`)}>
+                  {t(`survey.results.${rt.id}.cta`)} ›
+                </Link>
               </div>
             ))}
           </div>
 
           <div className={styles.resultActions}>
-            <button type="button" className={styles.primaryBtn} onClick={() => setPage('contact')}>
-              Run Free Diagnostic · 启动系统诊断
-            </button>
             <button type="button" className={styles.secondaryBtn} onClick={startSurvey}>
-              Re-scan · 重新测试
+              {t('survey.resultPage.retakeCta')}
             </button>
-            <button type="button" className={styles.textBtn} onClick={() => setPage('home')}>
-              Back to Home
-            </button>
+            <Link className={styles.textBtn} to={localePath('/')}>
+              {t('survey.resultPage.backHomeCta')}
+            </Link>
           </div>
+
+          <p className={styles.disclaimer}>{t('survey.disclaimer')}</p>
         </div>
       </div>
     )
@@ -235,10 +177,12 @@ export default function SurveyPage({ setPage }) {
       <div className={styles.quiz}>
         <div className={styles.quizHeader}>
           <button type="button" className={styles.backBtn} onClick={goBack}>
-            ‹ Back
+            ‹ {t('survey.progress.back')}
           </button>
           <span className={styles.stepCount}>
-            {step + 1} / {totalSteps}
+            {t('survey.progress.step')
+              .replace('{{current}}', step + 1)
+              .replace('{{total}}', totalSteps)}
           </span>
         </div>
 
@@ -246,24 +190,28 @@ export default function SurveyPage({ setPage }) {
           <div className={styles.progressFill} style={{ width: `${progress}%` }} />
         </div>
 
-        <h2 className={styles.question}>{current.question}</h2>
-        <p className={styles.questionZh}>{current.questionZh}</p>
-        {current.questionHint && (
-          <p className={styles.questionHint}>{current.questionHint}</p>
+        <h2 className={styles.question}>{t(`survey.questions.${current.id}.question`)}</h2>
+        {current.hasHint && (
+          <p className={styles.questionHint}>{t(`survey.questions.${current.id}.hint`)}</p>
         )}
 
-        <div className={styles.options}>
+        <div
+          className={styles.options}
+          role="radiogroup"
+          aria-label={t(`survey.questions.${current.id}.question`)}
+        >
           {current.options.map((opt) => {
             const selected = answers[current.id] === opt.id
             return (
               <button
                 key={opt.id}
                 type="button"
+                role="radio"
+                aria-checked={selected}
                 className={`${styles.option} ${selected ? styles.optionSelected : ''}`}
                 onClick={() => selectOption(opt.id)}
               >
-                <span className={styles.optionEn}>{opt.label}</span>
-                <span className={styles.optionZh}>{opt.labelZh}</span>
+                {t(`survey.questions.${current.id}.options.${opt.id}`)}
               </button>
             )
           })}

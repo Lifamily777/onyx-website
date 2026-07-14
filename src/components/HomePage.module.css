@@ -2,421 +2,460 @@
   overflow-x: hidden;
 }
 
-/* ── HERO ─────────────────────────────────────────────────── */
+/* Progressive enhancement: lets supporting browsers avoid orphaned
+   trailing words/characters on long-form paragraphs. Ignored safely
+   where unsupported. */
+.heroBridge,
+.whyBody,
+.brandBody,
+.learningBody p,
+.missionBody p {
+  text-wrap: pretty;
+}
+
+/* The founder story contains the longest running paragraphs on the page;
+   "pretty" mode doesn't reliably prevent short trailing lines in CJK
+   scripts (its orphan heuristic is word-based), so these get balanced
+   distribution instead. */
+.founderBody p {
+  text-wrap: balance;
+}
+
+/* ── 1. HERO ── */
 .hero {
   text-align: center;
-  padding: 48px 22px 64px;
-  max-width: 980px;
+  max-width: calc(820px * var(--width-scale));
   margin: 0 auto;
-}
-
-.heroEyebrow {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--ink3);
-  margin-bottom: 4px;
-}
-
-.heroEyebrowZh {
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--ink3);
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  padding: 72px 22px 56px;
 }
 
 .heroTitle {
-  font-size: clamp(40px, 6vw, 56px);
+  font-size: clamp(calc(30px * var(--type-scale)), 6vw, calc(54px * var(--type-scale)));
   font-weight: 600;
-  letter-spacing: -0.005em;
-  line-height: 1.07143;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-display);
   color: var(--ink);
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+  text-wrap: balance;
 }
 
-.heroSub {
-  font-size: clamp(21px, 3vw, 28px);
-  font-weight: 400;
-  letter-spacing: 0.007em;
-  line-height: 1.14286;
+.heroEmphasis {
+  display: block;
+  color: var(--blue);
+  text-wrap: balance;
+}
+
+.heroSupporting {
+  font-size: calc(19px * var(--type-scale));
   color: var(--ink2);
-  margin-bottom: 16px;
+  line-height: var(--lh-heading);
+  max-width: calc(640px * var(--width-scale));
+  margin: 0 auto 20px;
 }
 
-.heroDesc {
-  font-size: 17px;
+.heroBridge {
+  font-size: calc(17px * var(--body-scale));
   color: var(--ink3);
-  line-height: 1.47059;
-  max-width: 600px;
-  margin: 0 auto 24px;
+  line-height: var(--lh-body);
+  max-width: calc(640px * var(--width-scale));
+  margin: 0 auto 32px;
 }
 
 .heroLinks {
   display: flex;
-  align-items: center;
+  gap: 16px;
   justify-content: center;
-  gap: 28px;
   flex-wrap: wrap;
+  margin-bottom: 18px;
 }
 
-.linkPrimary,
-.linkSecondary {
-  background: none;
-  border: none;
-  font-size: 21px;
+.btnPrimary {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background: var(--blue-hover);
+  color: #fff;
+  text-decoration: none;
+}
+
+.btnSecondary {
+  display: inline-block;
+  color: var(--ink);
+  padding: 14px 6px;
+  font-size: 16px;
   font-weight: 400;
-  color: var(--blue);
-  cursor: pointer;
-  padding: 0;
-  letter-spacing: 0.011em;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px solid transparent;
 }
 
-.linkPrimary:hover,
-.linkSecondary:hover {
-  text-decoration: underline;
+.btnSecondary:hover {
+  border-color: var(--ink);
+  text-decoration: none;
 }
 
-/* ── ADVISOR STRIP ────────────────────────────────────────── */
-.advisorStrip {
-  background: var(--bg-alt);
-  padding: 48px 22px;
+.heroLine {
+  font-size: 13px;
+  color: var(--ink3);
+  font-style: italic;
 }
 
-.advisorInner {
-  max-width: 980px;
+/* ── 2. WHY ONYX EXISTS ── */
+.why {
+  max-width: calc(840px * var(--width-scale));
   margin: 0 auto;
-  text-align: center;
+  padding: 88px 22px;
 }
 
-.advisorLabel {
+.whyLabel {
   font-size: 12px;
   font-weight: 600;
+  letter-spacing: 0.08em;
   color: var(--ink3);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 6px;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
-.advisorName {
-  font-size: 28px;
+.whyHeadline {
+  font-size: clamp(calc(24px * var(--type-scale)), 4vw, calc(38px * var(--type-scale)));
   font-weight: 600;
-  letter-spacing: -0.003em;
+  text-align: center;
   color: var(--ink);
-  margin-bottom: 4px;
+  margin-bottom: 24px;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  text-wrap: balance;
 }
 
-.advisorRole {
-  font-size: 17px;
+.whyBody {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
   color: var(--ink2);
-  margin-bottom: 28px;
+  text-align: center;
+  max-width: calc(680px * var(--width-scale));
+  margin: 0 auto 20px;
 }
 
-.credList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 32px;
-  margin-bottom: 20px;
-}
-
-.cred {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.credEn {
-  font-size: 14px;
+.whyEmphasis {
+  font-size: calc(19px * var(--type-scale));
   font-weight: 500;
   color: var(--ink);
-}
-
-.credZh {
-  font-size: 12px;
-  color: var(--ink3);
-}
-
-.emailLink {
-  font-size: 17px;
-  font-weight: 400;
-}
-
-/* ── SERVICE TILES ────────────────────────────────────────── */
-.tile {
   text-align: center;
-  padding: 64px 22px 72px;
+  max-width: calc(640px * var(--width-scale));
+  margin: 0 auto 40px;
+  line-height: var(--lh-heading);
 }
 
-.tileDark {
+.areaGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.areaChip {
+  font-size: 13px;
+  color: var(--ink2);
+  background: var(--bg-alt);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+/* ── 3. CORE BRAND STATEMENT ── */
+.brandStatement {
   background: var(--bg-dark);
   color: var(--ink-light);
-}
-
-.tileLight {
-  background: var(--bg-alt);
-  color: var(--ink);
-}
-
-.tileEyebrow {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  opacity: 0.7;
-}
-
-.tileTitle {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 600;
-  letter-spacing: -0.003em;
-  line-height: 1.08349;
-  max-width: 720px;
-  margin: 0 auto 12px;
-}
-
-.tileDark .tileTitle { color: #ececee; }
-.tileLight .tileTitle { color: var(--ink); }
-
-.tileDesc {
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1.381;
-  max-width: 520px;
-  margin: 0 auto 20px;
-  opacity: 0.75;
-}
-
-.tileLinks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-}
-
-.tileLink {
-  background: none;
-  border: none;
-  font-size: 21px;
-  font-weight: 400;
-  cursor: pointer;
-  padding: 0;
-}
-
-.tileDark .tileLink { color: #2997ff; }
-.tileLight .tileLink { color: var(--blue); }
-
-.tileLink:hover { text-decoration: underline; }
-
-/* ── PERSONAS ─────────────────────────────────────────────── */
-.personas {
-  padding: 64px 22px;
-  background: var(--bg);
-}
-
-.sectionHead {
   text-align: center;
+  padding: 96px 22px;
+}
+
+.brandHeadline {
+  font-size: clamp(calc(24px * var(--type-scale)), 4.5vw, calc(42px * var(--type-scale)));
+  font-weight: 600;
+  max-width: calc(760px * var(--width-scale));
+  margin: 0 auto 20px;
+  line-height: var(--lh-heading);
+  letter-spacing: var(--letter-heading);
+  color: #fff;
+  text-wrap: balance;
+}
+
+.brandBody {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
+  color: var(--ink3);
+  max-width: calc(600px * var(--width-scale));
+  margin: 0 auto;
+}
+
+/* ── 4. THREE PILLARS ── */
+.pillars {
+  max-width: calc(980px * var(--width-scale));
+  margin: 0 auto;
+  padding: 96px 22px;
+  scroll-margin-top: 64px;
+}
+
+.pillarsEyebrow {
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink3);
+  text-transform: uppercase;
   margin-bottom: 40px;
 }
 
-.sectionTitle {
-  font-size: clamp(32px, 4vw, 40px);
-  font-weight: 600;
-  letter-spacing: -0.003em;
-  color: var(--ink);
-  margin-bottom: 6px;
-}
-
-.sectionSub {
-  font-size: 21px;
-  color: var(--ink2);
-}
-
-.pgrid {
+.pillarGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  max-width: 980px;
-  margin: 0 auto;
+  gap: 20px;
 }
 
-.pcard {
-  background: var(--bg-alt);
+.pillarCard {
+  border: 1px solid var(--line);
   border-radius: 18px;
-  padding: 28px 24px;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.pcard:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-}
-
-.pNum {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--ink3);
-  margin-bottom: 10px;
-  display: block;
-}
-
-.pName {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 2px;
-}
-
-.pNameZh {
-  font-size: 14px;
-  color: var(--blue);
-  margin-bottom: 8px;
-}
-
-.pAge {
-  font-size: 12px;
-  color: var(--ink3);
-  margin-bottom: 10px;
-}
-
-.pDesc {
-  font-size: 14px;
-  color: var(--ink2);
-  line-height: 1.5;
-}
-
-.pDescZh {
-  font-size: 13px;
-  color: var(--ink3);
-  line-height: 1.5;
-  margin-top: 6px;
-}
-
-.pTags {
+  padding: 32px 26px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 14px;
+  flex-direction: column;
 }
 
-.ptag {
-  font-size: 11px;
-  font-weight: 500;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: rgba(0, 0, 0, 0.06);
-  color: var(--ink2);
-}
-
-/* ── METHOD ───────────────────────────────────────────────── */
-.method {
-  padding: 64px 22px;
-  background: var(--bg-alt);
-}
-
-.fwgrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.fw {
-  background: var(--bg);
-  border-radius: 18px;
-  padding: 28px 24px;
-}
-
-.fwN {
-  font-size: 12px;
+.pillarTitle {
+  font-size: calc(22px * var(--type-scale));
   font-weight: 600;
-  color: var(--ink3);
-  display: block;
-  margin-bottom: 8px;
-}
-
-.fwEn {
-  font-size: 19px;
-  font-weight: 600;
+  letter-spacing: var(--letter-heading);
   color: var(--ink);
-  margin-bottom: 2px;
-}
-
-.fwZh {
-  font-size: 14px;
-  color: var(--blue);
-  margin-bottom: 10px;
-}
-
-.fwDescEn {
-  font-size: 14px;
-  color: var(--ink2);
-  line-height: 1.5;
-}
-
-.fwDescZh {
-  font-size: 13px;
-  color: var(--ink3);
-  line-height: 1.5;
-  margin-top: 4px;
-}
-
-/* ── CTA ──────────────────────────────────────────────────── */
-.ctaSection {
-  text-align: center;
-  padding: 72px 22px 88px;
-  background: var(--bg-dark);
-  color: var(--ink-light);
-}
-
-.ctaTitle {
-  font-size: clamp(32px, 4vw, 40px);
-  font-weight: 600;
-  letter-spacing: -0.003em;
   margin-bottom: 8px;
-  color: #ececee;
 }
 
-.ctaSub {
-  font-size: 21px;
-  color: #a8a8ad;
-  margin-bottom: 24px;
+.pillarDescriptor {
+  font-size: calc(15px * var(--type-scale));
+  font-weight: 500;
+  color: var(--blue);
+  margin-bottom: 14px;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
 }
 
-.ctaBtn {
-  background: var(--blue);
-  border: none;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 400;
-  padding: 12px 24px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  transition: background 0.2s;
-  margin-bottom: 16px;
-  display: inline-block;
+.pillarBody {
+  font-size: calc(15px * var(--type-scale));
+  line-height: var(--lh-body);
+  color: var(--ink2);
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
-.ctaBtn:hover {
-  background: var(--blue-hover);
+.pillarCta {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
 }
 
-.ctaEmail {
-  display: block;
-  font-size: 17px;
-  color: #2997ff;
+.pillarCta:hover {
+  text-decoration: underline;
 }
 
-/* ── RESPONSIVE ───────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .pgrid,
-  .fwgrid {
+@media (max-width: 900px) {
+  .pillarGrid {
     grid-template-columns: 1fr;
   }
+}
 
-  .credList {
-    flex-direction: column;
-    align-items: center;
+/* ── ASSESSMENT ── */
+.assessment {
+  max-width: calc(600px * var(--width-scale));
+  margin: 0 auto;
+  padding: 88px 22px;
+  text-align: center;
+}
+
+.assessmentLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.assessmentHeadline {
+  font-size: clamp(calc(24px * var(--type-scale)), 4vw, calc(34px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+.assessmentBody {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
+  color: var(--ink2);
+  margin-bottom: 28px;
+  text-wrap: pretty;
+}
+
+.assessmentLine {
+  font-size: 13px;
+  color: var(--ink3);
+  font-style: italic;
+  margin-top: 16px;
+}
+
+/* ── 5. LEARNING TOGETHER ── */
+.learning {
+  max-width: calc(680px * var(--width-scale));
+  margin: 0 auto;
+  padding: 96px 22px;
+}
+
+.learningHeadline {
+  font-size: clamp(calc(24px * var(--type-scale)), 4vw, calc(34px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  color: var(--ink);
+  margin-bottom: 24px;
+  text-align: center;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+.learningBody p {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
+  color: var(--ink2);
+  margin-bottom: 16px;
+}
+
+.learningCta {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.learningCta:hover {
+  text-decoration: underline;
+}
+
+/* ── 6. FOUNDER STORY ── */
+.founder {
+  background: var(--bg-alt);
+  padding: 96px 22px;
+}
+
+.founderName {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink3);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.founderHeadline {
+  font-size: clamp(calc(22px * var(--type-scale)), 4vw, calc(34px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  text-align: center;
+  color: var(--ink);
+  max-width: calc(680px * var(--width-scale));
+  margin: 0 auto 32px;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+.founderBody {
+  /* Slightly wider than the other paragraph columns: this is the one
+     long-form narrative block on the page, and the extra width avoids
+     short trailing lines on its longest sentences. */
+  max-width: calc(680px * var(--width-scale));
+  margin: 0 auto;
+}
+
+.founderBody p {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
+  color: var(--ink2);
+  margin-bottom: 16px;
+}
+
+/* ── 7. MISSION AND FINAL CTA ── */
+.mission {
+  max-width: calc(680px * var(--width-scale));
+  margin: 0 auto;
+  padding: 96px 22px 120px;
+  text-align: center;
+}
+
+.missionHeadline {
+  font-size: clamp(calc(24px * var(--type-scale)), 4.5vw, calc(38px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  color: var(--ink);
+  margin-bottom: 28px;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+.missionBody p {
+  font-size: calc(17px * var(--body-scale));
+  line-height: var(--lh-body);
+  color: var(--ink2);
+  margin-bottom: 12px;
+}
+
+.finalCta {
+  font-size: clamp(calc(18px * var(--type-scale)), 3vw, calc(24px * var(--type-scale)));
+  font-weight: 600;
+  color: var(--ink);
+  margin: 48px 0 28px;
+  line-height: var(--lh-heading);
+  text-wrap: balance;
+}
+
+.finalLinks {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive scale-down: tighten headline sizing a touch earlier
+     than pure clamp(vw) alone, so tablet/mobile don't sit in an
+     awkward middle ground between the hero max and min sizes. ── */
+@media (max-width: 900px) {
+  .heroTitle {
+    font-size: clamp(calc(28px * var(--type-scale)), 7vw, calc(44px * var(--type-scale)));
+  }
+
+  .whyHeadline,
+  .brandHeadline,
+  .missionHeadline {
+    font-size: clamp(calc(22px * var(--type-scale)), 5.5vw, calc(32px * var(--type-scale)));
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: clamp(calc(24px * var(--type-scale)), 7vw, calc(34px * var(--type-scale)));
   }
 }

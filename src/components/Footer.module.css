@@ -1,0 +1,134 @@
+.footer {
+  background: var(--bg-dark);
+  color: var(--ink-light);
+  margin-top: 0;
+}
+
+.inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 22px 32px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 0.5px solid var(--line-light);
+}
+
+.brandBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: calc(320px * var(--width-scale));
+}
+
+.brandName {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.descriptor {
+  font-size: 13px;
+  color: var(--ink3);
+  line-height: var(--lh-body);
+}
+
+.domain {
+  font-size: 12px;
+  color: var(--ink3);
+  letter-spacing: 0.02em;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-content: flex-start;
+  max-width: 420px;
+}
+
+.link {
+  font-size: 13px;
+  color: #ececee;
+  opacity: 0.85;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.langBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.langLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink3);
+}
+
+.footerSelect {
+  color: #fff;
+  border-color: var(--line-light);
+}
+
+.disclaimer {
+  font-size: 12px;
+  line-height: var(--lh-body);
+  color: var(--ink3);
+  max-width: calc(780px * var(--width-scale));
+  margin: 28px 0 0;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.brandLine {
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+.legalLinks {
+  display: flex;
+  gap: 18px;
+}
+
+.legalLink {
+  font-size: 12px;
+  color: var(--ink3);
+  text-decoration: none;
+}
+
+.legalLink:hover {
+  color: #ececee;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .top {
+    gap: 28px;
+  }
+
+  .columns {
+    max-width: 100%;
+  }
+}

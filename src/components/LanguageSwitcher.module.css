@@ -1,0 +1,29 @@
+.select {
+  appearance: auto;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 7px 10px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  font-family: var(--font);
+}
+
+.select:hover {
+  background: var(--bg-alt);
+}
+
+.select:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .select {
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+}

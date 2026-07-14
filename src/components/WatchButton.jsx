@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './WatchButton.module.css'
 
 export default function WatchButton({ onClick, size = 'sm', variant = 'dark' }) {

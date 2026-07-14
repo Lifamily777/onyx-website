@@ -1,0 +1,342 @@
+// English — default and fallback locale.
+export default {
+  meta: {
+    title: 'ONYX | Turning Complexity into Clarity',
+    description:
+      'ONYX is a multilingual lifelong-learning platform helping families better understand the systems shaping money, health, technology, and everyday life.',
+  },
+
+  nav: {
+    home: 'Home',
+    wealth: 'Wealth',
+    wellness: 'Wellness',
+    intelligence: 'Intelligence',
+    about: 'About',
+    insights: 'Insights',
+    assessment: 'Assessment',
+    startLearning: 'Start Learning',
+    languageLabel: 'Language',
+  },
+
+  footer: {
+    brandLine: 'ONYX — Turning Complexity into Clarity.',
+    descriptor: 'Wealth & Wellness, powered by Intelligence.',
+    domainLabel: 'ONYXWW.com',
+    columns: {
+      wealth: 'Wealth',
+      wellness: 'Wellness',
+      intelligence: 'Intelligence',
+      about: 'About',
+      insights: 'Insights',
+      assessment: 'Pathway Assessment',
+      contact: 'Contact',
+    },
+    legal: {
+      privacy: 'Privacy',
+      terms: 'Terms',
+      disclosures: 'Disclosures',
+    },
+    disclaimer:
+      'ONYX provides general educational content and does not provide individualized financial, tax, legal, medical, investment, or insurance advice unless explicitly stated through an appropriately licensed professional relationship. Consult qualified professionals regarding your personal circumstances.',
+    languageLabel: 'Language',
+  },
+
+  home: {
+    hero: {
+      headline1: 'The world is becoming more complex.',
+      headline2: "Understanding it shouldn't be.",
+      supporting:
+        'The systems already exist. The problem is that almost no one teaches ordinary families how they work.',
+      bridge:
+        'ONYX is a multilingual learning platform where we explore the systems shaping money, health, technology, and everyday life—then turn what we learn into practical knowledge families can actually use.',
+      ctaPrimary: 'Start Learning',
+      ctaSecondary: 'Explore the Three Pillars',
+      supportingLine: 'Education first. Clarity always.',
+    },
+    why: {
+      label: 'WHY ONYX EXISTS',
+      headline: "The world isn't getting easier. It's getting more complex.",
+      body:
+        'Taxes, insurance, healthcare, retirement, nutrition, investing, education, technology, and artificial intelligence increasingly shape our everyday lives. Yet many of us are left to understand these systems through fragmented information, technical language, and trial and error.',
+      emphasis:
+        'Hard work still matters. But understanding the systems around us helps that effort become more intentional.',
+      areas: [
+        'Taxes', 'Insurance', 'Healthcare', 'Retirement', 'Nutrition',
+        'AI', 'Technology', 'Family Finance', 'Estate Planning', 'Education',
+      ],
+    },
+    brandStatement: {
+      headline: "We don't simplify life. We simplify complexity.",
+      body:
+        'ONYX organizes complicated ideas into practical explanations, useful frameworks, and better questions—so families can make more informed decisions.',
+    },
+    pillars: {
+      eyebrow: 'Wealth · Wellness · Intelligence',
+      wealth: {
+        title: 'Wealth',
+        descriptor: 'Understand the systems behind money.',
+        body:
+          'Explore taxes, insurance, retirement, estate planning, family finance, business structures, risk, and investing through clear and practical education.',
+        cta: 'Explore Wealth',
+      },
+      wellness: {
+        title: 'Wellness',
+        descriptor: 'Understand the systems supporting health.',
+        body:
+          'Explore nutrition, prevention, healthy routines, exercise, longevity, and everyday choices that support family energy and resilience.',
+        cta: 'Explore Wellness',
+      },
+      intelligence: {
+        title: 'Intelligence',
+        descriptor: 'Understand the systems shaping how we think and work.',
+        body:
+          'Explore AI, digital tools, automation, systems thinking, learning, and decision frameworks while keeping human judgment at the center.',
+        cta: 'Explore Intelligence',
+      },
+    },
+    assessment: {
+      label: 'NOT SURE WHERE TO BEGIN?',
+      headline: 'Find your starting point.',
+      body:
+        "Wealth, wellness, and risk are connected—but every family's most immediate need is different. Take a short assessment to discover which area may deserve your attention first.",
+      cta: 'Take the Assessment',
+      supportingLine: 'A few thoughtful questions. No pressure. No sales pitch.',
+    },
+    learningTogether: {
+      headline: 'Learning Together',
+      paragraphs: [
+        'ONYX is not built on the idea that one person has all the answers.',
+        'It is built on the belief that lifelong learners become stronger when they openly share what they discover.',
+        'Here, I document what I am studying, organize it into practical knowledge, test ideas where appropriate, and share what appears useful.',
+        'Every article, video, framework, experiment, and lesson is another step in that journey.',
+        'You are invited to learn alongside me—and to contribute your own questions, experiences, and insights.',
+      ],
+      cta: 'Follow the Learning Journey',
+    },
+    founder: {
+      name: 'Sammi Q',
+      headline: 'Built from real life, not from having all the answers.',
+      paragraphs: [
+        'My name is Sammi. I am a daughter, wife, mother, professional, entrepreneur, and lifelong learner.',
+        'I left home in my twenties to build a career. In my thirties, I worked full-time while raising my children, and like many working parents, I sometimes realized that professional progress came with moments I could not get back.',
+        'I am deeply grateful for the family support that made my journey possible. But I also began asking why families should have to choose between professional purpose and being present for the people they love.',
+        'ONYX grew from that question.',
+        'I do not have every system figured out. What I bring is the ability to study difficult subjects, connect ideas, adapt, think strategically, and translate complexity into something more practical.',
+        'ONYX is where I share that continuing journey and invite others to learn with me.',
+      ],
+    },
+    mission: {
+      headline: 'Turning Complexity into Clarity.',
+      paragraphs: [
+        'ONYX exists to help lifelong learners better understand the systems shaping money, health, technology, and everyday life.',
+        'Not because we have all the answers.',
+        'Because learning together can lead to better decisions, more resilient families, and more time for what matters most.',
+      ],
+      ctaHeadline: "You already know how to work hard. Now let's better understand the systems around us.",
+      ctaPrimary: 'Start Learning',
+      ctaSecondary: 'Explore Insights',
+    },
+  },
+
+  placeholders: {
+    about: {
+      eyebrow: 'ABOUT',
+      title: 'About ONYX',
+      body: "A fuller founder background, credentials, and professional story page is being prepared. In the meantime, you can read the founder's story on the homepage.",
+    },
+    insights: {
+      eyebrow: 'INSIGHTS',
+      title: 'Insights — Coming Soon',
+      body: 'This is where ONYX articles, learning notes, and videos on Wealth, Wellness, and Intelligence will live as they are published. Nothing is posted here yet — we would rather leave this page empty than fill it with placeholder content.',
+    },
+    intelligence: {
+      eyebrow: 'INTELLIGENCE',
+      title: 'Intelligence — Just Getting Started',
+      body: 'This pillar will explore AI, digital tools, automation, and decision frameworks — while keeping human judgment at the center. Learning notes and articles are on their way.',
+    },
+    privacy: {
+      eyebrow: 'LEGAL',
+      title: 'Privacy Policy',
+      body: 'A complete privacy policy is being prepared for ONYX. This page is a placeholder and does not yet constitute a binding privacy policy. Please check back soon.',
+    },
+    terms: {
+      eyebrow: 'LEGAL',
+      title: 'Terms of Use',
+      body: 'Complete terms of use are being prepared for ONYX. This page is a placeholder and does not yet constitute binding terms. Please check back soon.',
+    },
+    disclosures: {
+      eyebrow: 'LEGAL',
+      title: 'Disclosures',
+      body: 'ONYX provides general educational content and does not provide individualized financial, tax, legal, medical, investment, or insurance advice unless explicitly stated through an appropriately licensed professional relationship. A complete disclosures page, including any relevant commercial relationships, is being prepared.',
+    },
+  },
+
+  notFound: {
+    title: 'Page not found',
+    body: "The page you're looking for doesn't exist or may have moved.",
+    cta: 'Back to Home',
+  },
+
+  survey: {
+    meta: {
+      title: 'ONYX Pathway Assessment',
+      subtitle: 'Discover where your family may benefit from greater clarity first.',
+    },
+    intro: {
+      description:
+        'A short, educational assessment to help you discover where you may want to focus first — Wellness, Wealth & Tax Planning, or Risk Protection.',
+      timeNote: 'About 4–6 minutes.',
+      privacyNote:
+        'We only ask about general life stage and priorities — never Social Security numbers, bank details, or exact financial figures.',
+      startCta: 'Start the Assessment',
+    },
+    progress: {
+      step: 'Question {{current}} of {{total}}',
+      back: 'Back',
+    },
+    questions: {
+      age: {
+        question: 'Which age range are you in?',
+        options: {
+          under30: 'Under 30',
+          '30s': '30–39',
+          '40s': '40–49',
+          '50plus': '50 or older',
+        },
+      },
+      children_count: {
+        question: 'How many dependent children do you currently support at home?',
+        options: {
+          none: "None — or my children are grown and financially independent",
+          one: '1 child',
+          two: '2 children',
+          three_plus: '3 or more children',
+          planning: 'No children yet — planning within the next two years',
+        },
+      },
+      children_ages: {
+        question: 'If you have dependent children at home, what are their age ranges?',
+        options: {
+          na: 'Not applicable — no dependent children at home',
+          all_young: 'All under 12 — or 1–2 children, youngest under 12',
+          mixed_ages: 'Mixed — some under 12, some 12–17',
+          all_teens: 'All 12–17 (none under 12)',
+          three_plus_all_minors: '3 or more children, all under 18',
+        },
+      },
+      income_stage: {
+        question: 'How would you describe your current income stage?',
+        options: {
+          building: 'Still building — every dollar counts',
+          steady: 'Stable income source',
+          growing: 'Growing business or self-employed income',
+          established: 'Established and financially comfortable',
+        },
+      },
+      savings_room: {
+        question:
+          'After essential expenses, how much room do you have for financial planning each month?',
+        options: {
+          tight: 'Very tight — little left over',
+          some: 'Some, but I need to be careful',
+          comfortable: 'A comfortable buffer each month',
+          substantial: 'Substantial — ready to deploy strategically',
+        },
+      },
+      debt: {
+        question: 'How would you describe your overall debt load (mortgage, loans, etc.)?',
+        options: {
+          minimal: 'Minimal or none',
+          manageable: 'Manageable — on track',
+          significant: 'Significant — a meaningful share of income',
+          heavy: 'Heavy — a major monthly pressure',
+        },
+      },
+      health: {
+        question: 'How would you describe your energy and health lately?',
+        options: {
+          excellent: 'Excellent — no concerns',
+          good: 'Generally good',
+          fatigue: 'Some fatigue, poor sleep, or minor issues',
+          subhealth: 'Managing an ongoing health condition',
+        },
+      },
+      workload: {
+        question: 'How demanding is your work or daily routine?',
+        options: {
+          predictable: 'Predictable and balanced',
+          occasional: 'Occasionally busy',
+          travel: 'Frequent travel or irregular hours',
+          high_stress: 'High-stress, with little time to recover',
+        },
+      },
+      protection: {
+        question:
+          'If a major unexpected event happened tomorrow, how prepared would your household be?',
+        hint: 'For example: income paused for six months, or a $50,000+ medical or emergency expense.',
+        options: {
+          not_ready: 'Not very prepared',
+          somewhat: 'Somewhat — some gaps remain',
+          fairly: 'Fairly prepared',
+          well: 'Well protected — the basics are covered',
+        },
+      },
+      priority: {
+        question: 'What matters most to you right now?',
+        options: {
+          tax: 'Keep more of what I earn',
+          protect: 'Protect my family and build long-term security',
+          health: 'Rebuild energy, health, and daily performance',
+          balance: 'A balance of all three',
+        },
+      },
+    },
+    results: {
+      wellness: {
+        name: 'Wellness Foundation',
+        summary:
+          'Your strongest starting point may be Wellness. Building physical energy and sustainable health habits can create a stronger foundation for every other part of life.',
+        nextSteps: [
+          'Explore nutrition basics',
+          'Review daily health habits',
+          'Build a sustainable wellness routine',
+        ],
+        cta: 'Explore Wellness',
+      },
+      tax: {
+        name: 'Wealth & Tax Planning',
+        summary:
+          'Your strongest starting point may be Wealth and Tax Planning. Greater understanding of financial systems may help you make more intentional decisions with the resources you already have.',
+        nextSteps: [
+          'Review your current financial structure',
+          'Learn how tax and retirement systems work',
+          'Identify areas where better understanding may improve decisions',
+        ],
+        cta: 'Explore Wealth',
+      },
+      risk: {
+        name: 'Risk Protection',
+        summary:
+          "Your strongest starting point may be Risk Protection. Before focusing only on growth, it may be important to understand the risks that could disrupt your family's financial stability.",
+        nextSteps: [
+          'Review major family risks',
+          'Understand your current insurance coverage',
+          'Identify potential protection gaps',
+        ],
+        cta: 'Explore Risk Protection',
+      },
+    },
+    resultPage: {
+      eyebrow: 'BASED ON YOUR RESPONSES',
+      heading: 'Your starting point',
+      primaryTag: 'Primary',
+      nextStepsHeading: 'Consider exploring',
+      mixHeading: 'Your response mix',
+      reviewOthersHeading: 'You may also want to review',
+      retakeCta: 'Retake the Assessment',
+      backHomeCta: 'Back to Home',
+    },
+    disclaimer:
+      'This assessment is for general educational purposes only. It does not provide individualized financial, tax, legal, medical, investment, or insurance advice.',
+  },
+}

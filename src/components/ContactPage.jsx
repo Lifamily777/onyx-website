@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { advisor } from '../data/content'
 import styles from './ContactPage.module.css'
 
@@ -29,7 +29,6 @@ export default function ContactPage() {
             <div className={styles.amName}>{advisor.name}</div>
             <div className={styles.amRole}>{advisor.role}</div>
             {[
-              { label: <a href={`mailto:${advisor.email}`}>{advisor.email}</a> },
               { label: 'English & Mandarin · 中英文服务' },
               { label: 'Virtual or in-person · 线上或线下均可' },
               { label: 'Response within 24 hours · 24小时内回复' },

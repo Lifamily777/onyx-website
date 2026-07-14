@@ -1,8 +1,12 @@
-import React from 'react'
+import { Link, useOutletContext } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
 import WatchButton from './WatchButton'
 import styles from './ServicePage.module.css'
 
-export default function ServicePage({ data, setPage, openVideo }) {
+export default function ServicePage({ data }) {
+  const { openVideo } = useOutletContext()
+  const { localePath } = useLocale()
+
   return (
     <div className={`${styles.wrap} page-enter`}>
 
@@ -13,9 +17,9 @@ export default function ServicePage({ data, setPage, openVideo }) {
         <p className={styles.pEn}>{data.p}</p>
         <p className={styles.pZh}>{data.pZh}</p>
         <div className={styles.actions}>
-          <button className={styles.btnGold} onClick={() => setPage('contact')}>
+          <Link className={styles.btnGold} to={localePath('/contact')}>
             {data.cta}
-          </button>
+          </Link>
           <WatchButton size="md" onClick={() => openVideo(data.video)} />
         </div>
 
@@ -49,9 +53,9 @@ export default function ServicePage({ data, setPage, openVideo }) {
       </div>
 
       <div className={styles.pcta}>
-        <button className={styles.btnGold} onClick={() => setPage('contact')}>
+        <Link className={styles.btnGold} to={localePath('/contact')}>
           {data.cta}
-        </button>
+        </Link>
         <WatchButton size="md" onClick={() => openVideo(data.video)} />
       </div>
 

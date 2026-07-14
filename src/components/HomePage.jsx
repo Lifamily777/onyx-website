@@ -1,133 +1,137 @@
-import React from 'react'
-import { brand, advisor, personas, services, flywheel } from '../data/content'
-import WatchButton from './WatchButton'
+import { Link } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import styles from './HomePage.module.css'
 
-export default function HomePage({ setPage, openVideo, servicePages }) {
+export default function HomePage() {
+  const { t, localePath } = useLocale()
+
+  useDocumentMeta(t('meta.title'), t('meta.description'))
+
+  const areas = t('home.why.areas')
+  const learningParagraphs = t('home.learningTogether.paragraphs')
+  const founderParagraphs = t('home.founder.paragraphs')
+  const missionParagraphs = t('home.mission.paragraphs')
+
   return (
     <div className={`${styles.wrap} page-enter`}>
 
-      {/* ── HERO ── */}
+      {/* ── 1. HERO ── */}
       <section className={styles.hero}>
-        <p className={styles.heroEyebrow}>{brand.name}</p>
-        <p className={styles.heroEyebrowZh}>{brand.nameZh}</p>
         <h1 className={styles.heroTitle}>
-          Reduce entropy.<br />
-          Compound order.
+          {t('home.hero.headline1')}
+          <br />
+          <span className={styles.heroEmphasis}>{t('home.hero.headline2')}</span>
         </h1>
-        <p className={styles.heroSub}>
-          税务熵减 · 风险熵减 · 生理熵减
-        </p>
-        <p className={styles.heroDesc}>
-          A closed-loop system for families and business owners across North America — minimizing
-          tax leakage, engineering lasting protection, and calibrating long-term health, all in
-          one structure.
-        </p>
+        <p className={styles.heroSupporting}>{t('home.hero.supporting')}</p>
+        <p className={styles.heroBridge}>{t('home.hero.bridge')}</p>
         <div className={styles.heroLinks}>
-          <button className={styles.linkPrimary} onClick={() => setPage('contact')}>
-            Run Free Diagnostic
-          </button>
-          <button className={styles.linkSecondary} onClick={() => setPage('tax')}>
-            Learn more ›
-          </button>
-        </div>
-      </section>
-
-      {/* ── ADVISOR STRIP ── */}
-      <section className={styles.advisorStrip}>
-        <div className={styles.advisorInner}>
-          <div className={styles.advisorInfo}>
-            <p className={styles.advisorLabel}>System Architect</p>
-            <h2 className={styles.advisorName}>{advisor.name}</h2>
-            <p className={styles.advisorRole}>{advisor.role}</p>
-          </div>
-          <div className={styles.credList}>
-            {advisor.credentials.map((c, i) => (
-              <div key={i} className={styles.cred}>
-                <span className={styles.credEn}>{c.en}</span>
-                <span className={styles.credZh}>{c.zh}</span>
-              </div>
-            ))}
-          </div>
-          <a className={styles.emailLink} href={`mailto:${advisor.email}`}>
-            {advisor.email}
+          <Link className={styles.btnPrimary} to={localePath('/contact')}>
+            {t('home.hero.ctaPrimary')}
+          </Link>
+          <a className={styles.btnSecondary} href="#pillars">
+            {t('home.hero.ctaSecondary')}
           </a>
         </div>
+        <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
       </section>
 
-      {/* ── SERVICE TILES (Apple product-style) ── */}
-      {services.map((s, i) => (
-        <section
-          key={s.id}
-          className={`${styles.tile} ${i % 2 === 0 ? styles.tileDark : styles.tileLight}`}
-        >
-          <p className={styles.tileEyebrow}>{s.en} · {s.zh}</p>
-          <h2 className={styles.tileTitle}>{s.desc.split('—')[0].trim()}</h2>
-          <p className={styles.tileDesc}>{s.descZh}</p>
-          <div className={styles.tileLinks}>
-            <button className={styles.tileLink} onClick={() => setPage(s.id)}>
-              Learn more ›
-            </button>
-            <WatchButton
-              variant={i % 2 === 0 ? 'light' : 'dark'}
-              onClick={() => openVideo(servicePages[s.id].video)}
-            />
-          </div>
-        </section>
-      ))}
-
-      {/* ── PERSONAS ── */}
-      <section className={styles.personas}>
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>Three profiles. One system.</h2>
-          <p className={styles.sectionSub}>三类家庭，一套系统闭环</p>
-        </div>
-        <div className={styles.pgrid}>
-          {personas.map((p) => (
-            <article key={p.num} className={styles.pcard} onClick={() => setPage(p.page)}>
-              <span className={styles.pNum}>{p.num}</span>
-              <h3 className={styles.pName}>{p.en}</h3>
-              <p className={styles.pNameZh}>{p.zh}</p>
-              <p className={styles.pAge}>{p.age}</p>
-              <p className={styles.pDesc}>{p.desc}</p>
-              <p className={styles.pDescZh}>{p.descZh}</p>
-              <div className={styles.pTags}>
-                {p.tags.map((t) => <span key={t} className={styles.ptag}>{t}</span>)}
-              </div>
-            </article>
+      {/* ── 2. WHY ONYX EXISTS ── */}
+      <section className={styles.why}>
+        <p className={styles.whyLabel}>{t('home.why.label')}</p>
+        <h2 className={styles.whyHeadline}>{t('home.why.headline')}</h2>
+        <p className={styles.whyBody}>{t('home.why.body')}</p>
+        <p className={styles.whyEmphasis}>{t('home.why.emphasis')}</p>
+        <div className={styles.areaGrid}>
+          {areas.map((area) => (
+            <span key={area} className={styles.areaChip}>{area}</span>
           ))}
         </div>
       </section>
 
-      {/* ── FLYWHEEL ── */}
-      <section className={styles.method}>
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>{brand.method}</h2>
-          <p className={styles.sectionSub}>{brand.methodZh} · 输入无序，输出有序</p>
-        </div>
-        <div className={styles.fwgrid}>
-          {flywheel.map((fw) => (
-            <div key={fw.num} className={styles.fw}>
-              <span className={styles.fwN}>{fw.num}</span>
-              <h3 className={styles.fwEn}>{fw.en}</h3>
-              <p className={styles.fwZh}>{fw.zh}</p>
-              <p className={styles.fwDescEn}>{fw.descEn}</p>
-              <p className={styles.fwDescZh}>{fw.descZh}</p>
-            </div>
-          ))}
+      {/* ── 3. CORE BRAND STATEMENT ── */}
+      <section className={styles.brandStatement}>
+        <h2 className={styles.brandHeadline}>{t('home.brandStatement.headline')}</h2>
+        <p className={styles.brandBody}>{t('home.brandStatement.body')}</p>
+      </section>
+
+      {/* ── 4. THREE PILLARS ── */}
+      <section className={styles.pillars} id="pillars">
+        <h2 className={styles.pillarsEyebrow}>{t('home.pillars.eyebrow')}</h2>
+        <div className={styles.pillarGrid}>
+          <article className={styles.pillarCard}>
+            <h3 className={styles.pillarTitle}>{t('home.pillars.wealth.title')}</h3>
+            <p className={styles.pillarDescriptor}>{t('home.pillars.wealth.descriptor')}</p>
+            <p className={styles.pillarBody}>{t('home.pillars.wealth.body')}</p>
+            <Link className={styles.pillarCta} to={localePath('/tax')}>
+              {t('home.pillars.wealth.cta')} ›
+            </Link>
+          </article>
+          <article className={styles.pillarCard}>
+            <h3 className={styles.pillarTitle}>{t('home.pillars.wellness.title')}</h3>
+            <p className={styles.pillarDescriptor}>{t('home.pillars.wellness.descriptor')}</p>
+            <p className={styles.pillarBody}>{t('home.pillars.wellness.body')}</p>
+            <Link className={styles.pillarCta} to={localePath('/health')}>
+              {t('home.pillars.wellness.cta')} ›
+            </Link>
+          </article>
+          <article className={styles.pillarCard}>
+            <h3 className={styles.pillarTitle}>{t('home.pillars.intelligence.title')}</h3>
+            <p className={styles.pillarDescriptor}>{t('home.pillars.intelligence.descriptor')}</p>
+            <p className={styles.pillarBody}>{t('home.pillars.intelligence.body')}</p>
+            <Link className={styles.pillarCta} to={localePath('/intelligence')}>
+              {t('home.pillars.intelligence.cta')} ›
+            </Link>
+          </article>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className={styles.ctaSection}>
-        <h2 className={styles.ctaTitle}>Ready to close the loop?</h2>
-        <p className={styles.ctaSub}>15 minutes. Zero obligation. 系统诊断，即刻启动。</p>
-        <button className={styles.ctaBtn} onClick={() => setPage('contact')}>
-          Run Free Diagnostic
-        </button>
-        <a className={styles.ctaEmail} href={`mailto:${advisor.email}`}>
-          Or email us at {advisor.email}
-        </a>
+      {/* ── ASSESSMENT — "not sure where to begin" ── */}
+      <section className={styles.assessment}>
+        <p className={styles.assessmentLabel}>{t('home.assessment.label')}</p>
+        <h2 className={styles.assessmentHeadline}>{t('home.assessment.headline')}</h2>
+        <p className={styles.assessmentBody}>{t('home.assessment.body')}</p>
+        <Link className={styles.btnPrimary} to={localePath('/survey')}>
+          {t('home.assessment.cta')}
+        </Link>
+        <p className={styles.assessmentLine}>{t('home.assessment.supportingLine')}</p>
+      </section>
+
+      {/* ── 5. LEARNING TOGETHER ── */}
+      <section className={styles.learning}>
+        <h2 className={styles.learningHeadline}>{t('home.learningTogether.headline')}</h2>
+        <div className={styles.learningBody}>
+          {learningParagraphs.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+        <Link className={styles.learningCta} to={localePath('/insights')}>
+          {t('home.learningTogether.cta')} ›
+        </Link>
+      </section>
+
+      {/* ── 6. FOUNDER STORY ── */}
+      <section className={styles.founder}>
+        <p className={styles.founderName}>{t('home.founder.name')}</p>
+        <h2 className={styles.founderHeadline}>{t('home.founder.headline')}</h2>
+        <div className={styles.founderBody}>
+          {founderParagraphs.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+      </section>
+
+      {/* ── 7. MISSION AND FINAL CTA ── */}
+      <section className={styles.mission}>
+        <h2 className={styles.missionHeadline}>{t('home.mission.headline')}</h2>
+        <div className={styles.missionBody}>
+          {missionParagraphs.map((p, i) => <p key={i}>{p}</p>)}
+        </div>
+        <h3 className={styles.finalCta}>{t('home.mission.ctaHeadline')}</h3>
+        <div className={styles.finalLinks}>
+          <Link className={styles.btnPrimary} to={localePath('/contact')}>
+            {t('home.mission.ctaPrimary')}
+          </Link>
+          <Link className={styles.btnSecondary} to={localePath('/insights')}>
+            {t('home.mission.ctaSecondary')}
+          </Link>
+        </div>
       </section>
 
     </div>

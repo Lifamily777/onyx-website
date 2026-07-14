@@ -1,0 +1,31 @@
+.wrap {
+  max-width: calc(640px * var(--width-scale));
+  margin: 0 auto;
+  padding: 96px 22px 120px;
+  text-align: center;
+  min-height: 40vh;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-size: clamp(calc(24px * var(--type-scale)), 4vw, calc(40px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.body {
+  font-size: 17px;
+  color: var(--ink2);
+  line-height: var(--lh-body);
+}

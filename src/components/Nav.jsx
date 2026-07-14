@@ -1,37 +1,44 @@
-import React from 'react'
-import { brand, navItems } from '../data/content'
+import { NavLink, Link } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import LanguageSwitcher from './LanguageSwitcher'
 import styles from './Nav.module.css'
 
-export default function Nav({ page, setPage }) {
+export default function Nav() {
+  const { t, localePath } = useLocale()
+
+  const navItems = [
+    { key: 'home', label: t('nav.home'), to: localePath('/'), end: true },
+    { key: 'wealth', label: t('nav.wealth'), to: localePath('/tax') },
+    { key: 'wellness', label: t('nav.wellness'), to: localePath('/health') },
+    { key: 'intelligence', label: t('nav.intelligence'), to: localePath('/intelligence') },
+    { key: 'about', label: t('nav.about'), to: localePath('/about') },
+    { key: 'insights', label: t('nav.insights'), to: localePath('/insights') },
+    { key: 'assessment', label: t('nav.assessment'), to: localePath('/survey') },
+  ]
+
   return (
     <nav className={styles.nav}>
       <div className={styles.inner}>
-        <button className={styles.logo} onClick={() => setPage('home')}>
-          <span className={styles.logoEn}>{brand.name}</span>
-          <span className={styles.logoZh}>{brand.nameZh}</span>
-        </button>
+        <Link to={localePath('/')} className={styles.logo}>
+          <span className={styles.logoEn}>ONYX</span>
+        </Link>
         <div className={styles.links}>
           {navItems.map((item) => (
-            <button
-              key={item.id}
-              className={`${styles.nb} ${page === item.id ? styles.on : ''}`}
-              onClick={() => setPage(item.id)}
+            <NavLink
+              key={item.key}
+              to={item.to}
+              end={item.end}
+              className={({ isActive }) => `${styles.nb} ${isActive ? styles.on : ''}`}
             >
               {item.label}
-            </button>
+            </NavLink>
           ))}
         </div>
         <div className={styles.actions}>
-          <button
-            className={`${styles.fit} ${page === 'survey' ? styles.fitOn : ''}`}
-            onClick={() => setPage('survey')}
-          >
-            <span className={styles.fitMain}>System Scan</span>
-            <span className={styles.fitSub}>免费熵值测评</span>
-          </button>
-          <button className={styles.cta} onClick={() => setPage('contact')}>
-            Run Diagnostic
-          </button>
+          <LanguageSwitcher />
+          <Link to={localePath('/contact')} className={styles.cta}>
+            {t('nav.startLearning')}
+          </Link>
         </div>
       </div>
     </nav>
