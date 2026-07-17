@@ -1,6 +1,6 @@
 # ONYX Engineering Guide
 
-Version: 0.1
+Version: 0.2
 
 Last Updated: 2026-07-16
 
@@ -13,6 +13,24 @@ Related documents: [README.md](./README.md) · [BRAND_BIBLE.md](./BRAND_BIBLE.md
 Build software that reduces complexity while preserving human judgment.
 
 Software should help people make better decisions—not replace their ability to think.
+
+---
+
+# Read First
+
+Before writing any code, read, in order:
+
+1. `DOC_INDEX.md` (if present)
+2. `README.md`
+3. `ENGINEERING.md` (this file)
+4. `BRAND_BIBLE.md`
+5. `CONTENT_BIBLE.md`
+6. Relevant Claude Skills under `.claude/skills/`
+7. `CLAUDE.md` (if applicable)
+
+Understand the existing architecture before proposing any implementation.
+
+Never start coding immediately.
 
 ---
 
@@ -74,20 +92,21 @@ Reimplement features natively inside the current architecture.
 
 ---
 
-## 5. Plan Before Code
+## 5. Development Workflow
 
 Every implementation follows this sequence:
 
-1. Read
-2. Explain
-3. Propose implementation
-4. Identify affected files
-5. Wait for approval
-6. Implement
-7. Build
-8. Verify
-9. Commit only after approval
-10. Push only after approval
+1. Understand the request.
+2. Review the architecture.
+3. Explain the root cause.
+4. Propose the smallest safe solution.
+5. Wait for approval if the scope changes.
+6. Implement.
+7. Verify (see Quality Assurance below).
+8. Report.
+9. Stage only approved files.
+10. Commit only after approval.
+11. Push only after approval.
 
 Thinking comes before coding.
 
@@ -99,15 +118,14 @@ Each commit should have one clear purpose.
 
 Avoid unrelated refactoring.
 
-Stage only approved files.
+Never stage unrelated files.
 
-Review:
+Before committing, show:
 
-- git diff
-- git diff --cached
-- git status
+- `git diff --cached --stat`
+- `git status --short`
 
-before every commit.
+Show `git status --short` again after committing.
 
 ---
 
@@ -115,17 +133,10 @@ before every commit.
 
 ### Start every session
 
-- git status
-- git fetch
+- `git status`
+- `git fetch`
 - compare local main with origin/main
-- git pull --ff-only (when appropriate)
-
-### Before committing
-
-- npm run build
-- git diff --check
-- git diff --cached --stat
-- git status
+- `git pull --ff-only` (when appropriate)
 
 ### Before pushing
 
@@ -135,7 +146,7 @@ Confirm:
 - target branch
 - deployment target
 
-Never push blindly.
+Never push without explicit approval. Never push blindly.
 
 ---
 
@@ -193,6 +204,78 @@ Every release should leave the platform stronger than before.
 
 ---
 
+# Quality Assurance
+
+Every production change must pass all three verification stages.
+
+## Stage 1 — Build Verification
+
+Run:
+
+```
+npm run build
+```
+
+Build must succeed with no errors.
+
+## Stage 2 — Static Verification
+
+Run:
+
+```
+git diff --check
+```
+
+Then verify:
+
+- Translation keys exist.
+- No hardcoded UI strings remain.
+- Route definitions are correct.
+- Locale-aware navigation is preserved.
+- No unintended file modifications.
+- grep checks for important strings where appropriate.
+
+Report `git status --short`.
+
+## Stage 3 — Runtime Verification
+
+Preferred: **Playwright** (automated end-to-end).
+
+If Playwright is unavailable: perform manual verification.
+
+Check all supported locales — English, Chinese, Spanish, Korean, French, German — for:
+
+- [ ] Homepage
+- [ ] Navigation
+- [ ] Language Switcher
+- [ ] Internal links preserve locale
+- [ ] Refresh preserves locale
+- [ ] Deep links
+- [ ] CTA buttons
+- [ ] Forms
+- [ ] Mobile layout
+- [ ] Desktop layout
+- [ ] Browser Back / Forward
+- [ ] No console errors
+
+**Future improvement:** when Playwright is available, prefer automated end-to-end verification over manual testing. Every new production feature should eventually receive Playwright coverage.
+
+---
+
+# Localization Rules
+
+Never hardcode visible UI text.
+
+Every user-facing string must come from locale files.
+
+Every supported language must contain a translation.
+
+Do not intentionally leave supported locales using English fallback unless explicitly approved.
+
+*Added after the July 16, 2026 Contact page incident — see Lesson Learned below.*
+
+---
+
 # Release Checklist
 
 Before every production release:
@@ -201,9 +284,9 @@ Before every production release:
 - [ ] Correct branch
 - [ ] Synced with origin/main
 - [ ] Scope approved
-- [ ] Build passed
-- [ ] Whitespace check passed
-- [ ] Local routes tested
+- [ ] Stage 1: Build passed
+- [ ] Stage 2: Static verification passed (whitespace, translation keys, no hardcoded strings, routes correct)
+- [ ] Stage 3: Runtime verification passed (Playwright, or documented manual check)
 - [ ] Only approved files staged
 - [ ] Commit reviewed
 - [ ] Push approved
@@ -211,9 +294,25 @@ Before every production release:
 
 ---
 
+# Reporting Template
+
+After every implementation, report:
+
+1. Root cause.
+2. Files changed.
+3. Translation keys added or modified.
+4. Build result.
+5. Runtime verification results.
+6. Remaining limitations.
+7. `git status --short`
+
+Stop. Do not commit unless instructed. Do not push unless instructed.
+
+---
+
 # Lesson Learned
 
-July 16, 2026
+## July 16, 2026 — Production baseline drift
 
 A local project can appear correct while still being behind production.
 
@@ -226,14 +325,32 @@ Always verify:
 
 before implementing any feature.
 
-Today's lesson reinforced one principle:
+## July 16, 2026 — Silent locale fallback
+
+A page can carry the correct locale in its URL and still fail the user: `ContactPage.jsx` preserved the right route for every language but rendered fixed, hardcoded English + Chinese text regardless of locale. Routing correctness does not guarantee content correctness — both must be verified independently. This is the direct origin of the Localization Rules above.
+
+Today's lessons reinforced one principle:
 
 Understand first.
 Build second.
 
 ---
 
+# ONYX Philosophy
+
+Documentation defines the system.
+
+Architecture guides implementation.
+
+Code implements the design.
+
+Verification protects production.
+
+Human judgment has final authority.
+
+---
+
 # Version
 
-Version: 0.1
+Version: 0.2
 Last updated: 2026-07-16
