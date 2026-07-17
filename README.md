@@ -1,98 +1,52 @@
-# ONYX Wellness & Wealth — Website
+# ONYX
 
-A Vite + React website for Sammi Q's integrated tax, insurance, and wellness advisory practice.
+ONYX is a multilingual, lifelong-learning platform that helps people understand the systems shaping their money, health, technology, and everyday life — so they can make clearer, more confident decisions.
 
----
+## Mission
 
-## Quick Start
+Turning complexity into clarity, across Wealth, Wellness, and Intelligence.
 
-```bash
-npm install
-npm run dev
-```
+The full brand mission, voice, and philosophy live in [BRAND_BIBLE.md](./BRAND_BIBLE.md).
 
-Open http://localhost:5173 in your browser.
+## Vision
 
----
+A world where understanding the systems around you — taxes, health, technology, and money — isn't reserved for experts, but is accessible to every family, in plain language, in the language they actually speak.
 
-## Project Structure
+## Three Pillars
+
+- **Wealth** — taxes, insurance, retirement, estate planning, and family finance.
+- **Wellness** — nutrition, prevention, longevity, and everyday health decisions.
+- **Intelligence** — AI, automation, and decision-making, with human judgment always at the center.
+
+## Technology Stack
+
+- **React** — UI framework
+- **Vite** — build tooling and dev server
+- **React Router** — client-side routing, including locale-prefixed paths (`/`, `/zh`, `/es`, `/ko`, `/fr`, `/de`)
+- **Cloudflare Pages** — hosting and deployment
+- **GitHub** — version control; `origin/main` is the single source of truth for production
+
+## Repository Structure
 
 ```
 onyx-website/
-├── index.html
-├── vite.config.js
-├── package.json
 ├── src/
-│   ├── main.jsx          # React entry point
-│   ├── App.jsx           # Root: routing + modal state
-│   ├── index.css         # Global CSS variables & reset
-│   ├── data/
-│   │   └── content.js    # ← ALL site content lives here
-│   └── components/
-│       ├── Nav.jsx / .module.css
-│       ├── HomePage.jsx / .module.css
-│       ├── ServicePage.jsx / .module.css
-│       ├── ContactPage.jsx / .module.css
-│       ├── VideoModal.jsx / .module.css
-│       └── WatchButton.jsx / .module.css
+│   ├── components/    Page and layout components (Nav, Footer, HomePage, Insights, etc.)
+│   ├── data/           Structured content (service pages, Insights articles)
+│   ├── i18n/            Locale routing and context
+│   ├── locales/         Per-language UI dictionaries (en, zh, es, ko, fr, de)
+│   └── hooks/           Shared React hooks (document meta, canonical, hreflang)
+├── public/              Static assets and Cloudflare Pages config
+├── README.md            This file
+├── ENGINEERING.md       How ONYX software is built
+├── BRAND_BIBLE.md       What ONYX is, and how it speaks
+└── CONTENT_BIBLE.md     How ONYX content is created
 ```
 
----
+## Project Principles
 
-## How to Add YouTube Videos
+ONYX is built on one idea: reduce complexity, preserve human judgment, build long-term trust. How that plays out day to day is documented separately, so each concern has a single home:
 
-When your YouTube videos are ready:
-
-1. Open `src/data/content.js`
-2. Find the `servicePages` object
-3. For each service, locate the `video` field and paste the YouTube video ID:
-
-```js
-video: {
-  ey: 'Tax Planning · 筹税规划',
-  title: 'How to Stop Overpaying Taxes',
-  sub: '...',
-  youtubeId: 'dQw4w9WgXcQ',  // ← paste your YouTube video ID here
-},
-```
-
-The YouTube ID is the string after `?v=` in a YouTube URL.  
-Example: `https://www.youtube.com/watch?v=dQw4w9WgXcQ` → ID is `dQw4w9WgXcQ`
-
-The video player will activate automatically — no other code changes needed.
-
----
-
-## How to Update Content
-
-All text, credentials, and service details are in **`src/data/content.js`**.  
-You can update:
-- Advisor name, email, credentials
-- Persona descriptions
-- Service page copy and client quotes
-- Contact form options
-
----
-
-## How to Update Contact Info
-
-In `src/data/content.js`, find the `advisor` object at the top:
-
-```js
-export const advisor = {
-  name: 'Sammi Q',
-  role: 'EA · Licensed Insurance Agent · NMNA Nutritionist',
-  email: 'contact@onyxww.net',   // ← update here
-  ...
-}
-```
-
----
-
-## Build for Production
-
-```bash
-npm run build
-```
-
-Output is in the `dist/` folder — ready to deploy to any static host (Vercel, Netlify, GitHub Pages, etc.).
+- **[ENGINEERING.md](./ENGINEERING.md)** — how the software gets built, reviewed, and released.
+- **[BRAND_BIBLE.md](./BRAND_BIBLE.md)** — who ONYX is, how it looks, and how it speaks.
+- **[CONTENT_BIBLE.md](./CONTENT_BIBLE.md)** — how ONYX articles and educational content are created and published.
