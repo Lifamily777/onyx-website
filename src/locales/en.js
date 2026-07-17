@@ -171,6 +171,47 @@ export default {
     },
   },
 
+  contact: {
+    headline: 'Initiate Your Free Diagnostic.',
+    supporting:
+      "Fifteen minutes. We'll map where things stand today and show you exactly where complexity around tax, risk, and health can be reduced.",
+    languagesLine: 'English & Mandarin',
+    modalityLine: 'Virtual or in-person',
+    responseLine: 'Response within 24 hours',
+    form: {
+      fullNameLabel: 'Full Name',
+      fullNamePlaceholder: 'Your name',
+      contactLabel: 'Contact',
+      contactPlaceholder: 'Email, phone, or WeChat ID',
+      languageLabel: 'Preferred Language',
+      languageOptions: ['English', 'Chinese (Mandarin)', 'Both'],
+      situationLabel: 'Your Situation',
+      situationOptions: [
+        'Business owner — tax optimization',
+        'Young family — health & protection',
+        '40–55, starting a wellness journey',
+        'All three — full planning',
+      ],
+      moreLabel: 'Tell Us More (optional)',
+      morePlaceholder: "e.g. High blood sugar, overpaying taxes, child's immunity...",
+      submit: 'Submit',
+    },
+    thanksTitle: 'Thank you',
+    thanksSub: "We'll be in touch within 24 hours.",
+  },
+
+  servicePage: {
+    targetProfileLabel: 'Target Profile',
+    fieldDataLabel: 'Field Data',
+  },
+
+  common: {
+    watchLabel: 'Watch',
+    videoComingSoon: 'Video Coming Soon',
+    videoCloseHint: 'Click anywhere outside to close',
+    videoComingSoonHint: 'Video coming soon.',
+  },
+
   insightsPage: {
     eyebrow: 'INSIGHTS',
     indexTitle: 'Insights',

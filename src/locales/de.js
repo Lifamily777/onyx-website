@@ -178,6 +178,47 @@ export default {
     },
   },
 
+  contact: {
+    headline: 'Starten Sie Ihre kostenlose Diagnose.',
+    supporting:
+      'Fünfzehn Minuten. Wir erfassen Ihre aktuelle Situation und zeigen Ihnen genau, wo sich Komplexität bei Steuern, Risiko und Gesundheit verringern lässt.',
+    languagesLine: 'Englisch und Mandarin',
+    modalityLine: 'Virtuell oder persönlich',
+    responseLine: 'Antwort innerhalb von 24 Stunden',
+    form: {
+      fullNameLabel: 'Vollständiger Name',
+      fullNamePlaceholder: 'Ihr Name',
+      contactLabel: 'Kontakt',
+      contactPlaceholder: 'E-Mail, Telefon oder WeChat-ID',
+      languageLabel: 'Bevorzugte Sprache',
+      languageOptions: ['Englisch', 'Chinesisch (Mandarin)', 'Beides'],
+      situationLabel: 'Ihre Situation',
+      situationOptions: [
+        'Unternehmer:in — Steueroptimierung',
+        'Junge Familie — Gesundheit und Absicherung',
+        '40–55 Jahre, beginnender Wellness-Weg',
+        'Alle drei — umfassende Planung',
+      ],
+      moreLabel: 'Erzählen Sie uns mehr (optional)',
+      morePlaceholder: 'z. B. hoher Blutzucker, zu hohe Steuerzahlungen, Immunsystem des Kindes...',
+      submit: 'Absenden',
+    },
+    thanksTitle: 'Vielen Dank',
+    thanksSub: 'Wir melden uns innerhalb von 24 Stunden bei Ihnen.',
+  },
+
+  servicePage: {
+    targetProfileLabel: 'Zielprofil',
+    fieldDataLabel: 'Praxisbeispiel',
+  },
+
+  common: {
+    watchLabel: 'Ansehen',
+    videoComingSoon: 'Video Folgt in Kürze',
+    videoCloseHint: 'Klicken Sie außerhalb, um zu schließen',
+    videoComingSoonHint: 'Video folgt in Kürze.',
+  },
+
   notFound: {
     title: 'Seite nicht gefunden',
     body: 'Die gesuchte Seite existiert nicht oder wurde möglicherweise verschoben.',

@@ -1,62 +1,64 @@
 import { Link, useOutletContext } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
 import WatchButton from './WatchButton'
 import styles from './ServicePage.module.css'
 
 export default function ServicePage({ data }) {
   const { openVideo } = useOutletContext()
-  const { localePath } = useLocale()
+  const { locale, localePath, t } = useLocale()
+  const content = data.content[locale] || data.content.en
+
+  useDocumentMeta(`${content.h1} · ONYX`)
+
+  function handleWatch() {
+    openVideo({ ...content.video, youtubeId: data.videoId })
+  }
 
   return (
     <div className={`${styles.wrap} page-enter`}>
 
       <section className={styles.svchero}>
-        <div className={styles.badge}>{data.badge}</div>
-        <h1 className={styles.h1}>{data.h1}</h1>
-        <div className={styles.h1Zh}>{data.h1Zh}</div>
-        <p className={styles.pEn}>{data.p}</p>
-        <p className={styles.pZh}>{data.pZh}</p>
+        <div className={styles.badge}>{content.badge}</div>
+        <h1 className={styles.h1}>{content.h1}</h1>
+        <p className={styles.pEn}>{content.p}</p>
         <div className={styles.actions}>
           <Link className={styles.btnGold} to={localePath('/contact')}>
-            {data.cta}
+            {content.cta}
           </Link>
-          <WatchButton size="md" onClick={() => openVideo(data.video)} />
+          <WatchButton size="md" onClick={handleWatch} />
         </div>
 
         <div className={styles.audience}>
-          <div className={styles.ml}>Target Profile · 适配人群</div>
-          {data.audiences.map((a, i) => (
+          <div className={styles.ml}>{t('servicePage.targetProfileLabel')}</div>
+          {content.audiences.map((a, i) => (
             <div key={i} className={styles.mi}>
               <span className={styles.miDot} />
-              {a.en}
-              <span className={styles.miZh}>{a.zh}</span>
+              {a}
             </div>
           ))}
         </div>
       </section>
 
       <div className={styles.ptsgrid}>
-        {data.points.map((pt, i) => (
+        {content.points.map((pt, i) => (
           <div key={i} className={styles.pt}>
-            <div className={styles.ptEn}>{pt.en}</div>
-            <div className={styles.ptZh}>{pt.zh}</div>
-            <div className={styles.ptDescEn}>{pt.descEn}</div>
-            <div className={styles.ptDescZh}>{pt.descZh}</div>
+            <div className={styles.ptEn}>{pt.title}</div>
+            <div className={styles.ptDescEn}>{pt.desc}</div>
           </div>
         ))}
       </div>
 
       <div className={styles.hookbox}>
-        <div className={styles.hookEy}>Field Data · 真实场景</div>
-        <p className={styles.hookEn}>"{data.quote.en}"</p>
-        <p className={styles.hookZh}>{data.quote.zh}</p>
+        <div className={styles.hookEy}>{t('servicePage.fieldDataLabel')}</div>
+        <p className={styles.hookEn}>"{content.quote}"</p>
       </div>
 
       <div className={styles.pcta}>
         <Link className={styles.btnGold} to={localePath('/contact')}>
-          {data.cta}
+          {content.cta}
         </Link>
-        <WatchButton size="md" onClick={() => openVideo(data.video)} />
+        <WatchButton size="md" onClick={handleWatch} />
       </div>
 
     </div>

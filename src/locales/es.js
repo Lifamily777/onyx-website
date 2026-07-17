@@ -171,6 +171,47 @@ export default {
     },
   },
 
+  contact: {
+    headline: 'Inicia tu diagnóstico gratuito.',
+    supporting:
+      'Quince minutos. Evaluamos tu situación actual y te mostramos exactamente dónde se puede reducir la complejidad fiscal, de riesgo y de salud.',
+    languagesLine: 'Inglés y mandarín',
+    modalityLine: 'Virtual o en persona',
+    responseLine: 'Respuesta en 24 horas',
+    form: {
+      fullNameLabel: 'Nombre completo',
+      fullNamePlaceholder: 'Tu nombre',
+      contactLabel: 'Contacto',
+      contactPlaceholder: 'Correo electrónico, teléfono o ID de WeChat',
+      languageLabel: 'Idioma preferido',
+      languageOptions: ['Inglés', 'Chino (mandarín)', 'Ambos'],
+      situationLabel: 'Tu situación',
+      situationOptions: [
+        'Dueño de negocio — optimización fiscal',
+        'Familia joven — salud y protección',
+        '40–55 años, iniciando un camino de bienestar',
+        'Las tres — planificación integral',
+      ],
+      moreLabel: 'Cuéntanos más (opcional)',
+      morePlaceholder: 'Por ejemplo: glucosa alta, pagas de más en impuestos, inmunidad de tu hijo...',
+      submit: 'Enviar',
+    },
+    thanksTitle: 'Gracias',
+    thanksSub: 'Nos pondremos en contacto en 24 horas.',
+  },
+
+  servicePage: {
+    targetProfileLabel: 'Perfil Objetivo',
+    fieldDataLabel: 'Caso Real',
+  },
+
+  common: {
+    watchLabel: 'Ver',
+    videoComingSoon: 'Video Próximamente',
+    videoCloseHint: 'Haz clic fuera para cerrar',
+    videoComingSoonHint: 'Video próximamente.',
+  },
+
   notFound: {
     title: 'Página no encontrada',
     body: 'La página que buscas no existe o pudo haberse movido.',

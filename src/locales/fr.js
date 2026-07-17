@@ -178,6 +178,47 @@ export default {
     },
   },
 
+  contact: {
+    headline: 'Lancez votre diagnostic gratuit.',
+    supporting:
+      "Quinze minutes. Nous évaluons votre situation actuelle et vous montrons précisément où réduire la complexité liée aux impôts, aux risques et à la santé.",
+    languagesLine: 'Anglais et mandarin',
+    modalityLine: 'À distance ou en personne',
+    responseLine: 'Réponse sous 24 heures',
+    form: {
+      fullNameLabel: 'Nom complet',
+      fullNamePlaceholder: 'Votre nom',
+      contactLabel: 'Contact',
+      contactPlaceholder: 'E-mail, téléphone ou identifiant WeChat',
+      languageLabel: 'Langue préférée',
+      languageOptions: ['Anglais', 'Chinois (mandarin)', 'Les deux'],
+      situationLabel: 'Votre situation',
+      situationOptions: [
+        "Chef d'entreprise — optimisation fiscale",
+        'Jeune famille — santé et protection',
+        '40–55 ans, début d\'un parcours de bien-être',
+        'Les trois — planification complète',
+      ],
+      moreLabel: 'Dites-nous en plus (facultatif)',
+      morePlaceholder: "Par exemple : glycémie élevée, trop d'impôts payés, immunité de votre enfant...",
+      submit: 'Envoyer',
+    },
+    thanksTitle: 'Merci',
+    thanksSub: 'Nous vous contacterons sous 24 heures.',
+  },
+
+  servicePage: {
+    targetProfileLabel: 'Profil Cible',
+    fieldDataLabel: 'Cas Réel',
+  },
+
+  common: {
+    watchLabel: 'Regarder',
+    videoComingSoon: 'Vidéo Bientôt Disponible',
+    videoCloseHint: "Cliquez à l'extérieur pour fermer",
+    videoComingSoonHint: 'Vidéo bientôt disponible.',
+  },
+
   notFound: {
     title: 'Page introuvable',
     body: "La page que vous recherchez n'existe pas ou a peut-être été déplacée.",

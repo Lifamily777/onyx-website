@@ -163,6 +163,47 @@ export default {
     },
   },
 
+  contact: {
+    headline: '무료 진단을 시작하세요.',
+    supporting:
+      '15분이면 충분합니다. 현재 세금, 리스크, 건강 상태를 함께 살펴보고 어디에서 복잡함을 줄일 수 있는지 정확히 알려드립니다.',
+    languagesLine: '영어 및 중국어 상담 가능',
+    modalityLine: '온라인 또는 대면 모두 가능',
+    responseLine: '24시간 이내 답변',
+    form: {
+      fullNameLabel: '이름',
+      fullNamePlaceholder: '성함을 입력해주세요',
+      contactLabel: '연락처',
+      contactPlaceholder: '이메일, 전화번호 또는 위챗 ID',
+      languageLabel: '선호 언어',
+      languageOptions: ['영어', '중국어(만다린)', '둘 다'],
+      situationLabel: '현재 상황',
+      situationOptions: [
+        '사업주 — 세금 최적화가 필요함',
+        '젊은 가정 — 건강과 보장이 궁금함',
+        '40~55세 — 이제 막 건강 관리를 시작함',
+        '세 가지 모두 — 전체적인 설계가 필요함',
+      ],
+      moreLabel: '더 알려주세요 (선택 사항)',
+      morePlaceholder: '예: 혈당이 높음, 세금을 너무 많이 냄, 아이의 면역력이 걱정됨...',
+      submit: '제출하기',
+    },
+    thanksTitle: '감사합니다',
+    thanksSub: '24시간 이내에 연락드리겠습니다.',
+  },
+
+  servicePage: {
+    targetProfileLabel: '적합한 대상',
+    fieldDataLabel: '실제 사례',
+  },
+
+  common: {
+    watchLabel: '보기',
+    videoComingSoon: '영상 준비 중',
+    videoCloseHint: '바깥 영역을 클릭하면 닫힙니다',
+    videoComingSoonHint: '영상을 준비 중입니다.',
+  },
+
   notFound: {
     title: '페이지를 찾을 수 없습니다',
     body: '찾으시는 페이지가 존재하지 않거나 이동되었을 수 있습니다.',

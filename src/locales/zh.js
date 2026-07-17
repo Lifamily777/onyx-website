@@ -161,6 +161,46 @@ export default {
     },
   },
 
+  contact: {
+    headline: '启动您的免费诊断',
+    supporting: '15 分钟，帮您梳理税务、风险与健康三个方面的现状，找出可以化繁为简的地方。',
+    languagesLine: '中英文服务',
+    modalityLine: '线上或线下均可',
+    responseLine: '24 小时内回复',
+    form: {
+      fullNameLabel: '姓名',
+      fullNamePlaceholder: '您的姓名',
+      contactLabel: '联系方式',
+      contactPlaceholder: '邮箱、电话或微信号',
+      languageLabel: '语言偏好',
+      languageOptions: ['英文', '中文', '中英文均可'],
+      situationLabel: '您的情况',
+      situationOptions: [
+        '企业主 — 希望优化税务',
+        '年轻家庭 — 关注健康与保障',
+        '40–55 岁 — 开始认真养生',
+        '三者都需要 — 整体规划',
+      ],
+      moreLabel: '简单说说（可选）',
+      morePlaceholder: '例如：血糖偏高、税交太多、孩子免疫力差……',
+      submit: '提交',
+    },
+    thanksTitle: '感谢您的预约',
+    thanksSub: '我们将在 24 小时内与您联系。',
+  },
+
+  servicePage: {
+    targetProfileLabel: '适配人群',
+    fieldDataLabel: '真实场景',
+  },
+
+  common: {
+    watchLabel: '观看',
+    videoComingSoon: '视频即将上线',
+    videoCloseHint: '点击外部关闭',
+    videoComingSoonHint: '视频即将上线。',
+  },
+
   insightsPage: {
     eyebrow: '洞察',
     indexTitle: '洞察',

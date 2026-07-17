@@ -1,7 +1,10 @@
 import { useEffect } from 'react'
+import { useLocale } from '../i18n/LocaleContext'
 import styles from './VideoModal.module.css'
 
 export default function VideoModal({ video, onClose }) {
+  const { t } = useLocale()
+
   // Close on Escape key
   useEffect(() => {
     const handler = (e) => { if (e.key === 'Escape') onClose() }
@@ -39,15 +42,14 @@ export default function VideoModal({ video, onClose }) {
               <div className={styles.playBtn}>
                 <div className={styles.triangle} />
               </div>
-              <div className={styles.comingEn}>Video Coming Soon</div>
-              <div className={styles.comingZh}>视频即将上线</div>
+              <div className={styles.comingEn}>{t('common.videoComingSoon')}</div>
             </div>
           )}
 
           <div className={styles.note}>
             {video.youtubeId
-              ? 'Click anywhere outside to close · 点击外部关闭'
-              : 'Video coming soon — 视频即将上线。\nAdd your YouTube video ID in src/data/content.js to activate.'}
+              ? t('common.videoCloseHint')
+              : t('common.videoComingSoonHint')}
           </div>
         </div>
       </div>
