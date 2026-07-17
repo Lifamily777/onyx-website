@@ -171,6 +171,19 @@ export default {
     },
   },
 
+  insightsPage: {
+    eyebrow: 'INSIGHTS',
+    indexTitle: 'Insights',
+    indexEmpty: 'Nothing has been published yet.',
+    minReadSuffix: 'min read',
+    takeawayLabel: "Today's Takeaway",
+    continueLearningLabel: 'Continue Learning',
+    workWithOnyxLabel: 'Work With ONYX',
+    languageNotice: 'This article is currently available in Chinese only. We do not publish machine-translated articles — an English version will be added when a human translation is ready.',
+    languageNoticeShort: 'Chinese only',
+    backToIndex: 'Back to Insights',
+  },
+
   notFound: {
     title: 'Page not found',
     body: "The page you're looking for doesn't exist or may have moved.",

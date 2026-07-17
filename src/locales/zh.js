@@ -161,6 +161,19 @@ export default {
     },
   },
 
+  insightsPage: {
+    eyebrow: '洞察',
+    indexTitle: '洞察',
+    indexEmpty: '目前还没有正式发布的内容。',
+    minReadSuffix: '分钟阅读',
+    takeawayLabel: '今日要点',
+    continueLearningLabel: '接下来我们将聊到',
+    workWithOnyxLabel: '与我们合作',
+    languageNotice: '本文目前仅提供中文版本。我们不发布机器翻译的文章——待人工翻译完成后，将补充英文版本。',
+    languageNoticeShort: '仅中文',
+    backToIndex: '返回洞察',
+  },
+
   notFound: {
     title: '页面未找到',
     body: '你要找的页面不存在，或可能已经被移动。',

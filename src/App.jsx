@@ -6,6 +6,8 @@ import ContactPage from './components/ContactPage'
 import SurveyPage from './components/SurveyPage'
 import PlaceholderPage from './components/PlaceholderPage'
 import NotFound from './components/NotFound'
+import InsightsIndexPage from './components/InsightsIndexPage'
+import InsightArticlePage from './components/InsightArticlePage'
 import { servicePages } from './data/content'
 
 // Shared page routes rendered under both the unprefixed (English) branch
@@ -19,7 +21,8 @@ const pageRoutes = [
   <Route key="contact" path="contact" element={<ContactPage />} />,
   <Route key="survey" path="survey" element={<SurveyPage />} />,
   <Route key="about" path="about" element={<PlaceholderPage pageKey="about" />} />,
-  <Route key="insights" path="insights" element={<PlaceholderPage pageKey="insights" />} />,
+  <Route key="insights" path="insights" element={<InsightsIndexPage />} />,
+  <Route key="insight-detail" path="insights/:slug" element={<InsightArticlePage />} />,
   <Route key="intelligence" path="intelligence" element={<PlaceholderPage pageKey="intelligence" />} />,
   <Route key="privacy" path="privacy" element={<PlaceholderPage pageKey="privacy" />} />,
   <Route key="terms" path="terms" element={<PlaceholderPage pageKey="terms" />} />,

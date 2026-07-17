@@ -1,0 +1,80 @@
+.wrap {
+  max-width: calc(720px * var(--width-scale));
+  margin: 0 auto;
+  padding: 96px 22px 120px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(calc(28px * var(--type-scale)), 5vw, calc(40px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.empty {
+  font-size: 17px;
+  color: var(--ink2);
+  line-height: var(--lh-body);
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  background: var(--bg-alt);
+  border-radius: 18px;
+}
+
+.itemLink {
+  display: block;
+  padding: 28px 28px;
+  color: inherit;
+}
+
+.itemLink:hover {
+  text-decoration: none;
+}
+
+.itemLink:hover .itemTitle {
+  color: var(--blue);
+}
+
+.itemTitle {
+  font-size: calc(21px * var(--type-scale));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+
+.itemSub {
+  font-size: calc(16px * var(--body-scale));
+  color: var(--ink2);
+  line-height: var(--lh-body);
+  margin-bottom: 10px;
+}
+
+.itemMeta {
+  font-size: 13px;
+  color: var(--ink3);
+}

@@ -1,7 +1,7 @@
 // ─── ADVISOR ──────────────────────────────────────────────────────────────────
 export const advisor = {
   name: 'Sammi Q',
-  role: 'EA · Licensed Insurance Agent · NMNA Nutritionist',
+  role: 'EA · Licensed Life Insurance Agent · NMNA Nutritionist',
 }
 
 // ─── SERVICE PAGES ────────────────────────────────────────────────────────────
