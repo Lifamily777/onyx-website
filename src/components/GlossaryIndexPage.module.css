@@ -21,7 +21,61 @@
   line-height: var(--lh-heading);
   color: var(--ink);
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: calc(17px * var(--body-scale));
+  color: var(--ink2);
+  line-height: var(--lh-body);
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 40px;
+}
+
+.filterGroup {
+  margin-bottom: 16px;
+}
+
+.filterSectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.filter,
+.filterActive {
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--ink3);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink2);
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.filter:hover {
+  color: var(--ink);
+  border-color: var(--ink2);
+}
+
+.filterActive {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--ink-light);
 }
 
 .empty {
@@ -29,6 +83,7 @@
   color: var(--ink2);
   line-height: var(--lh-body);
   text-align: center;
+  margin-top: 32px;
 }
 
 .list {
@@ -36,6 +91,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin-top: 32px;
 }
 
 .item {
@@ -57,25 +113,17 @@
   color: var(--blue);
 }
 
-.itemBadges {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.badge {
+.itemCategory {
   font-size: 11px;
   font-weight: 600;
   color: var(--ink3);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: var(--bg);
-  border-radius: var(--radius-pill);
-  padding: 4px 12px;
+  margin-bottom: 8px;
 }
 
 .itemTitle {
-  font-size: calc(21px * var(--type-scale));
+  font-size: calc(20px * var(--type-scale));
   font-weight: 600;
   letter-spacing: var(--letter-heading);
   line-height: var(--lh-heading);
@@ -84,14 +132,14 @@
   transition: color 0.2s;
 }
 
-.itemSub {
-  font-size: calc(16px * var(--body-scale));
+.itemDef {
+  font-size: calc(15px * var(--body-scale));
   color: var(--ink2);
   line-height: var(--lh-body);
-  margin-bottom: 10px;
 }
 
 .itemMeta {
   font-size: 13px;
   color: var(--ink3);
+  margin-top: 10px;
 }

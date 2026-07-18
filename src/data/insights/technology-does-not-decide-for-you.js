@@ -2,7 +2,7 @@ export const technologyDoesNotDecideForYou = {
   slug: 'technology-does-not-decide-for-you',
   publishDate: '2026-07-16',
   status: 'published',
-  pillars: ['Wealth', 'Intelligence'],
+  pillars: ['wealth', 'intelligence'],
   keywords: [
     'IRS Automatic Exemption from Penalty',
     'IRS AEP',

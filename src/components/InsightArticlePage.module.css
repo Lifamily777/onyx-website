@@ -14,6 +14,24 @@
   text-align: center;
 }
 
+.badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--bg-alt);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+}
+
 .languageNotice {
   font-size: 14px;
   color: var(--ink2);
@@ -90,6 +108,50 @@
   color: var(--blue);
   text-align: center;
   margin: 28px 0;
+}
+
+.termLink {
+  color: var(--blue);
+  text-decoration: underline;
+  text-decoration-color: var(--ink3);
+  text-underline-offset: 3px;
+}
+
+.termLink:hover {
+  text-decoration-color: var(--blue);
+}
+
+.relatedTerms {
+  padding: 28px;
+  background: var(--bg-alt);
+  border-radius: 18px;
+  margin-bottom: 40px;
+}
+
+.termList {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.termChip {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--ink3);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.termChip:hover {
+  color: var(--blue);
+  border-color: var(--blue);
+  text-decoration: none;
 }
 
 .sectionLabel {

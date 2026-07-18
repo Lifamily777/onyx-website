@@ -22,11 +22,23 @@
 }
 
 /* ── 1. HERO ── */
+/* display:flex column reproduces the same visual stacking as a plain
+   block at every width — it exists purely so the mobile media query
+   near the bottom of this file can reorder heroLinks/corePaths ahead of
+   the longer supporting/bridge paragraphs via `order`, without touching
+   desktop layout or duplicating markup. */
 .hero {
   text-align: center;
   max-width: calc(820px * var(--width-scale));
   margin: 0 auto;
   padding: 72px 22px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero > * {
+  width: 100%;
 }
 
 .heroTitle {
@@ -108,6 +120,163 @@
   font-size: 13px;
   color: var(--ink3);
   font-style: italic;
+}
+
+/* ── CORE PATHS (compact three-entry module inside Hero) ── */
+.corePaths {
+  margin-top: 48px;
+}
+
+.corePathsTitle {
+  font-size: clamp(calc(18px * var(--type-scale)), 3vw, calc(22px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.corePathsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  text-align: left;
+}
+
+.corePathCard {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 18px;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 44px;
+}
+
+.corePathCard:hover,
+.corePathCard:focus-visible {
+  border-color: var(--blue);
+  background: var(--bg-alt);
+  text-decoration: none;
+}
+
+.corePathName {
+  display: block;
+  font-size: calc(17px * var(--type-scale));
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.corePathDesc {
+  display: block;
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: var(--lh-body);
+}
+
+@media (max-width: 900px) {
+  .corePathsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── LATEST INSIGHTS ── */
+.latestInsights {
+  max-width: calc(980px * var(--width-scale));
+  margin: 0 auto;
+  padding: 64px 22px 0;
+}
+
+.latestInsightsTitle {
+  font-size: clamp(calc(24px * var(--type-scale)), 4vw, calc(34px * var(--type-scale)));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.latestInsightsEmpty {
+  font-size: 15px;
+  color: var(--ink2);
+  text-align: center;
+}
+
+.latestInsightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+  .latestInsightsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.insightCard {
+  display: block;
+  background: var(--bg-alt);
+  border-radius: 18px;
+  padding: 24px 24px;
+  color: inherit;
+}
+
+.insightCard:hover {
+  text-decoration: none;
+}
+
+.insightCard:hover .insightCardTitle {
+  color: var(--blue);
+}
+
+.insightBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--bg);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+}
+
+.insightCardTitle {
+  font-size: calc(18px * var(--type-scale));
+  font-weight: 600;
+  letter-spacing: var(--letter-heading);
+  line-height: var(--lh-heading);
+  color: var(--ink);
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.insightCardSub {
+  font-size: calc(14px * var(--body-scale));
+  color: var(--ink2);
+  line-height: var(--lh-body);
+  margin-bottom: 10px;
+}
+
+.insightCardMeta {
+  font-size: 12px;
+  color: var(--ink3);
+}
+
+.latestInsightsCta {
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--blue);
 }
 
 /* ── 2. WHY ONYX EXISTS ── */
@@ -457,5 +626,40 @@
 @media (max-width: 480px) {
   .heroTitle {
     font-size: clamp(calc(24px * var(--type-scale)), 7vw, calc(34px * var(--type-scale)));
+  }
+
+  /* Tighten Hero's own top/bottom padding a bit further at this size —
+     purely spacing, no copy or desktop-visible change — so the reordered
+     core-paths module below has a better chance of landing inside the
+     first viewport alongside the title and primary CTA. */
+  .hero {
+    padding: 48px 22px 40px;
+  }
+
+  /* Reorder Hero's flex children (see the .hero comment above) so the
+     primary CTA and the three pillar entries appear right after the
+     headline, ahead of the longer supporting/bridge paragraphs. Desktop
+     is untouched — this block only applies at this breakpoint. */
+  .heroTitle { order: 0; }
+  .heroLinks { order: 1; }
+  .corePaths { order: 2; margin-top: 24px; }
+  .heroSupporting { order: 3; margin-top: 24px; }
+  .heroBridge { order: 4; }
+  .heroLine { order: 5; }
+
+  .corePathsTitle {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .corePathCard {
+    padding: 14px 16px;
+  }
+
+  .corePathDesc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

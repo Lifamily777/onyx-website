@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
+import { getLatestInsights, resolveInsightContent } from '../data/insights'
 import styles from './HomePage.module.css'
 
+const CORE_PATH_IDS = ['wealth', 'wellness', 'intelligence']
+const LATEST_INSIGHTS_LIMIT = 3
+
 export default function HomePage() {
-  const { t, localePath } = useLocale()
+  const { t, locale, localePath } = useLocale()
 
   useDocumentMeta(t('meta.title'), t('meta.description'))
 
@@ -12,6 +16,7 @@ export default function HomePage() {
   const learningParagraphs = t('home.learningTogether.paragraphs')
   const founderParagraphs = t('home.founder.paragraphs')
   const missionParagraphs = t('home.mission.paragraphs')
+  const latestInsights = getLatestInsights(LATEST_INSIGHTS_LIMIT)
 
   return (
     <div className={`${styles.wrap} page-enter`}>
@@ -34,6 +39,63 @@ export default function HomePage() {
           </a>
         </div>
         <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
+
+        {/* Compact three-entry module. Desktop keeps this natural DOM
+            position (after the full Hero); the mobile media query in
+            HomePage.module.css reassigns `order` so this — and the
+            primary CTA above — appear right under the headline, ahead of
+            the longer supporting/bridge copy, keeping all three pillar
+            names within the first viewport on small phones. */}
+        <div className={styles.corePaths}>
+          <h2 className={styles.corePathsTitle}>{t('home.corePaths.title')}</h2>
+          <div className={styles.corePathsGrid}>
+            {CORE_PATH_IDS.map((id) => (
+              <Link key={id} to={localePath(`/${id}`)} className={styles.corePathCard}>
+                <span className={styles.corePathName}>{t(`nav.${id}`)}</span>
+                <span className={styles.corePathDesc}>{t(`home.corePaths.${id}`)}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── LATEST INSIGHTS ── */}
+      <section className={styles.latestInsights}>
+        <h2 className={styles.latestInsightsTitle}>{t('home.latestInsights.title')}</h2>
+        {latestInsights.length === 0 ? (
+          <p className={styles.latestInsightsEmpty}>{t('insightsPage.indexEmpty')}</p>
+        ) : (
+          <div className={styles.latestInsightsGrid}>
+            {latestInsights.map((insight) => {
+              const { data, isFallback } = resolveInsightContent(insight, locale)
+              return (
+                <Link
+                  key={insight.slug}
+                  to={localePath(`/insights/${insight.slug}`)}
+                  className={styles.insightCard}
+                >
+                  {insight.pillarLabel && insight.insightNumber && (
+                    <p className={styles.insightBadges}>
+                      <span className={styles.badge}>{insight.pillarLabel}</span>
+                      <span className={styles.badge}>
+                        ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}
+                      </span>
+                    </p>
+                  )}
+                  <h3 className={styles.insightCardTitle}>{data.title}</h3>
+                  <p className={styles.insightCardSub}>{data.subtitle}</p>
+                  <p className={styles.insightCardMeta}>
+                    {data.readingTime} {t('insightsPage.minReadSuffix')}
+                    {isFallback ? ` · ${t('insightsPage.languageNoticeShort')}` : ''}
+                  </p>
+                </Link>
+              )
+            })}
+          </div>
+        )}
+        <Link className={styles.latestInsightsCta} to={localePath('/insights')}>
+          {t('home.mission.ctaSecondary')} ›
+        </Link>
       </section>
 
       {/* ── 2. WHY ONYX EXISTS ── */}

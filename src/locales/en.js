@@ -70,6 +70,18 @@ export default {
       body:
         'ONYX organizes complicated ideas into practical explanations, useful frameworks, and better questions—so families can make more informed decisions.',
     },
+    // Compact three-entry module rendered near the top of the Hero, so
+    // Wealth/Wellness/Intelligence are reachable within the first viewport
+    // — separate from the fuller `pillars` section further down the page.
+    corePaths: {
+      title: 'Choose where to begin',
+      wealth: 'Understand taxes, insurance, retirement, investing, and long-term financial decisions.',
+      wellness: 'Understand nutrition, the human body, lifestyle, and long-term health.',
+      intelligence: 'Understand artificial intelligence, digital tools, and the future of work.',
+    },
+    latestInsights: {
+      title: 'Latest Insights',
+    },
     pillars: {
       eyebrow: 'Wealth · Wellness · Intelligence',
       wealth: {
@@ -222,13 +234,87 @@ export default {
     workWithOnyxLabel: 'Work With ONYX',
     languageNotice: 'This article is currently available in Chinese only. We do not publish machine-translated articles — an English version will be added when a human translation is ready.',
     languageNoticeShort: 'Chinese only',
+    relatedTermsLabel: 'Related Terms',
     backToIndex: 'Back to Insights',
+  },
+
+  glossaryPage: {
+    eyebrow: 'GLOSSARY',
+    indexTitle: 'ONYX Glossary',
+    indexSubtitle:
+      'Clear, precise explanations of the concepts shaping the age of wealth, wellness, and intelligence.',
+    indexEmpty: 'Nothing has been published yet.',
+    noResultsLabel: 'No terms found.',
+    browseByLetterLabel: 'Browse by Letter',
+    pillarSectionLabel: 'Browse by Pillar',
+    allPillarsLabel: 'All Pillars',
+    pillarFilterLabel: 'Filter by pillar',
+    categorySectionLabel: 'Category',
+    allCategoriesLabel: 'All Categories',
+    categoryFilterLabel: 'Filter by category',
+    definitionLabel: 'Definition',
+    contextLabel: 'Why It Matters',
+    applicationLabel: 'How It Applies',
+    cautionLabel: 'Important Caveat',
+    seeAlsoLabel: 'See Also',
+    relatedInsightsLabel: 'Related Insights',
+    backToIndex: 'Back to Glossary',
+    categories: {
+      'ai-infrastructure': 'AI Infrastructure',
+      'ai-agents': 'AI Agents',
+      'future-of-work': 'Future of Work',
+      'science-and-research': 'Science and Research',
+      'ai-foundations': 'AI Foundations',
+    },
   },
 
   notFound: {
     title: 'Page not found',
     body: "The page you're looking for doesn't exist or may have moved.",
     cta: 'Back to Home',
+  },
+
+  pillarPages: {
+    common: {
+      featuredLabel: 'Featured Content',
+      comingSoonLabel: 'Coming Soon',
+      knowledgeBaseLabel: 'Knowledge Base',
+      keyTopicsLabel: 'Key Topics',
+      exploreGlossaryCta: 'Explore the ONYX Glossary',
+      bookAppointmentCta: 'Book a Conversation',
+    },
+    wealth: {
+      heroTitle: 'Wealth — Build With Clarity',
+      heroSubtitle:
+        'Understand taxes, insurance, retirement, investing, and the financial decisions that shape your future.',
+      // TODO: replace once a real Wealth video exists — no video URL to link to yet.
+      featuredBody:
+        'A featured video or in-depth resource will appear here as new Wealth content is published.',
+      latestInsightsLabel: 'Latest Wealth Insights',
+      exploreInsightsCta: 'Explore Wealth Insights',
+      topics: ['Taxes', 'Insurance', 'Retirement', 'Estate Planning', 'Investing', 'Risk Management'],
+    },
+    wellness: {
+      heroTitle: 'Wellness — Understand Your Body',
+      heroSubtitle:
+        'Understand nutrition, the human body, lifestyle, prevention, and the foundations of long-term health.',
+      // TODO: replace once a real Wellness documentary/video exists — no video URL to link to yet.
+      featuredBody:
+        'A featured documentary, wellness video, or in-depth story will appear here as new Wellness content is published.',
+      latestInsightsLabel: 'Latest Wellness Insights',
+      exploreInsightsCta: 'Explore Wellness Insights',
+      topics: ['Nutrition', 'Metabolism', 'Longevity', 'Exercise', 'Sleep', 'Prevention', 'Cellular Health'],
+    },
+    intelligence: {
+      heroTitle: 'Intelligence — Understand What Is Changing',
+      heroSubtitle:
+        'Understand artificial intelligence, digital tools, automation, and the future of human work and decision-making.',
+      // TODO: replace once a real AI video exists — this space is reserved for it, no URL to link to yet.
+      featuredBody: "A featured AI video will appear here once it's ready — this space is reserved for it.",
+      latestInsightsLabel: 'Latest Intelligence Insights',
+      exploreInsightsCta: 'Explore Intelligence Insights',
+      topics: ['AI Foundations', 'AI Agents', 'Future of Work', 'AI for Science', 'Human Judgment', 'Digital Tools'],
+    },
   },
 
   survey: {

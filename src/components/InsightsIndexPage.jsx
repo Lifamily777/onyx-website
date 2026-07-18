@@ -24,6 +24,12 @@ export default function InsightsIndexPage() {
             return (
               <li key={insight.slug} className={styles.item}>
                 <Link to={localePath(`/insights/${insight.slug}`)} className={styles.itemLink}>
+                  {insight.pillarLabel && insight.insightNumber && (
+                    <p className={styles.itemBadges}>
+                      <span className={styles.badge}>{insight.pillarLabel}</span>
+                      <span className={styles.badge}>ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
+                    </p>
+                  )}
                   <h2 className={styles.itemTitle}>{data.title}</h2>
                   <p className={styles.itemSub}>{data.subtitle}</p>
                   <p className={styles.itemMeta}>

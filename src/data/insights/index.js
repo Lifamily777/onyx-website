@@ -1,8 +1,11 @@
 import { technologyDoesNotDecideForYou } from './technology-does-not-decide-for-you'
+import { waicAiSuperNodeAgentOsOpcAgi } from './waic-ai-super-node-agent-os-opc-agi'
 
 // One import per article file. Add a new line here when a new insight file
 // is created — this stays a one-line diff no matter how many articles exist.
-const allInsights = [technologyDoesNotDecideForYou]
+// Display order is driven by publishDate (see getAllInsights below), not by
+// this array's order.
+const allInsights = [technologyDoesNotDecideForYou, waicAiSuperNodeAgentOsOpcAgi]
 
 // Only 'published' articles are ever surfaced through these three entry
 // points — draft/archived articles are invisible to the index, the latest-
@@ -21,6 +24,23 @@ export function getInsightBySlug(slug) {
 export function getLatestInsight() {
   const published = getAllInsights()
   return published.length > 0 ? published[0] : null
+}
+
+// getAllInsights() already means "all *published* insights" (see above) —
+// every query below builds on it so pillar/limit filtering never has to
+// re-implement the published+sorted contract.
+export function getLatestInsights(limit) {
+  const published = getAllInsights()
+  return typeof limit === 'number' ? published.slice(0, limit) : published
+}
+
+export function getInsightsByPillar(pillarId) {
+  return getAllInsights().filter((insight) => insight.pillars.includes(pillarId))
+}
+
+export function getLatestInsightsByPillar(pillarId, limit) {
+  const byPillar = getInsightsByPillar(pillarId)
+  return typeof limit === 'number' ? byPillar.slice(0, limit) : byPillar
 }
 
 // Resolves the best available content for `locale`, falling back to the

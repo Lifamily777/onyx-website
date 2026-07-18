@@ -64,6 +64,15 @@ export default {
       headline: '我们不会让生活变简单，但会把复杂讲清楚。',
       body: 'ONYX 把复杂的概念，整理成实用的解释、有效的框架，以及更好的问题——帮助家庭做出更清晰的决定。',
     },
+    corePaths: {
+      title: '从你最关心的问题开始',
+      wealth: '理解税务、保险、退休、投资与长期财富决策。',
+      wellness: '理解营养、身体、生活方式与长期健康。',
+      intelligence: '理解人工智能、数字工具与未来工作。',
+    },
+    latestInsights: {
+      title: '最新洞察',
+    },
     pillars: {
       eyebrow: '财富 · 健康 · 智能',
       wealth: {
@@ -211,13 +220,78 @@ export default {
     workWithOnyxLabel: '与我们合作',
     languageNotice: '本文目前仅提供中文版本。我们不发布机器翻译的文章——待人工翻译完成后，将补充英文版本。',
     languageNoticeShort: '仅中文',
+    relatedTermsLabel: '相关术语',
     backToIndex: '返回洞察',
+  },
+
+  glossaryPage: {
+    eyebrow: '术语表',
+    indexTitle: 'ONYX Glossary',
+    indexSubtitle: '用清晰、准确的语言，解释正在塑造财富、健康与智能时代的重要概念。',
+    indexEmpty: '目前还没有正式发布的术语。',
+    noResultsLabel: '未找到相关术语。',
+    browseByLetterLabel: '按字母浏览',
+    pillarSectionLabel: '按方向浏览',
+    allPillarsLabel: '全部方向',
+    pillarFilterLabel: '按方向筛选',
+    categorySectionLabel: '类别',
+    allCategoriesLabel: '全部类别',
+    categoryFilterLabel: '按类别筛选',
+    definitionLabel: '定义',
+    contextLabel: '为什么重要',
+    applicationLabel: '如何应用',
+    cautionLabel: '重要提示',
+    seeAlsoLabel: '相关术语',
+    relatedInsightsLabel: '相关文章',
+    backToIndex: '返回术语表',
+    categories: {
+      'ai-infrastructure': 'AI 基础设施',
+      'ai-agents': 'AI 智能体',
+      'future-of-work': '未来工作',
+      'science-and-research': '科学与研究',
+      'ai-foundations': 'AI 基础概念',
+    },
   },
 
   notFound: {
     title: '页面未找到',
     body: '你要找的页面不存在，或可能已经被移动。',
     cta: '返回首页',
+  },
+
+  pillarPages: {
+    common: {
+      featuredLabel: '精选内容',
+      comingSoonLabel: '即将上线',
+      knowledgeBaseLabel: '知识库',
+      keyTopicsLabel: '核心主题',
+      exploreGlossaryCta: '探索 ONYX 术语库',
+      bookAppointmentCta: '预约咨询',
+    },
+    wealth: {
+      heroTitle: '财富——用清晰的判断建立长期安全感',
+      heroSubtitle: '理解税务、保险、退休、投资，以及影响家庭长期未来的重要财富决策。',
+      featuredBody: '未来将在这里展示财富相关的精选视频或深度内容。',
+      latestInsightsLabel: '最新财富洞察',
+      exploreInsightsCta: '探索财富洞察',
+      topics: ['税务', '保险', '退休规划', '遗产规划', '投资', '风险管理'],
+    },
+    wellness: {
+      heroTitle: '健康——理解身体，建立长期生活质量',
+      heroSubtitle: '理解营养、身体、生活方式、预防与长期健康的基础逻辑。',
+      featuredBody: '未来将在这里展示健康纪录片、精选视频或深度故事。',
+      latestInsightsLabel: '最新健康洞察',
+      exploreInsightsCta: '探索健康洞察',
+      topics: ['营养', '代谢', '长寿', '运动', '睡眠', '预防保健', '细胞健康'],
+    },
+    intelligence: {
+      heroTitle: '智能——理解正在发生的变化',
+      heroSubtitle: '理解人工智能、数字工具、自动化，以及未来工作与人类决策方式的变化。',
+      featuredBody: '未来将在这里展示 AI 相关的精选视频——这个位置已为其保留。',
+      latestInsightsLabel: '最新智能洞察',
+      exploreInsightsCta: '探索智能洞察',
+      topics: ['AI 基础概念', 'AI 智能体', '未来工作', 'AI 赋能科学', '人类判断', '数字工具'],
+    },
   },
 
   survey: {

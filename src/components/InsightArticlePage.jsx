@@ -2,8 +2,27 @@ import { useParams, Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import { getInsightBySlug, resolveInsightContent } from '../data/insights'
+import { getTermsByInsightSlug, resolveTermContent } from '../data/glossary'
 import NotFound from './NotFound'
 import styles from './InsightArticlePage.module.css'
+
+// Renders a text block's inline content. Most blocks carry plain `text`;
+// blocks that need a clickable glossary term instead carry `segments` — a
+// mix of plain text runs and { type: 'term', slug, text } runs. Older
+// articles only ever use `text`, so this stays fully backward compatible.
+function renderInline(block, localePath, styles) {
+  if (!block.segments) return block.text
+  return block.segments.map((segment, i) => {
+    if (segment.type === 'term') {
+      return (
+        <Link key={i} to={localePath(`/glossary/${segment.slug}`)} className={styles.termLink}>
+          {segment.text}
+        </Link>
+      )
+    }
+    return <span key={i}>{segment.text}</span>
+  })
+}
 
 export default function InsightArticlePage() {
   const { slug } = useParams()
@@ -13,6 +32,7 @@ export default function InsightArticlePage() {
   if (!insight) return <NotFound />
 
   const { data, isFallback } = resolveInsightContent(insight, locale)
+  const relatedTerms = getTermsByInsightSlug(insight.slug)
 
   useDocumentMeta(`${data.title} · ONYX`)
 
@@ -20,6 +40,13 @@ export default function InsightArticlePage() {
     <div className={`${styles.wrap} page-enter`}>
       <article>
         <p className={styles.eyebrow}>{t('insightsPage.eyebrow')}</p>
+
+        {insight.pillarLabel && insight.insightNumber && (
+          <p className={styles.badges}>
+            <span className={styles.badge}>{insight.pillarLabel}</span>
+            <span className={styles.badge}>ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
+          </p>
+        )}
 
         {isFallback && (
           <p className={styles.languageNotice}>{t('insightsPage.languageNotice')}</p>
@@ -32,7 +59,7 @@ export default function InsightArticlePage() {
         <div className={styles.body}>
           {data.body.map((block, i) => {
             if (block.type === 'h2') {
-              return <h2 key={i} className={styles.h2}>{block.text}</h2>
+              return <h2 key={i} className={styles.h2}>{renderInline(block, localePath, styles)}</h2>
             }
             if (block.type === 'list') {
               return (
@@ -44,9 +71,27 @@ export default function InsightArticlePage() {
             if (block.type === 'mission') {
               return <p key={i} className={styles.mission}>{block.text}</p>
             }
-            return <p key={i} className={styles.p}>{block.text}</p>
+            return <p key={i} className={styles.p}>{renderInline(block, localePath, styles)}</p>
           })}
         </div>
+
+        {relatedTerms.length > 0 && (
+          <section className={styles.relatedTerms}>
+            <p className={styles.sectionLabel}>{t('insightsPage.relatedTermsLabel')}</p>
+            <ul className={styles.termList}>
+              {relatedTerms.map((term) => {
+                const { data: termData } = resolveTermContent(term, locale)
+                return (
+                  <li key={term.slug}>
+                    <Link to={localePath(`/glossary/${term.slug}`)} className={styles.termChip}>
+                      {termData.title}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+        )}
 
         <section className={styles.takeaway}>
           <p className={styles.sectionLabel}>{t('insightsPage.takeawayLabel')}</p>

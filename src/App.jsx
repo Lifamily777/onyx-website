@@ -5,9 +5,12 @@ import ServicePage from './components/ServicePage'
 import ContactPage from './components/ContactPage'
 import SurveyPage from './components/SurveyPage'
 import PlaceholderPage from './components/PlaceholderPage'
+import PillarPage from './components/PillarPage'
 import NotFound from './components/NotFound'
 import InsightsIndexPage from './components/InsightsIndexPage'
 import InsightArticlePage from './components/InsightArticlePage'
+import GlossaryIndexPage from './components/GlossaryIndexPage'
+import GlossaryTermPage from './components/GlossaryTermPage'
 import { servicePages } from './data/content'
 
 // Shared page routes rendered under both the unprefixed (English) branch
@@ -23,7 +26,11 @@ const pageRoutes = [
   <Route key="about" path="about" element={<PlaceholderPage pageKey="about" />} />,
   <Route key="insights" path="insights" element={<InsightsIndexPage />} />,
   <Route key="insight-detail" path="insights/:slug" element={<InsightArticlePage />} />,
-  <Route key="intelligence" path="intelligence" element={<PlaceholderPage pageKey="intelligence" />} />,
+  <Route key="glossary" path="glossary" element={<GlossaryIndexPage />} />,
+  <Route key="glossary-detail" path="glossary/:slug" element={<GlossaryTermPage />} />,
+  <Route key="wealth" path="wealth" element={<PillarPage pillarId="wealth" />} />,
+  <Route key="wellness" path="wellness" element={<PillarPage pillarId="wellness" />} />,
+  <Route key="intelligence" path="intelligence" element={<PillarPage pillarId="intelligence" />} />,
   <Route key="privacy" path="privacy" element={<PlaceholderPage pageKey="privacy" />} />,
   <Route key="terms" path="terms" element={<PlaceholderPage pageKey="terms" />} />,
   <Route key="disclosures" path="disclosures" element={<PlaceholderPage pageKey="disclosures" />} />,
