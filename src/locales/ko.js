@@ -195,6 +195,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: 'YouTube에서 세금 영상 보기 ↗',
+    latestVideosLabel: 'ONYX 채널 최신 영상',
     targetProfileLabel: '적합한 대상',
     fieldDataLabel: '실제 사례',
   },

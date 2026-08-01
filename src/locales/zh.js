@@ -201,6 +201,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: '前往 YouTube 观看税务视频 ↗',
+    latestVideosLabel: 'ONYX 频道最新视频',
     targetProfileLabel: '适配人群',
     fieldDataLabel: '真实场景',
   },

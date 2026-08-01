@@ -59,6 +59,46 @@ export default function ServicePage({ data }) {
         ))}
       </div>
 
+      {data.channelVideos?.length > 0 && (
+        <section className={styles.videoSection}>
+          <div className={styles.videoSectionHeader}>
+            <div>
+              <p className={styles.videoEyebrow}>YouTube · @ONYXWW</p>
+              <h2 className={styles.videoHeading}>{t('servicePage.latestVideosLabel')}</h2>
+            </div>
+            <a
+              className={styles.channelLink}
+              href={data.channelUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t('servicePage.youtubeChannelLabel')}
+            </a>
+          </div>
+          <div className={styles.videoGrid}>
+            {data.channelVideos.map((video) => (
+              <a
+                key={video.id}
+                className={styles.videoCard}
+                href={`https://www.youtube.com/shorts/${video.id}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className={styles.videoThumb}>
+                  <img
+                    src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+                    alt=""
+                    loading="lazy"
+                  />
+                  <span className={styles.playMark} aria-hidden="true">▶</span>
+                </span>
+                <span className={styles.videoTitle}>{video.title}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className={styles.hookbox}>
         <div className={styles.hookEy}>{t('servicePage.fieldDataLabel')}</div>
         <p className={styles.hookEn}>"{content.quote}"</p>

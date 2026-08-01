@@ -13,7 +13,12 @@ export const youtubeChannelUrl = 'https://www.youtube.com/@ONYXWW'
 export const servicePages = {
   tax: {
     channelUrl: youtubeChannelUrl,
-    videoId: '', // ← paste YouTube video ID here when ready (shared across all locales)
+    videoId: '-0vvU4n85DQ',
+    channelVideos: [
+      { id: '-0vvU4n85DQ', title: 'Will S Corp pay more taxes or save taxes?' },
+      { id: '2EU9uegJxn8', title: 'What is ONYX intelligence?' },
+      { id: 'YVq1ln_CPlM', title: '三把椅子 Three Chairs' },
+    ],
     content: {
       en: {
         badge: 'TAX PLANNING',

@@ -215,6 +215,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: 'Watch Tax Videos on YouTube ↗',
+    latestVideosLabel: 'Latest from the ONYX channel',
     targetProfileLabel: 'Target Profile',
     fieldDataLabel: 'Field Data',
   },

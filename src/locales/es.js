@@ -203,6 +203,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: 'Ver videos fiscales en YouTube ↗',
+    latestVideosLabel: 'Lo último del canal ONYX',
     targetProfileLabel: 'Perfil Objetivo',
     fieldDataLabel: 'Caso Real',
   },

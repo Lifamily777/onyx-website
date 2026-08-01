@@ -210,6 +210,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: 'Steuervideos auf YouTube ansehen ↗',
+    latestVideosLabel: 'Neueste Videos vom ONYX-Kanal',
     targetProfileLabel: 'Zielprofil',
     fieldDataLabel: 'Praxisbeispiel',
   },
