@@ -154,5 +154,6 @@
 .link,.legalLink { color:rgba(238,232,221,.78); }
 .link:hover,.legalLink:hover { color:var(--gold-light); }
 .bottom { border-top-color:rgba(211,193,153,.15); }
-.youtubeLink { margin-top:8px; color:var(--gold-light); font-size:12px; letter-spacing:.04em; text-decoration:none; }
-.youtubeLink:hover { color:#f5ead4; text-decoration:none; }
+.socialLinks { display:flex; flex-direction:column; align-items:flex-start; gap:4px; margin-top:8px; }
+.socialLink { color:var(--gold-light); font-size:12px; letter-spacing:.03em; text-decoration:none; }
+.socialLink:hover { color:#f5ead4; text-decoration:none; }

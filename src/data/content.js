@@ -5,6 +5,7 @@ export const advisor = {
 }
 
 export const youtubeChannelUrl = 'https://www.youtube.com/@ONYXWW'
+export const instagramUrl = 'https://www.instagram.com/onyxwealthandwellness/'
 
 // ─── SERVICE PAGES ────────────────────────────────────────────────────────────
 // Locale-aware content model: each service holds a shared, non-translatable
@@ -15,6 +16,7 @@ export const servicePages = {
     channelUrl: youtubeChannelUrl,
     videoId: '-0vvU4n85DQ',
     channelVideos: [
+      { id: 'HjQcv9j74QU', title: '真实用户反馈，解锁未来生产力：Bayaiu OPCS AI #aitraining #bayaiu.ai#' },
       { id: '-0vvU4n85DQ', title: 'Will S Corp pay more taxes or save taxes?' },
       { id: '2EU9uegJxn8', title: 'What is ONYX intelligence?' },
       { id: 'YVq1ln_CPlM', title: '三把椅子 Three Chairs' },
