@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import LanguageSwitcher from './LanguageSwitcher'
+import { instagramUrl, youtubeChannelUrl } from '../data/content'
 import styles from './Footer.module.css'
 
 export default function Footer() {
@@ -27,9 +28,27 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.top}>
           <div className={styles.brandBlock}>
-            <span className={styles.brandName}>ONYX</span>
+            <span className={styles.officialName}>{t('footer.officialName')}</span>
             <span className={styles.descriptor}>{t('footer.descriptor')}</span>
             <span className={styles.domain}>ONYXWW.com</span>
+            <div className={styles.socialLinks}>
+              <a
+                className={styles.socialLink}
+                href={youtubeChannelUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                YouTube · @ONYXWW ↗
+              </a>
+              <a
+                className={styles.socialLink}
+                href={instagramUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram · @onyxwealthandwellness ↗
+              </a>
+            </div>
           </div>
 
           <nav className={styles.columns} aria-label="Footer">

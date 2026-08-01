@@ -1,10 +1,10 @@
 .select {
   appearance: auto;
-  background: transparent;
+  background: rgba(255, 252, 244, 0.6);
   border: 1px solid var(--line);
   color: var(--ink);
   font-size: 12px;
-  font-weight: 400;
+  font-weight: 600;
   padding: 7px 10px;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -13,11 +13,12 @@
 }
 
 .select:hover {
-  background: var(--bg-alt);
+  background: var(--color-bg-elevated);
+  border-color: rgba(53, 92, 74, 0.34);
 }
 
 .select:focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -27,3 +28,6 @@
     padding: 6px 8px;
   }
 }
+
+.select { color:#eee7da; background:rgba(255,255,255,.055); border-color:rgba(211,193,153,.2); }
+.select:hover { background:rgba(211,193,153,.1); border-color:rgba(211,193,153,.38); }

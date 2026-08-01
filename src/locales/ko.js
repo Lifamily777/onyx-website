@@ -19,6 +19,7 @@ export default {
   },
 
   footer: {
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'ONYX — 복잡함을 명료함으로.',
     descriptor: '지능이 이끄는 자산과 웰니스.',
     domainLabel: 'ONYXWW.com',
@@ -193,6 +194,8 @@ export default {
   },
 
   servicePage: {
+    youtubeChannelLabel: 'YouTube에서 세금 영상 보기 ↗',
+    latestVideosLabel: 'ONYX 채널 최신 영상',
     targetProfileLabel: '적합한 대상',
     fieldDataLabel: '실제 사례',
   },

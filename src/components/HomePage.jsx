@@ -34,9 +34,9 @@ export default function HomePage() {
           <Link className={styles.btnPrimary} to={localePath('/contact')}>
             {t('home.hero.ctaPrimary')}
           </Link>
-          <a className={styles.btnSecondary} href="#pillars">
-            {t('home.hero.ctaSecondary')}
-          </a>
+          <Link className={styles.btnSecondary} to={localePath('/survey')}>
+            {t('home.assessment.cta')}
+          </Link>
         </div>
         <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
 
@@ -146,17 +146,6 @@ export default function HomePage() {
             </Link>
           </article>
         </div>
-      </section>
-
-      {/* ── ASSESSMENT — "not sure where to begin" ── */}
-      <section className={styles.assessment}>
-        <p className={styles.assessmentLabel}>{t('home.assessment.label')}</p>
-        <h2 className={styles.assessmentHeadline}>{t('home.assessment.headline')}</h2>
-        <p className={styles.assessmentBody}>{t('home.assessment.body')}</p>
-        <Link className={styles.btnPrimary} to={localePath('/survey')}>
-          {t('home.assessment.cta')}
-        </Link>
-        <p className={styles.assessmentLine}>{t('home.assessment.supportingLine')}</p>
       </section>
 
       {/* ── 5. LEARNING TOGETHER ── */}

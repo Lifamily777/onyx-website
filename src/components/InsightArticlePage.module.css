@@ -261,3 +261,45 @@
   font-size: 15px;
   color: var(--blue);
 }
+
+/* ONYX Visual System 2.0 */
+.title {
+  font-size: clamp(calc(34px * var(--type-scale)), 5vw, calc(48px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.languageNotice,
+.takeaway,
+.continueLearning,
+.workWith {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+
+.takeaway,
+.continueLearning {
+  background: var(--color-bg-elevated);
+}
+
+.workWith {
+  background: var(--color-green-deep);
+}
+
+.btnPrimary {
+  background: var(--color-gold-pale);
+  color: var(--color-green-deep);
+}
+
+.wrap { background:var(--ivory); color:var(--ivory-ink); }
+.backLink,.eyebrow,.sectionLabel,.termLink { color:#80683f; }
+.title,.h2 { color:var(--ivory-ink); }
+.title { font-size:clamp(38px,5vw,62px); }
+.subtitle,.meta,.p,.list,.futureList,.workIntro { color:var(--ivory-muted); }
+.badge { color:#765f39; background:rgba(185,162,119,.14); border-color:rgba(138,108,61,.18); }
+.takeaway,.languageNotice,.relatedTerms { background:rgba(255,255,255,.52); border-color:rgba(92,72,43,.14); border-radius:var(--radius-card); }
+.takeawayLine { color:var(--ivory-ink); }
+.termChip { color:#6f5936; background:rgba(185,162,119,.12); border-color:rgba(138,108,61,.16); }
+.disclaimer { color:#756d62; border-top-color:rgba(92,72,43,.16); }
+.continueLearning,.workWith { color:#f2ece1; background:radial-gradient(circle at 85% 20%,rgba(53,85,107,.28),transparent 28rem),#0c1721; border-radius:var(--radius-card); }
+.continueLearning .sectionLabel,.workWith .sectionLabel { color:var(--gold-light); }
+.btnPrimary { color:#15120e; background:linear-gradient(135deg,#dfd0ad,#ae9568); border-radius:999px; }

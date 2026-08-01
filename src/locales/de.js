@@ -19,6 +19,7 @@ export default {
   },
 
   footer: {
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'ONYX — Komplexität in Klarheit verwandeln.',
     descriptor: 'Vermögen & Wellness, angetrieben von Intelligenz.',
     domainLabel: 'ONYXWW.com',
@@ -208,6 +209,8 @@ export default {
   },
 
   servicePage: {
+    youtubeChannelLabel: 'Steuervideos auf YouTube ansehen ↗',
+    latestVideosLabel: 'Neueste Videos vom ONYX-Kanal',
     targetProfileLabel: 'Zielprofil',
     fieldDataLabel: 'Praxisbeispiel',
   },

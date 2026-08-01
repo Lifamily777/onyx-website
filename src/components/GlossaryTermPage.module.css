@@ -143,3 +143,26 @@
   color: var(--blue);
   margin-top: 40px;
 }
+
+/* ONYX Visual System 2.0 */
+.title {
+  font-size: clamp(calc(32px * var(--type-scale)), 5vw, calc(46px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.languageNotice,
+.caution,
+.related {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+}
+
+.wrap { min-height:70vh; background:var(--ivory); color:var(--ivory-ink); }
+.backLink,.eyebrow,.sectionLabel { color:#80683f; }
+.title { color:var(--ivory-ink); font-size:clamp(38px,5vw,62px); }
+.shortDefinition,.p,.cautionText { color:var(--ivory-muted); }
+.category,.pillarTag { color:#765f39; background:rgba(185,162,119,.13); border-color:rgba(138,108,61,.16); }
+.section { border-top-color:rgba(92,72,43,.16); }
+.languageNotice,.caution,.related { background:rgba(255,255,255,.52); border-color:rgba(92,72,43,.13); }
+.relatedLink { color:#6f5936; }
