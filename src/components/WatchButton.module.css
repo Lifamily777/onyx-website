@@ -4,26 +4,28 @@
   gap: 6px;
   letter-spacing: -0.01em;
   cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  transition: opacity 0.2s;
+  background: rgba(255, 252, 244, 0.58);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 8px 14px 8px 9px;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .btn:hover {
-  text-decoration: underline;
+  background: var(--color-bg-elevated);
+  transform: translateY(-1px);
 }
 
 .dark {
-  color: var(--blue);
+  color: var(--color-green-deep);
 }
 
 .light {
-  color: #2997ff;
+  color: var(--color-gold-pale);
 }
 
-.sm { font-size: 17px; }
-.md { font-size: 21px; }
+.sm { font-size: 14px; }
+.md { font-size: 15px; }
 
 .icon {
   width: 22px;

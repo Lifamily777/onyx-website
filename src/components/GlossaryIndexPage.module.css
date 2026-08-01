@@ -143,3 +143,36 @@
   color: var(--ink3);
   margin-top: 10px;
 }
+
+/* ONYX Visual System 2.0 */
+.title {
+  font-size: clamp(calc(34px * var(--type-scale)), 5vw, calc(48px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.filter,
+.filterActive {
+  border-color: var(--line);
+}
+
+.filterActive {
+  background: var(--color-green-deep);
+}
+
+.item {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+}
+
+.wrap { min-height:70vh; background:var(--ivory); color:var(--ivory-ink); }
+.eyebrow,.filterSectionLabel { color:#80683f; }
+.title,.itemTitle { color:var(--ivory-ink); font-size:clamp(36px,5vw,58px); }
+.subtitle,.itemDef,.itemMeta,.empty { color:var(--ivory-muted); }
+.filterRow { border-color:rgba(92,72,43,.14); }
+.filter { color:#6f675c; background:rgba(255,255,255,.45); border-color:rgba(92,72,43,.13); border-radius:999px; }
+.filterActive { color:#fffaf0; background:#6d5a39; border-color:#6d5a39; }
+.item { background:rgba(255,255,255,.5); border-color:rgba(92,72,43,.12); box-shadow:0 16px 40px rgba(73,57,35,.05); }
+.itemLink { color:var(--ivory-ink); }
+.itemCategory { color:#80683f; }

@@ -29,3 +29,21 @@
   color: var(--ink2);
   line-height: var(--lh-body);
 }
+
+.wrap {
+  margin-top: 72px;
+  margin-bottom: 72px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.title {
+  font-weight: 500;
+}
+
+.wrap { min-height:65vh; color:#f2ece1; background:radial-gradient(circle at 80% 22%,rgba(54,84,105,.3),transparent 30rem),#09111a; border:1px solid rgba(211,193,153,.14); border-radius:var(--radius-card); box-shadow:0 24px 70px rgba(0,0,0,.2); }
+.eyebrow { color:var(--gold-light); }
+.title { color:#f4eee3; font-size:clamp(38px,5vw,60px); }
+.body { color:rgba(242,236,225,.67); }

@@ -270,6 +270,37 @@
   text-decoration: none;
 }
 
+/* ONYX Visual System 2.0 */
+.title {
+  font-size: clamp(calc(36px * var(--type-scale)), 5vw, calc(54px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.featuredCard,
+.insightItem,
+.knowledgeBase,
+.action {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+  box-shadow: 0 12px 36px rgba(64, 58, 42, 0.06);
+}
+
+.insightItem {
+  padding: 24px;
+}
+
+.termChip,
+.topicChip,
+.badge {
+  border-color: var(--line);
+  background: var(--color-bg-secondary);
+}
+
+.btnPrimary {
+  background: var(--color-green-deep);
+}
+
 @media (max-width: 480px) {
   .title {
     font-size: clamp(calc(26px * var(--type-scale)), 7vw, calc(34px * var(--type-scale)));
@@ -279,3 +310,17 @@
     padding: 28px 22px;
   }
 }
+
+.wrap { background:linear-gradient(180deg,#091019,#0d1822 34%,#080c12); color:#f2ece1; }
+.hero { background:radial-gradient(circle at 78% 26%,rgba(191,169,123,.13),transparent 20rem),radial-gradient(circle at 74% 45%,rgba(53,85,107,.3),transparent 32rem); border-bottom-color:rgba(211,193,153,.16); }
+.eyebrow,.sectionLabel,.comingSoonTag,.topicsLabel { color:var(--gold-light); }
+.title,.insightTitle { color:#f4eee3; font-size:clamp(38px,5vw,64px); }
+.subtitle,.featuredBody,.insightSub,.insightMeta,.empty { color:rgba(242,236,225,.65); }
+.featuredCard,.insightItem,.knowledgeBase { background:rgba(255,255,255,.025); border-color:rgba(211,193,153,.16); border-radius:var(--radius-card); }
+.insightLink,.termChip,.topicChip { color:#eee7da; }
+.termChip,.topicChip { background:rgba(198,181,143,.07); border-color:rgba(211,193,153,.18); border-radius:999px; }
+.badge { color:var(--gold-light); background:rgba(185,162,119,.1); border-color:rgba(211,193,153,.2); }
+.glossaryLink { color:var(--gold-light); }
+.action { background:#070b10; border-top-color:rgba(211,193,153,.15); }
+.btnPrimary { color:#15120e; background:linear-gradient(135deg,#dfd0ad,#ae9568); }
+.btnSecondary { color:#eee7da; border-color:rgba(211,193,153,.3); background:transparent; }

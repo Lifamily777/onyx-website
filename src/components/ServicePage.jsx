@@ -27,6 +27,16 @@ export default function ServicePage({ data }) {
             {content.cta}
           </Link>
           <WatchButton size="md" onClick={handleWatch} />
+          {data.channelUrl && (
+            <a
+              className={styles.channelLink}
+              href={data.channelUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t('servicePage.youtubeChannelLabel')}
+            </a>
+          )}
         </div>
 
         <div className={styles.audience}>
@@ -59,6 +69,16 @@ export default function ServicePage({ data }) {
           {content.cta}
         </Link>
         <WatchButton size="md" onClick={handleWatch} />
+        {data.channelUrl && (
+          <a
+            className={styles.channelLink}
+            href={data.channelUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t('servicePage.youtubeChannelLabel')}
+          </a>
+        )}
       </div>
 
     </div>

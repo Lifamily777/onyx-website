@@ -21,6 +21,7 @@ export default function Nav() {
       <div className={styles.inner}>
         <Link to={localePath('/')} className={styles.logo}>
           <span className={styles.logoEn}>ONYX</span>
+          <span className={styles.logoName}>{t('footer.officialName')}</span>
         </Link>
         <div className={styles.links}>
           {navItems.map((item) => (

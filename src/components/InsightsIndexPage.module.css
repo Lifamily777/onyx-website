@@ -95,3 +95,31 @@
   font-size: 13px;
   color: var(--ink3);
 }
+
+/* ONYX Visual System 2.0 */
+.title {
+  font-size: clamp(calc(34px * var(--type-scale)), 5vw, calc(48px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.item {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.wrap { min-height:70vh; background:var(--ivory); color:var(--ivory-ink); }
+.eyebrow { color:#8a7146; }
+.title,.itemTitle { color:var(--ivory-ink); font-size:clamp(36px,5vw,58px); }
+.list { border-top-color:rgba(92,72,43,.18); }
+.item { background:rgba(255,255,255,.48); border:1px solid rgba(92,72,43,.12); border-radius:var(--radius-card); box-shadow:0 16px 42px rgba(73,57,35,.06); }
+.itemLink { color:var(--ivory-ink); }
+.itemSub,.itemMeta,.empty { color:var(--ivory-muted); }
+.badge { color:#765f39; background:rgba(185,162,119,.14); border-color:rgba(138,108,61,.18); }

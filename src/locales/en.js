@@ -19,6 +19,7 @@ export default {
   },
 
   footer: {
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'ONYX — Turning Complexity into Clarity.',
     descriptor: 'Wealth & Wellness, powered by Intelligence.',
     domainLabel: 'ONYXWW.com',
@@ -213,6 +214,7 @@ export default {
   },
 
   servicePage: {
+    youtubeChannelLabel: 'Watch Tax Videos on YouTube ↗',
     targetProfileLabel: 'Target Profile',
     fieldDataLabel: 'Field Data',
   },

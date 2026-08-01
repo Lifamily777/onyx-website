@@ -19,6 +19,7 @@ export default {
   },
 
   footer: {
+    officialName: '黑曜财商教育',
     brandLine: 'ONYX — 化繁为简，看清全局。',
     descriptor: '财富与健康，由智能驱动。',
     domainLabel: 'ONYXWW.com',
@@ -199,6 +200,7 @@ export default {
   },
 
   servicePage: {
+    youtubeChannelLabel: '前往 YouTube 观看税务视频 ↗',
     targetProfileLabel: '适配人群',
     fieldDataLabel: '真实场景',
   },

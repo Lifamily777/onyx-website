@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.48);
+  background: rgba(36, 49, 44, 0.58);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -15,13 +15,14 @@
 }
 
 .box {
-  background: var(--bg);
+  background: var(--color-bg-elevated);
   width: 90%;
   max-width: 680px;
-  border-radius: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 24px 70px rgba(36, 49, 44, 0.24);
 }
 
 .close {
@@ -79,7 +80,7 @@
 .iframeWrap {
   position: relative;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
 }
 
@@ -93,7 +94,7 @@
 
 .placeholder {
   background: var(--bg-alt);
-  border-radius: 12px;
+  border-radius: 18px;
   aspect-ratio: 16 / 9;
   display: flex;
   flex-direction: column;
@@ -106,7 +107,7 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--color-green-deep);
   display: flex;
   align-items: center;
   justify-content: center;

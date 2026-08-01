@@ -4,12 +4,15 @@ export const advisor = {
   role: 'EA · Licensed Life Insurance Agent · NMNA Nutritionist',
 }
 
+export const youtubeChannelUrl = 'https://www.youtube.com/@ONYXWW'
+
 // ─── SERVICE PAGES ────────────────────────────────────────────────────────────
 // Locale-aware content model: each service holds a shared, non-translatable
 // `videoId` plus a `content` dictionary keyed by locale. ServicePage.jsx reads
 // `data.content[locale]` — no per-locale branching lives in the component.
 export const servicePages = {
   tax: {
+    channelUrl: youtubeChannelUrl,
     videoId: '', // ← paste YouTube video ID here when ready (shared across all locales)
     content: {
       en: {

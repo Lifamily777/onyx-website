@@ -1,13 +1,25 @@
 .footer {
-  background: var(--bg-dark);
+  background:
+    radial-gradient(circle at 84% 15%, rgba(120, 152, 135, 0.18), transparent 24rem),
+    var(--bg-dark);
   color: var(--ink-light);
   margin-top: 0;
 }
 
+/* Black-gold brand footer */
+.footer { color: #eee8dd; background: radial-gradient(circle at 85% 20%, rgba(51, 76, 96, .2), transparent 30rem), #070b10; border-top: 1px solid rgba(211, 193, 153, .18); }
+.inner { max-width: 1200px; }
+.brandName { color: var(--gold-light); letter-spacing: .18em; }
+.officialName { color: #f2ede3; font-family: var(--font-editorial); font-size: 18px; }
+.descriptor, .domain, .langLabel, .disclaimer, .brandLine { color: rgba(238, 232, 221, .58); }
+.link, .legalLink { color: rgba(238, 232, 221, .78); }
+.link:hover, .legalLink:hover { color: var(--gold-light); }
+.bottom { border-top-color: rgba(211, 193, 153, .15); }
+
 .inner {
-  max-width: 980px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 56px 22px 32px;
+  padding: 68px 28px 34px;
 }
 
 .top {
@@ -16,7 +28,7 @@
   justify-content: space-between;
   gap: 40px;
   padding-bottom: 32px;
-  border-bottom: 0.5px solid var(--line-light);
+  border-bottom: 1px solid var(--line-light);
 }
 
 .brandBlock {
@@ -27,21 +39,22 @@
 }
 
 .brandName {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #fff;
+  font-family: var(--font-editorial);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-pale);
 }
 
 .descriptor {
   font-size: 13px;
-  color: var(--ink3);
+  color: rgba(251, 247, 236, 0.68);
   line-height: var(--lh-body);
 }
 
 .domain {
   font-size: 12px;
-  color: var(--ink3);
+  color: rgba(251, 247, 236, 0.52);
   letter-spacing: 0.02em;
 }
 
@@ -55,7 +68,7 @@
 
 .link {
   font-size: 13px;
-  color: #ececee;
+  color: rgba(251, 247, 236, 0.82);
   opacity: 0.85;
   text-decoration: none;
   white-space: nowrap;
@@ -77,18 +90,18 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--ink3);
+  color: var(--color-gold-pale);
 }
 
 .footerSelect {
-  color: #fff;
+  color: var(--ink-light);
   border-color: var(--line-light);
 }
 
 .disclaimer {
   font-size: 12px;
   line-height: var(--lh-body);
-  color: var(--ink3);
+  color: rgba(251, 247, 236, 0.58);
   max-width: calc(780px * var(--width-scale));
   margin: 28px 0 0;
 }
@@ -104,7 +117,7 @@
 
 .brandLine {
   font-size: 12px;
-  color: var(--ink3);
+  color: rgba(251, 247, 236, 0.58);
 }
 
 .legalLinks {
@@ -114,12 +127,12 @@
 
 .legalLink {
   font-size: 12px;
-  color: var(--ink3);
+  color: rgba(251, 247, 236, 0.58);
   text-decoration: none;
 }
 
 .legalLink:hover {
-  color: #ececee;
+  color: var(--color-gold-pale);
   text-decoration: underline;
 }
 
@@ -132,3 +145,14 @@
     max-width: 100%;
   }
 }
+
+.footer { color:#eee8dd; background:radial-gradient(circle at 85% 20%,rgba(51,76,96,.2),transparent 30rem),#070b10; border-top:1px solid rgba(211,193,153,.18); }
+.inner { max-width:1200px; }
+.brandName { color:var(--gold-light); letter-spacing:.18em; }
+.officialName { color:#f2ede3; font-family:var(--font-editorial); font-size:18px; }
+.descriptor,.domain,.langLabel,.disclaimer,.brandLine { color:rgba(238,232,221,.58); }
+.link,.legalLink { color:rgba(238,232,221,.78); }
+.link:hover,.legalLink:hover { color:var(--gold-light); }
+.bottom { border-top-color:rgba(211,193,153,.15); }
+.youtubeLink { margin-top:8px; color:var(--gold-light); font-size:12px; letter-spacing:.04em; text-decoration:none; }
+.youtubeLink:hover { color:#f5ead4; text-decoration:none; }

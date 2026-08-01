@@ -220,3 +220,54 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ONYX Visual System 2.0 */
+.h1 {
+  font-size: clamp(calc(36px * var(--type-scale)), 5vw, calc(54px * var(--type-scale)));
+  font-weight: 500;
+}
+
+.badge,
+.audience {
+  border-color: var(--line);
+  border-radius: var(--radius-card);
+}
+
+.btnGold {
+  background: var(--color-green-deep);
+  box-shadow: 0 8px 20px rgba(53, 92, 74, 0.16);
+}
+
+.btnGold:hover {
+  background: var(--blue-hover);
+  transform: translateY(-1px);
+}
+
+.pt,
+.hookbox {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+}
+
+.pt {
+  padding: 26px;
+}
+
+.hookbox {
+  background: var(--color-green-deep);
+  box-shadow: var(--shadow-soft);
+}
+
+.wrap { background:linear-gradient(180deg,#09111a,#0c1721); color:#f2ece1; }
+.svchero { background:radial-gradient(circle at 80% 24%,rgba(53,85,107,.28),transparent 30rem); }
+.h1,.h1Zh,.pt,.ptEn,.ptZh { color:#f4eee3; }
+.h1 { font-size:clamp(38px,5vw,62px); }
+.pEn,.pZh,.ptDescEn,.ptDescZh,.mi,.miZh { color:rgba(242,236,225,.65); }
+.badge,.audience { color:var(--gold-light); background:rgba(185,162,119,.1); border-color:rgba(211,193,153,.17); }
+.ptsgrid,.ml { border-color:rgba(211,193,153,.16); }
+.pt,.mi { background:rgba(255,255,255,.025); border-color:rgba(211,193,153,.14); border-radius:var(--radius-card); }
+.hookbox { color:#f3ede2; background:radial-gradient(circle at 85% 20%,rgba(53,85,107,.3),transparent 24rem),#080c12; border:1px solid rgba(211,193,153,.16); border-radius:var(--radius-card); }
+.btnGold { color:#15120e; background:linear-gradient(135deg,#dfd0ad,#ae9568); border-radius:999px; }
+.channelLink { display:inline-flex; align-items:center; min-height:44px; padding:10px 18px; color:var(--gold-light); background:rgba(255,255,255,.025); border:1px solid rgba(211,193,153,.25); border-radius:999px; font-size:13px; font-weight:700; text-decoration:none; }
+.channelLink:hover { color:#f4ead7; border-color:rgba(221,207,173,.48); background:rgba(185,162,119,.08); text-decoration:none; transform:translateY(-1px); }

@@ -413,6 +413,53 @@
   text-decoration: underline;
 }
 
+/* ONYX Visual System 2.0 */
+.intro,
+.quiz,
+.resultBody {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--color-bg-elevated);
+  box-shadow: var(--shadow-soft);
+}
+
+.intro,
+.quiz,
+.resultBody {
+  padding: clamp(28px, 5vw, 48px);
+}
+
+.title,
+.resultTitle {
+  font-weight: 500;
+}
+
+.startBtn,
+.primaryBtn {
+  background: var(--color-green-deep);
+}
+
+.option,
+.scoreBars,
+.nextStepsBlock,
+.reviewOthers {
+  border-color: var(--line);
+  border-radius: 18px;
+}
+
+.option:hover,
+.optionSelected {
+  border-color: var(--color-green-jade);
+  background: var(--color-green-soft);
+}
+
+.label_tax { color: var(--color-rouge-muted); }
+.label_risk { color: var(--color-intelligence); }
+.label_wellness { color: var(--color-green-deep); }
+.fill_tax { background: var(--color-rouge-muted); }
+.fill_risk { background: var(--color-intelligence); }
+.fill_wellness { background: var(--color-green-jade); }
+
 @media (max-width: 480px) {
   .scoreRow {
     grid-template-columns: 1fr;
@@ -423,3 +470,16 @@
     text-align: left;
   }
 }
+
+.wrap { min-height:75vh; background:radial-gradient(circle at 82% 14%,rgba(53,85,107,.3),transparent 30rem),#09111a; color:#f3ede2; }
+.intro,.quiz,.resultBody { background:rgba(255,255,255,.035); border:1px solid rgba(211,193,153,.16); border-radius:var(--radius-card); box-shadow:0 24px 70px rgba(0,0,0,.2); }
+.title,.question,.resultTitle,.scoreTitle,.blockTitle { color:#f4eee3; }
+.title,.resultTitle { font-size:clamp(38px,5vw,60px); }
+.sub,.description,.timeNote,.privacy,.disclaimer,.questionHint,.resultSummary,.nextStepsList,.stepCount { color:rgba(243,237,226,.65); }
+.startBtn,.primaryBtn { color:#15120e; background:linear-gradient(135deg,#dfd0ad,#ae9568); border-radius:999px; }
+.secondaryBtn,.textBtn,.backBtn { color:var(--gold-light); border-color:rgba(211,193,153,.25); border-radius:999px; }
+.progressTrack,.scoreTrack { background:rgba(255,255,255,.08); }
+.progressFill,.scoreFill { background:linear-gradient(90deg,#8e7852,#ddcfad); }
+.option,.reviewCard,.nextStepsBlock,.scoreBars { color:#eee8dd; background:rgba(255,255,255,.025); border-color:rgba(211,193,153,.15); border-radius:16px; }
+.option:hover,.optionSelected { color:#fff8e9; background:rgba(185,162,119,.12); border-color:rgba(221,207,173,.45); }
+.eyebrow,.reviewLink,.primaryTag { color:var(--gold-light); }
