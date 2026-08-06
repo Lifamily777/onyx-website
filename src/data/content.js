@@ -15,6 +15,8 @@ export const servicePages = {
     channelUrl: youtubeChannelUrl,
     videoId: '-0vvU4n85DQ',
     channelVideos: [
+      { id: 'hjwlOleyVsI', title: '为什么真正有钱的人，不会只依靠一种理财工具？｜人生就像一座游乐园' },
+      { id: 'vbF-943X-LA', title: '2026年1099门槛从$600升至$2,000｜小企业最容易忽略的付款年份' },
       { id: 'HjQcv9j74QU', title: '真实用户反馈，解锁未来生产力：Bayaiu OPCS AI #aitraining #bayaiu.ai#' },
       { id: '-0vvU4n85DQ', title: 'Will S Corp pay more taxes or save taxes?' },
       { id: '2EU9uegJxn8', title: 'What is ONYX intelligence?' },
