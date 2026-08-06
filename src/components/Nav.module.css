@@ -15,7 +15,7 @@
 .inner { max-width: 1240px; }
 .logo { display: flex; align-items: center; gap: 10px; color: #f7f0e2; }
 .logoEn { color: var(--gold-light); letter-spacing: .2em; }
-.logoName { color: rgba(245, 239, 227, .72); font-size: 10px; letter-spacing: .06em; white-space: nowrap; }
+.logoName { color: rgba(245, 239, 227, .72); font-size: 11px; letter-spacing: .06em; white-space: nowrap; }
 .nb { color: rgba(245, 239, 227, .72); }
 .nb:hover, .on { color: var(--gold-light); }
 .cta { color: #14110c; background: linear-gradient(135deg, #dfd0ad, #ae9568); border-radius: var(--radius-pill); box-shadow: 0 8px 24px rgba(184, 160, 113, .12); }
@@ -69,7 +69,7 @@
   display: inline-block;
   background: none;
   border: none;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--ink);
   opacity: 0.8;
@@ -106,7 +106,7 @@
   background: var(--color-green-deep);
   border: 1px solid var(--color-green-deep);
   color: var(--ink-light);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   padding: 8px 14px;
   border-radius: var(--radius-pill);
@@ -135,7 +135,7 @@
   }
 
   .cta {
-    font-size: 11px;
+    font-size: 12px;
     padding: 7px 10px;
   }
 }
@@ -144,7 +144,7 @@
 .inner { max-width: 1240px; }
 .logo { display:flex; align-items:center; gap:10px; color:#f7f0e2; }
 .logoEn { color:var(--gold-light); letter-spacing:.2em; }
-.logoName { color:rgba(245,239,227,.72); font-size:10px; letter-spacing:.06em; white-space:nowrap; }
+.logoName { color:rgba(245,239,227,.72); font-size:11px; letter-spacing:.06em; white-space:nowrap; }
 .nb { color:rgba(245,239,227,.72); }
 .nb:hover, .on { color:var(--gold-light); }
 .nb:hover { background:rgba(211,193,153,.08); }
