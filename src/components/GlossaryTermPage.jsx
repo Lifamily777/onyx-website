@@ -26,7 +26,7 @@ export default function GlossaryTermPage() {
     .map((s) => getInsightBySlug(s))
     .filter(Boolean)
 
-  useDocumentMeta(`${data.title} · ONYX Glossary`, data.shortDefinition)
+  useDocumentMeta(`${data.title} · ${t('glossaryPage.indexTitle')}`, data.shortDefinition)
 
   return (
     <div className={`${styles.wrap} page-enter`}>

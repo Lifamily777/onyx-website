@@ -20,7 +20,7 @@ export default function Nav() {
     <nav className={styles.nav}>
       <div className={styles.inner}>
         <Link to={localePath('/')} className={styles.logo}>
-          <span className={styles.logoEn}>ONYX</span>
+          <span className={styles.logoEn}>{t('brand.shortName')}</span>
           <span className={styles.logoName}>{t('footer.officialName')}</span>
         </Link>
         <div className={styles.links}>

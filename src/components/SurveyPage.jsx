@@ -13,7 +13,7 @@ export default function SurveyPage() {
   const [answers, setAnswers] = useState({})
   const [result, setResult] = useState(null)
 
-  useDocumentMeta(`${t('survey.meta.title')} · ONYX`, t('survey.meta.subtitle'))
+  useDocumentMeta(`${t('survey.meta.title')} · ${t('brand.shortName')}`, t('survey.meta.subtitle'))
 
   const totalSteps = surveyQuestions.length
   const current = surveyQuestions[step]

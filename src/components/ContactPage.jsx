@@ -8,7 +8,7 @@ export default function ContactPage() {
   const { t } = useLocale()
   const [submitted, setSubmitted] = useState(false)
 
-  useDocumentMeta(`${t('contact.headline')} · ONYX`)
+  useDocumentMeta(`${t('contact.headline')} · ${t('brand.shortName')}`)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -28,7 +28,7 @@ export default function ContactPage() {
           <p className={styles.pEn}>{t('contact.supporting')}</p>
           <div className={styles.am}>
             <div className={styles.amName}>{advisor.name}</div>
-            <div className={styles.amRole}>{advisor.role}</div>
+            <div className={styles.amRole}>{t('contact.sammiRole')}</div>
             {[
               t('contact.languagesLine'),
               t('contact.modalityLine'),

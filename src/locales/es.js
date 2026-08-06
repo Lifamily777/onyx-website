@@ -1,9 +1,10 @@
 // Spanish — human-authored initial translation (not machine-translated).
 export default {
+  brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX | Convertimos la Complejidad en Claridad',
+    title: 'ONYX Wealth & Wellness Club | Comunidad de aprendizaje',
     description:
-      'ONYX es una plataforma de aprendizaje multilingüe que ayuda a las familias a entender mejor los sistemas que dan forma al dinero, la salud, la tecnología y la vida cotidiana.',
+      'ONYX Wealth & Wellness Club es una comunidad de aprendizaje para personas, familias y pequeñas empresas que explora el patrimonio, el bienestar, la inteligencia artificial y mejores decisiones a largo plazo.',
   },
 
   nav: {
@@ -19,9 +20,9 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness',
-    brandLine: 'ONYX — Convertimos la complejidad en claridad.',
-    descriptor: 'Patrimonio y Bienestar, impulsados por Inteligencia.',
+    officialName: 'ONYX Wealth & Wellness Club',
+    brandLine: 'Comprender un mundo complejo. Construir juntos una vida mejor.',
+    descriptor: 'Una comunidad de aprendizaje para personas, familias y pequeñas empresas.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Patrimonio',
@@ -44,23 +45,23 @@ export default {
 
   home: {
     hero: {
-      headline1: 'El mundo se está volviendo más complejo.',
-      headline2: 'Comprenderlo no tiene por qué serlo.',
+      headline1: 'El mundo no se está volviendo más sencillo.',
+      headline2: 'Pero comprenderlo sí puede serlo.',
       supporting:
-        'Los sistemas ya existen. El problema es que casi nadie le enseña a las familias comunes cómo funcionan.',
+        'ONYX Wealth & Wellness Club es una comunidad de aprendizaje para personas, familias y pequeñas empresas.',
       bridge:
-        'ONYX es una plataforma de aprendizaje multilingüe donde exploramos los sistemas que dan forma al dinero, la salud, la tecnología y la vida cotidiana—y convertimos lo que aprendemos en conocimiento práctico que las familias realmente pueden usar.',
-      ctaPrimary: 'Empieza a Aprender',
-      ctaSecondary: 'Explora los Tres Pilares',
-      supportingLine: 'Primero educación. Siempre claridad.',
+        'Juntos exploramos el patrimonio, el bienestar, la inteligencia artificial y la toma de decisiones para comprender sistemas complejos y tomar mejores decisiones a largo plazo.',
+      ctaPrimary: 'Empezar a Aprender',
+      ctaSecondary: 'Últimas Ideas',
+      supportingLine: 'Comprender un mundo complejo. Construir juntos una vida mejor.',
     },
     why: {
-      label: 'POR QUÉ EXISTE ONYX',
-      headline: 'El mundo no se está volviendo más fácil. Se está volviendo más complejo.',
+      label: '¿POR QUÉ ONYX?',
+      headline: 'Muchas personas descubren que el problema no es la falta de esfuerzo, sino que el mundo es cada vez más complejo.',
       body:
-        'Los impuestos, los seguros, la salud, el retiro, la nutrición, las inversiones, la educación, la tecnología y la inteligencia artificial moldean cada vez más nuestra vida cotidiana. Sin embargo, muchos de nosotros debemos entender estos sistemas a través de información fragmentada, lenguaje técnico y ensayo y error.',
+        'Los impuestos, los seguros, la inversión, la inteligencia artificial, el emprendimiento, la salud y la jubilación contienen cada vez más información. La verdadera dificultad no es la falta de información, sino saber en qué confiar y cómo integrar distintas ideas en un sistema útil para la propia vida.',
       emphasis:
-        'El esfuerzo sigue importando. Pero entender los sistemas que nos rodean ayuda a que ese esfuerzo sea más intencional.',
+        'ONYX existe como una plataforma de aprendizaje compartido. No nos limitamos a dar respuestas: ayudamos a comprender los sistemas que hay detrás de ellas.',
       areas: [
         'Impuestos', 'Seguros', 'Salud', 'Retiro', 'Nutrición',
         'IA', 'Tecnología', 'Finanzas Familiares', 'Planificación Patrimonial', 'Educación',
@@ -75,23 +76,23 @@ export default {
       eyebrow: 'Patrimonio · Bienestar · Inteligencia',
       wealth: {
         title: 'Patrimonio',
-        descriptor: 'Entiende los sistemas detrás del dinero.',
+        descriptor: 'El patrimonio es mucho más que ganar dinero.',
         body:
-          'Explora impuestos, seguros, retiro, planificación patrimonial, finanzas familiares, estructuras empresariales, riesgo e inversión a través de educación clara y práctica.',
+          'También incluye impuestos, seguros, inversión, gestión empresarial y planificación financiera familiar. Nuestro objetivo no es promover un producto ni una táctica a corto plazo, sino ayudar a personas, familias y pequeñas empresas a construir un sistema más completo para tomar decisiones financieras.',
         cta: 'Explorar Patrimonio',
       },
       wellness: {
         title: 'Bienestar',
-        descriptor: 'Entiende los sistemas que sostienen la salud.',
+        descriptor: 'La verdadera riqueza no puede separarse de la salud.',
         body:
-          'Explora la nutrición, la prevención, los hábitos saludables, el ejercicio, la longevidad y las decisiones cotidianas que sostienen la energía y la resiliencia familiar.',
+          'La salud física, el bienestar emocional, el estilo de vida y la plenitud a largo plazo influyen en las decisiones y el futuro de una familia. ONYX considera el bienestar parte esencial de la planificación de vida a largo plazo.',
         cta: 'Explorar Bienestar',
       },
       intelligence: {
         title: 'Inteligencia',
-        descriptor: 'Entiende los sistemas que moldean cómo pensamos y trabajamos.',
+        descriptor: 'La inteligencia artificial está cambiando el mundo.',
         body:
-          'Explora la IA, las herramientas digitales, la automatización, el pensamiento sistémico, el aprendizaje y los marcos de decisión, manteniendo siempre el juicio humano en el centro.',
+          'ONYX busca ayudar a más personas a utilizar la IA para aprender mejor, trabajar con mayor eficiencia y tomar mejores decisiones. Aquí, Intelligence también significa encontrar y evaluar información y desarrollar un buen juicio a largo plazo.',
         cta: 'Explorar Inteligencia',
       },
     },
@@ -116,26 +117,25 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Construido desde la vida real, no desde tener todas las respuestas.',
+      headline: 'Iniciadora, organizadora, aprendiz permanente y practicante.',
+      roles: ['Iniciadora de ONYX Wealth & Wellness Club', 'Aprendiz permanente', 'Profesional de transformación digital empresarial', 'Estudiante de fiscalidad estadounidense y EA Candidate', 'Profesional de emprendimiento con IA'],
       paragraphs: [
-        'Me llamo Sammi. Soy hija, esposa, madre, profesional, emprendedora y aprendiz de por vida.',
-        'Dejé mi hogar en mis veintes para construir una carrera. En mis treintas, trabajé de tiempo completo mientras criaba a mis hijos, y como muchos padres trabajadores, a veces me daba cuenta de que el progreso profesional llegaba junto con momentos que ya no podía recuperar.',
-        'Estoy profundamente agradecida por el apoyo familiar que hizo posible mi camino. Pero también empecé a preguntarme por qué las familias deberían tener que elegir entre el propósito profesional y estar presentes para las personas que aman.',
-        'ONYX nació de esa pregunta.',
-        'No tengo todos los sistemas resueltos. Lo que aporto es la capacidad de estudiar temas difíciles, conectar ideas, adaptarme, pensar estratégicamente y traducir la complejidad en algo más práctico.',
-        'ONYX es el lugar donde comparto ese camino continuo, e invito a otros a aprender conmigo.',
+        'No estoy aquí para decir que ya conozco todas las respuestas.',
+        'Al contrario: yo también formo parte de este club.',
+        'En mis treinta trabajaba a tiempo completo mientras criaba a mis hijos. Como muchos padres que trabajan, comprendí, a menudo con cierta impotencia, que cada avance profesional podía costar un tiempo irreemplazable con mi familia.',
+        'Este es un sitio web que sigue creciendo. Todavía no domino todos los sistemas que explora.',
+        'Quiero compartir lo que aprendo cada día mediante el estudio, la práctica, los errores y la reflexión.',
+        'Espero que, mediante la conversación, el intercambio y la práctica real, podamos comprender un mundo complejo y crecer juntos.',
       ],
     },
     mission: {
-      headline: 'Convertimos la Complejidad en Claridad.',
+      headline: 'El mundo es cada vez más complejo.',
       paragraphs: [
-        'ONYX existe para ayudar a quienes aprenden toda la vida a entender mejor los sistemas que dan forma al dinero, la salud, la tecnología y la vida cotidiana.',
-        'No porque tengamos todas las respuestas.',
-        'Sino porque aprender juntos puede llevar a mejores decisiones, familias más resilientes, y más tiempo para lo que realmente importa.',
+        'Creemos:', 'Comprender importa más que la ansiedad.', 'Aprender importa más que seguir tendencias.', 'Los sistemas importan más que las tácticas aisladas.', 'Pensar a largo plazo importa más que especular a corto plazo.', 'Una persona puede avanzar rápido.', 'Una comunidad que aprende de forma continua puede llegar más lejos.',
       ],
-      ctaHeadline: 'Ya sabes cómo trabajar duro. Ahora entendamos mejor los sistemas que nos rodean.',
-      ctaPrimary: 'Empieza a Aprender',
-      ctaSecondary: 'Explora Ideas',
+      ctaHeadline: 'Una comunidad construida en torno al aprendizaje, la conversación y la práctica compartidos.',
+      ctaPrimary: 'Empezar a Aprender',
+      ctaSecondary: 'Últimas Ideas',
     },
   },
 
@@ -143,7 +143,7 @@ export default {
     about: {
       eyebrow: 'NOSOTROS',
       title: 'Acerca de ONYX',
-      body: 'Se está preparando una página más completa con la trayectoria, credenciales e historia profesional de la fundadora. Mientras tanto, puedes leer su historia en la página de inicio.',
+      body: 'ONYX es una comunidad de aprendizaje para personas, familias y pequeñas empresas, construida en torno al aprendizaje, la conversación y la práctica compartidos. Puedes leer la nota de Sammi Q en la página de inicio.',
     },
     insights: {
       eyebrow: 'IDEAS',
@@ -173,6 +173,7 @@ export default {
   },
 
   contact: {
+    sammiRole: 'Iniciadora · Aprendiz permanente · Profesional de transformación digital e IA · Estudiante de fiscalidad de EE. UU. (EA Candidate)',
     headline: 'Inicia tu diagnóstico gratuito.',
     supporting:
       'Quince minutos. Evaluamos tu situación actual y te mostramos exactamente dónde se puede reducir la complejidad fiscal, de riesgo y de salud.',

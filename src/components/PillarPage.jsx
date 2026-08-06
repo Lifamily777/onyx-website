@@ -30,7 +30,7 @@ export default function PillarPage({ pillarId }) {
   const heroTitle = t(`pillarPages.${pillarId}.heroTitle`)
   const heroSubtitle = t(`pillarPages.${pillarId}.heroSubtitle`)
 
-  useDocumentMeta(`${heroTitle} · ONYX`, heroSubtitle)
+  useDocumentMeta(`${heroTitle} · ${t('brand.shortName')}`, heroSubtitle)
 
   const insights = getLatestInsightsByPillar(pillarId, INSIGHTS_LIMIT)
   const terms = getTermsByPillar(pillarId)
@@ -75,7 +75,7 @@ export default function PillarPage({ pillarId }) {
                       <p className={styles.insightBadges}>
                         <span className={styles.badge}>{insight.pillarLabel}</span>
                         <span className={styles.badge}>
-                          ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}
+                          {t('brand.shortName')} Insight #{String(insight.insightNumber).padStart(3, '0')}
                         </span>
                       </p>
                     )}

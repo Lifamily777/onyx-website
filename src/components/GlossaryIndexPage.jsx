@@ -11,7 +11,7 @@ export default function GlossaryIndexPage() {
   const { t, locale, localePath } = useLocale()
   const terms = getPublishedTerms()
 
-  useDocumentMeta(`${t('glossaryPage.indexTitle')} · ONYX`, t('glossaryPage.indexSubtitle'))
+  useDocumentMeta(`${t('glossaryPage.indexTitle')} · ${t('brand.shortName')}`, t('glossaryPage.indexSubtitle'))
 
   const [activePillar, setActivePillar] = useState(ALL)
   const [activeCategory, setActiveCategory] = useState(ALL)

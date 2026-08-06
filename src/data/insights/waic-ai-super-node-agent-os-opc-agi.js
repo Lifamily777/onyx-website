@@ -162,15 +162,15 @@ export const waicAiSuperNodeAgentOsOpcAgi = {
         { type: 'p', text: '但知道名词只是第一步。' },
         { type: 'p', text: '未来不会只属于最先听到这些名词的人。' },
         { type: 'p', text: '它更可能属于那些能够理解底层逻辑，并愿意亲自参与实践的人。' },
-        { type: 'p', text: '这也是 ONYX 关注人工智能的原因。' },
+        { type: 'p', text: '这也是黑曜关注人工智能的原因。' },
         { type: 'p', text: '我们不只希望告诉你今天发生了什么。' },
         { type: 'p', text: '我们更希望解释：' },
         { type: 'p', text: '为什么它重要，它将改变什么，以及普通人现在可以开始做什么。' },
         { type: 'mission', text: '不要只学习 AI。去使用 AI。' },
         { type: 'mission', text: '不要只阅读未来。去参与未来。' },
 
-        { type: 'h2', text: '关于ONYX' },
-        { type: 'p', text: 'ONYX 围绕三个长期方向建立内容：' },
+        { type: 'h2', text: '关于黑曜' },
+        { type: 'p', text: '黑曜围绕三个长期方向建立内容：' },
         {
           type: 'list',
           items: [
@@ -179,7 +179,7 @@ export const waicAiSuperNodeAgentOsOpcAgi = {
             'Intelligence｜智能 — 理解人工智能、科技变化、未来工作与人的决策能力。',
           ],
         },
-        { type: 'mission', text: '世界正在变得越来越复杂。但理解它，不该同样困难。' },
+        { type: 'mission', text: '世界不会越来越简单。但理解它，可以。' },
       ],
       takeaway: [
         '超节点、Agent OS、OPC、AI for Science 与 AGI，都是 AI 产业正在发生的真实变化。',
@@ -194,7 +194,7 @@ export const waicAiSuperNodeAgentOsOpcAgi = {
         intro: '无论您是希望了解如何把 AI 应用到工作与决策中，还是希望更系统地规划税务、保险或财富传承，我们都乐意与您深入交流。',
         ctaLabel: '预约咨询',
         futureOfferings: [
-          'ONYX 学习专栏',
+          '黑曜学习专栏',
           '系统课程',
           '深度指南',
           '工具与模板',

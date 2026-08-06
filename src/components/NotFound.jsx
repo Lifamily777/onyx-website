@@ -6,7 +6,7 @@ import styles from './PlaceholderPage.module.css'
 export default function NotFound() {
   const { t, localePath } = useLocale()
 
-  useDocumentMeta(`${t('notFound.title')} · ONYX`)
+  useDocumentMeta(`${t('notFound.title')} · ${t('brand.shortName')}`)
 
   return (
     <div className={`${styles.wrap} page-enter`}>
