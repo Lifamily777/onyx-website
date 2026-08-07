@@ -34,7 +34,7 @@ export default function InsightArticlePage() {
   const { data, isFallback } = resolveInsightContent(insight, locale)
   const relatedTerms = getTermsByInsightSlug(insight.slug)
 
-  useDocumentMeta(`${data.title} · ONYX`)
+  useDocumentMeta(`${data.title} · ${t('brand.shortName')}`)
 
   return (
     <div className={`${styles.wrap} page-enter`}>
@@ -44,7 +44,7 @@ export default function InsightArticlePage() {
         {insight.pillarLabel && insight.insightNumber && (
           <p className={styles.badges}>
             <span className={styles.badge}>{insight.pillarLabel}</span>
-            <span className={styles.badge}>ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
+            <span className={styles.badge}>{t('brand.shortName')} Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
           </p>
         )}
 

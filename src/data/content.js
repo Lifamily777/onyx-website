@@ -1,7 +1,6 @@
 // ─── ADVISOR ──────────────────────────────────────────────────────────────────
 export const advisor = {
   name: 'Sammi Q',
-  role: 'EA · Licensed Life Insurance Agent · NMNA Nutritionist',
 }
 
 export const youtubeChannelUrl = 'https://www.youtube.com/@ONYXWW'
@@ -16,6 +15,8 @@ export const servicePages = {
     channelUrl: youtubeChannelUrl,
     videoId: '-0vvU4n85DQ',
     channelVideos: [
+      { id: 'hjwlOleyVsI', title: '为什么真正有钱的人，不会只依靠一种理财工具？｜人生就像一座游乐园' },
+      { id: 'vbF-943X-LA', title: '2026年1099门槛从$600升至$2,000｜小企业最容易忽略的付款年份' },
       { id: 'HjQcv9j74QU', title: '真实用户反馈，解锁未来生产力：Bayaiu OPCS AI #aitraining #bayaiu.ai#' },
       { id: '-0vvU4n85DQ', title: 'Will S Corp pay more taxes or save taxes?' },
       { id: '2EU9uegJxn8', title: 'What is ONYX intelligence?' },
@@ -25,7 +26,7 @@ export const servicePages = {
       en: {
         badge: 'TAX PLANNING',
         h1: 'Your tax structure is leaking capital.',
-        p: 'As an IRS Enrolled Agent, Sammi Q runs a structural review of income, deductible expense flow, and wellness-linked planning — closing leaks before they compound.',
+        p: 'Drawing on ongoing U.S. tax study and practical research, Sammi Q explores how income structure, deductible expenses, and long-term planning fit together — so families and small businesses can ask better questions.',
         cta: 'Run Your Free Tax Review',
         audiences: ['Business Owner Families', 'Affluent Young Families', 'Prime-Age Wellness Seekers'],
         points: [
@@ -40,7 +41,7 @@ export const servicePages = {
       zh: {
         badge: '税务规划',
         h1: '税务结构存在漏损，金额比你想象的更多',
-        p: '作为注册税务师（EA），Sammi Q 对收入结构、费用抵扣与健康投资节税进行系统性审查——在漏损扩大之前，逐项修补。',
+        p: '基于持续的美国税务学习与实践研究，Sammi Q 探索收入结构、费用抵扣与长期规划之间的联系，帮助家庭和小企业提出更好的问题。',
         cta: '预约免费税务审查',
         audiences: ['小企业主家庭', '轻奢年轻家庭', '年富力强养生族'],
         points: [
@@ -55,7 +56,7 @@ export const servicePages = {
       es: {
         badge: 'PLANIFICACIÓN FISCAL',
         h1: 'Tu estructura fiscal está perdiendo capital.',
-        p: 'Como Agente Inscrita ante el IRS, Sammi Q realiza una revisión estructural de tus ingresos, gastos deducibles y planificación vinculada al bienestar — cerrando fugas antes de que se acumulen.',
+        p: 'A partir de su estudio continuo de la fiscalidad estadounidense y la investigación práctica, Sammi Q explora cómo se conectan los ingresos, los gastos deducibles y la planificación a largo plazo para ayudar a familias y pequeñas empresas a formular mejores preguntas.',
         cta: 'Solicita tu Revisión Fiscal Gratuita',
         audiences: ['Familias con negocio propio', 'Familias jóvenes con buen nivel de vida', 'Personas en la mejor etapa de su bienestar'],
         points: [
@@ -70,7 +71,7 @@ export const servicePages = {
       ko: {
         badge: '세금 계획',
         h1: '세금 구조에서 자본이 새어 나가고 있습니다.',
-        p: 'IRS 등록 세무사(EA)로서 Sammi Q는 소득 구조, 공제 가능한 지출 흐름, 웰니스 연계 플래닝을 구조적으로 점검하여 손실이 누적되기 전에 막아드립니다.',
+        p: '미국 세무에 대한 지속적인 학습과 실천 연구를 바탕으로 Sammi Q는 소득 구조, 공제 가능 지출과 장기 계획이 어떻게 연결되는지 탐구하며 가족과 소규모 사업자가 더 나은 질문을 하도록 돕습니다.',
         cta: '무료 세금 점검 신청하기',
         audiences: ['사업주 가정', '풍요로운 젊은 가정', '건강 관리를 시작한 4050세대'],
         points: [
@@ -85,7 +86,7 @@ export const servicePages = {
       fr: {
         badge: 'PLANIFICATION FISCALE',
         h1: 'Votre structure fiscale laisse fuir du capital.',
-        p: "En tant qu'Agent Agréée auprès de l'IRS, Sammi Q effectue un examen structurel de vos revenus, de vos dépenses déductibles et de votre planification liée au bien-être — pour arrêter les fuites avant qu'elles ne s'accumulent.",
+        p: "À partir de son apprentissage continu de la fiscalité américaine et de recherches pratiques, Sammi Q explore les liens entre revenus, dépenses déductibles et planification à long terme afin d'aider les familles et petites entreprises à poser de meilleures questions.",
         cta: 'Demandez votre Bilan Fiscal Gratuit',
         audiences: ["Familles chefs d'entreprise", 'Jeunes familles aisées', 'Personnes en pleine étape de bien-être'],
         points: [
@@ -100,7 +101,7 @@ export const servicePages = {
       de: {
         badge: 'STEUERPLANUNG',
         h1: 'Ihre Steuerstruktur verliert Kapital.',
-        p: 'Als bei der IRS zugelassene Steuerberaterin (EA) führt Sammi Q eine strukturelle Prüfung Ihrer Einkommensstruktur, absetzbarer Ausgaben und wellnessbezogener Planung durch — und schließt Lücken, bevor sie sich summieren.',
+        p: 'Auf Grundlage ihres fortlaufenden Studiums des US-Steuerrechts und praktischer Recherche untersucht Sammi Q, wie Einkommensstruktur, absetzbare Ausgaben und langfristige Planung zusammenwirken, damit Familien und kleine Unternehmen bessere Fragen stellen können.',
         cta: 'Kostenlose Steuerprüfung Anfordern',
         audiences: ['Unternehmerfamilien', 'Wohlhabende junge Familien', 'Menschen in der besten Lebensphase für Wellness'],
         points: [
@@ -121,7 +122,7 @@ export const servicePages = {
       en: {
         badge: 'LIFE INSURANCE',
         h1: 'Idle capital is a design flaw.',
-        p: 'As a licensed life insurance agent, Sammi Q engineers policy cash value into an active financial layer — protection and growth working in parallel, not in sequence.',
+        p: 'Through shared learning, Sammi Q explores how insurance, protection, liquidity, and long-term family planning can fit into a broader financial decision system.',
         cta: 'Activate Your Policy Review',
         audiences: ['Business Owner Families', 'Affluent Young Families', 'Prime-Age Wellness Seekers'],
         points: [
@@ -136,7 +137,7 @@ export const servicePages = {
       zh: {
         badge: '人寿保险',
         h1: '保单不该只是意外发生时才启动的备用系统',
-        p: '作为持牌寿险顾问，Sammi Q 将保单现金值设计为主动运行的财务层——保障与增长并行运转，而非彼此等待。',
+        p: '通过共同学习，Sammi Q 探索保险、保障、流动性与家庭长期规划如何融入更完整的财富决策系统。',
         cta: '启动保单诊断',
         audiences: ['小企业主家庭', '轻奢年轻家庭', '年富力强养生族'],
         points: [
@@ -151,7 +152,7 @@ export const servicePages = {
       es: {
         badge: 'SEGURO DE VIDA',
         h1: 'El capital inactivo es un defecto de diseño.',
-        p: 'Como agente de seguros de vida con licencia, Sammi Q convierte el valor en efectivo de tu póliza en una capa financiera activa — protección y crecimiento funcionando en paralelo, no en secuencia.',
+        p: 'Mediante el aprendizaje compartido, Sammi Q explora cómo los seguros, la protección, la liquidez y la planificación familiar a largo plazo pueden integrarse en un sistema más amplio de decisiones financieras.',
         cta: 'Activa la Revisión de tu Póliza',
         audiences: ['Familias con negocio propio', 'Familias jóvenes con buen nivel de vida', 'Personas en la mejor etapa de su bienestar'],
         points: [
@@ -166,7 +167,7 @@ export const servicePages = {
       ko: {
         badge: '생명보험',
         h1: '유휴 자본은 설계상의 결함입니다.',
-        p: '공인 생명보험 설계사로서 Sammi Q는 보험의 현금 가치를 능동적으로 작동하는 금융 레이어로 설계합니다 — 보장과 성장이 순차적이 아니라 동시에 작동하도록 말이죠.',
+        p: '함께 배우는 과정을 통해 Sammi Q는 보험, 보호, 유동성과 장기 가족 계획이 더 넓은 재무 의사결정 시스템 안에서 어떻게 연결되는지 탐구합니다.',
         cta: '보험 점검 시작하기',
         audiences: ['사업주 가정', '풍요로운 젊은 가정', '건강 관리를 시작한 4050세대'],
         points: [
@@ -181,7 +182,7 @@ export const servicePages = {
       fr: {
         badge: 'ASSURANCE VIE',
         h1: 'Un capital inactif est un défaut de conception.',
-        p: "En tant qu'agente d'assurance vie agréée, Sammi Q transforme la valeur de rachat de votre police en une couche financière active — protection et croissance fonctionnant en parallèle, non en séquence.",
+        p: "Par l'apprentissage partagé, Sammi Q explore comment assurance, protection, liquidité et planification familiale à long terme peuvent s'intégrer dans un système plus large de décisions financières.",
         cta: 'Activez la Révision de votre Police',
         audiences: ["Familles chefs d'entreprise", 'Jeunes familles aisées', 'Personnes en pleine étape de bien-être'],
         points: [
@@ -196,7 +197,7 @@ export const servicePages = {
       de: {
         badge: 'LEBENSVERSICHERUNG',
         h1: 'Ungenutztes Kapital ist ein Konstruktionsfehler.',
-        p: 'Als lizenzierte Lebensversicherungsmaklerin gestaltet Sammi Q den Barwert Ihrer Police als aktive finanzielle Ebene — Schutz und Wachstum arbeiten parallel, nicht nacheinander.',
+        p: 'Im gemeinsamen Lernen untersucht Sammi Q, wie Versicherung, Schutz, Liquidität und langfristige Familienplanung in ein umfassenderes System finanzieller Entscheidungen passen.',
         cta: 'Policenprüfung Jetzt Starten',
         audiences: ['Unternehmerfamilien', 'Wohlhabende junge Familien', 'Menschen in der besten Lebensphase für Wellness'],
         points: [
@@ -217,7 +218,7 @@ export const servicePages = {
       en: {
         badge: 'WELLNESS',
         h1: 'Your body is sending warning signals.',
-        p: 'As a certified NMNA nutritionist and USANA advisor, Sammi Q calibrates medical-grade nutrition to your biological data — and helps route the spend back through your tax structure.',
+        p: 'Through ongoing study and practice, Sammi Q explores how nutrition, daily habits, prevention, and long-term planning can support better health decisions without separating wellness from the rest of life.',
         cta: 'Start Your Wellness Calibration',
         audiences: ['Prime-Age Wellness Seekers', 'Affluent Young Families', 'Business Owner Families'],
         points: [
@@ -232,7 +233,7 @@ export const servicePages = {
       zh: {
         badge: '健康管理',
         h1: '身体系统已发出预警信号',
-        p: '作为NMNA认证营养师与USANA顾问，Sammi Q 按你的生理数据校准医疗级营养方案——并帮助将支出重新接入税务结构。',
+        p: '通过持续学习与实践，Sammi Q 探索营养、日常习惯、预防与长期规划如何支持更好的健康决策，并把健康放回完整的生活系统中理解。',
         cta: '启动健康校准',
         audiences: ['年富力强养生族', '轻奢年轻家庭', '小企业主家庭'],
         points: [
@@ -247,7 +248,7 @@ export const servicePages = {
       es: {
         badge: 'BIENESTAR',
         h1: 'Tu cuerpo está enviando señales de alerta.',
-        p: 'Como nutricionista certificada NMNA y asesora USANA, Sammi Q calibra una nutrición de grado médico según tus datos biológicos — y ayuda a canalizar ese gasto de vuelta a través de tu estructura fiscal.',
+        p: 'A través del estudio y la práctica continuos, Sammi Q explora cómo la nutrición, los hábitos diarios, la prevención y la planificación a largo plazo pueden apoyar mejores decisiones de salud sin separar el bienestar del resto de la vida.',
         cta: 'Comienza tu Calibración de Bienestar',
         audiences: ['Personas en la mejor etapa de su bienestar', 'Familias jóvenes con buen nivel de vida', 'Familias con negocio propio'],
         points: [
@@ -262,7 +263,7 @@ export const servicePages = {
       ko: {
         badge: '웰니스',
         h1: '몸이 이미 경고 신호를 보내고 있습니다.',
-        p: 'NMNA 인증 영양사이자 USANA 어드바이저로서 Sammi Q는 당신의 생체 데이터에 맞춰 의료급 영양을 설계하고, 그 지출이 세무 구조 안에서 다시 활용될 수 있도록 돕습니다.',
+        p: '지속적인 학습과 실천을 통해 Sammi Q는 영양, 일상 습관, 예방과 장기 계획이 더 나은 건강 결정을 어떻게 도울 수 있는지, 웰니스를 삶 전체와 연결해 탐구합니다.',
         cta: '웰니스 점검 시작하기',
         audiences: ['건강 관리를 시작한 4050세대', '풍요로운 젊은 가정', '사업주 가정'],
         points: [
@@ -277,7 +278,7 @@ export const servicePages = {
       fr: {
         badge: 'BIEN-ÊTRE',
         h1: "Votre corps envoie des signaux d'alerte.",
-        p: "En tant que nutritionniste certifiée NMNA et conseillère USANA, Sammi Q calibre une nutrition de qualité médicale selon vos données biologiques — et aide à réintégrer cette dépense dans votre structure fiscale.",
+        p: "Par l'étude et la pratique continues, Sammi Q explore comment nutrition, habitudes quotidiennes, prévention et planification à long terme peuvent soutenir de meilleures décisions de santé sans séparer le bien-être du reste de la vie.",
         cta: 'Commencez votre Calibration Bien-être',
         audiences: ['Personnes en pleine étape de bien-être', 'Jeunes familles aisées', "Familles chefs d'entreprise"],
         points: [
@@ -292,7 +293,7 @@ export const servicePages = {
       de: {
         badge: 'WELLNESS',
         h1: 'Ihr Körper sendet Warnsignale.',
-        p: 'Als zertifizierte NMNA-Ernährungsberaterin und USANA-Beraterin kalibriert Sammi Q medizinisch fundierte Ernährung anhand Ihrer biologischen Daten — und hilft dabei, die Ausgaben wieder in Ihre Steuerstruktur einzubinden.',
+        p: 'Durch fortlaufendes Lernen und praktische Erfahrung untersucht Sammi Q, wie Ernährung, tägliche Gewohnheiten, Prävention und langfristige Planung bessere Gesundheitsentscheidungen unterstützen können, ohne Wellness vom übrigen Leben zu trennen.',
         cta: 'Wellness-Kalibrierung Jetzt Starten',
         audiences: ['Menschen in der besten Lebensphase für Wellness', 'Wohlhabende junge Familien', 'Unternehmerfamilien'],
         points: [

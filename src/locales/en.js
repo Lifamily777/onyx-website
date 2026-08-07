@@ -1,9 +1,10 @@
 // English — default and fallback locale.
 export default {
+  brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX | Turning Complexity into Clarity',
+    title: 'ONYX Wealth & Wellness Club',
     description:
-      'ONYX is a multilingual lifelong-learning platform helping families better understand the systems shaping money, health, technology, and everyday life.',
+      'ONYX Wealth & Wellness Club is a learning community for individuals, families, and small businesses, exploring wealth, wellness, artificial intelligence, and better long-term decision-making.',
   },
 
   nav: {
@@ -19,9 +20,9 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness',
-    brandLine: 'ONYX — Turning Complexity into Clarity.',
-    descriptor: 'Wealth & Wellness, powered by Intelligence.',
+    officialName: 'ONYX Wealth & Wellness Club',
+    brandLine: 'Understand a complex world. Build a better life together.',
+    descriptor: 'A learning community for individuals, families, and small businesses.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Wealth',
@@ -44,23 +45,23 @@ export default {
 
   home: {
     hero: {
-      headline1: 'The world is becoming more complex.',
-      headline2: "Understanding it shouldn't be.",
+      headline1: 'The world is not getting simpler.',
+      headline2: 'But understanding it can be.',
       supporting:
-        'The systems already exist. The problem is that almost no one teaches ordinary families how they work.',
+        'ONYX Wealth & Wellness Club is a learning community for individuals, families, and small businesses.',
       bridge:
-        'ONYX is a multilingual learning platform where we explore the systems shaping money, health, technology, and everyday life—then turn what we learn into practical knowledge families can actually use.',
+        'Together, we explore wealth, wellness, artificial intelligence, and decision-making so that more people can understand complex systems and make better long-term decisions.',
       ctaPrimary: 'Start Learning',
-      ctaSecondary: 'Explore the Three Pillars',
-      supportingLine: 'Education first. Clarity always.',
+      ctaSecondary: 'Latest Insights',
+      supportingLine: 'Understand a complex world. Build a better life together.',
     },
     why: {
-      label: 'WHY ONYX EXISTS',
-      headline: "The world isn't getting easier. It's getting more complex.",
+      label: 'WHY ONYX?',
+      headline: 'Many people discover that the problem is not a lack of effort. The world is simply becoming more complex.',
       body:
-        'Taxes, insurance, healthcare, retirement, nutrition, investing, education, technology, and artificial intelligence increasingly shape our everyday lives. Yet many of us are left to understand these systems through fragmented information, technical language, and trial and error.',
+        'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
       emphasis:
-        'Hard work still matters. But understanding the systems around us helps that effort become more intentional.',
+        'ONYX exists as a platform for shared learning. We do not simply tell people what the answer is. We help them understand the system behind the answer.',
       areas: [
         'Taxes', 'Insurance', 'Healthcare', 'Retirement', 'Nutrition',
         'AI', 'Technology', 'Family Finance', 'Estate Planning', 'Education',
@@ -87,23 +88,23 @@ export default {
       eyebrow: 'Wealth · Wellness · Intelligence',
       wealth: {
         title: 'Wealth',
-        descriptor: 'Understand the systems behind money.',
+        descriptor: 'Wealth is about more than earning money.',
         body:
-          'Explore taxes, insurance, retirement, estate planning, family finance, business structures, risk, and investing through clear and practical education.',
+          'It also includes tax, insurance, investing, business operations, and family financial planning. Our goal is not to promote one product or one short-term tactic. It is to help individuals, families, and small businesses gradually build a more complete system for making financial decisions.',
         cta: 'Explore Wealth',
       },
       wellness: {
         title: 'Wellness',
-        descriptor: 'Understand the systems supporting health.',
+        descriptor: 'True wealth cannot be separated from health.',
         body:
-          'Explore nutrition, prevention, healthy routines, exercise, longevity, and everyday choices that support family energy and resilience.',
+          "Physical health, emotional well-being, lifestyle, and long-term fulfillment all influence a family's choices and future. ONYX treats wellness as an important part of long-term life planning, not as a topic entirely separate from wealth.",
         cta: 'Explore Wellness',
       },
       intelligence: {
         title: 'Intelligence',
-        descriptor: 'Understand the systems shaping how we think and work.',
+        descriptor: 'Artificial intelligence is changing the world.',
         body:
-          'Explore AI, digital tools, automation, systems thinking, learning, and decision frameworks while keeping human judgment at the center.',
+          'ONYX aims to help more people learn how to use AI to improve learning, productivity, and decision-making. Here, Intelligence does not refer only to technology. It also means the ability to find information, evaluate it, and make sound long-term judgments.',
         cta: 'Explore Intelligence',
       },
     },
@@ -128,24 +129,35 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Built from real life, not from having all the answers.',
+      headline: 'Initiator, organizer, lifelong learner, and practitioner.',
+      roles: [
+        'Initiator of ONYX Wealth & Wellness Club',
+        'Lifelong Learner',
+        'Business Digital Transformation Practitioner',
+        'U.S. Tax Student and EA Candidate',
+        'AI Entrepreneurship Practitioner',
+      ],
       paragraphs: [
-        'My name is Sammi. I am a daughter, wife, mother, professional, entrepreneur, and lifelong learner.',
-        'I left home in my twenties to build a career. In my thirties, I worked full-time while raising my children, and like many working parents, I sometimes realized that professional progress came with moments I could not get back.',
-        'I am deeply grateful for the family support that made my journey possible. But I also began asking why families should have to choose between professional purpose and being present for the people they love.',
-        'ONYX grew from that question.',
-        'I do not have every system figured out. What I bring is the ability to study difficult subjects, connect ideas, adapt, think strategically, and translate complexity into something more practical.',
-        'ONYX is where I share that continuing journey and invite others to learn with me.',
+        'I am not here to tell everyone that I already know all the answers.',
+        'Quite the opposite. I am also a member of this club.',
+        'In my thirties, I was working full time while raising children. Like many working parents, I came to realize—often with a sense of helplessness—that each step forward in my career could come at the cost of irreplaceable time with my family.',
+        'This is a website that is still growing. I have not yet mastered every system it explores.',
+        'I hope to share what I learn each day through study, practice, mistakes, and reflection.',
+        'My hope is that, through conversation, discussion, and real-world practice, we can understand a complex world and grow together.',
       ],
     },
     mission: {
-      headline: 'Turning Complexity into Clarity.',
+      headline: 'The world is becoming more complex.',
       paragraphs: [
-        'ONYX exists to help lifelong learners better understand the systems shaping money, health, technology, and everyday life.',
-        'Not because we have all the answers.',
-        'Because learning together can lead to better decisions, more resilient families, and more time for what matters most.',
+        'We believe:',
+        'Understanding matters more than anxiety.',
+        'Learning matters more than following trends.',
+        'Systems matter more than isolated tactics.',
+        'Long-term thinking matters more than short-term speculation.',
+        'One person may move quickly.',
+        'A community of continuous learners can go farther.',
       ],
-      ctaHeadline: "You already know how to work hard. Now let's better understand the systems around us.",
+      ctaHeadline: 'A community built around shared learning, discussion, and practice.',
       ctaPrimary: 'Start Learning',
       ctaSecondary: 'Explore Insights',
     },
@@ -155,7 +167,7 @@ export default {
     about: {
       eyebrow: 'ABOUT',
       title: 'About ONYX',
-      body: "A fuller founder background, credentials, and professional story page is being prepared. In the meantime, you can read the founder's story on the homepage.",
+      body: 'ONYX is a learning community for individuals, families, and small businesses, built around shared learning, discussion, and practice. You can read Sammi Q’s note on the homepage.',
     },
     insights: {
       eyebrow: 'INSIGHTS',
@@ -185,6 +197,7 @@ export default {
   },
 
   contact: {
+    sammiRole: 'Initiator · Lifelong Learner · Digital Transformation and AI Practitioner · U.S. Tax Student (EA Candidate)',
     headline: 'Initiate Your Free Diagnostic.',
     supporting:
       "Fifteen minutes. We'll map where things stand today and show you exactly where complexity around tax, risk, and health can be reduced.",

@@ -9,7 +9,7 @@ export default function ServicePage({ data }) {
   const { locale, localePath, t } = useLocale()
   const content = data.content[locale] || data.content.en
 
-  useDocumentMeta(`${content.h1} · ONYX`)
+  useDocumentMeta(`${content.h1} · ${t('brand.shortName')}`)
 
   function handleWatch() {
     openVideo({ ...content.video, youtubeId: data.videoId })

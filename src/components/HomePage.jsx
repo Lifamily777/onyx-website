@@ -10,11 +10,23 @@ const LATEST_INSIGHTS_LIMIT = 3
 export default function HomePage() {
   const { t, locale, localePath } = useLocale()
 
-  useDocumentMeta(t('meta.title'), t('meta.description'))
+  const officialName = t('footer.officialName')
+
+  useDocumentMeta(t('meta.title'), t('meta.description'), {
+    siteName: officialName,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: officialName,
+      description: t('meta.description'),
+      url: `https://onyxww.com${localePath('/')}`,
+    },
+  })
 
   const areas = t('home.why.areas')
   const learningParagraphs = t('home.learningTogether.paragraphs')
   const founderParagraphs = t('home.founder.paragraphs')
+  const founderRoles = t('home.founder.roles')
   const missionParagraphs = t('home.mission.paragraphs')
   const latestInsights = getLatestInsights(LATEST_INSIGHTS_LIMIT)
 
@@ -34,8 +46,8 @@ export default function HomePage() {
           <Link className={styles.btnPrimary} to={localePath('/contact')}>
             {t('home.hero.ctaPrimary')}
           </Link>
-          <Link className={styles.btnSecondary} to={localePath('/survey')}>
-            {t('home.assessment.cta')}
+          <Link className={styles.btnSecondary} to={localePath('/insights')}>
+            {t('home.hero.ctaSecondary')}
           </Link>
         </div>
         <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
@@ -78,7 +90,7 @@ export default function HomePage() {
                     <p className={styles.insightBadges}>
                       <span className={styles.badge}>{insight.pillarLabel}</span>
                       <span className={styles.badge}>
-                        ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}
+                        {t('brand.shortName')} Insight #{String(insight.insightNumber).padStart(3, '0')}
                       </span>
                     </p>
                   )}
@@ -163,6 +175,9 @@ export default function HomePage() {
       <section className={styles.founder}>
         <p className={styles.founderName}>{t('home.founder.name')}</p>
         <h2 className={styles.founderHeadline}>{t('home.founder.headline')}</h2>
+        <ul className={styles.founderRoles}>
+          {founderRoles.map((role) => <li key={role}>{role}</li>)}
+        </ul>
         <div className={styles.founderBody}>
           {founderParagraphs.map((p, i) => <p key={i}>{p}</p>)}
         </div>

@@ -6,7 +6,7 @@ export default function PlaceholderPage({ pageKey }) {
   const { t } = useLocale()
   const title = t(`placeholders.${pageKey}.title`)
 
-  useDocumentMeta(`${title} · ONYX`)
+  useDocumentMeta(`${title} · ${t('brand.shortName')}`)
 
   return (
     <div className={`${styles.wrap} page-enter`}>

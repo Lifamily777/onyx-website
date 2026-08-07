@@ -8,7 +8,7 @@ export default function InsightsIndexPage() {
   const { t, locale, localePath } = useLocale()
   const insights = getAllInsights()
 
-  useDocumentMeta(`${t('insightsPage.indexTitle')} · ONYX`)
+  useDocumentMeta(`${t('insightsPage.indexTitle')} · ${t('brand.shortName')}`)
 
   return (
     <div className={`${styles.wrap} page-enter`}>
@@ -27,7 +27,7 @@ export default function InsightsIndexPage() {
                   {insight.pillarLabel && insight.insightNumber && (
                     <p className={styles.itemBadges}>
                       <span className={styles.badge}>{insight.pillarLabel}</span>
-                      <span className={styles.badge}>ONYX Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
+                      <span className={styles.badge}>{t('brand.shortName')} Insight #{String(insight.insightNumber).padStart(3, '0')}</span>
                     </p>
                   )}
                   <h2 className={styles.itemTitle}>{data.title}</h2>
