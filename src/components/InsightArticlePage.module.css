@@ -303,3 +303,408 @@
 .continueLearning,.workWith { color:#f2ece1; background:radial-gradient(circle at 85% 20%,rgba(53,85,107,.28),transparent 28rem),#0c1721; border-radius:var(--radius-card); }
 .continueLearning .sectionLabel,.workWith .sectionLabel { color:var(--gold-light); }
 .btnPrimary { color:#15120e; background:linear-gradient(135deg,#dfd0ad,#ae9568); border-radius:999px; }
+
+/* Bilingual editorial article — intentionally quieter than the standard
+   Insight modules. English leads; Simplified Chinese follows vertically. */
+.editorialWrap {
+  max-width: 760px;
+  padding-top: clamp(72px, 10vw, 112px);
+}
+
+.editorialHero {
+  max-width: 720px;
+  margin: 0 auto clamp(70px, 10vw, 108px);
+  text-align: center;
+}
+
+.editorialEyebrow {
+  margin: 0 0 24px;
+  color: #80683f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.editorialTitle {
+  margin: 0 auto 18px;
+  color: var(--ivory-ink);
+  font-family: var(--font-editorial);
+  font-size: clamp(38px, 5.6vw, 54px);
+  font-weight: 500;
+  letter-spacing: -.025em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.editorialTitleZh {
+  margin: 0 auto 30px;
+  color: #4f4941;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: clamp(23px, 3.5vw, 31px);
+  letter-spacing: .025em;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.editorialSubtitle {
+  margin: 0 auto 32px;
+  color: var(--ivory-muted);
+}
+
+.editorialSubtitle p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.editorialSubtitle p:first-child {
+  font-family: var(--font-editorial);
+  font-size: 20px;
+  font-style: italic;
+}
+
+.editorialSubtitle p:last-child {
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  color: #777066;
+}
+
+.editorialByline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: #665f56;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.editorialByline strong {
+  color: var(--ivory-ink);
+  font-family: var(--font-editorial);
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.editorialByline small {
+  margin-top: 8px;
+  color: #8a8175;
+  font-size: 12px;
+}
+
+.bilingualBody {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.pair {
+  margin: 0 0 28px;
+}
+
+.pairEn,
+.pairZh {
+  margin: 0;
+}
+
+.pairEn {
+  color: #28241f;
+  font-family: var(--font-editorial);
+  font-size: 20px;
+  line-height: 1.72;
+}
+
+.pairZh {
+  margin-top: 5px;
+  color: #686158;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: 17.5px;
+  letter-spacing: .018em;
+  line-height: 1.92;
+}
+
+.pairLead {
+  margin-bottom: 40px;
+}
+
+.pairLead .pairEn {
+  color: #6f5936;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.pairShort {
+  margin-bottom: 16px;
+}
+
+.pairEmphasis {
+  margin: 38px 0 44px;
+}
+
+.pairEmphasis .pairEn {
+  color: #332a1d;
+  font-size: 23px;
+  font-style: italic;
+}
+
+.pairEmphasis .pairZh {
+  color: #5d513f;
+  font-size: 19px;
+}
+
+.pairHeading {
+  margin: clamp(72px, 11vw, 112px) 0 34px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(92, 72, 43, .16);
+}
+
+.pairHeading h2,
+.pairHeading p {
+  margin: 0;
+}
+
+.pairHeading h2 {
+  color: var(--ivory-ink);
+  font-family: var(--font-editorial);
+  font-size: clamp(30px, 4.5vw, 40px);
+  font-weight: 500;
+  letter-spacing: -.015em;
+  line-height: 1.18;
+}
+
+.pairHeading p {
+  margin-top: 7px;
+  color: #6d6358;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: clamp(20px, 3vw, 25px);
+  line-height: 1.65;
+}
+
+.climaxHeading {
+  margin-top: clamp(96px, 14vw, 144px);
+  padding-top: 38px;
+}
+
+.tableFigure {
+  margin: 58px auto 72px;
+  padding: 0 clamp(8px, 4vw, 30px);
+}
+
+.tableTop {
+  height: 13px;
+  margin: 0 2%;
+  background: linear-gradient(90deg, #745d38, #c2a977 48%, #745d38);
+  border-radius: 999px;
+  box-shadow: 0 9px 24px rgba(65, 46, 22, .12);
+}
+
+.tableLegs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(8px, 3vw, 28px);
+  padding: 0 7%;
+}
+
+.tableLeg {
+  position: relative;
+  min-height: 128px;
+  padding-top: 92px;
+  color: #5f513c;
+  text-align: center;
+}
+
+.tableLeg::before {
+  position: absolute;
+  top: 0;
+  bottom: 45px;
+  left: 50%;
+  width: 4px;
+  background: linear-gradient(#ae9568, #745d38);
+  border-radius: 0 0 4px 4px;
+  content: "";
+  transform: translateX(-50%);
+}
+
+.tableLeg span,
+.tableLeg small {
+  display: block;
+}
+
+.tableLeg span {
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  line-height: 1.25;
+}
+
+.tableLeg small {
+  margin-top: 3px;
+  color: #81786d;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.tableFigure figcaption {
+  margin-top: 28px;
+  color: #7d7469;
+  font-family: var(--font-editorial);
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+.tableFigure figcaption span {
+  display: block;
+  margin-top: 3px;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-style: normal;
+}
+
+.editorialQuote {
+  margin: clamp(88px, 13vw, 132px) auto 88px;
+  padding: 44px clamp(24px, 6vw, 48px);
+  border: 0;
+  border-top: 1px solid rgba(138, 108, 61, .28);
+  border-bottom: 1px solid rgba(138, 108, 61, .28);
+  color: #332a1d;
+  text-align: center;
+}
+
+.editorialQuote p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.editorialQuote p:first-child {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 3.8vw, 32px);
+  font-style: italic;
+  line-height: 1.48;
+}
+
+.editorialQuote p:last-child {
+  margin-top: 24px;
+  color: #665b4d;
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: 18px;
+  line-height: 1.88;
+}
+
+.editorialFooter {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.authorSignature {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 56px;
+  color: #5f574e;
+}
+
+.authorSignature strong {
+  color: var(--ivory-ink);
+  font-family: var(--font-editorial);
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.authorSignature span {
+  font-size: 13px;
+}
+
+.editorialDisclosure {
+  margin-bottom: 42px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(92, 72, 43, .16);
+  color: #7a7268;
+}
+
+.editorialDisclosure p {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.editorialDisclosure p:last-child {
+  font-family: "Kaiti SC", KaiTi, STKaiti, "Noto Serif SC", "Songti SC", serif;
+  font-size: 12.5px;
+}
+
+@media (max-width: 640px) {
+  .editorialWrap {
+    padding: 64px 20px 92px;
+  }
+
+  .editorialHero {
+    margin-bottom: 68px;
+  }
+
+  .editorialTitle {
+    font-size: clamp(34px, 10.5vw, 43px);
+  }
+
+  .editorialTitleZh {
+    font-size: 22px;
+  }
+
+  .pair {
+    margin-bottom: 25px;
+  }
+
+  .pairEn {
+    font-size: 17px;
+    line-height: 1.72;
+  }
+
+  .pairZh {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .pairEmphasis .pairEn {
+    font-size: 20px;
+  }
+
+  .pairEmphasis .pairZh {
+    font-size: 17px;
+  }
+
+  .pairHeading {
+    margin-top: 70px;
+  }
+
+  .pairHeading h2 {
+    font-size: 29px;
+  }
+
+  .pairHeading p {
+    font-size: 20px;
+  }
+
+  .tableFigure {
+    margin: 48px auto 64px;
+    padding-inline: 0;
+  }
+
+  .tableLegs {
+    gap: 4px;
+    padding-inline: 1%;
+  }
+
+  .tableLeg {
+    min-height: 136px;
+    padding-top: 88px;
+  }
+
+  .tableLeg span {
+    font-size: 11px;
+  }
+
+  .tableLeg small {
+    font-size: 9px;
+  }
+
+  .editorialQuote {
+    padding-inline: 6px;
+  }
+}
