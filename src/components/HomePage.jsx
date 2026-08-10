@@ -4,7 +4,11 @@ import useDocumentMeta from '../hooks/useDocumentMeta'
 import { getLatestInsights, resolveInsightContent } from '../data/insights'
 import styles from './HomePage.module.css'
 
-const CORE_PATH_IDS = ['wealth', 'wellness', 'intelligence']
+const AUDIENCE_PATHS = [
+  { id: 'families', to: '/survey' },
+  { id: 'businessOwners', to: '/tax' },
+  { id: 'communityPartners', to: '/contact' },
+]
 const LATEST_INSIGHTS_LIMIT = 3
 
 export default function HomePage() {
@@ -61,10 +65,10 @@ export default function HomePage() {
         <div className={styles.corePaths}>
           <h2 className={styles.corePathsTitle}>{t('home.corePaths.title')}</h2>
           <div className={styles.corePathsGrid}>
-            {CORE_PATH_IDS.map((id) => (
-              <Link key={id} to={localePath(`/${id}`)} className={styles.corePathCard}>
-                <span className={styles.corePathName}>{t(`nav.${id}`)}</span>
-                <span className={styles.corePathDesc}>{t(`home.corePaths.${id}`)}</span>
+            {AUDIENCE_PATHS.map(({ id, to }) => (
+              <Link key={id} to={localePath(to)} className={styles.corePathCard}>
+                <span className={styles.corePathName}>{t(`home.corePaths.${id}.title`)}</span>
+                <span className={styles.corePathDesc}>{t(`home.corePaths.${id}.description`)}</span>
               </Link>
             ))}
           </div>

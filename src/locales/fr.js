@@ -4,7 +4,7 @@ export default {
   meta: {
     title: "ONYX Wealth & Wellness Club | Communauté d'apprentissage",
     description:
-      "ONYX Wealth & Wellness Club est une communauté d'apprentissage pour les particuliers, les familles et les petites entreprises, autour du patrimoine, du bien-être, de l'intelligence artificielle et de meilleures décisions à long terme.",
+      "ONYX Wealth & Wellness Club est une communauté d’apprentissage et de ressources pour les familles, petites entreprises et professionnels de la communauté, autour du patrimoine, du bien-être, de la fiscalité, de l’entreprise, de l’IA et des décisions à long terme.",
   },
 
   nav: {
@@ -14,7 +14,7 @@ export default {
     intelligence: 'Intelligence',
     about: 'À propos',
     insights: 'Perspectives',
-    assessment: 'Évaluation',
+    assessment: 'Carte Financière',
     startLearning: 'Commencer à Apprendre',
     languageLabel: 'Langue',
   },
@@ -22,7 +22,7 @@ export default {
   footer: {
     officialName: 'ONYX Wealth & Wellness Club',
     brandLine: 'Comprendre un monde complexe. Construire ensemble une vie meilleure.',
-    descriptor: "Une communauté d'apprentissage pour les particuliers, les familles et les petites entreprises.",
+    descriptor: 'Une communauté d’apprentissage et de ressources pour les familles, petites entreprises et professionnels de la communauté.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Patrimoine',
@@ -30,7 +30,7 @@ export default {
       intelligence: 'Intelligence',
       about: 'À propos',
       insights: 'Perspectives',
-      assessment: 'Évaluation du Parcours',
+      assessment: 'Carte Financière Familiale',
       contact: 'Contact',
     },
     legal: {
@@ -72,6 +72,12 @@ export default {
       body:
         "ONYX organise des idées compliquées en explications pratiques, cadres utiles et meilleures questions — pour que les familles puissent prendre des décisions plus éclairées.",
     },
+    corePaths: {
+      title: 'À qui s’adresse ONYX ?',
+      families: { title: 'Familles', description: 'Comprenez comment revenus, fiscalité, assurance, santé, éducation, actifs, dettes et objectifs à long terme s’articulent, puis identifiez les bonnes questions.' },
+      businessOwners: { title: 'Dirigeants de petites entreprises', description: 'Reliez finances personnelles, opérations, choix fiscaux, protection, trésorerie et systèmes nécessaires à une croissance durable.' },
+      communityPartners: { title: 'Partenaires de la communauté', description: 'Partagez une éducation pratique et reliez familles et petites entreprises à des cadres clairs, des ressources utiles et la bonne conversation.' },
+    },
     pillars: {
       eyebrow: 'Patrimoine · Bien-être · Intelligence',
       wealth: {
@@ -97,12 +103,12 @@ export default {
       },
     },
     assessment: {
-      label: 'PAS SÛR PAR OÙ COMMENCER ?',
-      headline: 'Trouvez votre point de départ.',
+      label: 'VOIR D’ABORD LA FAMILLE DANS SON ENSEMBLE',
+      headline: 'Carte Financière Familiale ONYX',
       body:
         "Le patrimoine, le bien-être et le risque sont liés — mais le besoin le plus immédiat de chaque famille est différent. Faites une courte évaluation pour découvrir quel domaine mérite votre attention en premier.",
-      cta: "Faire l'Évaluation",
-      supportingLine: 'Quelques questions réfléchies. Aucune pression. Aucun argumentaire de vente.',
+      cta: 'Construire ma carte financière',
+      supportingLine: 'Un point de départ structuré, sans pression ni recommandation immédiate de produit.',
     },
     learningTogether: {
       headline: 'Apprendre Ensemble',
@@ -117,8 +123,8 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiatrice, organisatrice, apprenante à vie et praticienne.',
-      roles: ["Initiatrice d'ONYX Wealth & Wellness Club", 'Apprenante à vie', 'Praticienne de la transformation numérique des entreprises', 'Étudiante en fiscalité américaine et EA Candidate', "Praticienne de l'entrepreneuriat en IA"],
+      headline: 'Initiatrice d’ONYX Wealth & Wellness Club',
+      roles: ['Systèmes financiers et transformation numérique', 'Création et gestion de petites entreprises', 'Expérience en restauration et services à domicile', 'Étudiante en fiscalité américaine (EA Candidate)', 'IA et processus d’entreprise'],
       paragraphs: [
         "Je ne suis pas ici pour prétendre connaître déjà toutes les réponses.",
         "Bien au contraire : je suis moi aussi membre de ce club.",
@@ -181,7 +187,7 @@ export default {
 
   contact: {
     sammiRole: "Initiatrice · Apprenante à vie · Praticienne de la transformation numérique et de l'IA · Étudiante en fiscalité américaine (EA Candidate)",
-    headline: 'Lancez votre diagnostic gratuit.',
+    headline: 'Commencez par une conversation structurée.',
     supporting:
       "Quinze minutes. Nous évaluons votre situation actuelle et vous montrons précisément où réduire la complexité liée aux impôts, aux risques et à la santé.",
     languagesLine: 'Anglais et mandarin',
@@ -231,16 +237,16 @@ export default {
 
   survey: {
     meta: {
-      title: 'Évaluation du Parcours ONYX',
-      subtitle: "Découvrez où votre famille pourrait bénéficier en premier d'une plus grande clarté.",
+      title: 'Carte Financière Familiale ONYX',
+      subtitle: 'Réunissez revenus, entreprise, fiscalité, protection, actifs, dettes, éducation, santé et objectifs à long terme.',
     },
     intro: {
       description:
-        'Une courte évaluation éducative pour vous aider à découvrir où vous concentrer en premier — Bien-être, Patrimoine et Planification Fiscale, ou Protection contre les Risques.',
+        'Un point d’entrée d’apprentissage structuré pour voir où vous en êtes, ce qui mérite d’être approfondi et quelles questions poser ensuite. Il ne vise pas à recommander immédiatement un produit.',
       timeNote: 'Environ 4 à 6 minutes.',
       privacyNote:
         'Nous ne posons que des questions générales sur votre étape de vie et vos priorités — jamais de numéro de sécurité sociale, de coordonnées bancaires ou de chiffres financiers exacts.',
-      startCta: "Commencer l'Évaluation",
+      startCta: 'Construire ma carte financière',
     },
     progress: {
       step: 'Question {{current}} sur {{total}}',
