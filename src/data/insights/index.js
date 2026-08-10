@@ -1,11 +1,16 @@
 import { technologyDoesNotDecideForYou } from './technology-does-not-decide-for-you'
 import { waicAiSuperNodeAgentOsOpcAgi } from './waic-ai-super-node-agent-os-opc-agi'
+import { whyChineseFamiliesLoveSavingButDistrustInsurance } from './why-chinese-families-love-saving-but-distrust-insurance'
 
 // One import per article file. Add a new line here when a new insight file
 // is created — this stays a one-line diff no matter how many articles exist.
 // Display order is driven by publishDate (see getAllInsights below), not by
 // this array's order.
-const allInsights = [technologyDoesNotDecideForYou, waicAiSuperNodeAgentOsOpcAgi]
+const allInsights = [
+  technologyDoesNotDecideForYou,
+  waicAiSuperNodeAgentOsOpcAgi,
+  whyChineseFamiliesLoveSavingButDistrustInsurance,
+]
 
 // Only 'published' articles are ever surfaced through these three entry
 // points — draft/archived articles are invisible to the index, the latest-

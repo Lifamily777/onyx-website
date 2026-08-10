@@ -24,6 +24,98 @@ function renderInline(block, localePath, styles) {
   })
 }
 
+function TableMetaphor() {
+  const functions = [
+    ['Liquidity', '流动性'],
+    ['Growth', '增长'],
+    ['Retirement / Tax Efficiency', '退休 / 税务效率'],
+    ['Protection', '保障'],
+  ]
+
+  return (
+    <figure className={styles.tableFigure} aria-label="Four financial functions supporting a stable household plan">
+      <div className={styles.tableTop} aria-hidden="true" />
+      <div className={styles.tableLegs}>
+        {functions.map(([en, zh]) => (
+          <div key={en} className={styles.tableLeg}>
+            <span>{en}</span>
+            <small lang="zh-CN">{zh}</small>
+          </div>
+        ))}
+      </div>
+      <figcaption>
+        Different functions. Shared stability.
+        <span lang="zh-CN">不同的任务，共同支撑一个家庭。</span>
+      </figcaption>
+    </figure>
+  )
+}
+
+function BilingualEditorialArticle({ data, t, localePath }) {
+  return (
+    <div className={`${styles.wrap} ${styles.editorialWrap} page-enter`}>
+      <article>
+        <header className={styles.editorialHero}>
+          <p className={styles.editorialEyebrow}>ONYX INSIGHT</p>
+          <h1 className={styles.editorialTitle}>{data.titleEn}</h1>
+          <p className={styles.editorialTitleZh} lang="zh-CN">{data.titleZh}</p>
+          <div className={styles.editorialSubtitle}>
+            <p>{data.subtitleEn}</p>
+            <p lang="zh-CN">{data.subtitleZh}</p>
+          </div>
+          <div className={styles.editorialByline}>
+            <strong>{data.author}</strong>
+            <span>{data.authorTitle}</span>
+            <small>{data.readingTime} {t('insightsPage.minReadSuffix')}</small>
+          </div>
+        </header>
+
+        <div className={styles.bilingualBody}>
+          {data.body.map((block, i) => {
+            if (block.type === 'pairHeading') {
+              return (
+                <section key={i} className={`${styles.pairHeading} ${block.climax ? styles.climaxHeading : ''}`}>
+                  <h2>{block.en}</h2>
+                  <p lang="zh-CN">{block.zh}</p>
+                </section>
+              )
+            }
+            if (block.type === 'tableMetaphor') return <TableMetaphor key={i} />
+            return (
+              <div
+                key={i}
+                className={`${styles.pair} ${block.lead ? styles.pairLead : ''} ${block.short ? styles.pairShort : ''} ${block.emphasis ? styles.pairEmphasis : ''}`}
+              >
+                <p className={styles.pairEn}>{block.en}</p>
+                <p className={styles.pairZh} lang="zh-CN">{block.zh}</p>
+              </div>
+            )
+          })}
+        </div>
+
+        <blockquote className={styles.editorialQuote}>
+          <p>{data.closingQuote.en}</p>
+          <p lang="zh-CN">{data.closingQuote.zh}</p>
+        </blockquote>
+
+        <footer className={styles.editorialFooter}>
+          <div className={styles.authorSignature}>
+            <strong>{data.author}</strong>
+            <span>{data.authorTitle}</span>
+          </div>
+          <div className={styles.editorialDisclosure}>
+            <p>{data.disclosure.en}</p>
+            <p lang="zh-CN">{data.disclosure.zh}</p>
+          </div>
+          <Link to={localePath('/insights')} className={styles.backLink}>
+            {t('insightsPage.backToIndex')}
+          </Link>
+        </footer>
+      </article>
+    </div>
+  )
+}
+
 export default function InsightArticlePage() {
   const { slug } = useParams()
   const { t, locale, localePath } = useLocale()
@@ -34,7 +126,26 @@ export default function InsightArticlePage() {
   const { data, isFallback } = resolveInsightContent(insight, locale)
   const relatedTerms = getTermsByInsightSlug(insight.slug)
 
-  useDocumentMeta(`${data.title} · ${t('brand.shortName')}`)
+  const metaOptions = insight.layout === 'bilingualEditorial'
+    ? {
+        siteName: t('footer.officialName'),
+        structuredData: {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: data.titleEn,
+          description: data.seoDescription,
+          datePublished: insight.publishDate,
+          author: { '@type': 'Person', name: data.author },
+          publisher: { '@type': 'Organization', name: 'ONYX Wealth & Wellness Club' },
+        },
+      }
+    : {}
+
+  useDocumentMeta(`${data.title} · ${t('brand.shortName')}`, data.seoDescription, metaOptions)
+
+  if (insight.layout === 'bilingualEditorial') {
+    return <BilingualEditorialArticle data={data} t={t} localePath={localePath} />
+  }
 
   return (
     <div className={`${styles.wrap} page-enter`}>
