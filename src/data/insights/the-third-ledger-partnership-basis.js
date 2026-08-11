@@ -12,6 +12,7 @@ const en = {
   readingTime: 18,
   blocks: [
     { type: 'h2', eyebrow: 'STORY', title: 'Three Owners, One Restaurant, and a Missing History' },
+    { type: 'restaurant' },
     { type: 'p', lead: true, text: 'Lee, Maya, and David own a neighborhood restaurant together. Lee knows how to negotiate with suppliers. Maya can almost tell whether a customer will return before the customer pays the check. David can fix almost anything in the kitchen with a screwdriver, duct tape, and unreasonable confidence.' },
     { type: 'p', text: 'Accounting is not their favorite hobby. Every month they send their accountant POS reports, vendor invoices, bank statements, and—occasionally—a blurry receipt photo that seems to have been taken while running.' },
     { type: 'p', text: 'Then the restaurant runs short on cash. Lee transfers $20,000 from his personal account and says, “Just use it. We’ll sort it out later.” Nobody writes down whether it is a Capital Contribution or a Partner Loan.' },
@@ -50,6 +51,7 @@ const en = {
     { type: 'p', text: 'Debt changes: changes in a Partner’s share of qualifying Partnership liabilities can change Outside Basis and may create tax consequences that surprise people who thought “the debt stayed inside the business.”' },
 
     { type: 'h2', eyebrow: 'CONSEQUENCES', title: 'When the Missing Ledger Becomes Expensive' },
+    { type: 'missingLedger' },
     { type: 'p', text: 'Poor or incomplete records can contribute to an overstated loss deduction, an understated gain on a cash distribution, an incorrect gain or loss on an exit, or inconsistencies among Partner records, Schedule K-1 reporting, debt allocations, and prior-year returns.' },
     { type: 'p', text: 'Reconstructing years of history can also mean professional fees, amended returns, additional tax, statutory interest, and—depending on the facts and applicable law—potential penalties. Merely lacking an ONYX “Third Ledger” does not automatically create a penalty; incorrect reporting is the concern.' },
     { type: 'quote', text: 'The IRS does not care that everyone remembers the deal differently. Years later, memory is not documentation.' },
@@ -60,7 +62,7 @@ const en = {
 
     { type: 'h2', eyebrow: 'PRACTICAL SYSTEM', title: 'A Simple Partner Transaction Log' },
     { type: 'transaction' },
-    { type: 'list', items: ['I put money into the business.', 'I took money out.', 'I lent money to the Partnership.', 'The Partnership repaid me.', 'I personally paid a business expense.', 'The Partnership paid a personal expense.', 'I contributed or received property.', 'Partnership debt or ownership percentages changed.', 'A Partner joined or left.'] },
+    { type: 'list', items: ['I put money into the business.', 'I took money out.', 'I lent money to the Partnership.', 'The Partnership repaid me.', 'I personally paid a business expense.', 'The Partnership paid a personal expense.', 'I contributed property.', 'The Partnership distributed property to me.', 'Partnership debt changed.', 'Ownership percentages changed.', 'A Partner joined.', 'A Partner left.'] },
     { type: 'p', text: 'The owner does not need to know the final tax classification. Record what happened, when, how much, what moved, and any supporting documents. A tax professional can then determine whether it is a Capital Contribution, Distribution, Partner Loan, loan repayment, reimbursement, property contribution, liability adjustment, or another tax event.' },
 
     { type: 'h2', eyebrow: 'RETURN TO STORY', title: 'Back at the Restaurant' },
@@ -73,7 +75,7 @@ const en = {
     { type: 'quote', text: 'Write down what happened while everyone still remembers.' },
 
     { type: 'h2', eyebrow: 'CONSULTATION', title: 'Not Sure Whether Your Partnership Basis Has Been Tracked Correctly?' },
-    { type: 'p', text: 'If your business has years of Partner contributions, distributions, personal payments, Partner Loans, property contributions, changing debt, or ownership changes, the history may be worth reviewing before a major transaction forces you to reconstruct it.' },
+    { type: 'p', text: 'If your business has years of Partner contributions, distributions, personal payments, Partner Loans, property contributions, changing debt, or ownership changes, the history may be worth reviewing before an exit, sale, large Distribution, or tax examination forces you to reconstruct it.' },
     { type: 'p', text: 'ONYX Wealth & Wellness can help business owners organize Partner-level records, identify missing documentation, build a Partner Basis Tracking Ledger, and coordinate information for review by the appropriate tax or legal professional.' },
     { type: 'cta', text: 'Talk with ONYX about your Partnership records.' },
   ],
@@ -84,6 +86,7 @@ const en = {
 
 const zhTexts = [
   '三位老板，一家餐厅，以及一段消失的历史',
+  '',
   'Lee、Maya 和 David 一起经营一家社区餐厅。Lee 很会和供应商谈价格；Maya 几乎能在客人结账前判断他会不会再来；David 拿着螺丝刀、胶带和一种不太合理的自信，几乎什么厨房设备都敢修。',
   '会计不是他们最喜欢的爱好。每个月，他们把 POS reports、供应商发票、银行账单交给会计，偶尔还会附上一张像是边跑边拍的模糊小票。',
   '后来餐厅现金吃紧。Lee 从个人账户转入 $20,000，说：“先用吧，以后再说。”没有人写明这笔钱究竟是 Capital Contribution，还是 Partner Loan。',
@@ -116,6 +119,7 @@ const zhTexts = [
   'Sale or exit：出售或以其他方式处置 Partnership interest 时，adjusted Outside Basis 是计算 gain or loss 的重要基础。',
   'Debt changes：Partner 对 qualifying Partnership liabilities 所占份额的变化会影响 Outside Basis，有时还会产生意料之外的税务后果。',
   '当“少掉的这本账”开始变贵',
+  '',
   '记录不完整可能导致 Partnership loss 扣除报得过高、cash distribution 的 taxable gain 报得过低、退出时的 gain or loss 计算错误，或 Partner records、Schedule K-1、debt allocations 与以前年度税表之间出现矛盾。',
   '多年后重建历史还可能带来专业费用、amended returns、additional tax、statutory interest，以及视具体事实和适用法律而定的 penalties。仅仅没有一份黑曜所说的“第三套账”，不会自动产生处罚；真正的问题是错误申报。',
   'IRS 不会因为大家对当年的事情各有一个版本，就替你选择最顺耳的那个。很多年以后，记忆并不等于记录。',
@@ -134,7 +138,7 @@ const zhTexts = [
   '',
   '趁大家还记得的时候，把发生过的事情写下来。',
   '不确定自己的 Partnership Basis 有没有被持续、正确地记录？',
-  '如果企业过去几年发生过 Partner contributions、distributions、个人垫付款、Partner Loans、property contributions、债务变化或 ownership changes，那么在重大交易逼着你重建历史之前，先把这些资料整理清楚，通常会容易得多。',
+  '如果您的企业过去几年发生过 Partner contributions、distributions、个人垫付款、Partner Loans、property contributions、债务变化或 ownership changes，那么在真正发生退出、出售、大额 Distribution 或税务检查之前，把这些历史整理清楚，通常比事后重建容易得多。',
   '黑曜财商俱乐部可以帮助小企业主整理 partner-level records、识别缺失资料、建立 Partner Basis Tracking Ledger，并把相关信息协调到可以交由适当税务或法律专业人士审核的程度。',
   '如果您对自己的 Partnership 记录有疑问，可以联系黑曜与我们讨论。',
 ]
@@ -145,7 +149,7 @@ const zh = {
   seoDescription: '很多 Partnership 老板有经营账、每年也收到 K-1，却没有持续维护完整的 Outside Basis 记录。了解 Partner basis 如何影响 losses、distributions、debt 与退出。',
   readingTime: 20,
   blocks: en.blocks.map((block, index) => {
-    if (block.type === 'list') return { ...block, items: ['我把钱投入公司。', '我从公司拿出钱。', '我借钱给 Partnership。', 'Partnership 偿还了我。', '我个人垫付了公司费用。', 'Partnership 支付了个人费用。', '我贡献或收到了 property。', 'Partnership debt 或 ownership percentages 改变。', '有 Partner 加入或退出。'] }
+    if (block.type === 'list') return { ...block, items: ['我把钱投入公司。', '我从公司拿出钱。', '我借钱给 Partnership。', 'Partnership 偿还了我。', '我个人垫付了公司费用。', 'Partnership 支付了个人费用。', '我贡献了 property。', 'Partnership 向我分配了 property。', 'Partnership debt 发生变化。', 'Ownership percentages 发生变化。', '有 Partner 加入。', '有 Partner 退出。'] }
     return { ...block, title: zhTexts[index], text: zhTexts[index] }
   }),
   sourcesTitle: '资料来源与延伸阅读', sources,
