@@ -4,7 +4,7 @@ export default {
   meta: {
     title: 'ONYX Wealth & Wellness Club',
     description:
-      'ONYX Wealth & Wellness Club is a learning community for individuals, families, and small businesses, exploring wealth, wellness, artificial intelligence, and better long-term decision-making.',
+      'ONYX Wealth & Wellness Club is a learning and resource community for families, small businesses, and community professionals, helping people understand complex systems across wealth, wellness, tax, business, AI, and long-term decision-making.',
   },
 
   nav: {
@@ -14,7 +14,7 @@ export default {
     intelligence: 'Intelligence',
     about: 'About',
     insights: 'Insights',
-    assessment: 'Assessment',
+    assessment: 'Financial Map',
     startLearning: 'Start Learning',
     languageLabel: 'Language',
   },
@@ -22,7 +22,7 @@ export default {
   footer: {
     officialName: 'ONYX Wealth & Wellness Club',
     brandLine: 'Understand a complex world. Build a better life together.',
-    descriptor: 'A learning community for individuals, families, and small businesses.',
+    descriptor: 'A learning and resource community for families, small businesses, and community professionals.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Wealth',
@@ -30,7 +30,7 @@ export default {
       intelligence: 'Intelligence',
       about: 'About',
       insights: 'Insights',
-      assessment: 'Pathway Assessment',
+      assessment: 'Family Financial Map',
       contact: 'Contact',
     },
     legal: {
@@ -48,9 +48,9 @@ export default {
       headline1: 'The world is not getting simpler.',
       headline2: 'But understanding it can be.',
       supporting:
-        'ONYX Wealth & Wellness Club is a learning community for individuals, families, and small businesses.',
+        'ONYX Wealth & Wellness Club is a learning and resource community for families, small businesses, and community professionals.',
       bridge:
-        'Together, we explore wealth, wellness, artificial intelligence, and decision-making so that more people can understand complex systems and make better long-term decisions.',
+        'We help people understand how wealth, wellness, tax, business, and AI connect—then find useful resources and take a clearer next step.',
       ctaPrimary: 'Start Learning',
       ctaSecondary: 'Latest Insights',
       supportingLine: 'Understand a complex world. Build a better life together.',
@@ -61,25 +61,34 @@ export default {
       body:
         'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
       emphasis:
-        'ONYX exists as a platform for shared learning. We do not simply tell people what the answer is. We help them understand the system behind the answer.',
+        'ONYX exists to help people understand complex systems, connect with useful resources, and take a clearer next step.',
       areas: [
         'Taxes', 'Insurance', 'Healthcare', 'Retirement', 'Nutrition',
         'AI', 'Technology', 'Family Finance', 'Estate Planning', 'Education',
       ],
     },
     brandStatement: {
-      headline: "We don't simplify life. We simplify complexity.",
+      headline: 'Understand → Connect → Act',
       body:
-        'ONYX organizes complicated ideas into practical explanations, useful frameworks, and better questions—so families can make more informed decisions.',
+        'ONYX brings learning, practical frameworks, and trusted resource connections into one place—so families, small businesses, and community professionals can move from information to better decisions.',
     },
     // Compact three-entry module rendered near the top of the Hero, so
     // Wealth/Wellness/Intelligence are reachable within the first viewport
     // — separate from the fuller `pillars` section further down the page.
     corePaths: {
-      title: 'Choose where to begin',
-      wealth: 'Understand taxes, insurance, retirement, investing, and long-term financial decisions.',
-      wellness: 'Understand nutrition, the human body, lifestyle, and long-term health.',
-      intelligence: 'Understand artificial intelligence, digital tools, and the future of work.',
+      title: 'Who is ONYX for?',
+      families: {
+        title: 'Families',
+        description: 'See how income, taxes, insurance, health, education, assets, debt, and long-term goals fit together—and identify the questions worth asking next.',
+      },
+      businessOwners: {
+        title: 'Business Owners',
+        description: 'Connect personal finances with business operations, tax choices, risk protection, cash flow, and the systems that support sustainable growth.',
+      },
+      communityPartners: {
+        title: 'Community Partners',
+        description: 'Share practical education and connect families or small businesses with clearer frameworks, useful resources, and the right next conversation.',
+      },
     },
     latestInsights: {
       title: 'Latest Insights',
@@ -109,12 +118,12 @@ export default {
       },
     },
     assessment: {
-      label: 'NOT SURE WHERE TO BEGIN?',
-      headline: 'Find your starting point.',
+      label: 'SEE THE WHOLE FAMILY FIRST',
+      headline: 'ONYX Family Financial Map',
       body:
-        "Wealth, wellness, and risk are connected—but every family's most immediate need is different. Take a short assessment to discover which area may deserve your attention first.",
-      cta: 'Take the Assessment',
-      supportingLine: 'A few thoughtful questions. No pressure. No sales pitch.',
+        'Bring income, business, taxes, protection, assets, debt, education, health, and long-term goals into one view. This structured learning entry point helps you see where you are, what may deserve deeper understanding, and which questions to ask next.',
+      cta: 'Build My Financial Map',
+      supportingLine: 'A structured starting point. No pressure and no immediate product recommendation.',
     },
     learningTogether: {
       headline: 'Learning Together',
@@ -129,21 +138,25 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiator, organizer, lifelong learner, and practitioner.',
+      headline: 'Initiator, ONYX Wealth & Wellness Club',
       roles: [
-        'Initiator of ONYX Wealth & Wellness Club',
-        'Lifelong Learner',
-        'Business Digital Transformation Practitioner',
-        'U.S. Tax Student and EA Candidate',
-        'AI Entrepreneurship Practitioner',
+        'Finance Systems & Digital Transformation',
+        'Small Business Building & Operations',
+        'Restaurant & Home Service Experience',
+        'U.S. Tax Student (EA Candidate)',
+        'AI & Business Process Practice',
       ],
       paragraphs: [
-        'I am not here to tell everyone that I already know all the answers.',
-        'Quite the opposite. I am also a member of this club.',
-        'In my thirties, I was working full time while raising children. Like many working parents, I came to realize—often with a sense of helplessness—that each step forward in my career could come at the cost of irreplaceable time with my family.',
-        'This is a website that is still growing. I have not yet mastered every system it explores.',
-        'I hope to share what I learn each day through study, practice, mistakes, and reflection.',
-        'My hope is that, through conversation, discussion, and real-world practice, we can understand a complex world and grow together.',
+        'My professional experience has taken me through multinational finance systems, digital transformation, and business operations.',
+        'I have spent years working inside complex organizations while also starting and running small businesses of my own.',
+        'Restaurants, repair work, and home services taught me that a business is never just about a product or a service. It is also about people, cash flow, taxes, risk, health, family, and the systems behind everyday decisions.',
+        'A tax decision can affect a family. A health challenge can affect a business. An insurance choice can shape long-term stability. Education and technology can change what becomes possible next.',
+        'That is why I do not see these subjects as separate boxes.',
+        'ONYX grew from a desire to bring them into one clearer, more practical picture.',
+        'I do not want to stand above people and tell them what to do.',
+        'I would rather help connect the dots—between family and business, learning and action, complex systems and practical next steps.',
+        'Understand first. Connect with the right resources. Then act with greater clarity.',
+        'That is what I hope ONYX can make easier.',
       ],
     },
     mission: {
@@ -167,7 +180,7 @@ export default {
     about: {
       eyebrow: 'ABOUT',
       title: 'About ONYX',
-      body: 'ONYX is a learning community for individuals, families, and small businesses, built around shared learning, discussion, and practice. You can read Sammi Q’s note on the homepage.',
+      body: 'ONYX is a learning and resource community for families, small businesses, and community professionals. It connects practical education, useful frameworks, and clearer next steps across wealth, wellness, tax, business, and AI.',
     },
     insights: {
       eyebrow: 'INSIGHTS',
@@ -197,10 +210,10 @@ export default {
   },
 
   contact: {
-    sammiRole: 'Initiator · Lifelong Learner · Digital Transformation and AI Practitioner · U.S. Tax Student (EA Candidate)',
-    headline: 'Initiate Your Free Diagnostic.',
+    sammiRole: 'Finance Systems & Digital Transformation · Small Business Operations · U.S. Tax Student (EA Candidate)',
+    headline: 'Start with a structured conversation.',
     supporting:
-      "Fifteen minutes. We'll map where things stand today and show you exactly where complexity around tax, risk, and health can be reduced.",
+      "We'll begin with what you are trying to understand, identify useful questions and resources, and clarify a practical next step—without pressure or an immediate product recommendation.",
     languagesLine: 'English & Mandarin',
     modalityLine: 'Virtual or in-person',
     responseLine: 'Response within 24 hours',
@@ -335,16 +348,16 @@ export default {
 
   survey: {
     meta: {
-      title: 'ONYX Pathway Assessment',
-      subtitle: 'Discover where your family may benefit from greater clarity first.',
+      title: 'ONYX Family Financial Map',
+      subtitle: 'Bring your family’s income, business, taxes, protection, assets, debt, education, health, and long-term goals into one view.',
     },
     intro: {
       description:
-        'A short, educational assessment to help you discover where you may want to focus first — Wellness, Wealth & Tax Planning, or Risk Protection.',
+        'A structured learning entry point to help you see where you are, what may deserve deeper understanding, and which questions to ask next. Its purpose is not to recommend a product immediately.',
       timeNote: 'About 4–6 minutes.',
       privacyNote:
         'We only ask about general life stage and priorities — never Social Security numbers, bank details, or exact financial figures.',
-      startCta: 'Start the Assessment',
+      startCta: 'Build My Financial Map',
     },
     progress: {
       step: 'Question {{current}} of {{total}}',

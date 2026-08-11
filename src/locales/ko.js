@@ -4,7 +4,7 @@ export default {
   meta: {
     title: 'ONYX Wealth & Wellness Club | 학습 공동체',
     description:
-      'ONYX Wealth & Wellness Club은 개인, 가족, 소규모 사업자를 위한 학습 공동체로, 자산, 웰니스, 인공지능과 더 나은 장기 의사결정을 함께 탐구합니다.',
+      'ONYX Wealth & Wellness Club은 가족, 소규모 사업자와 커뮤니티 전문가를 위한 학습·자원 연결 공동체로 자산, 건강, 세무, 사업, AI와 장기 의사결정을 함께 이해하도록 돕습니다.',
   },
 
   nav: {
@@ -14,7 +14,7 @@ export default {
     intelligence: '인텔리전스',
     about: '소개',
     insights: '인사이트',
-    assessment: '평가',
+    assessment: '재무 지도',
     startLearning: '배움 시작하기',
     languageLabel: '언어',
   },
@@ -22,7 +22,7 @@ export default {
   footer: {
     officialName: 'ONYX Wealth & Wellness Club',
     brandLine: '복잡한 세상을 이해하고, 더 나은 삶을 함께 만들어갑니다.',
-    descriptor: '개인, 가족, 소규모 사업자를 위한 학습 공동체.',
+    descriptor: '가족, 소규모 사업자와 커뮤니티 전문가를 위한 학습·자원 연결 공동체.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: '자산',
@@ -30,7 +30,7 @@ export default {
       intelligence: '인텔리전스',
       about: '소개',
       insights: '인사이트',
-      assessment: '경로 평가',
+      assessment: '가족 재무 지도',
       contact: '문의하기',
     },
     legal: {
@@ -68,6 +68,12 @@ export default {
       body:
         'ONYX는 복잡한 개념을 실용적인 설명, 유용한 프레임워크, 그리고 더 나은 질문으로 정리합니다—가정이 더 나은 결정을 내릴 수 있도록 돕기 위해서입니다.',
     },
+    corePaths: {
+      title: 'ONYX는 누구를 위한 곳인가요?',
+      families: { title: '가족', description: '소득, 세금, 보험, 건강, 교육, 자산, 부채와 장기 목표가 어떻게 연결되는지 살펴보고 다음 질문을 찾습니다.' },
+      businessOwners: { title: '소규모 사업자', description: '개인 재무와 사업 운영, 세무 선택, 위험 보호, 현금 흐름, 지속 가능한 성장을 뒷받침하는 시스템을 함께 봅니다.' },
+      communityPartners: { title: '커뮤니티 파트너', description: '실용적인 교육을 나누고 가족과 소규모 사업자가 명확한 틀, 유용한 자원, 적절한 다음 대화와 연결되도록 돕습니다.' },
+    },
     pillars: {
       eyebrow: '자산 · 웰니스 · 인텔리전스',
       wealth: {
@@ -90,11 +96,11 @@ export default {
       },
     },
     assessment: {
-      label: '어디서부터 시작해야 할지 모르시겠나요?',
-      headline: '나의 출발점을 찾아보세요.',
+      label: '먼저 가족 전체를 살펴보세요',
+      headline: 'ONYX 가족 재무 지도',
       body: '자산, 웰니스, 리스크는 서로 연결되어 있지만, 각 가정에게 가장 시급한 필요는 다릅니다. 짧은 평가를 통해 지금 가장 먼저 살펴봐야 할 영역을 확인해보세요.',
-      cta: '평가 시작하기',
-      supportingLine: '몇 가지 정성껏 준비된 질문. 부담도, 영업도 없습니다.',
+      cta: '나의 재무 지도 만들기',
+      supportingLine: '부담이나 즉각적인 상품 추천 없는 구조화된 출발점입니다.',
     },
     learningTogether: {
       headline: '함께 배우기',
@@ -109,8 +115,8 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: '발기인, 운영자, 평생 학습자이자 실천가.',
-      roles: ['ONYX Wealth & Wellness Club 발기인', '평생 학습자', '비즈니스 디지털 전환 실천가', '미국 세무 학습자 및 EA Candidate', 'AI 창업 실천가'],
+      headline: 'ONYX Wealth & Wellness Club을 시작한 사람',
+      roles: ['재무 시스템과 디지털 전환', '소규모 사업 구축과 운영', '레스토랑 및 홈 서비스 경험', '미국 세무 학습자(EA Candidate)', 'AI와 비즈니스 프로세스 실무'],
       paragraphs: [
         '저는 모든 답을 이미 알고 있다고 말하려는 것이 아닙니다.',
         '오히려 저 역시 이 클럽의 한 구성원입니다.',
@@ -166,7 +172,7 @@ export default {
 
   contact: {
     sammiRole: '발기인 · 평생 학습자 · 비즈니스 디지털 전환 및 AI 실천가 · 미국 세무 학습자(EA Candidate)',
-    headline: '무료 진단을 시작하세요.',
+    headline: '구조화된 대화로 시작하세요.',
     supporting:
       '15분이면 충분합니다. 현재 세금, 리스크, 건강 상태를 함께 살펴보고 어디에서 복잡함을 줄일 수 있는지 정확히 알려드립니다.',
     languagesLine: '영어 및 중국어 상담 가능',
@@ -216,15 +222,15 @@ export default {
 
   survey: {
     meta: {
-      title: 'ONYX 경로 평가',
-      subtitle: '지금 우리 가정에 가장 먼저 필요한 것이 건강 관리인지, 자산 및 세무 계획인지, 아니면 리스크 보장인지 확인해보세요.',
+      title: 'ONYX 가족 재무 지도',
+      subtitle: '소득, 사업, 세금, 보장, 자산, 부채, 교육, 건강과 장기 목표를 한눈에 모아 봅니다.',
     },
     intro: {
       description:
-        '지금 어디에 먼저 집중해야 할지 알아보는 짧은 교육용 평가입니다 — 웰니스, 자산 및 세무 계획, 또는 리스크 보장 중에서요.',
+        '현재 위치와 더 알아볼 부분, 다음에 물어야 할 질문을 찾는 구조화된 학습의 시작점입니다. 즉각적인 상품 추천이 목적이 아닙니다.',
       timeNote: '약 4~6분 소요됩니다.',
       privacyNote: '대략적인 생활 단계와 우선순위만 여쭤봅니다 — 주민등록번호, 계좌 정보, 정확한 재무 수치는 절대 묻지 않습니다.',
-      startCta: '평가 시작하기',
+      startCta: '나의 재무 지도 만들기',
     },
     progress: {
       step: '{{total}}문항 중 {{current}}번째',

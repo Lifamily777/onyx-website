@@ -4,7 +4,7 @@ export default {
   meta: {
     title: 'ONYX Wealth & Wellness Club | Lerngemeinschaft',
     description:
-      'ONYX Wealth & Wellness Club ist eine Lerngemeinschaft für Einzelpersonen, Familien und kleine Unternehmen rund um Vermögen, Wellness, künstliche Intelligenz und bessere langfristige Entscheidungen.',
+      'ONYX Wealth & Wellness Club ist eine Lern- und Ressourcengemeinschaft für Familien, kleine Unternehmen und Fachleute aus der Gemeinschaft rund um Vermögen, Gesundheit, Steuern, Unternehmen, KI und langfristige Entscheidungen.',
   },
 
   nav: {
@@ -14,7 +14,7 @@ export default {
     intelligence: 'Intelligenz',
     about: 'Über uns',
     insights: 'Einblicke',
-    assessment: 'Bewertung',
+    assessment: 'Finanzlandkarte',
     startLearning: 'Lernen beginnen',
     languageLabel: 'Sprache',
   },
@@ -22,7 +22,7 @@ export default {
   footer: {
     officialName: 'ONYX Wealth & Wellness Club',
     brandLine: 'Eine komplexe Welt verstehen. Gemeinsam ein besseres Leben gestalten.',
-    descriptor: 'Eine Lerngemeinschaft für Einzelpersonen, Familien und kleine Unternehmen.',
+    descriptor: 'Eine Lern- und Ressourcengemeinschaft für Familien, kleine Unternehmen und Fachleute aus der Gemeinschaft.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Vermögen',
@@ -30,7 +30,7 @@ export default {
       intelligence: 'Intelligenz',
       about: 'Über uns',
       insights: 'Einblicke',
-      assessment: 'Wegweiser-Bewertung',
+      assessment: 'Familien-Finanzlandkarte',
       contact: 'Kontakt',
     },
     legal: {
@@ -72,6 +72,12 @@ export default {
       body:
         'ONYX ordnet komplizierte Ideen in praktische Erklärungen, nützliche Rahmenwerke und bessere Fragen — damit Familien fundiertere Entscheidungen treffen können.',
     },
+    corePaths: {
+      title: 'Für wen ist ONYX da?',
+      families: { title: 'Familien', description: 'Verstehen Sie, wie Einkommen, Steuern, Versicherungen, Gesundheit, Bildung, Vermögen, Schulden und langfristige Ziele zusammenhängen – und welche Fragen wichtig sind.' },
+      businessOwners: { title: 'Kleinunternehmerinnen und Kleinunternehmer', description: 'Verbinden Sie private Finanzen mit Betriebsabläufen, Steuerentscheidungen, Absicherung, Liquidität und den Systemen für nachhaltiges Wachstum.' },
+      communityPartners: { title: 'Partner aus der Gemeinschaft', description: 'Teilen Sie praxisnahe Bildung und verbinden Sie Familien und kleine Unternehmen mit klaren Rahmenwerken, nützlichen Ressourcen und dem passenden Gespräch.' },
+    },
     pillars: {
       eyebrow: 'Vermögen · Wellness · Intelligenz',
       wealth: {
@@ -97,12 +103,12 @@ export default {
       },
     },
     assessment: {
-      label: 'NICHT SICHER, WO SIE ANFANGEN SOLLEN?',
-      headline: 'Finden Sie Ihren Ausgangspunkt.',
+      label: 'ZUERST DIE GANZE FAMILIE BETRACHTEN',
+      headline: 'ONYX Familien-Finanzlandkarte',
       body:
         'Vermögen, Wellness und Risiko hängen zusammen — doch der dringendste Bedarf jeder Familie ist unterschiedlich. Machen Sie eine kurze Bewertung, um herauszufinden, welchem Bereich Sie zuerst Ihre Aufmerksamkeit widmen sollten.',
-      cta: 'Bewertung starten',
-      supportingLine: 'Ein paar durchdachte Fragen. Kein Druck. Kein Verkaufsgespräch.',
+      cta: 'Meine Finanzlandkarte erstellen',
+      supportingLine: 'Ein strukturierter Ausgangspunkt – ohne Druck oder sofortige Produktempfehlung.',
     },
     learningTogether: {
       headline: 'Gemeinsam Lernen',
@@ -117,8 +123,8 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiatorin, Organisatorin, lebenslang Lernende und Praktikerin.',
-      roles: ['Initiatorin des ONYX Wealth & Wellness Club', 'Lebenslang Lernende', 'Praktikerin für digitale Unternehmenstransformation', 'Lernende im US-Steuerrecht und EA Candidate', 'Praktikerin für KI-Unternehmertum'],
+      headline: 'Initiatorin des ONYX Wealth & Wellness Club',
+      roles: ['Finanzsysteme und digitale Transformation', 'Aufbau und Betrieb kleiner Unternehmen', 'Erfahrung in Gastronomie und haushaltsnahen Dienstleistungen', 'Lernende im US-Steuerrecht (EA Candidate)', 'KI und Geschäftsprozesse'],
       paragraphs: [
         'Ich bin nicht hier, um zu behaupten, bereits alle Antworten zu kennen.',
         'Im Gegenteil: Auch ich bin Mitglied dieses Clubs.',
@@ -181,7 +187,7 @@ export default {
 
   contact: {
     sammiRole: 'Initiatorin · Lebenslang Lernende · Praktikerin für digitale Transformation und KI · Lernende im US-Steuerrecht (EA Candidate)',
-    headline: 'Starten Sie Ihre kostenlose Diagnose.',
+    headline: 'Beginnen Sie mit einem strukturierten Gespräch.',
     supporting:
       'Fünfzehn Minuten. Wir erfassen Ihre aktuelle Situation und zeigen Ihnen genau, wo sich Komplexität bei Steuern, Risiko und Gesundheit verringern lässt.',
     languagesLine: 'Englisch und Mandarin',
@@ -231,16 +237,16 @@ export default {
 
   survey: {
     meta: {
-      title: 'ONYX Wegweiser-Bewertung',
-      subtitle: 'Finden Sie heraus, wo Ihre Familie zuerst von mehr Klarheit profitieren könnte.',
+      title: 'ONYX Familien-Finanzlandkarte',
+      subtitle: 'Bringen Sie Einkommen, Unternehmen, Steuern, Absicherung, Vermögen, Schulden, Bildung, Gesundheit und langfristige Ziele in eine Übersicht.',
     },
     intro: {
       description:
-        'Eine kurze, lehrreiche Bewertung, die Ihnen hilft herauszufinden, worauf Sie sich zuerst konzentrieren sollten — Wellness, Vermögen & Steuerplanung oder Risikoschutz.',
+        'Ein strukturierter Lerneinstieg, der zeigt, wo Sie stehen, was vertieft werden sollte und welche Fragen als Nächstes wichtig sind. Er dient nicht der sofortigen Produktempfehlung.',
       timeNote: 'Etwa 4–6 Minuten.',
       privacyNote:
         'Wir fragen nur nach Ihrer allgemeinen Lebensphase und Ihren Prioritäten — niemals nach Sozialversicherungsnummern, Bankdaten oder genauen Finanzzahlen.',
-      startCta: 'Bewertung starten',
+      startCta: 'Meine Finanzlandkarte erstellen',
     },
     progress: {
       step: 'Frage {{current}} von {{total}}',

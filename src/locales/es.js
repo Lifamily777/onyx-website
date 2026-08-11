@@ -4,7 +4,7 @@ export default {
   meta: {
     title: 'ONYX Wealth & Wellness Club | Comunidad de aprendizaje',
     description:
-      'ONYX Wealth & Wellness Club es una comunidad de aprendizaje para personas, familias y pequeñas empresas que explora el patrimonio, el bienestar, la inteligencia artificial y mejores decisiones a largo plazo.',
+      'ONYX Wealth & Wellness Club es una comunidad de aprendizaje y conexión de recursos para familias, pequeñas empresas y profesionales de la comunidad, centrada en patrimonio, bienestar, fiscalidad, empresa, IA y decisiones a largo plazo.',
   },
 
   nav: {
@@ -14,7 +14,7 @@ export default {
     intelligence: 'Inteligencia',
     about: 'Nosotros',
     insights: 'Ideas',
-    assessment: 'Evaluación',
+    assessment: 'Mapa Financiero',
     startLearning: 'Empieza a Aprender',
     languageLabel: 'Idioma',
   },
@@ -22,7 +22,7 @@ export default {
   footer: {
     officialName: 'ONYX Wealth & Wellness Club',
     brandLine: 'Comprender un mundo complejo. Construir juntos una vida mejor.',
-    descriptor: 'Una comunidad de aprendizaje para personas, familias y pequeñas empresas.',
+    descriptor: 'Una comunidad de aprendizaje y recursos para familias, pequeñas empresas y profesionales de la comunidad.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Patrimonio',
@@ -30,7 +30,7 @@ export default {
       intelligence: 'Inteligencia',
       about: 'Nosotros',
       insights: 'Ideas',
-      assessment: 'Evaluación de Ruta',
+      assessment: 'Mapa Financiero Familiar',
       contact: 'Contacto',
     },
     legal: {
@@ -72,6 +72,12 @@ export default {
       body:
         'ONYX organiza ideas complicadas en explicaciones prácticas, marcos útiles y mejores preguntas—para que las familias puedan tomar decisiones más informadas.',
     },
+    corePaths: {
+      title: '¿Para quién existe ONYX?',
+      families: { title: 'Familias', description: 'Comprendan cómo se conectan ingresos, impuestos, seguros, salud, educación, activos, deudas y objetivos a largo plazo, y qué preguntas conviene hacer después.' },
+      businessOwners: { title: 'Propietarios de pequeñas empresas', description: 'Conecten las finanzas personales con la operación, las decisiones fiscales, la protección, el flujo de caja y los sistemas que sostienen un crecimiento saludable.' },
+      communityPartners: { title: 'Aliados de la comunidad', description: 'Compartan educación práctica y conecten a familias y pequeñas empresas con marcos claros, recursos útiles y la conversación adecuada.' },
+    },
     pillars: {
       eyebrow: 'Patrimonio · Bienestar · Inteligencia',
       wealth: {
@@ -97,12 +103,12 @@ export default {
       },
     },
     assessment: {
-      label: '¿NO SABES POR DÓNDE EMPEZAR?',
-      headline: 'Encuentra tu punto de partida.',
+      label: 'PRIMERO, MIRA A TODA LA FAMILIA',
+      headline: 'Mapa Financiero Familiar ONYX',
       body:
         'El patrimonio, el bienestar y el riesgo están conectados—pero la necesidad más urgente de cada familia es distinta. Realiza una breve evaluación para descubrir qué área merece tu atención primero.',
-      cta: 'Realizar la Evaluación',
-      supportingLine: 'Unas preguntas bien pensadas. Sin presión. Sin ventas.',
+      cta: 'Crear mi mapa financiero',
+      supportingLine: 'Un punto de partida estructurado, sin presión ni recomendación inmediata de productos.',
     },
     learningTogether: {
       headline: 'Aprendiendo Juntos',
@@ -117,8 +123,8 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Iniciadora, organizadora, aprendiz permanente y practicante.',
-      roles: ['Iniciadora de ONYX Wealth & Wellness Club', 'Aprendiz permanente', 'Profesional de transformación digital empresarial', 'Estudiante de fiscalidad estadounidense y EA Candidate', 'Profesional de emprendimiento con IA'],
+      headline: 'Iniciadora de ONYX Wealth & Wellness Club',
+      roles: ['Sistemas financieros y transformación digital', 'Creación y operación de pequeñas empresas', 'Experiencia en restauración y servicios para el hogar', 'Estudiante de fiscalidad estadounidense (EA Candidate)', 'IA y procesos empresariales'],
       paragraphs: [
         'No estoy aquí para decir que ya conozco todas las respuestas.',
         'Al contrario: yo también formo parte de este club.',
@@ -174,7 +180,7 @@ export default {
 
   contact: {
     sammiRole: 'Iniciadora · Aprendiz permanente · Profesional de transformación digital e IA · Estudiante de fiscalidad de EE. UU. (EA Candidate)',
-    headline: 'Inicia tu diagnóstico gratuito.',
+    headline: 'Empieza con una conversación estructurada.',
     supporting:
       'Quince minutos. Evaluamos tu situación actual y te mostramos exactamente dónde se puede reducir la complejidad fiscal, de riesgo y de salud.',
     languagesLine: 'Inglés y mandarín',
@@ -224,16 +230,16 @@ export default {
 
   survey: {
     meta: {
-      title: 'Evaluación de Ruta ONYX',
-      subtitle: 'Descubre en qué área tu familia podría beneficiarse primero de mayor claridad.',
+      title: 'Mapa Financiero Familiar ONYX',
+      subtitle: 'Reúne ingresos, empresa, impuestos, protección, activos, deudas, educación, salud y objetivos a largo plazo en una sola vista.',
     },
     intro: {
       description:
-        'Una breve evaluación educativa para ayudarte a descubrir dónde enfocarte primero — Bienestar, Patrimonio y Planificación Fiscal, o Protección de Riesgo.',
+        'Un punto de entrada de aprendizaje estructurado para ver dónde estás, qué merece mayor comprensión y qué preguntas hacer después. No busca recomendar un producto de inmediato.',
       timeNote: 'Alrededor de 4–6 minutos.',
       privacyNote:
         'Solo preguntamos sobre tu etapa de vida y prioridades generales — nunca tu número de seguro social, datos bancarios o cifras financieras exactas.',
-      startCta: 'Comenzar la Evaluación',
+      startCta: 'Crear mi mapa financiero',
     },
     progress: {
       step: 'Pregunta {{current}} de {{total}}',
