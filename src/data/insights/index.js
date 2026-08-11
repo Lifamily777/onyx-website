@@ -2,6 +2,7 @@ import { technologyDoesNotDecideForYou } from './technology-does-not-decide-for-
 import { waicAiSuperNodeAgentOsOpcAgi } from './waic-ai-super-node-agent-os-opc-agi'
 import { whyChineseFamiliesLoveSavingButDistrustInsurance } from './why-chinese-families-love-saving-but-distrust-insurance'
 import { termVsGulVsIulFamilyCapital } from './term-vs-gul-vs-iul-family-capital'
+import { theThirdLedgerPartnershipBasis } from './the-third-ledger-partnership-basis'
 
 // One import per article file. Add a new line here when a new insight file
 // is created — this stays a one-line diff no matter how many articles exist.
@@ -11,6 +12,7 @@ const allInsights = [
   technologyDoesNotDecideForYou,
   waicAiSuperNodeAgentOsOpcAgi,
   whyChineseFamiliesLoveSavingButDistrustInsurance,
+  theThirdLedgerPartnershipBasis,
   termVsGulVsIulFamilyCapital,
 ]
 

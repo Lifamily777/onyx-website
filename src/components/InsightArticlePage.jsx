@@ -274,6 +274,58 @@ function InsuranceEditorialArticle({ insight, data, englishData, chineseData, t,
   )
 }
 
+function PartnershipVisual({ type }) {
+  if (type === 'ledgers') return (
+    <figure className={styles.ledgerGrid} aria-label="Three complementary partnership records">
+      {[
+        ['01', 'Business Books', '经营账', 'How is the business doing?', '公司经营得怎么样？'],
+        ['02', 'Capital Account', '资本账户', 'Part of the ownership story', 'ownership story 的一部分'],
+        ['03', 'Partner Basis Ledger', 'Partner Basis 记录', 'The Partner’s tax story', '每位 Partner 的税务故事'],
+      ].map(([n, en, zh, desc, descZh]) => <section key={n}><span>{n}</span><h3>{en}</h3><h4 lang="zh-CN">{zh}</h4><p>{desc}</p><small lang="zh-CN">{descZh}</small></section>)}
+    </figure>
+  )
+  if (type === 'rollforward') {
+    const rows = [
+      ['Beginning Outside Basis', '期初 Outside Basis', '$50,000', ''],
+      ['Cash Contribution', '现金投入', '+$10,000', 'up'],
+      ['Property Contribution — adjusted tax basis', 'Property Contribution——adjusted tax basis', '+$4,000', 'up'],
+      ['Allocated Partnership Income', '分配到的 Partnership Income', '+$20,000', 'up'],
+      ['Increase in qualifying Partnership liabilities', 'qualifying Partnership liabilities 份额增加', '+$12,000', 'up'],
+      ['Cash Distribution', '现金 Distribution', '−$8,000', 'down'],
+      ['Allocated Partnership Loss', '分配到的 Partnership Loss', '−$5,000', 'down'],
+    ]
+    return <figure className={styles.basisRollforward}><figcaption>Lee’s simplified Outside Basis rollforward<small lang="zh-CN">Lee 的简化 Outside Basis 变动表</small></figcaption>{rows.map(([en, zh, amount, tone]) => <div key={en}><p>{en}<small lang="zh-CN">{zh}</small></p><strong className={tone ? styles[tone] : ''}>{amount}</strong></div>)}<div className={styles.basisTotal}><p>Ending Outside Basis<small lang="zh-CN">期末 Outside Basis</small></p><strong>$83,000</strong></div></figure>
+  }
+  if (type === 'basisRule') return <figure className={styles.basisRule}><div><span>+$30,000</span><strong>Income builds basis.</strong><small lang="zh-CN">Income 在建立 basis。</small></div><div><span>−$10,000</span><strong>Distribution uses basis.</strong><small lang="zh-CN">Distribution 在使用 basis。</small></div></figure>
+  if (type === 'consequences') return <figure className={styles.consequenceGrid}>{[['01','Loss deductions','Loss deductions'],['02','Cash distributions','现金 distributions'],['03','Sale or exit','出售或退出'],['04','Debt changes','债务变化']].map(([n,en,zh])=><div key={n}><span>{n}</span><strong>{en}</strong><small lang="zh-CN">{zh}</small></div>)}</figure>
+  if (type === 'transaction') return <figure className={styles.transactionFlow}><div><strong>PARTNER</strong><small lang="zh-CN">合伙人</small></div><p><span>Money · Property · Debt</span><small lang="zh-CN">资金 · 财产 · 债务</small></p><div><strong>PARTNERSHIP</strong><small lang="zh-CN">合伙企业</small></div></figure>
+  if (type === 'storyClose') return <figure className={styles.storyClose}><p>Three years later, Lee asks:</p><blockquote>“What is my basis?”</blockquote><p lang="zh-CN">三年后，Lee 再次问：“我的 basis 是多少？”</p><strong>This time, nobody stares at the ceiling.<br />Someone opens the Third Ledger. The history is there.</strong><small lang="zh-CN">这一次，没有人抬头盯着天花板。有人打开第三套账，历史都在那里。</small></figure>
+  if (type === 'takeaway') return <figure className={styles.thirdLedgerTakeaway}>{[
+    ['Business books tell you what the company did.', '公司的经营账，告诉你公司做了什么。'],
+    ['Capital accounts tell you part of the ownership story.', 'Capital accounts，告诉你 ownership story 的一部分。'],
+    ["Basis tells you the Partner's tax story.", 'Basis，告诉你每一位 Partner 自己的税务故事。'],
+    ['A good Partnership should know where all three stories are being kept.', '一个经营得好的 Partnership，应该知道这三个故事分别被记录在哪里。'],
+  ].map(([en,zh])=><div key={en}><p>{en}</p><small lang="zh-CN">{zh}</small></div>)}</figure>
+  return null
+}
+
+function PartnershipEditorialArticle({ insight, englishData, chineseData, t, localePath, isFallback }) {
+  return <div className={`${styles.wrap} ${styles.insuranceWrap} ${styles.partnershipWrap} page-enter`}><article lang="en">
+    <header className={styles.insuranceHero}><p className={styles.editorialEyebrow}>ONYX INSIGHT #{String(insight.insightNumber).padStart(3, '0')}</p>{isFallback && <p className={styles.languageNotice}>{t('insightsPage.languageNotice')}</p>}<h1>{englishData.title}</h1><p className={styles.insuranceTitleZh} lang="zh-CN">{chineseData.title}</p><div className={styles.insuranceSubtitle}><p>{englishData.subtitle}</p><p lang="zh-CN">{chineseData.subtitle}</p></div><div className={styles.editorialByline}><strong>{insight.author}</strong><span>{insight.authorTitle}</span><small>{englishData.readingTime} {t('insightsPage.minReadSuffix')}</small></div></header>
+    <div className={styles.insuranceBody}>{englishData.blocks.map((block, i) => {
+      const zh = chineseData.blocks[i]
+      if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{block.title}</h2><p lang="zh-CN">{zh.title}</p></section>
+      if (['ledgers','rollforward','basisRule','consequences','transaction','storyClose','takeaway'].includes(block.type)) return <PartnershipVisual key={i} type={block.type} />
+      if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></aside>
+      if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></blockquote>
+      if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item,j)=><li key={item}><span>{item}</span><small lang="zh-CN">{zh.items[j]}</small></li>)}</ul>
+      if (block.type === 'cta') return <aside key={i} className={styles.partnershipCta}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p><Link to={localePath('/contact')}>Contact ONYX · 联系黑曜</Link></aside>
+      return <div key={i} className={`${styles.insurancePair} ${block.lead ? styles.insuranceLead : ''}`}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></div>
+    })}</div>
+    <footer className={styles.insuranceFooter}><section className={styles.sourceList}><h2>{englishData.sourcesTitle}<small lang="zh-CN">{chineseData.sourcesTitle}</small></h2><ul>{englishData.sources.map(source=><li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section><div className={styles.authorSignature}><strong>{insight.author}</strong><span>{insight.authorTitle}</span></div><div className={styles.insuranceDisclaimer}><p>{englishData.disclaimer}</p><p lang="zh-CN">{chineseData.disclaimer}</p></div><Link to={localePath('/insights')} className={styles.backLink}>{t('insightsPage.backToIndex')}</Link></footer>
+  </article></div>
+}
+
 export default function InsightArticlePage() {
   const { slug } = useParams()
   const { t, locale, localePath } = useLocale()
@@ -284,7 +336,7 @@ export default function InsightArticlePage() {
   const { data, isFallback, resolvedLocale } = resolveInsightContent(insight, locale)
   const relatedTerms = getTermsByInsightSlug(insight.slug)
 
-  const isEditorialLayout = insight.layout === 'bilingualEditorial' || insight.layout === 'insuranceEditorial'
+  const isEditorialLayout = ['bilingualEditorial', 'insuranceEditorial', 'partnershipEditorial'].includes(insight.layout)
   const metaOptions = isEditorialLayout
     ? {
         siteName: t('footer.officialName'),
@@ -305,6 +357,10 @@ export default function InsightArticlePage() {
 
   if (insight.layout === 'insuranceEditorial') {
     return <InsuranceEditorialArticle insight={insight} data={data} englishData={insight.content.en} chineseData={insight.content.zh} t={t} localePath={localePath} isFallback={isFallback} />
+  }
+
+  if (insight.layout === 'partnershipEditorial') {
+    return <PartnershipEditorialArticle insight={insight} englishData={insight.content.en} chineseData={insight.content.zh} t={t} localePath={localePath} isFallback={isFallback} />
   }
 
   if (insight.layout === 'bilingualEditorial') {
