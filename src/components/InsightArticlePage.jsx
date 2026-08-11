@@ -275,6 +275,7 @@ function InsuranceEditorialArticle({ insight, data, englishData, chineseData, t,
 }
 
 function PartnershipVisual({ type }) {
+  if (type === 'restaurant') return <figure className={styles.restaurantStory}><div><span>LEE</span><strong>Supplier whisperer</strong><small lang="zh-CN">最会和供应商谈价格</small></div><div><span>MAYA</span><strong>Customer instinct</strong><small lang="zh-CN">客人结账前就知道他会不会再来</small></div><div><span>DAVID</span><strong>Duct-tape confidence</strong><small lang="zh-CN">螺丝刀、胶带，以及不太合理的自信</small></div></figure>
   if (type === 'ledgers') return (
     <figure className={styles.ledgerGrid} aria-label="Three complementary partnership records">
       {[
@@ -298,6 +299,7 @@ function PartnershipVisual({ type }) {
   }
   if (type === 'basisRule') return <figure className={styles.basisRule}><div><span>+$30,000</span><strong>Income builds basis.</strong><small lang="zh-CN">Income 在建立 basis。</small></div><div><span>−$10,000</span><strong>Distribution uses basis.</strong><small lang="zh-CN">Distribution 在使用 basis。</small></div></figure>
   if (type === 'consequences') return <figure className={styles.consequenceGrid}>{[['01','Loss deductions','Loss deductions'],['02','Cash distributions','现金 distributions'],['03','Sale or exit','出售或退出'],['04','Debt changes','债务变化']].map(([n,en,zh])=><div key={n}><span>{n}</span><strong>{en}</strong><small lang="zh-CN">{zh}</small></div>)}</figure>
+  if (type === 'missingLedger') return <figure className={styles.missingLedgerCard}>{[['Loss deduction','可能报得过高'],['Distribution gain','可能报得过低'],['Sale gain or loss','可能计算错误'],['Historical reconstruction','可能昂贵又费时']].map(([en,zh])=><div key={en}><strong>{en}</strong><small lang="zh-CN">{zh}</small></div>)}<p>Incorrect reporting may mean additional tax, statutory interest, and—depending on the facts—potential penalties.<small lang="zh-CN">错误申报可能带来 additional tax、statutory interest，以及视具体事实而定的 penalties。</small></p></figure>
   if (type === 'transaction') return <figure className={styles.transactionFlow}><div><strong>PARTNER</strong><small lang="zh-CN">合伙人</small></div><p><span>Money · Property · Debt</span><small lang="zh-CN">资金 · 财产 · 债务</small></p><div><strong>PARTNERSHIP</strong><small lang="zh-CN">合伙企业</small></div></figure>
   if (type === 'storyClose') return <figure className={styles.storyClose}><p>Three years later, Lee asks:</p><blockquote>“What is my basis?”</blockquote><p lang="zh-CN">三年后，Lee 再次问：“我的 basis 是多少？”</p><strong>This time, nobody stares at the ceiling.<br />Someone opens the Third Ledger. The history is there.</strong><small lang="zh-CN">这一次，没有人抬头盯着天花板。有人打开第三套账，历史都在那里。</small></figure>
   if (type === 'takeaway') return <figure className={styles.thirdLedgerTakeaway}>{[
@@ -315,7 +317,7 @@ function PartnershipEditorialArticle({ insight, englishData, chineseData, t, loc
     <div className={styles.insuranceBody}>{englishData.blocks.map((block, i) => {
       const zh = chineseData.blocks[i]
       if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{block.title}</h2><p lang="zh-CN">{zh.title}</p></section>
-      if (['ledgers','rollforward','basisRule','consequences','transaction','storyClose','takeaway'].includes(block.type)) return <PartnershipVisual key={i} type={block.type} />
+      if (['restaurant','ledgers','rollforward','basisRule','consequences','missingLedger','transaction','storyClose','takeaway'].includes(block.type)) return <PartnershipVisual key={i} type={block.type} />
       if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></aside>
       if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></blockquote>
       if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item,j)=><li key={item}><span>{item}</span><small lang="zh-CN">{zh.items[j]}</small></li>)}</ul>
