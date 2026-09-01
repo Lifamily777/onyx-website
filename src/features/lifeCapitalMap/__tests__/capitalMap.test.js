@@ -26,6 +26,7 @@ test('Wellness foundation is bilingual, education-first, and avoids sensitive st
     assert.ok(node.tryItems.length >= 4 && node.keep.note && node.keep.noteZh)
     assert.ok(node.selfManage.body && node.selfManage.bodyZh)
     assert.ok(node.deeperReview.body && node.deeperReview.bodyZh && node.deeperReview.triggers.length >= 4)
+    assert.ok(node.relatedWealthNodes.length >= 2)
     assert.ok(node.askSammiContext)
   }
   assert.equal(getWellnessNode('wl6').stage, 'optionality')

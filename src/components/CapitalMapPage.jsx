@@ -31,7 +31,7 @@ export default function CapitalMapPage({ view = 'map' }) {
 
     {!showEvents && <section className={styles.road} aria-labelledby="stages-title"><h2 id="stages-title">Six Capital Stages <span lang="zh-CN">六个资本阶段</span></h2>
       {LIFE_CAPITAL_STAGES.map((stage)=><article key={stage.id} className={styles.stage}>
-        <header><span>{String(stage.order).padStart(2,'0')}</span><h3>{stage.name}<small lang="zh-CN">{stage.nameZh}</small></h3></header>
+        <header><span>{String(stage.order).padStart(2,'0')}</span><div><h3>{stage.name}<small lang="zh-CN">{stage.nameZh}</small></h3><p>{stage.description}<br/><small lang="zh-CN">{stage.descriptionZh}</small></p></div></header>
         <div className={styles.domainColumns}>
           {showWealth && <section><h4>Wealth <small lang="zh-CN">财富</small></h4><div className={styles.cards}>{WEALTH_HERO_NODES.filter((node)=>node.stage===stage.id).map((node)=><Link key={node.id} to={localePath(`/capital-map/node/${node.id.toLowerCase()}`)}><span>{node.id}</span><strong>{node.title}</strong><small lang="zh-CN">{node.titleZh}</small><p>{node.shortDescription}</p></Link>)}</div></section>}
           {showWellness && <section><h4>Wellness <small lang="zh-CN">健康</small></h4><div className={styles.cards}>{WELLNESS_FOUNDATION_NODES.filter((node)=>node.stage===stage.id).map((node)=><Link key={node.id} to={localePath(`/capital-map/wellness/${node.id.toLowerCase()}`)}><span>{node.id}</span><strong>{node.title}</strong><small lang="zh-CN">{node.titleZh}</small><p>{node.shortDescription}</p></Link>)}</div></section>}

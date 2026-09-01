@@ -1,5 +1,13 @@
 const reflection = (prompt, promptZh, options) => ({ prompt, promptZh, options })
-const wellnessNode = (data) => ({ domain: 'wellness', relatedInsights: [], ...data })
+const relatedWealthByStage = {
+  survival: ['W1','W13'],
+  stability: ['W8','W9','W12'],
+  protection: ['W12','W13','W18'],
+  growth: ['W19','W24'],
+  strategic: ['W25','W30'],
+  optionality: ['W31','W12','W13'],
+}
+const wellnessNode = (data) => ({ domain: 'wellness', relatedInsights: [], relatedWealthNodes: relatedWealthByStage[data.stage] || [], ...data })
 
 export const WELLNESS_FOUNDATION_NODES = [
   wellnessNode({ id:'WL1', stage:'survival', title:'Basic Care & Acute Readiness', titleZh:'基础照护与急性事件准备', shortDescription:'Organize the people, access points, and basic information you would need when care cannot wait.', shortDescriptionZh:'整理无法等待时所需的联系人、就医入口和基础信息。',

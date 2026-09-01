@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
-import { EDUCATIONAL_DISCLAIMER, getWellnessNode, LIFE_CAPITAL_STAGES } from '../features/lifeCapitalMap'
+import { EDUCATIONAL_DISCLAIMER, getWellnessNode, getWealthNode, LIFE_CAPITAL_STAGES } from '../features/lifeCapitalMap'
 import NotFound from './NotFound'
 import styles from './CapitalMap.module.css'
 
@@ -29,6 +29,7 @@ export default function WellnessNodePage() {
     <section className={styles.tool}><span>TRY · 自己试一试</span><h2>Private reflection checklist <small lang="zh-CN">私人观察清单</small></h2><p>Selections stay only on this page and are not submitted or saved.</p><p lang="zh-CN">选择仅保留在当前页面，不会提交或保存。</p><div className={styles.checkGrid}>{node.tryItems.map((item) => <label key={item}><input type="checkbox" checked={checked.includes(item)} onChange={() => toggle(item)} />{item}</label>)}</div><div className={styles.progressText} aria-live="polite">{checked.length} of {node.tryItems.length} reflected on · 已观察 {checked.length}/{node.tryItems.length}</div></section>
     <section className={styles.keep}><span>KEEP · 留下工具</span><h2>{node.keep.title}<small lang="zh-CN">{node.keep.titleZh}</small></h2><p>{node.keep.note}</p><p lang="zh-CN">{node.keep.noteZh}</p></section>
     <section className={styles.guidance}><article><span>SELF-MANAGE?</span><h2>What you may organize yourself</h2><h3 lang="zh-CN">可以先自行整理什么</h3><p>{node.selfManage.body}</p><p lang="zh-CN">{node.selfManage.bodyZh}</p></article><article><span>DEEPER REVIEW?</span><h2>When qualified review may help</h2><h3 lang="zh-CN">何时值得寻求合格专业意见</h3><p>{node.deeperReview.body}</p><p lang="zh-CN">{node.deeperReview.bodyZh}</p><ul>{node.deeperReview.triggers.map((trigger) => <li key={trigger}>{trigger}</li>)}</ul></article></section>
+    <section className={styles.related}><h2>Connected Wealth Paths · 相关财富路径</h2><p>These links show planning dependencies. Wellness reflections remain separate from Wealth assessment scores.</p><p lang="zh-CN">这些链接用于显示规划之间的关联；健康观察不会进入财富评估评分。</p>{node.relatedWealthNodes.map((nodeId)=>{const wealthNode=getWealthNode(nodeId);return wealthNode?<Link key={nodeId} to={localePath(`/capital-map/node/${nodeId.toLowerCase()}`)}>{nodeId} · {wealthNode.title} · {wealthNode.titleZh}</Link>:null})}</section>
     <section className={styles.askSammi}><span>ASK SAMMI</span><h2>Organize the question before sharing information.</h2><p lang="zh-CN">先整理问题，再决定需要分享什么信息。</p><Link to={`${localePath('/contact')}?context=${encodeURIComponent(node.askSammiContext)}`}>Ask Sammi with context · 带背景联系Sammi</Link></section>
     <footer className={styles.disclaimer}><p>Wellness content is educational and does not diagnose, treat, or replace care from qualified health professionals.</p><p lang="zh-CN">健康内容仅用于教育，不提供诊断或治疗，也不能替代合格医疗专业人员的照护。</p><p>{EDUCATIONAL_DISCLAIMER.en}</p><p lang="zh-CN">{EDUCATIONAL_DISCLAIMER.zh}</p></footer>
   </main>
