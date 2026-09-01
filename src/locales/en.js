@@ -45,8 +45,8 @@ export default {
 
   home: {
     hero: {
-      headline1: 'The world is not getting simpler.',
-      headline2: 'But understanding it can be.',
+      headline1: 'The world is complex and its rules are layered.',
+      headline2: 'Together, let us turn complexity into clarity—and navigate with real-world cases.',
       supporting:
         'ONYX Wealth & Wellness Club is a learning and resource community for families, small businesses, and community professionals.',
       bridge:
@@ -57,7 +57,7 @@ export default {
     },
     why: {
       label: 'WHY ONYX?',
-      headline: 'Many people discover that the problem is not a lack of effort. The world is simply becoming more complex.',
+      headline: 'When you’re too busy to learn everything from scratch, ONYX brings essential knowledge together in one clear, trusted place.',
       body:
         'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
       emphasis:
