@@ -37,6 +37,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Next Dollar Planner upgraded to a fixed-order, bilingual comparison of six capital jobs with visible assumptions and trade-offs; no ranking or universal winner is produced.
 - First-priority Wealth node interactions now communicate local-only inputs, expose accessible reflection state, and render calculator results in readable educational layouts.
 - The bilingual 5–10 Year Planning Map is implemented as an education-only horizon without predictions, eligibility conclusions, current-law constants, or individualized recommendations.
+- Eight local-download CSV worksheets are implemented with explicit sensitive-data warnings; the tax-reserve template organizes records but does not calculate liability or state a current-law rule.
 - Autonomous work on the currently locked priorities is complete; remaining prioritized items cross explicit human-review boundaries.
 
 ## Resolved

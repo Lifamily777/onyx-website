@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
-import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES, DOWNLOAD_TEMPLATES, downloadTemplate, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
 import styles from './CapitalMap.module.css'
 
 export default function CapitalMapPage({ view = 'map' }) {
@@ -46,6 +46,7 @@ export default function CapitalMapPage({ view = 'map' }) {
       <div className={styles.eventGrid}>{visibleEvents.map((event)=><Link key={event.id} to={localePath(`/capital-map/event/${event.id}`)}><span>{event.category.replace('_',' ')}</span><h3>{event.title}</h3><h4 lang="zh-CN">{event.titleZh}</h4><p>{event.description}</p></Link>)}</div>
       <p className={styles.privacyNote}>Filters and status reflections are not saved or submitted. · <span lang="zh-CN">筛选和状态观察不会保存或提交。</span></p>
     </section>}
+    {view === 'map' && <section className={styles.downloadLibrary}><div className={styles.sectionIntro}><h2>Keep a Working Copy <span lang="zh-CN">保留一份工作底稿</span></h2><p>Eight simple CSV templates help organize facts without creating an account. Downloads happen locally in your browser.</p><p lang="zh-CN">八份简洁CSV模板帮助整理事实，无需注册账户；文件由浏览器本地下载。</p></div><div>{Object.entries(DOWNLOAD_TEMPLATES).map(([id,template])=><article key={id}><h3>{template.title}<small lang="zh-CN">{template.titleZh}</small></h3><button type="button" onClick={()=>downloadTemplate(id)}>Download CSV · 下载CSV</button></article>)}</div><p className={styles.privacyNote}>Do not store passwords, PINs, full SSNs, or full account numbers in these worksheets.</p></section>}
     <footer className={styles.disclaimer}><p>{EDUCATIONAL_DISCLAIMER.en}</p><p lang="zh-CN">{EDUCATIONAL_DISCLAIMER.zh}</p></footer>
   </main>
 }

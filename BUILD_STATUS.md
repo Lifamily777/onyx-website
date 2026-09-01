@@ -24,10 +24,11 @@
 - Foundation Assessment V2 includes 18 bilingual questions, multi-select income/event/long-term paths, deterministic non-score results, Capital Map routing, restart, and visit-only in-memory answers; V1 remains intact.
 - All 10 Event Radar pages include a story, common blind spots, self-management guidance, deeper-review triggers, records, questions, related nodes, Insight seeds, and cautious current-rule verification language.
 - The 5–10 Year Planning Map covers retirement transition, healthcare cost readiness, protection and continuity, asset structure, business continuity and exit, legacy organization, and work optionality with bilingual educational paths and clear review boundaries.
+- The Capital Map offers eight safe CSV working templates, including tax-reserve and event-preparation worksheets; relevant Wealth and Event pages link directly to them.
 
 ## In Progress
 
-- Full Build Day execution is in progress: tools, knowledge connections, Wellness integration, and final UX/QA remain active milestones.
+- Full Build Day execution is in progress: Wellness integration and final UX/QA remain active milestones.
 
 ## Blocked
 
@@ -55,9 +56,8 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Complete tools and knowledge connections.
-2. Strengthen the integrated Wellness pathway.
-3. Complete final UX/QA.
+1. Strengthen the integrated Wellness pathway.
+2. Complete final UX/QA.
 
 ## Last Updated
 

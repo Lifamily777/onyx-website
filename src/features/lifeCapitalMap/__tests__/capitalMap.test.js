@@ -7,6 +7,7 @@ import {
   calculateConcentration, calculateForcedSale, compareNextDollar, getWealthNode, getLifeEvent,
   calculateIncomeContinuity, calculateOptionalityRunway, getWellnessNode,
   LONG_TERM_AREAS, getLongTermArea,
+  DOWNLOAD_TEMPLATES,
 } from '../index.js'
 
 test('master architecture has six ordered stages and both domains', () => {
@@ -75,6 +76,15 @@ test('5–10 year map covers seven bilingual planning areas with decision bounda
 test('generic lookups support the node and event renderers', () => {
   assert.equal(getWealthNode('w1').id, 'W1')
   assert.equal(getLifeEvent('sell-rental-property').category, 'real_estate')
+})
+
+test('download library contains the eight safe working templates', () => {
+  assert.deepEqual(Object.keys(DOWNLOAD_TEMPLATES), ['financial-inventory','core-expense','debt-paths','large-expenses','income-map','tax-reserve','concentration','event-preparation'])
+  for (const template of Object.values(DOWNLOAD_TEMPLATES)) {
+    assert.ok(template.title && template.titleZh && template.filename.endsWith('.csv'))
+    assert.ok(template.headers.length >= 4)
+    assert.doesNotMatch(template.headers.join(' '), /password|PIN|full SSN|full account number/i)
+  }
 })
 
 test('W1 emergency liquidity calculation', () => {
