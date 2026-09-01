@@ -3,7 +3,7 @@ const seeds = (topic, topicZh) => [
   { type:'avoid', title:`Records People Wish They Had Kept`, titleZh:'人们常常后悔没有保存的资料' },
   { type:'decide', title:'Questions Before the Decision', titleZh:'做决定前值得问的问题' },
 ]
-const event = (data) => ({ supportedStatuses:['watch','emerging','active'], relatedInsights:[], ...data, insightSeeds:seeds(data.title,data.titleZh) })
+const event = (data) => ({ supportedStatuses:['watch','emerging','active'], relatedInsights:[], ...data, ...EVENT_EDUCATION[data.id], insightSeeds:seeds(data.title,data.titleZh) })
 const commonQuestions = ['What decisions become difficult to change later?','Which records are missing?','Which tax, legal, or financial questions should be coordinated?']
 
 export const LIFE_EVENTS = [
@@ -33,3 +33,4 @@ export const EVENT_CATEGORIES = [
   { id:'life',label:'Life Change',labelZh:'生活变化' },
 ]
 export const getLifeEvent = (id) => LIFE_EVENTS.find((item) => item.id === id)
+import { EVENT_EDUCATION } from './eventEducation.js'

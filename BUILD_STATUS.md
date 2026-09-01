@@ -22,6 +22,7 @@
 - Next Dollar Planner presents six fixed-order capital jobs with visible assumptions, bilingual signals, and trade-offs; it does not rank or select a winner.
 - First-priority Wealth node renderer has accessible reflection states, non-persistence notices, and readable educational calculator results instead of raw JSON.
 - Foundation Assessment V2 includes 18 bilingual questions, multi-select income/event/long-term paths, deterministic non-score results, Capital Map routing, restart, and visit-only in-memory answers; V1 remains intact.
+- All 10 Event Radar pages include a story, common blind spots, self-management guidance, deeper-review triggers, records, questions, related nodes, Insight seeds, and cautious current-rule verification language.
 
 ## In Progress
 
@@ -53,9 +54,8 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Complete all 10 Event Radar educational paths without unsupported current-law claims.
-2. Add the 5–10 Year Long-Term Planning Map.
-3. Complete tools, knowledge connections, and final UX/QA.
+1. Add the 5–10 Year Long-Term Planning Map.
+2. Complete tools, knowledge connections, and final UX/QA.
 
 ## Last Updated
 

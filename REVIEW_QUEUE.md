@@ -17,6 +17,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 ## Tax/Legal Verification Needed
 
 - Approve the exact Event Radar tax language before public launch, including planning-window phrasing and any references to current tax law.
+- Verify any exact current-law treatment referenced by future Event content before implementation; this build intentionally adds no deadlines, thresholds, rates, or eligibility conclusions.
 
 ## Insurance/Compliance Review Needed
 

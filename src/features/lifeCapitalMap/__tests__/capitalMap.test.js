@@ -45,6 +45,9 @@ test('all explicitly specified hero nodes and 10 events meet the bilingual quali
     assert.ok(event.whyItMatters.body && event.whyItMatters.bodyZh)
     assert.ok(event.planningWindow.body && event.planningWindow.bodyZh)
     assert.ok(event.taxTopics.length && event.recordsNeeded.length && event.questionsWorthAsking.length)
+    assert.ok(event.story.body && event.story.bodyZh && event.blindSpots.length >= 4)
+    assert.ok(event.selfManage.body && event.selfManage.bodyZh)
+    assert.ok(event.deeperReview.body && event.deeperReview.bodyZh && event.deeperReview.triggers.length >= 4)
     assert.ok(event.askSammiContext)
   }
 })
