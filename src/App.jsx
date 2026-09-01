@@ -16,6 +16,7 @@ import CapitalAssessmentResultPreviewPage from './components/CapitalAssessmentRe
 import CapitalMapPage from './components/CapitalMapPage'
 import CapitalNodePage from './components/CapitalNodePage'
 import CapitalEventPage from './components/CapitalEventPage'
+import WellnessNodePage from './components/WellnessNodePage'
 import NsFederationPage from './components/NsFederationPage'
 import { servicePages } from './data/content'
 
@@ -37,6 +38,7 @@ const pageRoutes = [
   <Route key="capital-map-events" path="capital-map/events" element={<CapitalMapPage view="events" />} />,
   <Route key="capital-map-node" path="capital-map/node/:id" element={<CapitalNodePage />} />,
   <Route key="capital-map-event" path="capital-map/event/:id" element={<CapitalEventPage />} />,
+  <Route key="capital-map-wellness-node" path="capital-map/wellness/:id" element={<WellnessNodePage />} />,
   <Route key="ns-federation" path="ns-federation" element={<NsFederationPage />} />,
   <Route key="about" path="about" element={<PlaceholderPage pageKey="about" />} />,
   <Route key="insights" path="insights" element={<InsightsIndexPage />} />,

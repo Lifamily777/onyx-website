@@ -2,7 +2,7 @@
 
 ## Current Branch
 
-`content/insight-chinese-families-insurance`
+`codex/onyx-v2-platform`
 
 ## Current Known Modified Files
 
@@ -16,10 +16,13 @@
 - Capital Assessment validation complete.
 - Locale-aware route architecture is established.
 - Current design system uses shared global tokens with component-level CSS Modules.
+- Life Capital Map foundation is implemented with 14 first-priority Wealth nodes, 10 Event Radar events, centralized data models, generic renderers, educational calculators, and contextual Ask Sammi handoffs.
+- Wellness foundation includes six bilingual, education-first nodes with non-persistent reflection tools and qualified-review boundaries.
 
 ## In Progress
 
-- Ongoing ONYX product governance and long-term planning documentation.
+- Event Radar usability and non-sensitive status workflow.
+- Next Dollar Planner presentation and transparent comparison model.
 
 ## Blocked
 
@@ -43,16 +46,16 @@ No lint command is currently configured in `package.json`.
 
 - Two non-blocking V1 validation profiles remain queued for product review; see `REVIEW_QUEUE.md`.
 - The two pre-existing InsightArticlePage modifications must not be overwritten.
-- Current V2 architecture work is not yet implemented.
+- V2 Foundation question-set decisions remain blocked on Sammi review; the existing V1 assessment is unchanged.
 
 ## Next Recommended Tasks
 
-1. Obtain Sammi’s decisions on the seeded review items.
-2. Approve the exact 15–20 question Foundation V2 scope before changing assessment behavior.
-3. Review Event Radar tax language before public release.
-4. Confirm Wellness/USANA positioning boundaries.
-5. Confirm the NS Federation embed source and configuration.
-6. Implement approved V2 work in isolated, testable increments.
+1. Improve Event Radar status organization without storing sensitive information.
+2. Improve the Next Dollar comparison experience without declaring a universal best answer.
+3. Complete usability and accessibility review of the first-priority Wealth nodes.
+4. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
+5. Review Event Radar tax language before public release.
+6. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
 
 ## Last Updated
 

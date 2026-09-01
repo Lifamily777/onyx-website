@@ -31,6 +31,10 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Optional Wellness resource integrations after positioning approval.
 - NS Federation embed after source and configuration approval.
 
+## Safe Work Completed Without Decision
+
+- Six-stage Wellness foundation implemented with bilingual educational content, non-persistent reflection checklists, no product recommendation, and no sensitive health-data storage.
+
 ## Resolved
 
 - No resolved governance decisions recorded yet.

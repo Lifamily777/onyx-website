@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
-import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_STAGE_NODES, LIFE_EVENTS, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
 import styles from './CapitalMap.module.css'
 
 export default function CapitalMapPage({ view = 'map' }) {
@@ -29,7 +29,7 @@ export default function CapitalMapPage({ view = 'map' }) {
         <header><span>{String(stage.order).padStart(2,'0')}</span><h3>{stage.name}<small lang="zh-CN">{stage.nameZh}</small></h3></header>
         <div className={styles.domainColumns}>
           {showWealth && <section><h4>Wealth <small lang="zh-CN">财富</small></h4><div className={styles.cards}>{WEALTH_HERO_NODES.filter((node)=>node.stage===stage.id).map((node)=><Link key={node.id} to={localePath(`/capital-map/node/${node.id.toLowerCase()}`)}><span>{node.id}</span><strong>{node.title}</strong><small lang="zh-CN">{node.titleZh}</small><p>{node.shortDescription}</p></Link>)}</div></section>}
-          {showWellness && <section><h4>Wellness <small lang="zh-CN">健康</small></h4><div className={styles.cards}>{WELLNESS_STAGE_NODES.filter((node)=>node.stage===stage.id).map((node)=><div key={node.id} className={styles.structuralCard}><span>{node.id}</span><strong>{node.title}</strong><small lang="zh-CN">{node.titleZh}</small><p>Education-first pathway · 教育优先路径</p></div>)}</div></section>}
+          {showWellness && <section><h4>Wellness <small lang="zh-CN">健康</small></h4><div className={styles.cards}>{WELLNESS_FOUNDATION_NODES.filter((node)=>node.stage===stage.id).map((node)=><Link key={node.id} to={localePath(`/capital-map/wellness/${node.id.toLowerCase()}`)}><span>{node.id}</span><strong>{node.title}</strong><small lang="zh-CN">{node.titleZh}</small><p>{node.shortDescription}</p></Link>)}</div></section>}
         </div>
       </article>)}
     </section>}

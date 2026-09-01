@@ -2,17 +2,31 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import {
-  LIFE_CAPITAL_STAGES, CAPITAL_DOMAINS, WELLNESS_STAGE_NODES, WEALTH_HERO_NODES, LIFE_EVENTS,
+  LIFE_CAPITAL_STAGES, CAPITAL_DOMAINS, WELLNESS_FOUNDATION_NODES, WEALTH_HERO_NODES, LIFE_EVENTS,
   calculateEmergencyLiquidity, calculateDebtPaths, calculateMonthlySurplus, summarizeLargeExpenses,
   calculateConcentration, calculateForcedSale, compareNextDollar, getWealthNode, getLifeEvent,
-  calculateIncomeContinuity, calculateOptionalityRunway,
+  calculateIncomeContinuity, calculateOptionalityRunway, getWellnessNode,
 } from '../index.js'
 
 test('master architecture has six ordered stages and both domains', () => {
   assert.equal(LIFE_CAPITAL_STAGES.length, 6)
   assert.deepEqual(LIFE_CAPITAL_STAGES.map((stage) => stage.order), [1,2,3,4,5,6])
   assert.deepEqual(CAPITAL_DOMAINS.map((domain) => domain.id), ['wealth','wellness'])
-  assert.equal(WELLNESS_STAGE_NODES.length, 6)
+  assert.equal(WELLNESS_FOUNDATION_NODES.length, 6)
+})
+
+test('Wellness foundation is bilingual, education-first, and avoids sensitive storage', () => {
+  assert.deepEqual(WELLNESS_FOUNDATION_NODES.map((node) => node.id), ['WL1','WL2','WL3','WL4','WL5','WL6'])
+  for (const node of WELLNESS_FOUNDATION_NODES) {
+    assert.ok(node.title && node.titleZh && node.shortDescription && node.shortDescriptionZh)
+    assert.ok(node.question.prompt && node.question.promptZh && node.question.options.length >= 4)
+    assert.ok(node.story.body && node.story.bodyZh && node.explain.body && node.explain.bodyZh)
+    assert.ok(node.tryItems.length >= 4 && node.keep.note && node.keep.noteZh)
+    assert.ok(node.selfManage.body && node.selfManage.bodyZh)
+    assert.ok(node.deeperReview.body && node.deeperReview.bodyZh && node.deeperReview.triggers.length >= 4)
+    assert.ok(node.askSammiContext)
+  }
+  assert.equal(getWellnessNode('wl6').stage, 'optionality')
 })
 
 test('all explicitly specified hero nodes and 10 events meet the bilingual quality gate', () => {
@@ -85,5 +99,5 @@ test('Ask Sammi context exists and routes preserve assessment, survey, map, and 
   assert.match(getWealthNode('W13').askSammiContext,/income protection/i)
   assert.match(getLifeEvent('sell-rental-property').askSammiContext,/rental-property sale/i)
   const app = await readFile(new URL('../../../App.jsx', import.meta.url),'utf8')
-  for (const route of ['path="survey"','path="capital-assessment"','path="capital-map"','path="ns-federation"']) assert.match(app,new RegExp(route))
+  for (const route of ['path="survey"','path="capital-assessment"','path="capital-map"','path="capital-map/wellness/:id"','path="ns-federation"']) assert.match(app,new RegExp(route))
 })

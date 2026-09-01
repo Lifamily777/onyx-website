@@ -12,15 +12,6 @@ export const CAPITAL_DOMAINS = [
   { id: 'wellness', name: 'Wellness', nameZh: '健康' },
 ]
 
-export const WELLNESS_STAGE_NODES = [
-  { id: 'WL1', stage: 'survival', title: 'Basic Care & Acute Readiness', titleZh: '基础照护与急性事件准备' },
-  { id: 'WL2', stage: 'stability', title: 'Sleep Stability & Nutrition Consistency', titleZh: '睡眠稳定与营养一致性' },
-  { id: 'WL3', stage: 'protection', title: 'Preventive Care & Health Data Baseline', titleZh: '预防照护与健康数据基线' },
-  { id: 'WL4', stage: 'growth', title: 'Physical Reserve', titleZh: '身体储备' },
-  { id: 'WL5', stage: 'strategic', title: 'Health Goal Prioritization', titleZh: '健康目标排序' },
-  { id: 'WL6', stage: 'optionality', title: 'Healthspan & Independence', titleZh: '健康寿命与独立生活能力' },
-]
-
 export const EDUCATIONAL_DISCLAIMER = {
   en: 'This website provides educational information and planning tools. It does not provide individualized tax, legal, investment, or insurance advice. Tax rules, insurance suitability, and planning outcomes depend on individual facts and current law.',
   zh: '本网站提供教育信息与规划工具，不构成针对个人情况的税务、法律、投资或保险建议。具体税务规则、保险适用性与规划结果取决于个人情况以及当时有效的法律与规则。',
