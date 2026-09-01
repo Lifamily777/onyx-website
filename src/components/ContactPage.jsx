@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { advisor } from '../data/content'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
@@ -7,6 +8,9 @@ import styles from './ContactPage.module.css'
 export default function ContactPage() {
   const { t } = useLocale()
   const [submitted, setSubmitted] = useState(false)
+  const [searchParams] = useSearchParams()
+  const context = (searchParams.get('context') || '').slice(0, 240)
+  const eventStatus = (searchParams.get('eventStatus') || '').slice(0, 20)
 
   useDocumentMeta(`${t('contact.headline')} · ${t('brand.shortName')}`)
 
@@ -73,7 +77,11 @@ export default function ContactPage() {
               </div>
               <div className={styles.fld}>
                 <label>{t('contact.form.moreLabel')}</label>
-                <textarea placeholder={t('contact.form.morePlaceholder')} />
+                <textarea
+                  aria-label={t('contact.form.moreLabel')}
+                  placeholder={t('contact.form.morePlaceholder')}
+                  defaultValue={[context, eventStatus ? `Event status: ${eventStatus}` : ''].filter(Boolean).join('\n')}
+                />
               </div>
               <button type="submit" className={styles.submit}>
                 {t('contact.form.submit')}
