@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
-import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
 import styles from './CapitalMap.module.css'
 
 export default function CapitalMapPage({ view = 'map' }) {
@@ -10,6 +11,8 @@ export default function CapitalMapPage({ view = 'map' }) {
   const showWealth = view === 'map' || view === 'wealth'
   const showWellness = view === 'map' || view === 'wellness'
   const showEvents = view === 'events'
+  const [eventCategory, setEventCategory] = useState('all')
+  const visibleEvents = eventCategory === 'all' ? LIFE_EVENTS : LIFE_EVENTS.filter((event) => event.category === eventCategory)
 
   return <main className={`${styles.shell} page-enter`}>
     <header className={styles.hero}>
@@ -34,7 +37,13 @@ export default function CapitalMapPage({ view = 'map' }) {
       </article>)}
     </section>}
 
-    {showEvents && <section className={styles.eventIndex}><div className={styles.sectionIntro}><h2>Event Radar <span lang="zh-CN">事件雷达</span></h2><p>You do not need to predict the future perfectly. Mark what you are watching, considering, or actively navigating.</p><p lang="zh-CN">无需完美预测未来，只需标记你正在关注、考虑或已经经历的事件。</p></div><div className={styles.eventGrid}>{LIFE_EVENTS.map((event)=><Link key={event.id} to={localePath(`/capital-map/event/${event.id}`)}><span>{event.category.replace('_',' ')}</span><h3>{event.title}</h3><h4 lang="zh-CN">{event.titleZh}</h4><p>{event.description}</p></Link>)}</div></section>}
+    {showEvents && <section className={styles.eventIndex}><div className={styles.sectionIntro}><h2>Event Radar <span lang="zh-CN">事件雷达</span></h2><p>You do not need to predict the future perfectly. Use the radar to recognize planning windows before choices narrow.</p><p lang="zh-CN">无需完美预测未来。事件雷达帮助你在选择减少之前识别规划窗口。</p></div>
+      <div className={styles.statusGuide} aria-label="Event status guide">{EVENT_STATUSES.map((status)=><article key={status.id}><strong>{status.label}<small lang="zh-CN">{status.labelZh}</small></strong><p>{status.description}</p><p lang="zh-CN">{status.descriptionZh}</p></article>)}</div>
+      <div className={styles.eventFilters} aria-label="Filter events by category">{EVENT_CATEGORIES.map((category)=><button type="button" key={category.id} aria-pressed={eventCategory===category.id} onClick={()=>setEventCategory(category.id)}>{category.label}<small lang="zh-CN">{category.labelZh}</small></button>)}</div>
+      <p className={styles.filterCount} aria-live="polite">Showing {visibleEvents.length} of {LIFE_EVENTS.length} events · 显示 {visibleEvents.length}/{LIFE_EVENTS.length} 个事件</p>
+      <div className={styles.eventGrid}>{visibleEvents.map((event)=><Link key={event.id} to={localePath(`/capital-map/event/${event.id}`)}><span>{event.category.replace('_',' ')}</span><h3>{event.title}</h3><h4 lang="zh-CN">{event.titleZh}</h4><p>{event.description}</p></Link>)}</div>
+      <p className={styles.privacyNote}>Filters and status reflections are not saved or submitted. · <span lang="zh-CN">筛选和状态观察不会保存或提交。</span></p>
+    </section>}
     <footer className={styles.disclaimer}><p>{EDUCATIONAL_DISCLAIMER.en}</p><p lang="zh-CN">{EDUCATIONAL_DISCLAIMER.zh}</p></footer>
   </main>
 }

@@ -34,6 +34,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 ## Safe Work Completed Without Decision
 
 - Six-stage Wellness foundation implemented with bilingual educational content, non-persistent reflection checklists, no product recommendation, and no sensitive health-data storage.
+- Event Radar category filters and Watch/Emerging/Active reflections implemented without persistence; existing tax language was not changed.
 
 ## Resolved
 

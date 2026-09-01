@@ -20,6 +20,16 @@ export const LIFE_EVENTS = [
 ]
 
 export const EVENT_STATUSES = [
-  { id:'watch',label:'Watch',labelZh:'关注' }, { id:'emerging',label:'Emerging',labelZh:'正在考虑' }, { id:'active',label:'Active',labelZh:'正在发生' },
+  { id:'watch',label:'Watch',labelZh:'关注',description:'Possible within the next 12–24 months.',descriptionZh:'未来12–24个月内可能发生。' },
+  { id:'emerging',label:'Emerging',labelZh:'正在考虑',description:'Choices are forming, but important terms are not final.',descriptionZh:'选择正在形成，但重要条件尚未最终确定。' },
+  { id:'active',label:'Active',labelZh:'正在发生',description:'The event is underway and available choices may be narrowing.',descriptionZh:'事件正在发生，可用选择可能正在减少。' },
+]
+export const EVENT_CATEGORIES = [
+  { id:'all',label:'All Events',labelZh:'全部事件' },
+  { id:'business',label:'Business',labelZh:'企业' },
+  { id:'real_estate',label:'Real Estate',labelZh:'房地产' },
+  { id:'retirement',label:'Retirement',labelZh:'退休' },
+  { id:'family',label:'Family',labelZh:'家庭' },
+  { id:'life',label:'Life Change',labelZh:'生活变化' },
 ]
 export const getLifeEvent = (id) => LIFE_EVENTS.find((item) => item.id === id)

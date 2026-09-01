@@ -2,7 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFile } from 'node:fs/promises'
 import {
-  LIFE_CAPITAL_STAGES, CAPITAL_DOMAINS, WELLNESS_FOUNDATION_NODES, WEALTH_HERO_NODES, LIFE_EVENTS,
+  LIFE_CAPITAL_STAGES, CAPITAL_DOMAINS, WELLNESS_FOUNDATION_NODES, WEALTH_HERO_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES,
   calculateEmergencyLiquidity, calculateDebtPaths, calculateMonthlySurplus, summarizeLargeExpenses,
   calculateConcentration, calculateForcedSale, compareNextDollar, getWealthNode, getLifeEvent,
   calculateIncomeContinuity, calculateOptionalityRunway, getWellnessNode,
@@ -47,6 +47,14 @@ test('all explicitly specified hero nodes and 10 events meet the bilingual quali
     assert.ok(event.taxTopics.length && event.recordsNeeded.length && event.questionsWorthAsking.length)
     assert.ok(event.askSammiContext)
   }
+})
+
+test('Event Radar has complete non-scoring status guidance and category coverage', () => {
+  assert.deepEqual(EVENT_STATUSES.map((status)=>status.id), ['watch','emerging','active'])
+  assert.ok(EVENT_STATUSES.every((status)=>status.label && status.labelZh && status.description && status.descriptionZh))
+  assert.deepEqual(EVENT_CATEGORIES.map((category)=>category.id), ['all','business','real_estate','retirement','family','life'])
+  const represented = new Set(LIFE_EVENTS.map((event)=>event.category))
+  for (const category of EVENT_CATEGORIES.filter((item)=>item.id!=='all')) assert.ok(represented.has(category.id))
 })
 
 test('generic lookups support the node and event renderers', () => {

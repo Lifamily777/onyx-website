@@ -21,7 +21,7 @@
 
 ## In Progress
 
-- Event Radar usability and non-sensitive status workflow.
+- Event Radar now includes bilingual readiness guidance and non-persistent category filtering; exact tax language remains pending human review before launch.
 - Next Dollar Planner presentation and transparent comparison model.
 
 ## Blocked
@@ -50,12 +50,11 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Improve Event Radar status organization without storing sensitive information.
-2. Improve the Next Dollar comparison experience without declaring a universal best answer.
-3. Complete usability and accessibility review of the first-priority Wealth nodes.
-4. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
-5. Review Event Radar tax language before public release.
-6. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
+1. Improve the Next Dollar comparison experience without declaring a universal best answer.
+2. Complete usability and accessibility review of the first-priority Wealth nodes.
+3. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
+4. Review Event Radar tax language before public release.
+5. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
 
 ## Last Updated
 
