@@ -112,3 +112,10 @@ test('Ask Sammi context exists and routes preserve assessment, survey, map, and 
   const app = await readFile(new URL('../../../App.jsx', import.meta.url),'utf8')
   for (const route of ['path="survey"','path="capital-assessment"','path="capital-map"','path="capital-map/wellness/:id"','path="ns-federation"']) assert.match(app,new RegExp(route))
 })
+
+test('generic Wealth renderer exposes non-persistent inputs and accessible reflections', async () => {
+  const page = await readFile(new URL('../../../components/CapitalNodePage.jsx', import.meta.url),'utf8')
+  assert.match(page,/Inputs stay only on this page and are not saved or submitted/)
+  assert.match(page,/aria-pressed=\{answer===x\}/)
+  assert.doesNotMatch(page,/JSON\.stringify\(result/)
+})
