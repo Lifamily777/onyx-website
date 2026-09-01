@@ -1,0 +1,65 @@
+import { useMemo, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
+import { getWealthNode, LIFE_CAPITAL_STAGES, getLifeEvent, DOWNLOAD_TEMPLATES, downloadTemplate, calculateEmergencyLiquidity, calculateDebtPaths, calculateMonthlySurplus, summarizeLargeExpenses, calculateConcentration, calculateForcedSale, compareNextDollar, calculateIncomeContinuity, calculateOptionalityRunway, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import NotFound from './NotFound'
+import styles from './CapitalMap.module.css'
+
+const TOOL_FIELDS = {
+  W1: [['housing','Housing'],['utilities','Utilities'],['food','Food'],['transportation','Transportation'],['insurance','Insurance'],['care','Childcare / eldercare'],['debt','Required debt payments'],['other','Other core costs'],['reserve','Current liquid reserve']],
+  W2: [['balance','Debt balance'],['apr','APR %'],['minimum','Minimum monthly payment'],['surplus','Available monthly surplus'],['reserve','Current liquid reserve']],
+  W8: [['inflow','Usable monthly cash inflow'],['core','Core expenses'],['debt','Required debt payments'],['insurance','Necessary insurance'],['tax','Tax reserve'],['commitments','Other essential commitments']],
+  W9: [['event','Planned expense / life event','text'],['date','Target date','date'],['amount','Estimated amount'],['funded','Amount already funded'],['notes','Notes / next action','text']],
+  W13: [['expenses','Annual core expenses'],['debt','Debt obligations'],['years','Years of support needed'],['assets','Liquid assets available'],['coverage','Existing coverage'],['income','Reliable continuing income']],
+  W18: [['largest','Largest single exposure'],['productive','Total productive assets'],['incomeDependence','Annual income tied to that exposure'],['liabilities','Liabilities tied to that exposure'],['liquidity','Liquid assets outside that exposure']],
+  W24: [['monthly','Monthly core expenses'],['reserve','Liquid reserve'],['interruption','Income interruption months'],['investments','Investment balance'],['decline','Market decline assumption %']],
+  W25: [['reserveMonths','Reserve months'],['debtApr','Highest debt APR %'],['expenseGap','Known expense funding gap'],['taxNeed','Tax reserve need'],['horizon','Investment horizon (years)'],['riskCapacity','Risk-capacity score (1–5)'],['monthly','Available next dollar']],
+  W31: [['essentials','Monthly essential spending'],['reserve','Liquid reserve'],['income','Reliable monthly income']],
+}
+
+const blankValues = (nodeId) => Object.fromEntries((TOOL_FIELDS[nodeId] || []).map(([key]) => [key, '']))
+
+function ToolResult({ result, nodeId }) {
+  if (!result) return null
+  return <div className={styles.result}><strong>Educational result · 教育性结果</strong><pre>{JSON.stringify(result,null,2)}</pre>{nodeId==='W25'&&<p>No universal best answer is declared. Compare the jobs and visible assumptions.</p>}</div>
+}
+
+function NodeTool({ node }) {
+  const [values,setValues]=useState(()=>blankValues(node.id)),[selected,setSelected]=useState([])
+  const result = useMemo(()=>{
+    if(node.id==='W1') return calculateEmergencyLiquidity({expenses:{housing:values.housing,utilities:values.utilities,food:values.food,transportation:values.transportation,insurance:values.insurance,care:values.care,debt:values.debt,other:values.other},currentReserve:values.reserve})
+    if(node.id==='W2') return calculateDebtPaths({debtBalance:values.balance,apr:values.apr,minimumPayment:values.minimum,monthlySurplus:values.surplus,liquidReserve:values.reserve})
+    if(node.id==='W8') return calculateMonthlySurplus({cashInflow:values.inflow,coreExpenses:values.core,requiredDebt:values.debt,necessaryInsurance:values.insurance,taxReserve:values.tax,essentialCommitments:values.commitments})
+    if(node.id==='W9') return summarizeLargeExpenses([{name:values.event,targetDate:values.date,amount:values.amount,fundedAmount:values.funded,notes:values.notes}])
+    if(node.id==='W18') return {...calculateConcentration({largestExposure:values.largest,productiveAssets:values.productive}),incomeDependence:Number(values.incomeDependence||0),linkedLiabilities:Number(values.liabilities||0),outsideLiquidity:Number(values.liquidity||0)}
+    if(node.id==='W24') return calculateForcedSale({monthlyCoreExpenses:values.monthly,liquidReserve:values.reserve,incomeInterruptionMonths:values.interruption,investmentBalance:values.investments,marketDeclinePercent:values.decline})
+    if(node.id==='W25') return compareNextDollar({reserveMonths:Number(values.reserveMonths),debtApr:Number(values.debtApr),knownExpenseGap:Number(values.expenseGap),taxReserveNeed:Number(values.taxNeed),investmentHorizon:Number(values.horizon),riskCapacity:Number(values.riskCapacity),availableAmount:Number(values.monthly),longTermInvesting:Number(values.horizon)>=5})
+    if(node.id==='W13') return calculateIncomeContinuity({annualCoreExpenses:values.expenses,debtObligations:values.debt,supportYears:values.years,liquidAssets:values.assets,existingCoverage:values.coverage,reliableIncome:values.income})
+    if(node.id==='W31') return calculateOptionalityRunway({monthlyEssentials:values.essentials,liquidReserve:values.reserve,reliableMonthlyIncome:values.income})
+    return null
+  },[node.id,values])
+  if(node.id==='W10') { const paths={
+    '1099 / freelance':['Estimated tax and self-employment tax prompts','Start a Business','Non-W2 Income Checklist'],
+    'Schedule C business':['Business records and expense classification','Start a Business','Non-W2 Income Checklist'],
+    'Partnership / LLC K-1':['Outside basis, liabilities, and cash-vs-income timing','Add a Partner / Investor','The Third Ledger'],
+    'S corporation K-1':['Payroll, reasonable compensation, distributions, and shareholder basis','S Corporation Election / Owner Compensation','Non-W2 Income Checklist'],
+    'Rental property':['Basis, depreciation, passive activity, and sale windows','Sell a Rental Property','Non-W2 Income Checklist'],
+  }; return <section className={styles.tool}><h2>TRY · 自己试一试</h2><p>Select every income path that applies. “I’m not sure” is a learning prompt, not a negative score.</p><div className={styles.checkGrid}>{node.ask.options.map((option)=><label key={option}><input type="checkbox" checked={selected.includes(option)} onChange={()=>setSelected((items)=>items.includes(option)?items.filter(x=>x!==option):[...items,option])}/>{option}</label>)}</div>{selected.filter(x=>paths[x]).map(x=><div className={styles.result} key={x}><strong>{x} · Things Worth Knowing</strong><p>{paths[x][0]}</p><p>Related Event: {paths[x][1]}</p><p>Tool / Insight: {paths[x][2]}</p><p>Ask Sammi context is carried forward below.</p></div>)}</section> }
+  if(node.id==='W19') return <section className={styles.tool}><h2>TRY · Capital Role Classifier</h2><p>Classify each major asset by its primary job:</p><div className={styles.checkGrid}>{['Stability Capital','Protection Capital','Productive/Growth Capital','Strategic/Opportunity Capital','Consumption Asset'].map(x=><label key={x}><input type="checkbox"/>{x}</label>)}</div></section>
+  if(node.id==='W11') return <section className={styles.tool}><h2>TRY · Tax Reserve Planning Worksheet</h2><div className={styles.checkGrid}>{['Income sources listed','Withholding identified','Estimated payments recorded','State exposure noted','Separate reserve process'].map(x=><label key={x}><input type="checkbox"/>{x}</label>)}</div><p>This is an educational planning prompt, not a tax-liability calculation.</p></section>
+  if(node.id==='W30') return <section className={styles.tool}><h2>TRY · Event Radar</h2><p>Choose an event, mark it Watch, Emerging, or Active, and gather the listed records before choices narrow.</p></section>
+  if(!result) return <section className={styles.tool}><h2>TRY · 自己试一试</h2><p>This node’s Phase 1 tool is a structured worksheet rather than a personalized calculator.</p></section>
+  return <section className={styles.tool}><h2>TRY · 自己试一试</h2><div className={styles.inputs}>{TOOL_FIELDS[node.id].map(([key,label,type='number'])=><label key={key}>{label}<input type={type} min={type==='number'?'0':undefined} value={values[key]} onChange={(e)=>setValues((current)=>({...current,[key]:e.target.value}))} /></label>)}</div><ToolResult result={result} nodeId={node.id}/></section>
+}
+
+export default function CapitalNodePage(){const {id}=useParams(),{localePath}=useLocale();const node=getWealthNode(id);useDocumentMeta(node?`${node.title} | ONYX Life Capital Map`:'Node not found',node?.shortDescription||'');if(!node)return <NotFound/>;const stage=LIFE_CAPITAL_STAGES.find(s=>s.id===node.stage)
+return <main className={`${styles.shell} ${styles.detail} page-enter`}><Link className={styles.back} to={localePath('/capital-map/wealth')}>← Wealth Map · 财富地图</Link><header className={styles.detailHero}><p>{node.id} · {stage.name} · <span lang="zh-CN">{stage.nameZh}</span></p><h1>{node.title}</h1><h2 lang="zh-CN">{node.titleZh}</h2><p>{node.shortDescription}</p><p lang="zh-CN">{node.shortDescriptionZh}</p></header>
+<section className={styles.ask}><span>ASK · 真实问题</span><h2>{node.ask.question}</h2><p lang="zh-CN">{node.ask.questionZh}</p><div>{node.ask.options.map(x=><button type="button" key={x}>{x}</button>)}</div></section>
+<section className={styles.story}><span>STORY · 生活案例</span><h2>{node.story.title}</h2><h3 lang="zh-CN">{node.story.titleZh}</h3><p>{node.story.body}</p><p lang="zh-CN">{node.story.bodyZh}</p></section>
+<section className={styles.prose}><span>EXPLAIN · 解释概念</span><p>{node.explain.body}</p><p lang="zh-CN">{node.explain.bodyZh}</p></section><NodeTool node={node}/>
+{node.tools.map(tool=>DOWNLOAD_TEMPLATES[tool.id]&&<section className={styles.keep} key={tool.id}><span>KEEP · 下载工具</span><h2>{tool.title}<small lang="zh-CN">{tool.titleZh}</small></h2><button type="button" onClick={()=>downloadTemplate(tool.id)}>Download CSV · 下载CSV</button><p>Do not store passwords, PINs, full SSNs, or full account numbers.</p></section>)}
+<section className={styles.guidance}><article><span>SELF-MANAGE?</span><h2>When You May Be Able to Handle This Yourself</h2><h3 lang="zh-CN">什么情况下你可能可以先自己处理</h3><p>{node.selfManage.body}</p><p lang="zh-CN">{node.selfManage.bodyZh}</p></article><article><span>DEEPER REVIEW?</span><h2>When a Deeper Review May Be Useful</h2><h3 lang="zh-CN">什么情况下值得进一步梳理</h3><p>{node.deeperReview.body}</p><p lang="zh-CN">{node.deeperReview.bodyZh}</p><ul>{node.deeperReview.triggers.map(x=><li key={x}>{x}</li>)}</ul></article></section>
+{node.relatedEvents.length>0&&<section className={styles.related}><h2>Related Events · 相关事件</h2>{node.relatedEvents.map(id=>{const event=getLifeEvent(id);return event?<Link key={id} to={localePath(`/capital-map/event/${id}`)}>{event.title} · {event.titleZh}</Link>:null})}</section>}
+<section className={styles.insights}><h2>Insight Seeds · 内容种子</h2>{node.insightSeeds.map(seed=><div key={seed.type}><span>{seed.type}</span><strong>{seed.title}</strong><small lang="zh-CN">{seed.titleZh}</small><em>Planned · 计划中</em></div>)}</section>
+<section className={styles.askSammi}><span>ASK SAMMI</span><h2>Bring the context, not sensitive documents.</h2><p lang="zh-CN">带上问题背景即可，请不要发送敏感文件。</p><Link to={`${localePath('/contact')}?context=${encodeURIComponent(node.askSammiContext)}`}>Ask Sammi · 联系Sammi</Link></section><footer className={styles.disclaimer}><p>{EDUCATIONAL_DISCLAIMER.en}</p><p lang="zh-CN">{EDUCATIONAL_DISCLAIMER.zh}</p></footer></main>}

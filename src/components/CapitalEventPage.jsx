@@ -1,0 +1,15 @@
+import { useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
+import { getLifeEvent, getWealthNode, EVENT_STATUSES, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import NotFound from './NotFound'
+import styles from './CapitalMap.module.css'
+
+export default function CapitalEventPage(){const {id}=useParams(),{localePath}=useLocale(),event=getLifeEvent(id),[status,setStatus]=useState('watch');useDocumentMeta(event?`${event.title} | ONYX Event Radar`:'Event not found',event?.description||'');if(!event)return <NotFound/>
+return <main className={`${styles.shell} ${styles.detail} page-enter`}><Link className={styles.back} to={localePath('/capital-map/events')}>← Event Radar · 事件雷达</Link><header className={styles.detailHero}><p>{event.category.replace('_',' ')}</p><h1>{event.title}</h1><h2 lang="zh-CN">{event.titleZh}</h2><p>{event.description}</p><p lang="zh-CN">{event.descriptionZh}</p></header>
+<section className={styles.status}><h2>Where is this event now? <span lang="zh-CN">这个事件目前在哪里？</span></h2>{EVENT_STATUSES.map(item=><button type="button" key={item.id} aria-pressed={status===item.id} onClick={()=>setStatus(item.id)}>{item.label}<small lang="zh-CN">{item.labelZh}</small></button>)}</section>
+<section className={styles.eventSections}><article><span>WHY THIS MATTERS</span><p>{event.whyItMatters.body}</p><p lang="zh-CN">{event.whyItMatters.bodyZh}</p></article><article><span>PLANNING WINDOW</span><p>{event.planningWindow.body}</p><p lang="zh-CN">{event.planningWindow.bodyZh}</p></article><article><span>TOPICS WORTH REVIEWING</span><ul>{event.taxTopics.map(x=><li key={x}>{x}</li>)}</ul></article><article><span>RECORDS TO GATHER</span><ul>{event.recordsNeeded.map(x=><li key={x}>{x}</li>)}</ul></article><article><span>QUESTIONS WORTH ASKING</span><ul>{event.questionsWorthAsking.map(x=><li key={x}>{x}</li>)}</ul></article></section>
+<section className={styles.related}><h2>Related Nodes · 相关节点</h2>{event.relatedNodes.map(id=>{const node=getWealthNode(id);return node?<Link key={id} to={localePath(`/capital-map/node/${id.toLowerCase()}`)}>{node.id} · {node.title} · {node.titleZh}</Link>:null})}</section>
+<section className={styles.insights}><h2>Related Insight Seeds · 内容种子</h2>{event.insightSeeds.map(seed=><div key={seed.type}><span>{seed.type}</span><strong>{seed.title}</strong><small lang="zh-CN">{seed.titleZh}</small><em>Planned · 计划中</em></div>)}</section>
+<section className={styles.askSammi}><span>ASK SAMMI</span><h2>{event.cta||'Organize the event before the choices narrow.'}</h2><p>Current status: {status}. No sensitive document upload is requested.</p><Link to={`${localePath('/contact')}?context=${encodeURIComponent(event.askSammiContext)}&eventStatus=${status}`}>Ask Sammi with context · 带背景联系Sammi</Link></section><footer className={styles.disclaimer}><p>{EDUCATIONAL_DISCLAIMER.en}</p><p lang="zh-CN">{EDUCATIONAL_DISCLAIMER.zh}</p></footer></main>}
