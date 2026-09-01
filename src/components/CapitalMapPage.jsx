@@ -26,6 +26,7 @@ export default function CapitalMapPage({ view = 'map' }) {
       <Link to={localePath('/capital-map')} aria-current={view === 'map' ? 'page' : undefined}>Map · 全景</Link>
       {CAPITAL_DOMAINS.map((domain)=><Link key={domain.id} to={localePath(`/capital-map/${domain.id}`)} aria-current={view === domain.id ? 'page' : undefined}>{domain.name} · {domain.nameZh}</Link>)}
       <Link to={localePath('/capital-map/events')} aria-current={showEvents ? 'page' : undefined}>Event Radar · 事件雷达</Link>
+      <Link to={localePath('/capital-map/long-term')}>5–10 Year Map · 长期地图</Link>
     </nav>
 
     {!showEvents && <section className={styles.road} aria-labelledby="stages-title"><h2 id="stages-title">Six Capital Stages <span lang="zh-CN">六个资本阶段</span></h2>

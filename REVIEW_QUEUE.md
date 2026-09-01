@@ -27,7 +27,6 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 - Complete 72-node Life Capital Map.
 - Expanded 12–24 month Event & Opportunity Radar.
-- Five-to-ten-year Long-Term Planning Map.
 - Optional Wellness resource integrations after positioning approval.
 - NS Federation embed after source and configuration approval.
 
@@ -37,6 +36,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Event Radar category filters and Watch/Emerging/Active reflections implemented without persistence; existing tax language was not changed.
 - Next Dollar Planner upgraded to a fixed-order, bilingual comparison of six capital jobs with visible assumptions and trade-offs; no ranking or universal winner is produced.
 - First-priority Wealth node interactions now communicate local-only inputs, expose accessible reflection state, and render calculator results in readable educational layouts.
+- The bilingual 5–10 Year Planning Map is implemented as an education-only horizon without predictions, eligibility conclusions, current-law constants, or individualized recommendations.
 - Autonomous work on the currently locked priorities is complete; remaining prioritized items cross explicit human-review boundaries.
 
 ## Resolved

@@ -23,10 +23,11 @@
 - First-priority Wealth node renderer has accessible reflection states, non-persistence notices, and readable educational calculator results instead of raw JSON.
 - Foundation Assessment V2 includes 18 bilingual questions, multi-select income/event/long-term paths, deterministic non-score results, Capital Map routing, restart, and visit-only in-memory answers; V1 remains intact.
 - All 10 Event Radar pages include a story, common blind spots, self-management guidance, deeper-review triggers, records, questions, related nodes, Insight seeds, and cautious current-rule verification language.
+- The 5–10 Year Planning Map covers retirement transition, healthcare cost readiness, protection and continuity, asset structure, business continuity and exit, legacy organization, and work optionality with bilingual educational paths and clear review boundaries.
 
 ## In Progress
 
-- Full Build Day execution is in progress: Event education paths, long-term map, and tools remain active milestones.
+- Full Build Day execution is in progress: tools, knowledge connections, Wellness integration, and final UX/QA remain active milestones.
 
 ## Blocked
 
@@ -54,8 +55,9 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Add the 5–10 Year Long-Term Planning Map.
-2. Complete tools, knowledge connections, and final UX/QA.
+1. Complete tools and knowledge connections.
+2. Strengthen the integrated Wellness pathway.
+3. Complete final UX/QA.
 
 ## Last Updated
 

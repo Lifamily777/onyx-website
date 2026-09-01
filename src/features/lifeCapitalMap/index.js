@@ -1,6 +1,7 @@
 export * from './data/architecture.js'
 export * from './data/nodes.js'
 export * from './data/wellnessNodes.js'
+export * from './data/longTerm.js'
 export * from './data/events.js'
 export * from './data/downloads.js'
 export * from './engine/calculators.js'

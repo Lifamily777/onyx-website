@@ -6,6 +6,7 @@ import {
   calculateEmergencyLiquidity, calculateDebtPaths, calculateMonthlySurplus, summarizeLargeExpenses,
   calculateConcentration, calculateForcedSale, compareNextDollar, getWealthNode, getLifeEvent,
   calculateIncomeContinuity, calculateOptionalityRunway, getWellnessNode,
+  LONG_TERM_AREAS, getLongTermArea,
 } from '../index.js'
 
 test('master architecture has six ordered stages and both domains', () => {
@@ -60,6 +61,17 @@ test('Event Radar has complete non-scoring status guidance and category coverage
   for (const category of EVENT_CATEGORIES.filter((item)=>item.id!=='all')) assert.ok(represented.has(category.id))
 })
 
+test('5–10 year map covers seven bilingual planning areas with decision boundaries', () => {
+  assert.deepEqual(LONG_TERM_AREAS.map((area)=>area.id), ['retirement','healthcare','protection','assets','business','legacy','optionality'])
+  for (const area of LONG_TERM_AREAS) {
+    assert.ok(area.title && area.titleZh && area.summary && area.summaryZh)
+    assert.ok(area.topics.length >= 5 && area.questions.length >= 3)
+    assert.ok(area.relatedNodes.length >= 3)
+    assert.ok(area.selfManage && area.deeperReview)
+  }
+  assert.equal(getLongTermArea('business').relatedEvents.length, 4)
+})
+
 test('generic lookups support the node and event renderers', () => {
   assert.equal(getWealthNode('w1').id, 'W1')
   assert.equal(getLifeEvent('sell-rental-property').category, 'real_estate')
@@ -109,11 +121,11 @@ test('income continuity and optionality tools remain educational calculations', 
   assert.deepEqual(calculateOptionalityRunway({monthlyEssentials:5000,liquidReserve:30000,reliableMonthlyIncome:2000}), {monthlyGap:3000,runwayMonths:10})
 })
 
-test('Ask Sammi context exists and routes preserve assessment, survey, map, and NS shell', async () => {
+test('Ask Sammi context exists and routes preserve assessment, survey, map, long-term map, and NS shell', async () => {
   assert.match(getWealthNode('W13').askSammiContext,/income protection/i)
   assert.match(getLifeEvent('sell-rental-property').askSammiContext,/rental-property sale/i)
   const app = await readFile(new URL('../../../App.jsx', import.meta.url),'utf8')
-  for (const route of ['path="survey"','path="capital-assessment"','path="capital-map"','path="capital-map/wellness/:id"','path="ns-federation"']) assert.match(app,new RegExp(route))
+  for (const route of ['path="survey"','path="capital-assessment"','path="capital-map"','path="capital-map/long-term"','path="capital-map/wellness/:id"','path="ns-federation"']) assert.match(app,new RegExp(route))
 })
 
 test('generic Wealth renderer exposes non-persistent inputs and accessible reflections', async () => {
