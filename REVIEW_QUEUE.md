@@ -4,7 +4,6 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Needs Sammi Decision
 
-- Final review and approval of the exact 15–20 question Foundation V2.
 - Approval of Wellness/USANA resource positioning, including how optional resources are separated from assessment conclusions.
 - Confirmation of the NS Federation embed source and configuration.
 
@@ -41,4 +40,4 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Resolved
 
-- No resolved governance decisions recorded yet.
+- **Foundation V2 scope:** approved at 18 questions for this build cycle; implemented as a parallel engine without changing V1.

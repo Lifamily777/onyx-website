@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "node --test src/features/capitalAssessment/__tests__/*.test.js src/features/lifeCapitalMap/__tests__/*.test.js",
+    "test": "node --test src/features/capitalAssessment/__tests__/*.test.js src/features/foundationV2/__tests__/*.test.js src/features/lifeCapitalMap/__tests__/*.test.js",
     "validate:capital": "node src/features/capitalAssessment/validation/runValidationReport.js"
   },
   "dependencies": {

@@ -21,11 +21,11 @@
 - Event Radar includes bilingual readiness guidance, accessible category filtering, and page-only status reflection; no event selections are stored.
 - Next Dollar Planner presents six fixed-order capital jobs with visible assumptions, bilingual signals, and trade-offs; it does not rank or select a winner.
 - First-priority Wealth node renderer has accessible reflection states, non-persistence notices, and readable educational calculator results instead of raw JSON.
+- Foundation Assessment V2 includes 18 bilingual questions, multi-select income/event/long-term paths, deterministic non-score results, Capital Map routing, restart, and visit-only in-memory answers; V1 remains intact.
 
 ## In Progress
 
-- No autonomous priority task is currently in progress.
-- The next prioritized product decisions are queued for Sammi or qualified tax/compliance review.
+- Full Build Day execution is in progress: Event education paths, long-term map, and tools remain active milestones.
 
 ## Blocked
 
@@ -49,13 +49,13 @@ No lint command is currently configured in `package.json`.
 
 - Two non-blocking V1 validation profiles remain queued for product review; see `REVIEW_QUEUE.md`.
 - The two pre-existing InsightArticlePage modifications must not be overwritten.
-- V2 Foundation question-set decisions remain blocked on Sammi review; the existing V1 assessment is unchanged.
+- Foundation V2 is implemented in parallel with V1; it intentionally does not persist financial answers across refreshes.
 
 ## Next Recommended Tasks
 
-1. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
-2. Review Event Radar tax language before public release.
-3. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
+1. Complete all 10 Event Radar educational paths without unsupported current-law claims.
+2. Add the 5–10 Year Long-Term Planning Map.
+3. Complete tools, knowledge connections, and final UX/QA.
 
 ## Last Updated
 

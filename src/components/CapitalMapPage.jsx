@@ -20,6 +20,7 @@ export default function CapitalMapPage({ view = 'map' }) {
       <h1>ONYX Life Capital Map</h1><p className={styles.heroZh} lang="zh-CN">人生资本地图</p>
       <p>Wealth and Wellness are two forms of life capital operating across the same six stages.</p>
       <p lang="zh-CN">财富与健康，是贯穿同一组六个人生阶段的两种生命资本。</p>
+      <Link className={styles.foundationLink} to={localePath('/foundation')}>Take the 18-Question Foundation Scan · 完成18题基础扫描</Link>
     </header>
     <nav className={styles.axisNav} aria-label="Life Capital Map views">
       <Link to={localePath('/capital-map')} aria-current={view === 'map' ? 'page' : undefined}>Map · 全景</Link>
