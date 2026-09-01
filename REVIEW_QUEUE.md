@@ -39,6 +39,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - The bilingual 5–10 Year Planning Map is implemented as an education-only horizon without predictions, eligibility conclusions, current-law constants, or individualized recommendations.
 - Eight local-download CSV worksheets are implemented with explicit sensitive-data warnings; the tax-reserve template organizes records but does not calculate liability or state a current-law rule.
 - Wellness-to-Wealth navigation is implemented as a planning dependency only; Wellness reflections do not change Wealth assessment results, and no partner product or suitability language was added.
+- Desktop and mobile browser QA completed for the V2 routes and retained V1/survey/NS-shell routes; Foundation progression, Event filtering, and Next Dollar input reactions were verified without submitting external data.
 - Autonomous work on the currently locked priorities is complete; remaining prioritized items cross explicit human-review boundaries.
 
 ## Resolved

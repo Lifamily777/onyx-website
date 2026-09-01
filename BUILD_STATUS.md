@@ -26,10 +26,11 @@
 - The 5–10 Year Planning Map covers retirement transition, healthcare cost readiness, protection and continuity, asset structure, business continuity and exit, legacy organization, and work optionality with bilingual educational paths and clear review boundaries.
 - The Capital Map offers eight safe CSV working templates, including tax-reserve and event-preparation worksheets; relevant Wealth and Event pages link directly to them.
 - Wellness nodes connect to related Wealth paths at each capital stage while remaining education-first, non-scoring, non-persistent, and separate from product resources.
+- Full Build Day browser QA covers desktop and mobile Capital Map, Foundation V2 progression, Event Radar filtering, Next Dollar reactions, long-term and Wellness pages, V1 assessment, survey, NS Federation shell, and not-found behavior.
 
 ## In Progress
 
-- Full Build Day execution is in progress: final UX/QA remains the active milestone.
+- No safe Full Build Day implementation milestone remains in progress.
 
 ## Blocked
 
@@ -54,10 +55,11 @@ No lint command is currently configured in `package.json`.
 - Two non-blocking V1 validation profiles remain queued for product review; see `REVIEW_QUEUE.md`.
 - The two pre-existing InsightArticlePage modifications must not be overwritten.
 - Foundation V2 is implemented in parallel with V1; it intentionally does not persist financial answers across refreshes.
+- The production bundle succeeds but Vite reports a non-blocking JavaScript chunk-size warning above 500 kB; code splitting is a future performance task.
 
 ## Next Recommended Tasks
 
-1. Complete final UX/QA.
+1. Obtain the human decisions and professional reviews recorded in `REVIEW_QUEUE.md` before expanding regulated or partner-specific paths.
 
 ## Last Updated
 
