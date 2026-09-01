@@ -22,7 +22,7 @@
 ## In Progress
 
 - Event Radar now includes bilingual readiness guidance and non-persistent category filtering; exact tax language remains pending human review before launch.
-- Next Dollar Planner presentation and transparent comparison model.
+- Next Dollar Planner now presents six fixed-order capital jobs with visible assumptions, bilingual signals, and trade-offs; it does not rank or select a winner.
 
 ## Blocked
 
@@ -50,11 +50,10 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Improve the Next Dollar comparison experience without declaring a universal best answer.
-2. Complete usability and accessibility review of the first-priority Wealth nodes.
-3. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
-4. Review Event Radar tax language before public release.
-5. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
+1. Complete usability and accessibility review of the first-priority Wealth nodes.
+2. Obtain Sammi’s decision on the exact 15–20 question Foundation V2 before changing assessment behavior.
+3. Review Event Radar tax language before public release.
+4. Confirm Wellness/USANA positioning and NS Federation configuration before those integrations proceed.
 
 ## Last Updated
 

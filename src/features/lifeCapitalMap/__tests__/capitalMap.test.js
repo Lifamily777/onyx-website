@@ -93,9 +93,12 @@ test('concentration and forced-sale calculations use visible assumptions', () =>
 })
 
 test('Next Dollar compares jobs without declaring a best answer', () => {
-  const result = compareNextDollar({reserveMonths:2,debtApr:18,knownExpenseGap:5000,taxReserveNeed:3000,longTermInvesting:false})
-  assert.equal(result.length, 6)
-  assert.ok(result.every((item)=>!('best' in item)&&!('winner' in item)))
+  const result = compareNextDollar({reserveMonths:2,debtApr:18,knownExpenseGap:5000,taxReserveNeed:3000,investmentHorizon:4,riskCapacity:2,availableAmount:1000})
+  assert.equal(result.jobs.length, 6)
+  assert.deepEqual(result.jobs.map((item)=>item.id), ['reserve','debt','expense','tax','growth','opportunity'])
+  assert.ok(result.jobs.every((item)=>item.labelZh && item.signal && item.signalZh && item.tradeoff && item.tradeoffZh))
+  assert.ok(result.jobs.every((item)=>!('best' in item)&&!('winner' in item)&&!('rank' in item)))
+  assert.equal(result.assumptions.availableAmount, 1000)
 })
 
 test('income continuity and optionality tools remain educational calculations', () => {

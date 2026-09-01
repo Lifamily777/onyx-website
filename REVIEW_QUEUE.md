@@ -35,6 +35,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 - Six-stage Wellness foundation implemented with bilingual educational content, non-persistent reflection checklists, no product recommendation, and no sensitive health-data storage.
 - Event Radar category filters and Watch/Emerging/Active reflections implemented without persistence; existing tax language was not changed.
+- Next Dollar Planner upgraded to a fixed-order, bilingual comparison of six capital jobs with visible assumptions and trade-offs; no ranking or universal winner is produced.
 
 ## Resolved
 
