@@ -37,6 +37,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Event Radar category filters and Watch/Emerging/Active reflections implemented without persistence; existing tax language was not changed.
 - Next Dollar Planner upgraded to a fixed-order, bilingual comparison of six capital jobs with visible assumptions and trade-offs; no ranking or universal winner is produced.
 - First-priority Wealth node interactions now communicate local-only inputs, expose accessible reflection state, and render calculator results in readable educational layouts.
+- Autonomous work on the currently locked priorities is complete; remaining prioritized items cross explicit human-review boundaries.
 
 ## Resolved
 

@@ -18,17 +18,19 @@
 - Current design system uses shared global tokens with component-level CSS Modules.
 - Life Capital Map foundation is implemented with 14 first-priority Wealth nodes, 10 Event Radar events, centralized data models, generic renderers, educational calculators, and contextual Ask Sammi handoffs.
 - Wellness foundation includes six bilingual, education-first nodes with non-persistent reflection tools and qualified-review boundaries.
+- Event Radar includes bilingual readiness guidance, accessible category filtering, and page-only status reflection; no event selections are stored.
+- Next Dollar Planner presents six fixed-order capital jobs with visible assumptions, bilingual signals, and trade-offs; it does not rank or select a winner.
+- First-priority Wealth node renderer has accessible reflection states, non-persistence notices, and readable educational calculator results instead of raw JSON.
 
 ## In Progress
 
-- Event Radar now includes bilingual readiness guidance and non-persistent category filtering; exact tax language remains pending human review before launch.
-- Next Dollar Planner now presents six fixed-order capital jobs with visible assumptions, bilingual signals, and trade-offs; it does not rank or select a winner.
-- First-priority Wealth node renderer now has accessible reflection states, non-persistence notices, and readable educational calculator results instead of raw JSON.
+- No autonomous priority task is currently in progress.
+- The next prioritized product decisions are queued for Sammi or qualified tax/compliance review.
 
 ## Blocked
 
-- No current engineering blocker recorded.
-- Items requiring product, tax/legal, insurance/compliance, or partner decisions belong in `REVIEW_QUEUE.md`.
+- No current engineering failure blocks the completed V2 foundation work.
+- Further prioritized V2 scope requires product, tax/legal, insurance/compliance, or partner decisions recorded in `REVIEW_QUEUE.md`.
 
 ## Tests
 
