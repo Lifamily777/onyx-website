@@ -27,10 +27,14 @@
 - The Capital Map offers eight safe CSV working templates, including tax-reserve and event-preparation worksheets; relevant Wealth and Event pages link directly to them.
 - Wellness nodes connect to related Wealth paths at each capital stage while remaining education-first, non-scoring, non-persistent, and separate from product resources.
 - Full Build Day browser QA covers desktop and mobile Capital Map, Foundation V2 progression, Event Radar filtering, Next Dollar reactions, long-term and Wellness pages, V1 assessment, survey, NS Federation shell, and not-found behavior.
+- The Journey Engine prototype adds a reusable bilingual scenario schema and renderer, visual consequence paths, non-scoring judgment feedback, and three Hero Journeys: Emergency Liquidity, Sell a Rental Property, and Work Optionality.
+- The Capital Map now opens with three primary paths—Explore My Capital Journey, Something Changed, and the optional 4-Minute Foundation Check—rather than presenting the 18-question check as the Financial Map itself.
+- Emergency Liquidity includes a non-persistent Runway tool with empty, invalid, and valid states; rental-sale and optionality journeys use reusable organization/reflection experiments.
 
 ## In Progress
 
 - No safe Full Build Day implementation milestone remains in progress.
+- The Journey Engine prototype is complete and awaiting product review before expansion to the remaining Life Capital Map.
 
 ## Blocked
 
@@ -55,11 +59,13 @@ No lint command is currently configured in `package.json`.
 - Two non-blocking V1 validation profiles remain queued for product review; see `REVIEW_QUEUE.md`.
 - The two pre-existing InsightArticlePage modifications must not be overwritten.
 - Foundation V2 is implemented in parallel with V1; it intentionally does not persist financial answers across refreshes.
+- Journey choices and calculator inputs intentionally remain component-memory only. Leaving and reopening a Journey starts it again.
 - The production bundle succeeds but Vite reports a non-blocking JavaScript chunk-size warning above 500 kB; code splitting is a future performance task.
 
 ## Next Recommended Tasks
 
-1. Obtain the human decisions and professional reviews recorded in `REVIEW_QUEUE.md` before expanding regulated or partner-specific paths.
+1. Review the three Hero Journey prototypes before expanding the Journey Engine across additional nodes and events.
+2. Obtain the human decisions and professional reviews recorded in `REVIEW_QUEUE.md` before publishing regulated or partner-specific paths.
 
 ## Last Updated
 

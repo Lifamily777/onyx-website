@@ -14,10 +14,13 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 These are existing, non-blocking V1 validation review items. Do not change scoring solely to remove the review flags.
 
+- **Journey Engine prototype:** review the three Hero Journeys, Capital Map entry hierarchy, story tone, and progressive-disclosure rhythm before expansion across additional nodes or events.
+
 ## Tax/Legal Verification Needed
 
 - Approve the exact Event Radar tax language before public launch, including planning-window phrasing and any references to current tax law.
 - Verify any exact current-law treatment referenced by future Event content before implementation; this build intentionally adds no deadlines, thresholds, rates, or eligibility conclusions.
+- Review the Sell a Rental Property Journey before public launch. The prototype uses illustrative purchase, offer, and mortgage figures but deliberately gives no individualized tax calculation, threshold, rate, or eligibility conclusion.
 
 ## Insurance/Compliance Review Needed
 
@@ -40,6 +43,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Eight local-download CSV worksheets are implemented with explicit sensitive-data warnings; the tax-reserve template organizes records but does not calculate liability or state a current-law rule.
 - Wellness-to-Wealth navigation is implemented as a planning dependency only; Wellness reflections do not change Wealth assessment results, and no partner product or suitability language was added.
 - Desktop and mobile browser QA completed for the V2 routes and retained V1/survey/NS-shell routes; Foundation progression, Event filtering, and Next Dollar input reactions were verified without submitting external data.
+- Journey Engine prototype implemented with bilingual structured data, three reusable Hero Journeys, non-scoring judgment feedback, mobile consequence paths, local-only tools, related-capital navigation, and contextual Ask Sammi handoffs.
 - Autonomous work on the currently locked priorities is complete; remaining prioritized items cross explicit human-review boundaries.
 
 ## Resolved
