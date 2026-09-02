@@ -3,13 +3,15 @@ import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES, DOWNLOAD_TEMPLATES, downloadTemplate, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap'
+import { HERO_JOURNEYS, localized } from '../features/journeyEngine'
 import styles from './CapitalMap.module.css'
 
 export default function CapitalMapPage({ view = 'map' }) {
-  const { localePath } = useLocale()
+  const { locale, localePath } = useLocale()
   useDocumentMeta('ONYX Life Capital Map · 人生资本地图', 'Explore Wealth and Wellness across six life-capital stages with educational tools, events, and practical next steps.')
-  const showWealth = view === 'map' || view === 'wealth'
-  const showWellness = view === 'map' || view === 'wellness'
+  const showEntry = view === 'map'
+  const showWealth = view === 'wealth'
+  const showWellness = view === 'wellness'
   const showEvents = view === 'events'
   const [eventCategory, setEventCategory] = useState('all')
   const visibleEvents = eventCategory === 'all' ? LIFE_EVENTS : LIFE_EVENTS.filter((event) => event.category === eventCategory)
@@ -20,7 +22,7 @@ export default function CapitalMapPage({ view = 'map' }) {
       <h1>ONYX Life Capital Map</h1><p className={styles.heroZh} lang="zh-CN">人生资本地图</p>
       <p>Wealth and Wellness are two forms of life capital operating across the same six stages.</p>
       <p lang="zh-CN">财富与健康，是贯穿同一组六个人生阶段的两种生命资本。</p>
-      <Link className={styles.foundationLink} to={localePath('/foundation')}>Take the 18-Question Foundation Scan · 完成18题基础扫描</Link>
+      {showEntry && <Link className={styles.foundationLink} to={localePath('/capital-map/journey')}>Explore My Capital Journey · 探索我的资本旅程</Link>}
     </header>
     <nav className={styles.axisNav} aria-label="Life Capital Map views">
       <Link to={localePath('/capital-map')} aria-current={view === 'map' ? 'page' : undefined}>Map · 全景</Link>
@@ -29,7 +31,16 @@ export default function CapitalMapPage({ view = 'map' }) {
       <Link to={localePath('/capital-map/long-term')}>5–10 Year Map · 长期地图</Link>
     </nav>
 
-    {!showEvents && <section className={styles.road} aria-labelledby="stages-title"><h2 id="stages-title">Six Capital Stages <span lang="zh-CN">六个资本阶段</span></h2>
+    {showEntry && <section className={styles.entryExperience}>
+      <div className={styles.entryPaths}>
+        <article className={styles.primaryEntry}><span>PRIMARY PATH · 主要入口</span><h2>Explore My Capital Journey<small lang="zh-CN">探索我的资本旅程</small></h2><p>Explore real-life decisions, stories, trade-offs, and planning questions across Wealth and Wellness.</p><p lang="zh-CN">通过真实生活决定、故事、取舍和规划问题，探索财富与健康。</p><Link to={localePath('/capital-map/journey')}>Begin the Journey · 开始旅程 →</Link></article>
+        <article><span>LIFE EVENT · 生活事件</span><h2>Something Changed<small lang="zh-CN">有些事情发生了变化</small></h2><p>A transaction, opportunity, family change, health change, move, or retirement window may need attention now.</p><p lang="zh-CN">交易、机会、家庭或健康变化、搬迁或退休窗口，可能需要现在开始关注。</p><Link to={localePath('/capital-map/events')}>Open Event Radar · 打开事件雷达 →</Link></article>
+        <article><span>OPTIONAL CHECK · 可选检查</span><h2>4-Minute Foundation Check<small lang="zh-CN">4分钟基础检查</small></h2><p>Not sure where to begin? Let ONYX highlight areas worth exploring through the existing 18 questions.</p><p lang="zh-CN">不确定从哪里开始？通过现有18个问题，让黑曜提示值得探索的领域。</p><Link to={localePath('/foundation')}>Take the Foundation Check · 开始基础检查 →</Link></article>
+      </div>
+      <div className={styles.heroJourneyPreview}><header><span>THINK → DISCOVER → UNDERSTAND</span><h2>Three Journeys to Explore Now<small lang="zh-CN">现在可以探索的三条旅程</small></h2></header>{HERO_JOURNEYS.map((journey,index)=><Link key={journey.id} to={localePath(`/capital-map/journey/${journey.id}`)}><b>{String(index+1).padStart(2,'0')}</b><span><strong>{localized(journey.title,locale)}</strong><small>{localized(journey.subtitle,locale)}</small></span><em>→</em></Link>)}</div>
+    </section>}
+
+    {!showEntry && !showEvents && <section className={styles.road} aria-labelledby="stages-title"><h2 id="stages-title">Six Capital Stages <span lang="zh-CN">六个资本阶段</span></h2>
       {LIFE_CAPITAL_STAGES.map((stage)=><article key={stage.id} className={styles.stage}>
         <header><span>{String(stage.order).padStart(2,'0')}</span><div><h3>{stage.name}<small lang="zh-CN">{stage.nameZh}</small></h3><p>{stage.description}<br/><small lang="zh-CN">{stage.descriptionZh}</small></p></div></header>
         <div className={styles.domainColumns}>

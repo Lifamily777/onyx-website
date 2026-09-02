@@ -5,7 +5,7 @@ import { getLatestInsights, resolveInsightContent } from '../data/insights'
 import styles from './HomePage.module.css'
 
 const AUDIENCE_PATHS = [
-  { id: 'families', to: '/survey' },
+  { id: 'families', to: '/capital-map' },
   { id: 'businessOwners', to: '/tax' },
   { id: 'communityPartners', to: '/contact' },
 ]

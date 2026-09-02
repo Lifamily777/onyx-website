@@ -13,7 +13,7 @@ export default function Nav() {
     { key: 'intelligence', label: t('nav.intelligence'), to: localePath('/intelligence') },
     { key: 'about', label: t('nav.about'), to: localePath('/about') },
     { key: 'insights', label: t('nav.insights'), to: localePath('/insights') },
-    { key: 'assessment', label: t('nav.assessment'), to: localePath('/survey') },
+    { key: 'assessment', label: t('nav.assessment'), to: localePath('/capital-map') },
   ]
 
   return (

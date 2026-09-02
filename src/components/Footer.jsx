@@ -13,7 +13,7 @@ export default function Footer() {
     { label: t('footer.columns.intelligence'), to: localePath('/intelligence') },
     { label: t('footer.columns.about'), to: localePath('/about') },
     { label: t('footer.columns.insights'), to: localePath('/insights') },
-    { label: t('footer.columns.assessment'), to: localePath('/survey') },
+    { label: t('footer.columns.assessment'), to: localePath('/capital-map') },
     { label: t('footer.columns.contact'), to: localePath('/contact') },
   ]
 
