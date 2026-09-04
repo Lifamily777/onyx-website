@@ -6,7 +6,7 @@ import styles from './InsightsIndexPage.module.css'
 
 export default function InsightsIndexPage() {
   const { t, locale, localePath } = useLocale()
-  const insights = getAllInsights()
+  const insights = getAllInsights(locale)
 
   useDocumentMeta(`${t('insightsPage.indexTitle')} · ${t('brand.shortName')}`)
 

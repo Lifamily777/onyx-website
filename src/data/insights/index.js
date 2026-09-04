@@ -20,9 +20,10 @@ const allInsights = [
 // points — draft/archived articles are invisible to the index, the latest-
 // insight lookup, and direct-slug lookup alike (a draft link should 404,
 // not silently preview).
-export function getAllInsights() {
+export function getAllInsights(locale) {
   return allInsights
     .filter((insight) => insight.status === 'published')
+    .filter((insight) => !locale || Boolean(insight.content[locale]))
     .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
 }
 
@@ -38,17 +39,17 @@ export function getLatestInsight() {
 // getAllInsights() already means "all *published* insights" (see above) —
 // every query below builds on it so pillar/limit filtering never has to
 // re-implement the published+sorted contract.
-export function getLatestInsights(limit) {
-  const published = getAllInsights()
+export function getLatestInsights(limit, locale) {
+  const published = getAllInsights(locale)
   return typeof limit === 'number' ? published.slice(0, limit) : published
 }
 
-export function getInsightsByPillar(pillarId) {
-  return getAllInsights().filter((insight) => insight.pillars.includes(pillarId))
+export function getInsightsByPillar(pillarId, locale) {
+  return getAllInsights(locale).filter((insight) => insight.pillars.includes(pillarId))
 }
 
-export function getLatestInsightsByPillar(pillarId, limit) {
-  const byPillar = getInsightsByPillar(pillarId)
+export function getLatestInsightsByPillar(pillarId, limit, locale) {
+  const byPillar = getInsightsByPillar(pillarId, locale)
   return typeof limit === 'number' ? byPillar.slice(0, limit) : byPillar
 }
 

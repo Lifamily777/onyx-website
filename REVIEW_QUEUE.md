@@ -4,10 +4,14 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Needs Sammi Decision
 
+- 2026-09-04: The requested site-wide single-language presentation requires changes to bilingual editorial layouts in protected `src/components/InsightArticlePage.jsx`. Current implementation deliberately leaves this file and its CSS untouched. Please authorize a narrowly scoped language-rendering update (preserving existing user edits) before completing those articles. Also review remaining technical English terms in legacy Chinese prose; tax/insurance meanings must not change.
+
 - Approval of Wellness/USANA resource positioning, including how optional resources are separated from assessment conclusions.
 - Confirmation of the NS Federation embed source and configuration.
 
 ## Product Review Items
+
+- 2026-09-04: Review the first conversational-Chinese pass and new reading navigator. The structure follows the existing six-stage framework, not an official CFP assessment or certification claim. The dot marks the current topic, not financial readiness. Continue the remaining Chinese article/guide copy pass after tone review; protected editorial renderer still awaits explicit permission. Review phone and wide-desktop layout before publication.
 
 - **V3 Phase 2 Hero Guides:** review the four guide narratives, progressive-disclosure depth, family-capital connections, printable summaries, and contextual Sammi handoffs before production release.
 

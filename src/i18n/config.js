@@ -1,6 +1,6 @@
 export const DEFAULT_LOCALE = 'en'
 
-export const SUPPORTED_LOCALES = ['en', 'zh', 'es', 'ko', 'fr', 'de']
+export const SUPPORTED_LOCALES = ['en', 'zh']
 
 export const LOCALE_LABELS = {
   en: 'English',
@@ -23,7 +23,7 @@ export const LOCALE_HTML_LANG = {
 
 // Given any pathname, returns { locale, subpath } — subpath always starts with "/".
 export function parseLocaleFromPath(pathname) {
-  const match = pathname.match(/^\/(zh|es|ko|fr|de)(\/.*)?$/)
+  const match = pathname.match(/^\/(zh)(\/.*)?$/)
   if (match) {
     return { locale: match[1], subpath: match[2] || '/' }
   }
@@ -33,6 +33,6 @@ export function parseLocaleFromPath(pathname) {
 // Builds a path for `subpath` in the given locale (English has no prefix).
 export function buildLocalePath(locale, subpath = '/') {
   const clean = subpath.startsWith('/') ? subpath : `/${subpath}`
-  if (locale === DEFAULT_LOCALE) return clean
+  if (locale === DEFAULT_LOCALE || !SUPPORTED_LOCALES.includes(locale)) return clean
   return clean === '/' ? `/${locale}` : `/${locale}${clean}`
 }

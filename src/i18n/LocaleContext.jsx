@@ -1,13 +1,9 @@
 import { createContext, useContext, useEffect, useMemo } from 'react'
 import en from '../locales/en'
 import zh from '../locales/zh'
-import es from '../locales/es'
-import ko from '../locales/ko'
-import fr from '../locales/fr'
-import de from '../locales/de'
 import { DEFAULT_LOCALE, LOCALE_HTML_LANG, buildLocalePath } from './config'
 
-const dictionaries = { en, zh, es, ko, fr, de }
+const dictionaries = { en, zh }
 
 const LocaleContext = createContext(null)
 

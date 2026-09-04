@@ -28,7 +28,7 @@ export default function HomePage() {
   const founderParagraphs = t('home.founder.paragraphs')
   const founderRoles = t('home.founder.roles')
   const missionParagraphs = t('home.mission.paragraphs')
-  const latestInsights = getLatestInsights(LATEST_INSIGHTS_LIMIT)
+  const latestInsights = getLatestInsights(LATEST_INSIGHTS_LIMIT, locale)
 
   return (
     <div className={`${styles.wrap} page-enter`}>

@@ -1,5 +1,28 @@
 # ONYX Build Status
 
+## 2026-09-04 — Full architecture correction
+
+- Replaced the collapsible navigator with an always-expanded, stable architecture diagram: four V3 paths, all 20 published Wealth/Wellness nodes in six stages, all 10 events, tools, learning, contact and policies. Route changes highlight the relevant branch without changing the diagram's contents.
+- Right-hand reserved column now applies at 760px and above; phones show the entire map above the content without a disclosure control. Nodes have accessible names and title labels. No body copy, scoring or protected article changes in this correction.
+- Tests/build/diff checks passed; existing bundle-size warning remains. Browser confirmed contact highlight and no horizontal overflow at 926px. Not deployed.
+
+## 2026-09-04 — Reading navigator and conversational Chinese preview
+
+- Added a shared, route-aware reading navigator on public pages: six existing capital stages, Wealth/Wellness columns, and separate locations for events, tools, learning and site information. The marker identifies the content being read, never a user's assessed financial standing.
+- Wide screens use a reserved right sidebar; smaller windows use a collapsible top-right navigator. It follows page changes, uses locale-aware links, supports keyboard navigation and hides for printing. No browsing history, financial answers, or personal data are stored.
+- First editorial pass covers all six Wellness foundation pages, common event/action labels, and selected Wealth entry descriptions (emergency cash, monthly surplus, non-W2 income and tax reserves). English content, calculations, scoring, source options, legal disclosures and protected InsightArticlePage files are preserved. This is not a completed rewrite of every Chinese article.
+- Validation: 79 tests pass, production build and diff whitespace check pass. Existing bundle-size warning remains. Browser review verified the compact navigator at 926px, expanding/collapsing, no horizontal overflow, and marker movement from WL1 to WL2. Full phone/wide-desktop visual review remains before publication.
+- Local preview only; no merge, production deployment, commit or push in this iteration.
+
+## 2026-09-04 — Locale separation (local review)
+
+- Public language choices now include English and Chinese only. Other dictionaries are retained but not loaded or exposed.
+- Legacy Capital Map, event, Wealth/Wellness node, assessment/result, Foundation, long-term and journey screens render one locale instead of paired translations. Input values and calculation rules are unchanged.
+- Added localized legacy labels and translation-coverage tests. Insight lists avoid opposite-language fallback; unavailable article translations show an explanatory page without deleting source content.
+- **Partial completion:** existing protected InsightArticlePage renderer still contains bilingual editorial layouts. Await permission before changing that file. Some legacy Chinese prose also retains technical English terminology; further copy review remains.
+- Original InsightArticlePage JSX/CSS in the original worktree retain their previously recorded SHA-256 hashes. No production deployment or merge performed.
+- Validation: 76/76 tests passed; production build and `git diff --check` passed. Existing >500 kB bundle warning remains. Capital validation completed with existing product-review flags (not new calculation changes).
+
 ## Current Branch
 
 `codex/onyx-v2-platform`

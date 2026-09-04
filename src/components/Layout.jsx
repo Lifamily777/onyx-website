@@ -9,6 +9,8 @@ import { LocaleProvider } from '../i18n/LocaleContext'
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE } from '../i18n/config'
 import useHreflangTags from '../hooks/useHreflangTags'
 import useCanonicalTag from '../hooks/useCanonicalTag'
+import ReadingNavigator from './ReadingNavigator'
+import readingStyles from './ReadingNavigator.module.css'
 
 export default function Layout({ forceLocale }) {
   const params = useParams()
@@ -41,7 +43,10 @@ function LayoutBody({ isValidLocale, activeVideo, openVideo, closeVideo }) {
     <>
       <ScrollToTop />
       <Nav />
-      {isValidLocale ? <Outlet context={{ openVideo }} /> : <NotFound />}
+      <div className={readingStyles.frame}>
+        <div className={readingStyles.content}>{isValidLocale ? <Outlet context={{ openVideo }} /> : <NotFound />}</div>
+        {isValidLocale && <ReadingNavigator />}
+      </div>
       <Footer />
       {activeVideo && <VideoModal video={activeVideo} onClose={closeVideo} />}
     </>

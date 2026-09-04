@@ -192,13 +192,13 @@ export const whyChineseFamiliesLoveSavingButDistrustInsurance = {
     en: {
       ...sharedContent,
       title: sharedContent.titleEn,
-      subtitle: sharedContent.titleZh,
+      subtitle: sharedContent.subtitleEn,
       seoDescription: 'Why do many Chinese families embrace saving and investing but remain skeptical of insurance? ONYX explores cash, stocks, retirement accounts, real estate and life insurance through one simple idea: every financial tool has a different job.',
     },
     zh: {
       ...sharedContent,
       title: sharedContent.titleZh,
-      subtitle: sharedContent.titleEn,
+      subtitle: sharedContent.subtitleZh,
       seoDescription: '为什么很多华人家庭重视储蓄和投资，却对保险保持距离？ONYX 从现金、股票、退休账户、房地产和人寿保险出发，重新思考一个家庭真正需要怎样的财富结构。',
     },
   },

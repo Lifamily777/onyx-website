@@ -1,6 +1,11 @@
 import { useEffect } from 'react'
+import { useLocale } from '../i18n/LocaleContext'
+import { translateLegacyText } from '../i18n/legacyPresentation'
 
 export default function useDocumentMeta(title, description, options = {}) {
+  const { locale } = useLocale()
+  title = title?.split(' | ').map(part => translateLegacyText(part, locale)).join(' | ')
+  description = translateLegacyText(description, locale)
   const { siteName, structuredData } = options
   const structuredDataJson = structuredData ? JSON.stringify(structuredData) : ''
 

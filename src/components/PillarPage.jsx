@@ -32,7 +32,7 @@ export default function PillarPage({ pillarId }) {
 
   useDocumentMeta(`${heroTitle} · ${t('brand.shortName')}`, heroSubtitle)
 
-  const insights = getLatestInsightsByPillar(pillarId, INSIGHTS_LIMIT)
+  const insights = getLatestInsightsByPillar(pillarId, INSIGHTS_LIMIT, locale)
   const terms = getTermsByPillar(pillarId)
   const topics = t(`pillarPages.${pillarId}.topics`)
   const actions = PILLAR_ACTIONS[pillarId] || []

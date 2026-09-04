@@ -60,10 +60,10 @@ NS Federation may appear only as a separate embedded professional-resource page.
 
 ## Bilingual Content
 
-- English is primary.
-- Chinese appears directly below the English or in a clearly paired presentation.
+- English is the default locale; `/zh` displays Chinese only.
+- Do not display both translations together. Use the active locale for headings, tools, controls, results, and disclosures.
 - Keep terminology consistent across navigation, assessments, tools, articles, SEO, and structured data.
-- Preserve the existing locale-aware architecture and all supported locales.
+- Preserve the locale-aware architecture. Only English and Chinese are currently public; retain other dictionaries for possible future reactivation.
 
 ## Tax Content Safety
 
