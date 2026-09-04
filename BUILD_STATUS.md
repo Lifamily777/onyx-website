@@ -1,5 +1,13 @@
 # ONYX Build Status
 
+## 2026-09-04 — Sun and Moon Sea Homepage Hero
+
+- Replaced the abstract oval treatment with responsive desktop and mobile ocean artwork: a restrained champagne-gold sun at left, pearl moon at right, and dark central negative space for the existing homepage copy.
+- Existing bilingual headline, supporting copy, CTAs, four-path cards, routes, and behavior remain unchanged and render above contrast-preserving overlays.
+- Generated artwork is stored as optimized project-local JPEG assets; no external image request or tracking is introduced.
+- Validation passed: 90/90 tests, production build, `git diff --check`, and capital validation (three PASS and two existing REVIEW profiles). Existing bundle-size warning remains.
+- Browser QA passed for English and Chinese at the available desktop viewport and at 390×844 mobile: both celestial focal points remain visible, copy and actions stay readable above the image, and no horizontal overflow was introduced. No merge or production deployment performed.
+
 ## 2026-09-04 — Global Knowledge Search
 
 - Follow-up refinement prevents short alphanumeric terms such as `W2` from matching longer node references such as `W25`; Chinese Sammi handoffs now ask for approximate background information while retaining the sensitive-document warning.

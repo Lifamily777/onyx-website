@@ -879,3 +879,86 @@
     line-height: 1.22;
   }
 }
+
+/* Sun-and-moon sea hero: existing copy and actions remain in the foreground. */
+.hero {
+  width: 100%;
+  max-width: none;
+  grid-template-columns: minmax(0, 780px) minmax(0, 1fr);
+  padding-inline: max(32px, calc((100vw - 1160px) / 2));
+  background-color: #060b12;
+  background-image: url('/assets/onyx-sun-moon-sea-hero.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: auto;
+  height: auto;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 12, .14), rgba(3, 8, 13, .04) 46%, rgba(3, 8, 13, .58) 100%),
+    linear-gradient(90deg, rgba(3, 7, 12, .22), rgba(3, 7, 12, .56) 38%, rgba(3, 7, 12, .38) 65%, rgba(3, 7, 12, .1));
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.hero::after {
+  z-index: 0;
+  height: 24%;
+  background: linear-gradient(180deg, transparent, rgba(6, 12, 18, .9) 82%, #0a1119);
+  clip-path: none;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle {
+  text-shadow: 0 3px 28px rgba(0, 0, 0, .65);
+}
+
+.heroSupporting,
+.heroBridge,
+.heroLine {
+  color: rgba(248, 244, 235, .82);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .72);
+}
+
+@media (max-width: 1200px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    background-image: url('/assets/onyx-sun-moon-sea-hero-mobile.jpg');
+    background-position: center top;
+    background-size: 100% auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 100svh;
+    padding-inline: 20px;
+    background-image: url('/assets/onyx-sun-moon-sea-hero-mobile.jpg');
+    background-position: center top;
+  }
+
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(2, 6, 11, .38), rgba(2, 6, 11, .7) 34%, rgba(2, 6, 11, .48) 62%, rgba(2, 6, 11, .88)),
+      linear-gradient(90deg, rgba(2, 6, 11, .2), rgba(2, 6, 11, .52), rgba(2, 6, 11, .2));
+  }
+
+  .corePaths {
+    background: rgba(5, 11, 17, .72);
+  }
+}
