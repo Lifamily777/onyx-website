@@ -52,6 +52,7 @@ export default {
 
   home: {
     hero: {
+      eyebrow: '什么是 ONYX Wealth & Wellness · 黑曜财商？',
       headline1: '把钱赚明白，把税理清楚，',
       headline2: '把未来安排好，把家保护好。',
       supporting: '收入、税务、生意、退休和孩子，从来不是互不相关的几件事。',
@@ -63,7 +64,7 @@ export default {
       supportingLine: '留下更多，为明天积累，为孩子准备，保护家庭计划。',
     },
     why: {
-      label: '黑曜希望帮你发现的问题',
+      label: '为什么选择 ONYX？',
       headline: '真正昂贵的，往往不是没有答案，而是你还不知道该问什么。',
       body:
         '税务、保险、投资、人工智能、创业、健康和退休规划等领域，都包含越来越多的信息。真正困难的，不是信息太少，而是不知道哪些值得相信，更不知道如何把它们组合成属于自己的系统。',
@@ -132,7 +133,7 @@ export default {
       cta: '关注学习之旅',
     },
     founder: {
-      name: 'Sammi Q',
+      name: '谁是 Sammi Q？',
       headline: 'ONYX Wealth & Wellness 创始人 · 家庭资本策略师',
       roles: [
         '企业财务与数字化实践者',

@@ -1,5 +1,13 @@
 # ONYX Build Status
 
+## 2026-09-04 — Three-Part Homepage Narrative
+
+- Consolidated the homepage into three top-level sections: what ONYX Wealth & Wellness is, why a visitor might choose ONYX, and who Sammi Q is.
+- Removed repeated standalone slogan sections from homepage presentation while preserving their underlying locale content, destination pages, routes, navigation, Insights data, and tools.
+- Capital Map, Event Radar, Foundation, four V3 paths, Insights, Glossary, and Contact remain directly reachable through the three-part page.
+- Validation passed: 90/90 tests, production build, `git diff --check`, and capital validation (three PASS and two existing REVIEW profiles). Existing bundle-size warning remains.
+- Browser QA confirmed exactly three top-level homepage sections in English and Chinese, preserved destination links, and no horizontal overflow at the available desktop viewport or 390×844 mobile. No merge or production deployment performed.
+
 ## 2026-09-04 — Sun and Moon Sea Homepage Hero
 
 - Follow-up composition refinement centers the four-line hero headline in the dark middle field so the sun and its reflection remain visible on the left.

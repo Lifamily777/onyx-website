@@ -50,6 +50,7 @@ export default {
 
   home: {
     hero: {
+      eyebrow: 'What is ONYX Wealth & Wellness?',
       headline1: 'Earn Well. Keep More.',
       headline2: 'Build Intentionally. Protect What Matters.',
       supporting:
@@ -62,7 +63,7 @@ export default {
       supportingLine: 'Keep more of what you earn. Build for tomorrow. Fund their future. Protect the plan.',
     },
     why: {
-      label: 'THE ONYX QUESTION',
+      label: 'WHY CHOOSE ONYX?',
       headline: "The most expensive financial question may be the one you didn't know to ask.",
       body:
         'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
@@ -143,7 +144,7 @@ export default {
       cta: 'Follow the Learning Journey',
     },
     founder: {
-      name: 'Sammi Q',
+      name: 'WHO IS SAMMI Q?',
       headline: 'Founder, ONYX Wealth & Wellness · Family Capital Strategist',
       roles: [
         'Finance Systems & Digital Transformation',
