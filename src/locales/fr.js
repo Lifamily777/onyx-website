@@ -2,9 +2,9 @@
 export default {
   brand: { shortName: 'ONYX' },
   meta: {
-    title: "ONYX Wealth & Wellness Club | Communauté d'apprentissage",
+    title: 'ONYX Wealth & Wellness',
     description:
-      "ONYX Wealth & Wellness Club est une communauté d’apprentissage et de ressources pour les familles, petites entreprises et professionnels de la communauté, autour du patrimoine, du bien-être, de la fiscalité, de l’entreprise, de l’IA et des décisions à long terme.",
+      "ONYX Wealth & Wellness propose une approche éducative pour mieux comprendre les décisions financières familiales.",
   },
 
   nav: {
@@ -20,7 +20,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness Club',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'Comprendre un monde complexe. Construire ensemble une vie meilleure.',
     descriptor: 'Une communauté d’apprentissage et de ressources pour les familles, petites entreprises et professionnels de la communauté.',
     domainLabel: 'ONYXWW.com',
@@ -48,7 +48,7 @@ export default {
       headline1: 'Le monde ne devient pas plus simple.',
       headline2: 'Mais le comprendre peut le devenir.',
       supporting:
-        "ONYX Wealth & Wellness Club est une communauté d'apprentissage pour les particuliers, les familles et les petites entreprises.",
+        "ONYX Wealth & Wellness est une plateforme éducative pour les familles et les professionnels.",
       bridge:
         "Ensemble, nous explorons le patrimoine, le bien-être, l'intelligence artificielle et la prise de décision afin de mieux comprendre les systèmes complexes et de prendre de meilleures décisions à long terme.",
       ctaPrimary: 'Commencer à Apprendre',
@@ -123,7 +123,7 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiatrice d’ONYX Wealth & Wellness Club',
+      headline: 'Fondatrice d’ONYX Wealth & Wellness',
       roles: ['Systèmes financiers et transformation numérique', 'Création et gestion de petites entreprises', 'Expérience en restauration et services à domicile', 'Étudiante en fiscalité américaine (EA Candidate)', 'IA et processus d’entreprise'],
       paragraphs: [
         "Je ne suis pas ici pour prétendre connaître déjà toutes les réponses.",

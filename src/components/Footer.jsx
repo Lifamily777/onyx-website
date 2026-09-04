@@ -8,12 +8,14 @@ export default function Footer() {
   const { t, localePath } = useLocale()
 
   const columns = [
-    { label: t('footer.columns.wealth'), to: localePath('/tax') },
-    { label: t('footer.columns.wellness'), to: localePath('/health') },
-    { label: t('footer.columns.intelligence'), to: localePath('/intelligence') },
+    { label: t('nav.keepMore'), to: localePath('/keep-more') },
+    { label: t('nav.buildTomorrow'), to: localePath('/build-for-tomorrow') },
+    { label: t('nav.fundFuture'), to: localePath('/fund-their-future') },
+    { label: t('nav.protectPlan'), to: localePath('/protect-the-plan') },
     { label: t('footer.columns.about'), to: localePath('/about') },
     { label: t('footer.columns.insights'), to: localePath('/insights') },
     { label: t('footer.columns.assessment'), to: localePath('/capital-map') },
+    { label: t('footer.columns.wellness'), to: localePath('/capital-map/wellness') },
     { label: t('footer.columns.contact'), to: localePath('/contact') },
   ]
 

@@ -201,6 +201,6 @@ export const termVsGulVsIulFamilyCapital = {
   originalLocale: 'en',
   previousSlug,
   author: 'Sammi Q',
-  authorTitle: 'Initiator, ONYX Wealth & Wellness Club',
+  authorTitle: 'Founder, ONYX Wealth & Wellness',
   content: { en, zh },
 }

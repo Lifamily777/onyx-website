@@ -12,7 +12,7 @@
 
 /* Black-gold night navigation */
 .nav { background: rgba(7, 11, 16, .82); border-bottom-color: rgba(210, 191, 150, .16); backdrop-filter: blur(22px); }
-.inner { max-width: 1240px; }
+.inner { max-width: 1380px; }
 .logo { display: flex; align-items: center; gap: 10px; color: #f7f0e2; }
 .logoEn { color: var(--gold-light); letter-spacing: .2em; }
 .logoName { color: rgba(245, 239, 227, .72); font-size: 11px; letter-spacing: .06em; white-space: nowrap; }
@@ -22,7 +22,7 @@
 @media (max-width: 760px) { .logoName { display: none; } }
 
 .inner {
-  max-width: 1160px;
+  max-width: 1380px;
   margin: 0 auto;
   min-height: var(--nav-h);
   display: flex;
@@ -69,11 +69,11 @@
   display: inline-block;
   background: none;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: var(--ink);
   opacity: 0.8;
-  padding: 9px;
+  padding: 9px 7px;
   cursor: pointer;
   letter-spacing: var(--letter-body);
   border-radius: var(--radius-pill);

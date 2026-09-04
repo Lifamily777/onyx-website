@@ -139,7 +139,7 @@ const zhTexts = [
   '趁大家还记得的时候，把发生过的事情写下来。',
   '不确定自己的 Partnership Basis 有没有被持续、正确地记录？',
   '如果您的企业过去几年发生过 Partner contributions、distributions、个人垫付款、Partner Loans、property contributions、债务变化或 ownership changes，那么在真正发生退出、出售、大额 Distribution 或税务检查之前，把这些历史整理清楚，通常比事后重建容易得多。',
-  '黑曜财商俱乐部可以帮助小企业主整理 partner-level records、识别缺失资料、建立 Partner Basis Tracking Ledger，并把相关信息协调到可以交由适当税务或法律专业人士审核的程度。',
+  'ONYX Wealth & Wellness 可以帮助小企业主整理 partner-level records、识别缺失资料、建立 Partner Basis Tracking Ledger，并把相关信息协调到可以交由适当税务或法律专业人士审核的程度。',
   '如果您对自己的 Partnership 记录有疑问，可以联系黑曜与我们讨论。',
 ]
 
@@ -160,5 +160,5 @@ export const theThirdLedgerPartnershipBasis = {
   slug: 'the-third-ledger-partnership-basis', publishDate: '2026-08-10', status: 'published', layout: 'partnershipEditorial',
   pillars: ['wealth'], insightNumber: 5, pillarLabel: 'Wealth', pillarNumber: 4,
   keywords: ['partnership basis', 'outside basis', 'partner basis tracking', 'Schedule K-1', 'Form 1065', 'partnership distributions', 'partner loans'],
-  originalLocale: 'en', author: 'Sammi Q', authorTitle: 'Initiator, ONYX Wealth & Wellness Club', content: { en, zh },
+  originalLocale: 'en', author: 'Sammi Q', authorTitle: 'Founder, ONYX Wealth & Wellness', content: { en, zh },
 }

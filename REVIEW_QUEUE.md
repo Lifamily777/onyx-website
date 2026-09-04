@@ -9,6 +9,10 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Product Review Items
 
+- **V3 Phase 1:** review the Working Family Capital homepage hierarchy, four knowledge-path labels, About Sammi title, and bilingual tone before production release.
+- **Additional locales:** English and Chinese V3 content is fully aligned; Spanish, Korean, French, and German currently use English fallback for newly introduced navigation/path architecture and need human translation before treating those locales as fully localized V3 experiences.
+- **Protected article metadata:** `InsightArticlePage.jsx` still contains the former publisher name inside article structured data. It was deliberately left untouched under the protected-file rule; update it only with explicit authorization to edit that file.
+
 - **Stable Middle-Income Builder:** review whether `Strategic = Needs Attention` matches intended product intuition.
 - **Concentrated Business Owner:** review whether the `Optionality Builder` temperament result is plausible and appropriately presented.
 
@@ -25,6 +29,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 ## Insurance/Compliance Review Needed
 
 - Review future income-protection and risk-transfer journeys for education-first sequencing, neutral alternatives, needs-analysis boundaries, suitability language, and prohibited guarantees.
+- Review the public “Family Capital Strategist” descriptor and contextual handoff language for any jurisdiction-specific licensing or disclosure requirements before production release.
 
 ## Deferred Ideas
 

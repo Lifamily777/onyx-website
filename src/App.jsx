@@ -22,6 +22,8 @@ import LongTermPlanningPage from './components/LongTermPlanningPage'
 import NsFederationPage from './components/NsFederationPage'
 import JourneyIndexPage from './components/JourneyIndexPage'
 import JourneyScenarioPage from './components/JourneyScenarioPage'
+import KnowledgePathPage from './components/KnowledgePathPage'
+import AboutSammiPage from './components/AboutSammiPage'
 import { servicePages } from './data/content'
 
 // Shared page routes rendered under both the unprefixed (English) branch
@@ -30,6 +32,10 @@ import { servicePages } from './data/content'
 const pageRoutes = [
   <Route key="index" index element={<HomePage />} />,
   <Route key="tax" path="tax" element={<ServicePage data={servicePages.tax} />} />,
+  <Route key="keep-more" path="keep-more" element={<KnowledgePathPage pathId="keep-more" />} />,
+  <Route key="build-for-tomorrow" path="build-for-tomorrow" element={<KnowledgePathPage pathId="build-for-tomorrow" />} />,
+  <Route key="fund-their-future" path="fund-their-future" element={<KnowledgePathPage pathId="fund-their-future" />} />,
+  <Route key="protect-the-plan" path="protect-the-plan" element={<KnowledgePathPage pathId="protect-the-plan" />} />,
   <Route key="ins" path="ins" element={<ServicePage data={servicePages.ins} />} />,
   <Route key="health" path="health" element={<ServicePage data={servicePages.health} />} />,
   <Route key="contact" path="contact" element={<ContactPage />} />,
@@ -48,7 +54,7 @@ const pageRoutes = [
   <Route key="capital-map-event" path="capital-map/event/:id" element={<CapitalEventPage />} />,
   <Route key="capital-map-wellness-node" path="capital-map/wellness/:id" element={<WellnessNodePage />} />,
   <Route key="ns-federation" path="ns-federation" element={<NsFederationPage />} />,
-  <Route key="about" path="about" element={<PlaceholderPage pageKey="about" />} />,
+  <Route key="about" path="about" element={<AboutSammiPage />} />,
   <Route key="insights" path="insights" element={<InsightsIndexPage />} />,
   <Route key="insight-detail" path="insights/:slug" element={<InsightArticlePage />} />,
   <Route key="glossary" path="glossary" element={<GlossaryIndexPage />} />,

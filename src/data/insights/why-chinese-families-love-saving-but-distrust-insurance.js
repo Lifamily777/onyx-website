@@ -152,7 +152,7 @@ const sharedContent = {
   subtitleZh: '也许，我们一直问错了问题。',
   readingTime: 15,
   author: 'Sammi Q',
-  authorTitle: 'Initiator, ONYX Wealth & Wellness Club',
+  authorTitle: 'Founder, ONYX Wealth & Wellness',
   body: bilingualBody,
   closingQuote: {
     en: '“A good financial plan does not begin by asking which product makes the most money.\n\nIt begins by asking what could happen to this family—and whether its financial system is ready.”',

@@ -2,9 +2,9 @@
 export default {
   brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX Wealth & Wellness Club | 학습 공동체',
+    title: 'ONYX Wealth & Wellness',
     description:
-      'ONYX Wealth & Wellness Club은 가족, 소규모 사업자와 커뮤니티 전문가를 위한 학습·자원 연결 공동체로 자산, 건강, 세무, 사업, AI와 장기 의사결정을 함께 이해하도록 돕습니다.',
+      'ONYX Wealth & Wellness는 가족의 재정 의사결정을 더 명확하게 이해하도록 돕는 교육 중심 플랫폼입니다.',
   },
 
   nav: {
@@ -20,7 +20,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness Club',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: '복잡한 세상을 이해하고, 더 나은 삶을 함께 만들어갑니다.',
     descriptor: '가족, 소규모 사업자와 커뮤니티 전문가를 위한 학습·자원 연결 공동체.',
     domainLabel: 'ONYXWW.com',
@@ -48,7 +48,7 @@ export default {
       headline1: '세상은 더 단순해지지 않습니다.',
       headline2: '하지만 이해는 더 쉬워질 수 있습니다.',
       supporting:
-        'ONYX Wealth & Wellness Club은 개인, 가족, 소규모 사업자를 위한 학습 공동체입니다.',
+        'ONYX Wealth & Wellness는 가족과 직장인을 위한 교육 플랫폼입니다.',
       bridge:
         '우리는 자산, 웰니스, 인공지능과 의사결정을 함께 배우며, 더 많은 사람이 복잡한 시스템을 이해하고 더 나은 장기 결정을 내릴 수 있도록 돕습니다.',
       ctaPrimary: '배움 시작하기',
@@ -115,7 +115,7 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'ONYX Wealth & Wellness Club을 시작한 사람',
+      headline: 'ONYX Wealth & Wellness 설립자',
       roles: ['재무 시스템과 디지털 전환', '소규모 사업 구축과 운영', '레스토랑 및 홈 서비스 경험', '미국 세무 학습자(EA Candidate)', 'AI와 비즈니스 프로세스 실무'],
       paragraphs: [
         '저는 모든 답을 이미 알고 있다고 말하려는 것이 아닙니다.',

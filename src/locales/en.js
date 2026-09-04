@@ -2,13 +2,17 @@
 export default {
   brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX Wealth & Wellness Club',
+    title: 'ONYX Wealth & Wellness | Working Family Capital',
     description:
-      'ONYX Wealth & Wellness Club is a learning and resource community for families, small businesses, and community professionals, helping people understand complex systems across wealth, wellness, tax, business, AI, and long-term decision-making.',
+      'Education-first financial planning and decision guidance for W-2 professionals, 1099 earners, and modern growing families.',
   },
 
   nav: {
     home: 'Home',
+    keepMore: 'Keep More',
+    buildTomorrow: 'Build for Tomorrow',
+    fundFuture: 'Fund Their Future',
+    protectPlan: 'Protect the Plan',
     wealth: 'Wealth',
     wellness: 'Wellness',
     intelligence: 'Intelligence',
@@ -16,13 +20,14 @@ export default {
     insights: 'Insights',
     assessment: 'Financial Map',
     startLearning: 'Start Learning',
+    contact: 'Contact',
     languageLabel: 'Language',
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness Club',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'Understand a complex world. Build a better life together.',
-    descriptor: 'A learning and resource community for families, small businesses, and community professionals.',
+    descriptor: 'Education-first guidance for W-2 professionals, 1099 earners, and modern growing families.',
     domainLabel: 'ONYXWW.com',
     columns: {
       wealth: 'Wealth',
@@ -39,36 +44,37 @@ export default {
       disclosures: 'Disclosures',
     },
     disclaimer:
-      'ONYX provides general educational content and does not provide individualized financial, tax, legal, medical, investment, or insurance advice unless explicitly stated through an appropriately licensed professional relationship. Consult qualified professionals regarding your personal circumstances.',
+      'Educational guidance, not individualized tax, legal, investment, or insurance advice. Tax rules and financial circumstances can change. Product recommendations, where applicable, require a separate needs analysis and appropriate licensed review.',
     languageLabel: 'Language',
   },
 
   home: {
     hero: {
-      headline1: 'The world is complex and its rules are layered.',
-      headline2: 'Together, let us turn complexity into clarity—and navigate with real-world cases.',
+      headline1: 'Earn Well. Keep More.',
+      headline2: 'Build Intentionally. Protect What Matters.',
       supporting:
-        'ONYX Wealth & Wellness Club is a learning and resource community for families, small businesses, and community professionals.',
+        'Your income, taxes, business, retirement and children do not live separate financial lives.',
       bridge:
-        'We help people understand how wealth, wellness, tax, business, and AI connect—then find useful resources and take a clearer next step.',
-      ctaPrimary: 'Start Learning',
-      ctaSecondary: 'Latest Insights',
-      supportingLine: 'Understand a complex world. Build a better life together.',
+        'ONYX helps you identify overlooked questions, understand what they connect to, and build coordinated solutions before important decisions become difficult to reverse.',
+      ctaPrimary: 'Explore My Capital Map',
+      ctaSecondary: 'Something Changed',
+      ctaTertiary: '4-Minute Capital Check',
+      supportingLine: 'Keep more of what you earn. Build for tomorrow. Fund their future. Protect the plan.',
     },
     why: {
-      label: 'WHY ONYX?',
-      headline: 'When you’re too busy to learn everything from scratch, ONYX brings essential knowledge together in one clear, trusted place.',
+      label: 'THE ONYX QUESTION',
+      headline: "The most expensive financial question may be the one you didn't know to ask.",
       body:
         'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
       emphasis:
-        'ONYX exists to help people understand complex systems, connect with useful resources, and take a clearer next step.',
+        'Discover what may have been overlooked. Understand what it connects to. Decide while choices are still open.',
       areas: [
         'Taxes', 'Insurance', 'Healthcare', 'Retirement', 'Nutrition',
         'AI', 'Technology', 'Family Finance', 'Estate Planning', 'Education',
       ],
     },
     brandStatement: {
-      headline: 'Understand → Connect → Act',
+      headline: 'Discover → Understand → Decide',
       body:
         'ONYX brings learning, practical frameworks, and trusted resource connections into one place—so families, small businesses, and community professionals can move from information to better decisions.',
     },
@@ -76,7 +82,7 @@ export default {
     // Wealth/Wellness/Intelligence are reachable within the first viewport
     // — separate from the fuller `pillars` section further down the page.
     corePaths: {
-      title: 'Who is ONYX for?',
+      title: 'Four paths for working family capital',
       families: {
         title: 'Families',
         description: 'See how income, taxes, insurance, health, education, assets, debt, and long-term goals fit together—and identify the questions worth asking next.',
@@ -138,7 +144,7 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiator, ONYX Wealth & Wellness Club',
+      headline: 'Founder, ONYX Wealth & Wellness · Family Capital Strategist',
       roles: [
         'Finance Systems & Digital Transformation',
         'Small Business Building & Operations',

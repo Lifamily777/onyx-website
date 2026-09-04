@@ -8,12 +8,12 @@ export default function Nav() {
 
   const navItems = [
     { key: 'home', label: t('nav.home'), to: localePath('/'), end: true },
-    { key: 'wealth', label: t('nav.wealth'), to: localePath('/tax') },
-    { key: 'wellness', label: t('nav.wellness'), to: localePath('/health') },
-    { key: 'intelligence', label: t('nav.intelligence'), to: localePath('/intelligence') },
-    { key: 'about', label: t('nav.about'), to: localePath('/about') },
+    { key: 'keepMore', label: t('nav.keepMore'), to: localePath('/keep-more') },
+    { key: 'buildTomorrow', label: t('nav.buildTomorrow'), to: localePath('/build-for-tomorrow') },
+    { key: 'fundFuture', label: t('nav.fundFuture'), to: localePath('/fund-their-future') },
+    { key: 'protectPlan', label: t('nav.protectPlan'), to: localePath('/protect-the-plan') },
     { key: 'insights', label: t('nav.insights'), to: localePath('/insights') },
-    { key: 'assessment', label: t('nav.assessment'), to: localePath('/capital-map') },
+    { key: 'about', label: t('nav.about'), to: localePath('/about') },
   ]
 
   return (
@@ -38,7 +38,7 @@ export default function Nav() {
         <div className={styles.actions}>
           <LanguageSwitcher />
           <Link to={localePath('/contact')} className={styles.cta}>
-            {t('nav.startLearning')}
+            {t('nav.contact')}
           </Link>
         </div>
       </div>

@@ -2,9 +2,9 @@
 export default {
   brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX Wealth & Wellness Club | Comunidad de aprendizaje',
+    title: 'ONYX Wealth & Wellness',
     description:
-      'ONYX Wealth & Wellness Club es una comunidad de aprendizaje y conexión de recursos para familias, pequeñas empresas y profesionales de la comunidad, centrada en patrimonio, bienestar, fiscalidad, empresa, IA y decisiones a largo plazo.',
+      'ONYX Wealth & Wellness ofrece educación y orientación para tomar decisiones financieras familiares con mayor claridad.',
   },
 
   nav: {
@@ -20,7 +20,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness Club',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'Comprender un mundo complejo. Construir juntos una vida mejor.',
     descriptor: 'Una comunidad de aprendizaje y recursos para familias, pequeñas empresas y profesionales de la comunidad.',
     domainLabel: 'ONYXWW.com',
@@ -48,7 +48,7 @@ export default {
       headline1: 'El mundo no se está volviendo más sencillo.',
       headline2: 'Pero comprenderlo sí puede serlo.',
       supporting:
-        'ONYX Wealth & Wellness Club es una comunidad de aprendizaje para personas, familias y pequeñas empresas.',
+        'ONYX Wealth & Wellness es una plataforma educativa para familias y profesionales.',
       bridge:
         'Juntos exploramos el patrimonio, el bienestar, la inteligencia artificial y la toma de decisiones para comprender sistemas complejos y tomar mejores decisiones a largo plazo.',
       ctaPrimary: 'Empezar a Aprender',
@@ -123,7 +123,7 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Iniciadora de ONYX Wealth & Wellness Club',
+      headline: 'Fundadora de ONYX Wealth & Wellness',
       roles: ['Sistemas financieros y transformación digital', 'Creación y operación de pequeñas empresas', 'Experiencia en restauración y servicios para el hogar', 'Estudiante de fiscalidad estadounidense (EA Candidate)', 'IA y procesos empresariales'],
       paragraphs: [
         'No estoy aquí para decir que ya conozco todas las respuestas.',

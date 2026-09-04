@@ -1,0 +1,10 @@
+import { Link } from 'react-router-dom'
+import { useLocale } from '../i18n/LocaleContext'
+import useDocumentMeta from '../hooks/useDocumentMeta'
+import styles from './AboutSammiPage.module.css'
+
+export default function AboutSammiPage(){
+  const { locale, localePath }=useLocale(); const zh=locale==='zh'
+  useDocumentMeta(`${zh?'关于 Sammi':'About Sammi'} · ONYX Wealth & Wellness`, zh?'认识黑曜创始人 Sammi Q，以及她面向成长型家庭的教育优先方法。':'Meet Sammi Q and her education-first approach to working family capital.')
+  return <main className={`${styles.page} page-enter`}><header className={styles.hero}><p>{zh?'关于 SAMMI':'ABOUT SAMMI'}</p><h1>Sammi Q</h1><h2>{zh?'黑曜创始人 · 家庭资本策略师':'Founder, ONYX Wealth & Wellness · Family Capital Strategist'}</h2></header><section className={styles.intro}><h2>{zh?'先理解问题，再讨论解决方案。':'Understand the problem before discussing a solution.'}</h2><p>{zh?'我是 Sammi Q，ONYX Wealth & Wellness 的创始人。我的主要服务对象是 W-2 工薪人士、1099 自雇人士，以及处于事业和家庭成长阶段的家庭。我的工作重点，是帮助客户发现容易忽略的财务问题，并围绕 Payroll 与税务、退休规划、孩子教育资金和家庭保障，一步一步搭建适合自己家庭的解决方案。':'Hi, I’m Sammi Q, founder of ONYX Wealth & Wellness. I work primarily with W-2 professionals, 1099 earners, and modern growing families. My focus is helping clients identify overlooked financial questions and build coordinated solutions around payroll and taxes, retirement planning, children’s education funding, and family protection.'}</p><p>{zh?'我的方法以知识教育为先、以问题为起点。收入、Payroll、税务、退休、教育资金和家庭保障会彼此影响；把它们放在同一张家庭资本地图中，才能更实际地整理选择与取舍。':'My approach is education first and problem before product. Income, payroll, taxes, retirement, education funding, and family protection influence one another. Putting them on one family-capital map makes the choices and trade-offs easier to organize.'}</p><p>{zh?'我不会假装一个人拥有所有答案。需要税务、法律、投资或保险专业判断时，适当的下一步包括核实规则、完成需求分析，并寻求具备相应资质的审核。':'I do not pretend that one person has every answer. When a decision calls for tax, legal, investment, or insurance expertise, the appropriate next step may include verifying current rules, completing a needs analysis, and seeking properly licensed review.'}</p><Link to={localePath('/capital-map')}>{zh?'探索我的资本地图':'Explore My Capital Map'}</Link></section></main>
+}

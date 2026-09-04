@@ -11,6 +11,12 @@
 
 ## Completed
 
+- ONYX V3 public architecture introduces Working Family Capital positioning for W-2 professionals, 1099 earners, and modern growing families without hard income eligibility language.
+- Homepage, navigation, footer, About Sammi, SEO metadata, and bilingual core copy now use ONYX Wealth & Wellness without “Club.”
+- Four reusable primary knowledge paths—Keep More, Build for Tomorrow, Fund Their Future, and Protect the Plan—sit above retained V2 tools.
+- Foundation remains a tertiary optional check; Capital Map and Event Radar are the primary homepage entry points.
+- A centralized V3 path model, reusable path renderer, contextual CTA language, and reusable educational disclaimer are established.
+
 - Capital Assessment Phase 1–4 complete.
 - V1 assessment question, scoring, result-presentation, storage, validation, and testing layers complete.
 - Capital Assessment validation complete.
@@ -33,8 +39,7 @@
 
 ## In Progress
 
-- No safe Full Build Day implementation milestone remains in progress.
-- The Journey Engine prototype is complete and awaiting product review before expansion to the remaining Life Capital Map.
+- V3 Phase 1 implementation is awaiting product and compliance review before production release.
 
 ## Blocked
 
@@ -69,4 +74,4 @@ No lint command is currently configured in `package.json`.
 
 ## Last Updated
 
-2026-09-01 (America/New_York)
+2026-09-03 (America/New_York)

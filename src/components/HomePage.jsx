@@ -3,12 +3,8 @@ import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import { getLatestInsights, resolveInsightContent } from '../data/insights'
 import styles from './HomePage.module.css'
+import { V3_PATHS } from '../data/v3Brand'
 
-const AUDIENCE_PATHS = [
-  { id: 'families', to: '/capital-map' },
-  { id: 'businessOwners', to: '/tax' },
-  { id: 'communityPartners', to: '/contact' },
-]
 const LATEST_INSIGHTS_LIMIT = 3
 
 export default function HomePage() {
@@ -47,13 +43,14 @@ export default function HomePage() {
         <p className={styles.heroSupporting}>{t('home.hero.supporting')}</p>
         <p className={styles.heroBridge}>{t('home.hero.bridge')}</p>
         <div className={styles.heroLinks}>
-          <Link className={styles.btnPrimary} to={localePath('/contact')}>
+          <Link className={styles.btnPrimary} to={localePath('/capital-map')}>
             {t('home.hero.ctaPrimary')}
           </Link>
-          <Link className={styles.btnSecondary} to={localePath('/insights')}>
+          <Link className={styles.btnSecondary} to={localePath('/capital-map/events')}>
             {t('home.hero.ctaSecondary')}
           </Link>
         </div>
+        <Link className={styles.tertiaryLink} to={localePath('/foundation')}>{t('home.hero.ctaTertiary')} →</Link>
         <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
 
         {/* Compact three-entry module. Desktop keeps this natural DOM
@@ -65,10 +62,10 @@ export default function HomePage() {
         <div className={styles.corePaths}>
           <h2 className={styles.corePathsTitle}>{t('home.corePaths.title')}</h2>
           <div className={styles.corePathsGrid}>
-            {AUDIENCE_PATHS.map(({ id, to }) => (
-              <Link key={id} to={localePath(to)} className={styles.corePathCard}>
-                <span className={styles.corePathName}>{t(`home.corePaths.${id}.title`)}</span>
-                <span className={styles.corePathDesc}>{t(`home.corePaths.${id}.description`)}</span>
+            {V3_PATHS.map((path) => (
+              <Link key={path.id} to={localePath(`/${path.id}`)} className={styles.corePathCard}>
+                <span className={styles.corePathName}>{locale === 'zh' ? path.eyebrowZh : path.eyebrow}<small>{locale === 'zh' ? path.subtitleZh : path.subtitle}</small></span>
+                <span className={styles.corePathDesc}>{locale === 'zh' ? path.titleZh : path.title}</span>
               </Link>
             ))}
           </div>

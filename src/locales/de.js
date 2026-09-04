@@ -2,9 +2,9 @@
 export default {
   brand: { shortName: 'ONYX' },
   meta: {
-    title: 'ONYX Wealth & Wellness Club | Lerngemeinschaft',
+    title: 'ONYX Wealth & Wellness',
     description:
-      'ONYX Wealth & Wellness Club ist eine Lern- und Ressourcengemeinschaft für Familien, kleine Unternehmen und Fachleute aus der Gemeinschaft rund um Vermögen, Gesundheit, Steuern, Unternehmen, KI und langfristige Entscheidungen.',
+      'ONYX Wealth & Wellness bietet bildungsorientierte Orientierung für bessere finanzielle Familienentscheidungen.',
   },
 
   nav: {
@@ -20,7 +20,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness Club',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: 'Eine komplexe Welt verstehen. Gemeinsam ein besseres Leben gestalten.',
     descriptor: 'Eine Lern- und Ressourcengemeinschaft für Familien, kleine Unternehmen und Fachleute aus der Gemeinschaft.',
     domainLabel: 'ONYXWW.com',
@@ -48,7 +48,7 @@ export default {
       headline1: 'Die Welt wird nicht einfacher.',
       headline2: 'Doch sie zu verstehen, kann leichter werden.',
       supporting:
-        'ONYX Wealth & Wellness Club ist eine Lerngemeinschaft für Einzelpersonen, Familien und kleine Unternehmen.',
+        'ONYX Wealth & Wellness ist eine Bildungsplattform für Familien und Berufstätige.',
       bridge:
         'Gemeinsam erkunden wir Vermögen, Wellness, künstliche Intelligenz und Entscheidungsfindung, um komplexe Systeme zu verstehen und bessere langfristige Entscheidungen zu treffen.',
       ctaPrimary: 'Lernen beginnen',
@@ -123,11 +123,11 @@ export default {
     },
     founder: {
       name: 'Sammi Q',
-      headline: 'Initiatorin des ONYX Wealth & Wellness Club',
+      headline: 'Gründerin von ONYX Wealth & Wellness',
       roles: ['Finanzsysteme und digitale Transformation', 'Aufbau und Betrieb kleiner Unternehmen', 'Erfahrung in Gastronomie und haushaltsnahen Dienstleistungen', 'Lernende im US-Steuerrecht (EA Candidate)', 'KI und Geschäftsprozesse'],
       paragraphs: [
         'Ich bin nicht hier, um zu behaupten, bereits alle Antworten zu kennen.',
-        'Im Gegenteil: Auch ich bin Mitglied dieses Clubs.',
+        'Im Gegenteil: Auch ich lerne kontinuierlich weiter.',
         'In meinen Dreißigern arbeitete ich Vollzeit und zog gleichzeitig meine Kinder groß. Wie viele berufstätige Eltern erkannte ich, oft mit einem Gefühl der Hilflosigkeit, dass jeder berufliche Schritt unwiederbringliche Zeit mit meiner Familie kosten konnte.',
         'Diese Website entwickelt sich weiter. Ich habe noch nicht jedes System gemeistert, das sie behandelt.',
         'Ich möchte teilen, was ich jeden Tag durch Lernen, Praxis, Fehler und Reflexion erfahre.',
