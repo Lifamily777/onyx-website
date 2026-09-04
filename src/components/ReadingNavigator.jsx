@@ -30,7 +30,6 @@ export default function ReadingNavigator() {
       <section className={styles.branch}><h2>{tile({path:'/capital-map/events',en:'Life events',zh:'生活事件'},false,position.area==='events')}</h2><div className={styles.events}>{ARCHITECTURE_EVENTS.map(item=>tile(item,true))}</div></section>
       {ARCHITECTURE_RESOURCES.map(group=><section className={styles.branch} key={group.en}><h2>{text(group)}</h2><div className={styles.resources}>{group.items.map(item=>tile(item))}</div></section>)}
     </nav>
-    <p className={styles.current} aria-live="polite"><span>●</span>{zh ? '当前位置：' : 'Here: '}{text(position)}</p>
     <p className={styles.note}>{zh ? '金色标出当前阅读位置，并非财务评级。' : 'Gold marks your reading location, not a financial rating.'}</p>
   </aside>
 }

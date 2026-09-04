@@ -21,9 +21,7 @@
 .panel .active { color: #fff0cb; background: #9b7a3540; border-color: #dcc087; box-shadow: 0 0 6px #d5b47625; }
 .panel a:hover { color: #fff1d4; background: #bfa26522; }
 .panel a:focus-visible { outline: 2px solid #efd198; outline-offset: 1px; }
-.current { margin: 9px 0 4px; padding-top: 8px; border-top: 1px solid #b59d6745; font-size: 11px; line-height: 1.5; color: #ead4a7; }
-.current span { margin-right: 5px; }
-.note { margin: 0; font-size: 9px; color: #99a8a5; line-height: 1.5; }
+.note { margin: 7px 0 0; padding-top: 7px; border-top: 1px solid #b59d6745; font-size: 9px; color: #99a8a5; line-height: 1.5; }
 @media (min-width: 1500px) { .frame { grid-template-columns: minmax(0,1fr) 310px; } .tile { font-size: 11px; } .ladder li { font-size: 10px; } }
 @media (max-width: 759px) { .frame { display: flex; flex-direction: column; padding: 0; gap: 0; } .panel { order: -1; position: static; align-self: flex-end; width: min(340px, calc(100% - 24px)); box-sizing: border-box; margin: 12px; } .content { width: 100%; } }
 @media print { .panel { display: none; } .frame { display: block; padding: 0; } }
