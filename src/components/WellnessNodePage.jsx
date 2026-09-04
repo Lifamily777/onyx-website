@@ -7,12 +7,14 @@ import useDocumentMeta from '../hooks/useDocumentMeta';
 import { EDUCATIONAL_DISCLAIMER, getWellnessNode, getWealthNode, LIFE_CAPITAL_STAGES } from '../features/lifeCapitalMap';
 import NotFound from './NotFound';
 import styles from './CapitalMap.module.css';
+import ReflectionFeedback from './ReflectionFeedback';
 export default function WellnessNodePage() {
   const {
     id
   } = useParams();
   const {
-    localePath
+    localePath,
+    locale
   } = useLocale();
   const node = getWellnessNode(id);
   const [answer, setAnswer] = useState('');
@@ -25,7 +27,7 @@ export default function WellnessNodePage() {
     <Link className={styles.back} to={localePath('/capital-map/wellness')}><Localized en={<>← Wellness Map</>} zh={<>健康地图</>} /></Link>
     <header className={styles.detailHero}><p><Localized en={<><LocaleLabel value={node.id} /> · <LocaleLabel value={stage.name} /></>} zh={<><LocaleLabel value={stage.nameZh} /></>} /></p><h1><Localized en={<><LocaleLabel value={node.title} /></>} zh={<><LocaleLabel value={node.titleZh} /></>} /></h1><p><Localized en={<><LocaleLabel value={node.shortDescription} /></>} zh={<><LocaleLabel value={node.shortDescriptionZh} /></>} /></p></header>
 
-    <section className={styles.ask}><span><Localized en={<>QUESTION</>} zh={<>先问自己一个问题</>} /></span><h2><Localized en={<><LocaleLabel value={node.question.prompt} /></>} zh={<><LocaleLabel value={node.question.promptZh} /></>} /></h2><div>{node.question.options.map(option => <button type="button" key={option} aria-pressed={answer === option} onClick={() => setAnswer(option)}><LocaleLabel value={option} /></button>)}</div></section>
+    <section className={styles.ask}><span><Localized en={<>QUESTION</>} zh={<>先问自己一个问题</>} /></span><h2><Localized en={<><LocaleLabel value={node.question.prompt} /></>} zh={<><LocaleLabel value={node.question.promptZh} /></>} /></h2><div>{node.question.options.map(option => <button type="button" key={option} aria-pressed={answer === option} onClick={() => setAnswer(option)}><LocaleLabel value={option} /></button>)}</div><ReflectionFeedback node={node} answer={answer} locale={locale} /></section>
     <section className={styles.story}><span><Localized en={<>STORY</>} zh={<>生活案例</>} /></span><h2><Localized en={<><LocaleLabel value={node.story.title} /></>} zh={<><LocaleLabel value={node.story.titleZh} /></>} /></h2><p><Localized en={<><LocaleLabel value={node.story.body} /></>} zh={<><LocaleLabel value={node.story.bodyZh} /></>} /></p></section>
     <section className={styles.prose}><span><Localized en={<>EXPLAIN</>} zh={<>把事情说清楚</>} /></span><p><Localized en={<><LocaleLabel value={node.explain.body} /></>} zh={<><LocaleLabel value={node.explain.bodyZh} /></>} /></p></section>
 

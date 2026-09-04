@@ -7,6 +7,7 @@ import useDocumentMeta from '../hooks/useDocumentMeta';
 import { getWealthNode, LIFE_CAPITAL_STAGES, getLifeEvent, DOWNLOAD_TEMPLATES, downloadTemplate, calculateEmergencyLiquidity, calculateDebtPaths, calculateMonthlySurplus, summarizeLargeExpenses, calculateConcentration, calculateForcedSale, compareNextDollar, calculateIncomeContinuity, calculateOptionalityRunway, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap';
 import NotFound from './NotFound';
 import styles from './CapitalMap.module.css';
+import ReflectionFeedback from './ReflectionFeedback';
 const TOOL_FIELDS = {
   W1: [['housing', 'Housing'], ['utilities', 'Utilities'], ['food', 'Food'], ['transportation', 'Transportation'], ['insurance', 'Insurance'], ['care', 'Childcare / eldercare'], ['debt', 'Required debt payments'], ['other', 'Other core costs'], ['reserve', 'Current liquid reserve']],
   W2: [['balance', 'Debt balance'], ['apr', 'APR %'], ['minimum', 'Minimum monthly payment'], ['surplus', 'Available monthly surplus'], ['reserve', 'Current liquid reserve']],
@@ -169,7 +170,8 @@ export default function CapitalNodePage() {
       id
     } = useParams(),
     {
-      localePath
+    localePath,
+    locale
     } = useLocale();
   const node = getWealthNode(id);
   const [answer, setAnswer] = useState('');
@@ -177,7 +179,7 @@ export default function CapitalNodePage() {
   if (!node) return <NotFound />;
   const stage = LIFE_CAPITAL_STAGES.find(s => s.id === node.stage);
   return <main className={`${styles.shell} ${styles.detail} page-enter`}><Link className={styles.back} to={localePath('/capital-map/wealth')}><Localized en={<>← Wealth Map</>} zh={<>财富地图</>} /></Link><header className={styles.detailHero}><p><Localized en={<><LocaleLabel value={node.id} /> · <LocaleLabel value={stage.name} /></>} zh={<><LocaleLabel value={stage.nameZh} /></>} /></p><h1><Localized en={<><LocaleLabel value={node.title} /></>} zh={<><LocaleLabel value={node.titleZh} /></>} /></h1><p><Localized en={<><LocaleLabel value={node.shortDescription} /></>} zh={<><LocaleLabel value={node.shortDescriptionZh} /></>} /></p></header>
-<section className={styles.ask}><span><Localized en={<>ASK</>} zh={<>真实问题</>} /></span><h2><Localized en={<><LocaleLabel value={node.ask.question} /></>} zh={<><LocaleLabel value={node.ask.questionZh} /></>} /></h2><div>{node.ask.options.map(x => <button type="button" key={x} aria-pressed={answer === x} onClick={() => setAnswer(x)}><LocaleLabel value={x} /></button>)}</div></section>
+<section className={styles.ask}><span><Localized en={<>ASK</>} zh={<>真实问题</>} /></span><h2><Localized en={<><LocaleLabel value={node.ask.question} /></>} zh={<><LocaleLabel value={node.ask.questionZh} /></>} /></h2><div>{node.ask.options.map(x => <button type="button" key={x} aria-pressed={answer === x} onClick={() => setAnswer(x)}><LocaleLabel value={x} /></button>)}</div><ReflectionFeedback node={node} answer={answer} locale={locale} /></section>
 <section className={styles.story}><span><Localized en={<>STORY</>} zh={<>生活案例</>} /></span><h2><Localized en={<><LocaleLabel value={node.story.title} /></>} zh={<><LocaleLabel value={node.story.titleZh} /></>} /></h2><p><Localized en={<><LocaleLabel value={node.story.body} /></>} zh={<><LocaleLabel value={node.story.bodyZh} /></>} /></p></section>
 <section className={styles.prose}><span><Localized en={<>EXPLAIN</>} zh={<>解释概念</>} /></span><p><Localized en={<><LocaleLabel value={node.explain.body} /></>} zh={<><LocaleLabel value={node.explain.bodyZh} /></>} /></p></section><NodeTool node={node} />
 {node.tools.map(tool => DOWNLOAD_TEMPLATES[tool.id] && <section className={styles.keep} key={tool.id}><span><Localized en={<>KEEP</>} zh={<>下载工具</>} /></span><h2><Localized en={<><LocaleLabel value={tool.title} /></>} zh={<><LocaleLabel value={tool.titleZh} /></>} /></h2><button type="button" onClick={() => downloadTemplate(tool.id)}><Localized en={<>Download CSV</>} zh={<>下载CSV</>} /></button><p><LocaleLabel value={"Do not store passwords, PINs, full SSNs, or full account numbers."} /></p></section>)}
