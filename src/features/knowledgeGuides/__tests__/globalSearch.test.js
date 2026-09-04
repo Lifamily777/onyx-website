@@ -18,6 +18,8 @@ test('English aliases and financial punctuation normalize consistently', () => {
   assert.equal(normalizeSearchTerm('back door Roth'), normalizeSearchTerm('Backdoor Roth'))
   assert.equal(normalizeSearchTerm('S Corp'), normalizeSearchTerm('S corporation'))
   assert.ok(includesId('401k', 'decision:job-change-old-401k'))
+  assert.ok(includesId('W2', 'guide:second-income-engine'))
+  assert.ok(!includesId('W2', 'node:W25'))
   assert.ok(includesId('pro-rata', 'knowledge:pro-rata'))
   assert.ok(includesId('S Corp', 'guide:business-payroll-retirement'))
   assert.ok(includesId('529', 'guide:new-baby-education'))

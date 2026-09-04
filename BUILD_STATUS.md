@@ -2,6 +2,7 @@
 
 ## 2026-09-04 — Global Knowledge Search
 
+- Follow-up refinement prevents short alphanumeric terms such as `W2` from matching longer node references such as `W25`; Chinese Sammi handoffs now ask for approximate background information while retaining the sensitive-document warning.
 - Added a reusable structured index for V3 paths, Hero Guides, Decision Intelligence, life events, Capital Map and Wellness nodes, tools, and published Insights.
 - Added English/Chinese shared-topic search with financial-term normalization and aliases for 401(k), pro-rata, Backdoor Roth, S Corporation, 529, 1031 and common life-event language.
 - Added an accessible header search overlay with Cmd/Ctrl+K, Escape, focus containment, grouped results, locale-aware deep links, and safe zero-result routes to the Capital Map, Event Radar, or a contextual Sammi conversation.

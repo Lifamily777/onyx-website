@@ -11,6 +11,13 @@ function searchable(record) {
   return [record.title,record.titleZh,record.description,record.descriptionZh,...record.keywords,...record.keywordsZh,...record.aliases,...record.relatedTopics].filter(Boolean).map(normalizeSearchTerm)
 }
 
+function fieldMatches(value, normalized, compact) {
+  if (/^[a-z]*\d+[a-z]*$/.test(normalized) && normalized.length <= 4) {
+    return value.split(' ').includes(normalized)
+  }
+  return value.includes(normalized) || value.replaceAll(' ','').includes(compact)
+}
+
 export function searchOnyx(query, { limit=12 }={}) {
   const normalized=normalizeSearchTerm(query)
   if (!normalized) return []
@@ -21,11 +28,11 @@ export function searchOnyx(query, { limit=12 }={}) {
     let score=item.priority||0
     if (title.some(value=>value===normalized)) score+=180
     if (fields.some(value=>value===normalized||value.replaceAll(' ','')===compact)) score+=140
-    if (fields.some(value=>value.includes(normalized))) score+=90
-    const matched=fields.filter(value=>terms.every(term=>value.includes(term)))
+    if (fields.some(value=>fieldMatches(value,normalized,compact))) score+=90
+    const matched=fields.filter(value=>fieldMatches(value,normalized,compact)||(terms.length>1&&terms.every(term=>value.includes(term))))
     if (matched.length) score+=60+Math.min(30,matched.length*5)
-    if (!matched.length && !fields.some(value=>value.includes(normalized)||value.replaceAll(' ','').includes(compact))) return null
-    const matchedTopics=[...item.keywords,...item.keywordsZh,...item.aliases,...item.relatedTopics].filter(value=>normalizeSearchTerm(value).includes(normalized)||terms.some(term=>normalizeSearchTerm(value).includes(term))).slice(0,5)
+    if (!matched.length && !fields.some(value=>fieldMatches(value,normalized,compact))) return null
+    const matchedTopics=[...item.keywords,...item.keywordsZh,...item.aliases,...item.relatedTopics].filter(value=>fieldMatches(normalizeSearchTerm(value),normalized,compact)).slice(0,5)
     return {...item,score,matchedTopics}
   }).filter(Boolean).sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title)).slice(0,limit)
 }
