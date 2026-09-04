@@ -1,6 +1,7 @@
 import { NavLink, Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import LanguageSwitcher from './LanguageSwitcher'
+import GlobalSearch from './GlobalSearch'
 import styles from './Nav.module.css'
 
 export default function Nav() {
@@ -36,6 +37,7 @@ export default function Nav() {
           ))}
         </div>
         <div className={styles.actions}>
+          <GlobalSearch />
           <LanguageSwitcher />
           <Link to={localePath('/contact')} className={styles.cta}>
             {t('nav.contact')}

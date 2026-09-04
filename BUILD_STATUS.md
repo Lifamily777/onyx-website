@@ -1,5 +1,14 @@
 # ONYX Build Status
 
+## 2026-09-04 — Global Knowledge Search
+
+- Added a reusable structured index for V3 paths, Hero Guides, Decision Intelligence, life events, Capital Map and Wellness nodes, tools, and published Insights.
+- Added English/Chinese shared-topic search with financial-term normalization and aliases for 401(k), pro-rata, Backdoor Roth, S Corporation, 529, 1031 and common life-event language.
+- Added an accessible header search overlay with Cmd/Ctrl+K, Escape, focus containment, grouped results, locale-aware deep links, and safe zero-result routes to the Capital Map, Event Radar, or a contextual Sammi conversation.
+- Search does not scrape page content, fabricate an answer, transmit a query, or persist search history. The analytics adapter is deliberately a no-op pending a separate privacy/product decision.
+- Validation passed: 90/90 tests, production build, `git diff --check`, and capital validation (three PASS and two existing REVIEW profiles). The existing bundle-size warning remains.
+- Browser QA passed in English and Chinese for exact/alias, multiple-result, zero-result, Cmd/Ctrl+K, Escape, focus, and locale-aware deep-link behavior. At a 390×844 mobile viewport the full-screen overlay remained within the viewport with no horizontal overflow; the desktop overlay and header control were also verified. No merge or production deployment performed.
+
 ## 2026-09-04 — Phase 2.5 Decision Intelligence prototype
 
 - Added reusable EventNode, DecisionNode, KnowledgeNode, PlanningWindow, DecisionTrap, FutureFlexibilityImpact, BeforeYouAct, OfficialSource and ReviewTrigger model support without a persistent profile or sensitive-data storage.

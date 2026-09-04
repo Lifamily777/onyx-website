@@ -138,3 +138,11 @@ The first prototype is **Job change → old 401(k) → destination decision → 
 - Extra cash → liquidity / debt / tax reserve / investment
 - Insurance purchase → economic-risk analysis before product
 - Retirement transition → income / tax / longevity interactions
+
+## Phase 3 — Global Knowledge Search
+
+Global Search is a structured discovery and navigation layer across ONYX decisions, knowledge guides, life events, tools, Capital Map nodes, Wellness resources, and published Insights. It does not scrape rendered pages, generate answers, rank products, or infer an individualized recommendation.
+
+English and Chinese labels, common financial abbreviations, and deliberate aliases share the same concepts so a Chinese-site visitor can still search terms such as 401(k), S Corp, 529, pro-rata, and Backdoor Roth. Results always lead to an existing locale-aware page. When nothing matches, ONYX offers the Capital Map, Event Radar, and an Ask Sammi link that preserves only the search phrase as visible context.
+
+The initial analytics adapter is intentionally a no-op. Search phrases are neither transmitted nor persisted in Phase 3; future measurement requires a separate privacy and product decision.
