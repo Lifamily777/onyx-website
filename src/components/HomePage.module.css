@@ -925,6 +925,10 @@
 }
 
 .heroTitle {
+  grid-column: 1 / -1;
+  width: min(100%, 840px);
+  margin-inline: auto;
+  text-align: center;
   text-shadow: 0 3px 28px rgba(0, 0, 0, .65);
 }
 

@@ -2,6 +2,7 @@
 
 ## 2026-09-04 — Sun and Moon Sea Homepage Hero
 
+- Follow-up composition refinement centers the four-line hero headline in the dark middle field so the sun and its reflection remain visible on the left.
 - Replaced the abstract oval treatment with responsive desktop and mobile ocean artwork: a restrained champagne-gold sun at left, pearl moon at right, and dark central negative space for the existing homepage copy.
 - Existing bilingual headline, supporting copy, CTAs, four-path cards, routes, and behavior remain unchanged and render above contrast-preserving overlays.
 - Generated artwork is stored as optimized project-local JPEG assets; no external image request or tracking is introduced.
