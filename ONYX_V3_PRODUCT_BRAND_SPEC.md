@@ -77,3 +77,23 @@ Capital Map, Foundation V2, V1 Assessment, Event Radar, Hero Journeys, Wellness 
 - Add authoritative-source metadata to current-law content after professional review.
 - Expand contextual service handoffs after product/compliance approval.
 - Continue the 72-node Life Capital Map without publishing placeholders.
+
+## Phase 2 — Hero Knowledge Guide Engine
+
+Four bilingual Hero Guides establish the first reusable decision-guide layer:
+
+- W-2 → Second Income Engine
+- Small Business → S Corporation / Payroll / Retirement
+- New Baby → Children’s Education Funding
+- Rental Equity → Family Capital Repositioning
+
+Each guide uses one centralized schema and one renderer. The seven Knowledge Guide concepts appear in one scrollable decision map with useful guidance near the top; deeper sections remain optional. Guides may include a story, flow map, topic reflection, trade-off comparison, calculator, information-gathering list, official source, related guide, printable summary, and contextual Sammi handoff.
+
+Guide interactions are non-scoring and page-memory only. Result objects expose `guideId`, explored and connected topics, planning window, missing information, next moves, money lens, related guides, and Sammi review context for a future Capital Action Board. Raw answers and sensitive personal data are not stored.
+
+The Money Lens vocabulary is internal and non-scoring: **KEEP, BUILD, FUND, PROTECT, OPTIONALITY**.
+
+Phase 2 calculators are educational only:
+
+- Business Profit Lens: revenue minus estimated legitimate business expenses; no personalized tax calculation.
+- Cost of Waiting: illustrative future value of monthly contributions at different starting ages; returns are not guaranteed and taxes, fees, product costs, and financial-aid effects are excluded.

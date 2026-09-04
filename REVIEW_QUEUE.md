@@ -9,6 +9,8 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Product Review Items
 
+- **V3 Phase 2 Hero Guides:** review the four guide narratives, progressive-disclosure depth, family-capital connections, printable summaries, and contextual Sammi handoffs before production release.
+
 - **V3 Phase 1:** review the Working Family Capital homepage hierarchy, four knowledge-path labels, About Sammi title, and bilingual tone before production release.
 - **Additional locales:** English and Chinese V3 content is fully aligned; Spanish, Korean, French, and German currently use English fallback for newly introduced navigation/path architecture and need human translation before treating those locales as fully localized V3 experiences.
 - **Protected article metadata:** `InsightArticlePage.jsx` still contains the former publisher name inside article structured data. It was deliberately left untouched under the protected-file rule; update it only with explicit authorization to edit that file.
@@ -22,6 +24,12 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Tax/Legal Verification Needed
 
+- Review W-2 / 1099 language, including legitimate business activity, ordinary business costs, estimated-tax awareness, and the boundary between education and individualized tax guidance.
+- Review S corporation and payroll language, including owner compensation, wage/distribution awareness, compliance, administrative cost, and the statement that S corporation status does not automatically create tax savings.
+- Review retirement-plan descriptions and interaction language for employer 401(k), IRA/Roth awareness, SEP IRA, SIMPLE IRA, Solo 401(k), employee plans, and HSA eligibility before adding deeper plan-specific content.
+- Review education-funding and FAFSA language, including account ownership, financial-aid awareness, government-resource links, and the calculator disclaimer.
+- Review rental-sale, depreciation-record, selling-cost, capital-available, and 1031 awareness language; confirm that the pre-closing investigation warning is sufficient and does not imply qualification.
+
 - Approve the exact Event Radar tax language before public launch, including planning-window phrasing and any references to current tax law.
 - Verify any exact current-law treatment referenced by future Event content before implementation; this build intentionally adds no deadlines, thresholds, rates, or eligibility conclusions.
 - Review the Sell a Rental Property Journey before public launch. The prototype uses illustrative purchase, offer, and mortgage figures but deliberately gives no individualized tax calculation, threshold, rate, or eligibility conclusion.
@@ -30,6 +38,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 - Review future income-protection and risk-transfer journeys for education-first sequencing, neutral alternatives, needs-analysis boundaries, suitability language, and prohibited guarantees.
 - Review the public “Family Capital Strategist” descriptor and contextual handoff language for any jurisdiction-specific licensing or disclosure requirements before production release.
+- Review any future insurance-based education-funding material before it is added; Phase 2 deliberately names no insurance product and makes no suitability conclusion.
 
 ## Deferred Ideas
 
@@ -39,6 +48,9 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - NS Federation embed after source and configuration approval.
 
 ## Safe Work Completed Without Decision
+
+- Four Phase 2 Hero Knowledge Guides implemented as bilingual, education-first decision maps with no scores, product ranking, promised tax savings, individualized advice, uploads, or persistent inputs.
+- Educational Business Profit and Cost of Waiting calculators implemented with visible assumptions and limitations; neither calculates tax liability or guaranteed returns.
 
 - Six-stage Wellness foundation implemented with bilingual educational content, non-persistent reflection checklists, no product recommendation, and no sensitive health-data storage.
 - Event Radar category filters and Watch/Emerging/Active reflections implemented without persistence; existing tax language was not changed.

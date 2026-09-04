@@ -11,6 +11,13 @@
 
 ## Completed
 
+- V3 Phase 2 adds a reusable bilingual Knowledge Guide schema, renderer, non-persistent result model, and four interconnected Hero Knowledge Guides.
+- The Second Income guide distinguishes an entity from a genuine business and includes a transparent revenue-minus-expenses lens without calculating tax liability.
+- The Business / Payroll / Retirement guide explains profit, compensation, payroll, entity, cash-flow, employee, and retirement-plan interactions without ranking plans or promising savings.
+- The New Baby guide uses a life-stage timeline and illustrative Cost of Waiting calculator to demonstrate time without recommending a product.
+- The Rental Equity guide compares hold, sell, and reposition choices as family-capital jobs, with 1031 concepts limited to pre-transaction awareness.
+- Knowledge Guide result objects are Phase 3-ready but store no answers or sensitive data; cross-guide links and contextual Sammi handoffs preserve explored context.
+
 - ONYX V3 public architecture introduces Working Family Capital positioning for W-2 professionals, 1099 earners, and modern growing families without hard income eligibility language.
 - Homepage, navigation, footer, About Sammi, SEO metadata, and bilingual core copy now use ONYX Wealth & Wellness without “Club.”
 - Four reusable primary knowledge paths—Keep More, Build for Tomorrow, Fund Their Future, and Protect the Plan—sit above retained V2 tools.
@@ -39,7 +46,7 @@
 
 ## In Progress
 
-- V3 Phase 1 implementation is awaiting product and compliance review before production release.
+- V3 Phases 1–2 are awaiting product and professional-language review before production release.
 
 ## Blocked
 
@@ -69,8 +76,8 @@ No lint command is currently configured in `package.json`.
 
 ## Next Recommended Tasks
 
-1. Review the three Hero Journey prototypes before expanding the Journey Engine across additional nodes and events.
-2. Obtain the human decisions and professional reviews recorded in `REVIEW_QUEUE.md` before publishing regulated or partner-specific paths.
+1. Review the four Hero Knowledge Guides for tone, depth, and contextual handoff usefulness.
+2. Obtain tax, payroll, retirement, education-funding, insurance, and rental-language reviews recorded in `REVIEW_QUEUE.md` before production publication.
 
 ## Last Updated
 

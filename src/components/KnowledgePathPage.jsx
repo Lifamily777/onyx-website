@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import { EDUCATIONAL_GUIDANCE_DISCLAIMER, V3_PATHS } from '../data/v3Brand'
+import { KNOWLEDGE_GUIDES, localize } from '../features/knowledgeGuides'
 import styles from './KnowledgePathPage.module.css'
 
 export default function KnowledgePathPage({ pathId }) {
@@ -9,6 +10,7 @@ export default function KnowledgePathPage({ pathId }) {
   const zh = locale === 'zh'
   const path = V3_PATHS.find((item) => item.id === pathId)
   const otherPaths = V3_PATHS.filter((item) => item.id !== pathId)
+  const guides = KNOWLEDGE_GUIDES.filter((item) => item.pathId === pathId)
   useDocumentMeta(`${zh ? path.eyebrowZh : path.eyebrow} · ONYX Wealth & Wellness`, zh ? path.descriptionZh : path.description)
 
   return <main className={`${styles.page} page-enter`}>
@@ -24,6 +26,7 @@ export default function KnowledgePathPage({ pathId }) {
       <h2>{zh ? '先看见结构，再选择下一步。' : 'See the structure before choosing the next move.'}</h2>
       <div>{(zh ? path.topicsZh : path.topics).map((topic) => <span key={topic}>{topic}</span>)}</div>
     </section>
+    {guides.length > 0 && <section className={styles.featured}><p className={styles.eyebrow}>{zh ? '深度知识指南' : 'HERO KNOWLEDGE GUIDES'}</p><h2>{zh ? '从一个真实问题开始。' : 'Start with a real decision.'}</h2><div>{guides.map((guide) => <Link key={guide.id} to={localePath(`/guides/${guide.id}`)}><strong>{localize(guide.title, locale)}</strong><span>{zh ? '打开知识指南 →' : 'Open Knowledge Guide →'}</span></Link>)}</div></section>}
     <section className={styles.method}>
       {[['Discover','发现'],['Understand','理解'],['Decide','决定']].map(([en,cn], index) => <article key={en}><b>0{index + 1}</b><h3>{zh ? cn : en}</h3><p>{zh ? ['发现容易忽略的问题。','理解问题之间的联系与取舍。','在行动仍可逆时作出更清晰的决定。'][index] : ['Surface the question that is easy to overlook.','Understand the connections and trade-offs around it.','Decide with clarity while choices are still open.'][index]}</p></article>)}
     </section>
