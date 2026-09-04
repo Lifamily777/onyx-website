@@ -7,6 +7,7 @@ import useDocumentMeta from '../hooks/useDocumentMeta';
 import { CAPITAL_DOMAINS, LIFE_CAPITAL_STAGES, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, LIFE_EVENTS, EVENT_CATEGORIES, EVENT_STATUSES, DOWNLOAD_TEMPLATES, downloadTemplate, EDUCATIONAL_DISCLAIMER } from '../features/lifeCapitalMap';
 import { HERO_JOURNEYS, localized } from '../features/journeyEngine';
 import styles from './CapitalMap.module.css';
+import DecisionEntryCard from './DecisionEntryCard';
 export default function CapitalMapPage({
   view = 'map'
 }) {
@@ -55,6 +56,7 @@ export default function CapitalMapPage({
     </section>}
 
     {showEvents && <section className={styles.eventIndex}><div className={styles.sectionIntro}><h2><Localized en={<>Event Radar </>} zh={<>事件雷达</>} /></h2><p><Localized en={<>You do not need to predict the future perfectly. Use the radar to recognize planning windows before choices narrow.</>} zh={<>无需完美预测未来。事件雷达帮助你在选择减少之前识别规划窗口。</>} /></p></div>
+      <DecisionEntryCard />
       <div className={styles.statusGuide} aria-label="Event status guide">{EVENT_STATUSES.map(status => <article key={status.id}><strong><Localized en={<><LocaleLabel value={status.label} /></>} zh={<><LocaleLabel value={status.labelZh} /></>} /></strong><p><Localized en={<><LocaleLabel value={status.description} /></>} zh={<><LocaleLabel value={status.descriptionZh} /></>} /></p></article>)}</div>
       <div className={styles.eventFilters} aria-label="Filter events by category">{EVENT_CATEGORIES.map(category => <button type="button" key={category.id} aria-pressed={eventCategory === category.id} onClick={() => setEventCategory(category.id)}><Localized en={<><LocaleLabel value={category.label} /></>} zh={<><LocaleLabel value={category.labelZh} /></>} /></button>)}</div>
       <p className={styles.filterCount} aria-live="polite"><Localized en={<>Showing {visibleEvents.length} of {LIFE_EVENTS.length} events</>} zh={<>显示 {visibleEvents.length}/{LIFE_EVENTS.length} 个事件</>} /></p>

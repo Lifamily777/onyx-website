@@ -1,5 +1,13 @@
 # ONYX Build Status
 
+## 2026-09-04 — Phase 2.5 Decision Intelligence prototype
+
+- Added reusable EventNode, DecisionNode, KnowledgeNode, PlanningWindow, DecisionTrap, FutureFlexibilityImpact, BeforeYouAct, OfficialSource and ReviewTrigger model support without a persistent profile or sensitive-data storage.
+- Implemented one complete EN/ZH prototype: job change → old 401(k) → destination choices → IRA/pro-rata/future Roth awareness → Before You Act → fact-dependent stopping point → contextual Sammi review.
+- Added non-ranked visual branches, reusable Future Flexibility and Before You Act components, optional deeper-learning disclosures, verified IRS source links, and entries from Build for Tomorrow and Event Radar.
+- Technical retirement language is queued for tax review before production. No merge or deployment performed.
+- Browser QA passed in English and Chinese at the available 926px viewport: four decision branches, four optional learning layers, localized contextual handoff, route-aware architecture highlight and no horizontal overflow. The current browser runtime did not expose phone emulation and no local headless browser binary was available; the mobile single-column CSS is implemented and requires final visual review before production.
+
 ## 2026-09-04 — Full architecture correction
 
 - Replaced the collapsible navigator with an always-expanded, stable architecture diagram: four V3 paths, all 20 published Wealth/Wellness nodes in six stages, all 10 events, tools, learning, contact and policies. Route changes highlight the relevant branch without changing the diagram's contents.

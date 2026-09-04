@@ -25,6 +25,7 @@ import JourneyScenarioPage from './components/JourneyScenarioPage'
 import KnowledgePathPage from './components/KnowledgePathPage'
 import AboutSammiPage from './components/AboutSammiPage'
 import KnowledgeGuidePage from './components/KnowledgeGuidePage'
+import DecisionGuidePage from './components/DecisionGuidePage'
 import { servicePages } from './data/content'
 
 // Shared page routes rendered under both the unprefixed (English) branch
@@ -38,6 +39,7 @@ const pageRoutes = [
   <Route key="fund-their-future" path="fund-their-future" element={<KnowledgePathPage pathId="fund-their-future" />} />,
   <Route key="protect-the-plan" path="protect-the-plan" element={<KnowledgePathPage pathId="protect-the-plan" />} />,
   <Route key="knowledge-guide" path="guides/:guideId" element={<KnowledgeGuidePage />} />,
+  <Route key="decision-job-change-401k" path="decisions/job-change-old-401k" element={<DecisionGuidePage />} />,
   <Route key="ins" path="ins" element={<ServicePage data={servicePages.ins} />} />,
   <Route key="health" path="health" element={<ServicePage data={servicePages.health} />} />,
   <Route key="contact" path="contact" element={<ContactPage />} />,

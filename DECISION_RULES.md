@@ -20,6 +20,16 @@ Preserve existing user work and verify changes in proportion to risk.
 
 ## PREFER
 
+### Core Content Principle
+
+> Teach enough to reveal the problem. Explain enough to build trust. Personalize only when the client's facts are known.
+
+> 讲到客户看见问题，解释到客户建立信任；真正的方案，建立在客户自己的事实和数字之上。
+
+This does not permit omission of material facts or artificial information asymmetry. Explain the issue, importance, connections, available choices, and what to understand before acting. Stop before a final public-page decision when personal facts, calculations, suitability, plan rules, legal facts, or professional judgment determine the answer.
+
+Use three content depths: **Discover** reveals an overlooked issue; **Understand** explains connections, major choices, and trade-offs; **Decide** applies actual client facts. Public Knowledge Guides generally end at Understand and identify the facts needed for Decide.
+
 - usability over extra content
 - trust over a stronger CTA
 - explanation over jargon
@@ -27,6 +37,7 @@ Preserve existing user work and verify changes in proportion to risk.
 - data-driven reusable architecture over hard-coded pages
 - progressive disclosure over overwhelming questionnaires
 - neutral education over predetermined product conclusions
+- a visible stopping point over a simulated individualized answer
 
 ## STOP AND ADD TO REVIEW_QUEUE
 

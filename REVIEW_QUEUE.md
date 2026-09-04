@@ -28,6 +28,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Tax/Legal Verification Needed
 
+- **Phase 2.5 retirement prototype:** final professional tax review is required for rollover destination language, Traditional/Rollover IRA scope, IRA pro-rata considerations, Backdoor Roth awareness, Roth conversions, Form 8606, SEP/SIMPLE IRA references, plan-to-plan availability, and any implication about accounts included or excluded. IRS links were verified during implementation, but the prototype must not reach production before this language review.
+
 - Review W-2 / 1099 language, including legitimate business activity, ordinary business costs, estimated-tax awareness, and the boundary between education and individualized tax guidance.
 - Review S corporation and payroll language, including owner compensation, wage/distribution awareness, compliance, administrative cost, and the statement that S corporation status does not automatically create tax savings.
 - Review retirement-plan descriptions and interaction language for employer 401(k), IRA/Roth awareness, SEP IRA, SIMPLE IRA, Solo 401(k), employee plans, and HSA eligibility before adding deeper plan-specific content.

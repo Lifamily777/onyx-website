@@ -18,6 +18,28 @@ The platform helps people identify overlooked financial questions and build coor
 
 The method is **Discover → Understand → Decide**. Customer outcomes are **Keep More → Build for Tomorrow → Fund Their Future → Protect the Plan**.
 
+### Core Content Principle
+
+> Teach enough to reveal the problem.
+>
+> Explain enough to build trust.
+>
+> Personalize only when the client's facts are known.
+
+> 讲到客户看见问题，
+>
+> 解释到客户建立信任；
+>
+> 真正的方案，建立在客户自己的事实和数字之上。
+
+This is not permission to omit material facts or create artificial information asymmetry. Public education should explain what the issue is, why it may matter, what it connects to, what choices may exist, and what should be understood before acting. It should generally stop before a final individualized decision that depends on personal facts, calculations, suitability, plan rules, legal facts, or professional judgment.
+
+### Knowledge Depth
+
+1. **Discover — “What might I be overlooking?”** Keep the issue short and understandable.
+2. **Understand — “Why does it matter, what does it connect to, and what are the major choices and trade-offs?”** Explain enough to orient action without becoming a technical textbook.
+3. **Decide — “How does this apply to my facts?”** Account balances, income, tax facts, plan rules, timing, goals, business facts, and professional analysis may be required. Public guides generally stop before this individualized step and may offer a coordinated review with Sammi where useful.
+
 ## Four Primary Knowledge Paths
 
 1. **Keep More — Payroll & Tax:** organize W-2, withholding, 1099, side-business, expense, estimated-tax, entity/payroll, employer-benefit, HSA, and tax-organization questions.
@@ -97,3 +119,22 @@ Phase 2 calculators are educational only:
 
 - Business Profit Lens: revenue minus estimated legitimate business expenses; no personalized tax calculation.
 - Cost of Waiting: illustrative future value of monthly contributions at different starting ages; returns are not guaranteed and taxes, fees, product costs, and financial-aid effects are excluded.
+
+## Phase 2.5 — Decision Intelligence
+
+The reusable model connects **Profile → Event → Decision → Knowledge / Money / Tax / Future Flexibility / Family / Planning Window → Before You Act → Next Move → DIY or coordinated review**. A persistent Family Capital Profile is explicitly deferred; decision prototypes do not store sensitive financial information.
+
+The first prototype is **Job change → old 401(k) → destination decision → IRA rollover awareness → pro-rata / future Roth connection → Before You Act → Sammi review** under Build for Tomorrow and Event Radar. It presents non-ranked paths, expandable education, verified IRS source links, information to gather, a reusable Future Flexibility Impact, and a clear stopping point where personal facts matter.
+
+### Planned ONYX Decision Intelligence Library
+
+- Job change → 401(k) rollover → pro-rata awareness
+- W-2 → side business → 1099 / estimated tax / retirement
+- Business growth → S Corp / payroll / retirement
+- Add business partner → ownership / tax / control / exit
+- Sell rental → basis / depreciation / tax / 1031 timing awareness
+- New baby → protection / compounding / education funding
+- College approaching → education funding / retirement interaction
+- Extra cash → liquidity / debt / tax reserve / investment
+- Insurance purchase → economic-risk analysis before product
+- Retirement transition → income / tax / longevity interactions

@@ -9,7 +9,7 @@ export default function ContactPage() {
   const { t } = useLocale()
   const [submitted, setSubmitted] = useState(false)
   const [searchParams] = useSearchParams()
-  const context = (searchParams.get('context') || '').slice(0, 240)
+  const context = (searchParams.get('context') || '').slice(0, 600)
   const eventStatus = (searchParams.get('eventStatus') || '').slice(0, 20)
 
   useDocumentMeta(`${t('contact.headline')} · ${t('brand.shortName')}`)

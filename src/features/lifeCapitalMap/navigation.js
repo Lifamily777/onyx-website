@@ -72,6 +72,7 @@ export function getReadingPosition(pathname) {
     const guide = getKnowledgeGuide(parts[2])
     if (guide) return {area:'learn', ...guide.title, path}
   }
+  if (parts[1] === 'decisions' && parts[2] === 'job-change-old-401k') return {area:'events',stage:'strategic',domain:'wealth',en:'Job Change → Old 401(k)',zh:'换工作 → 旧 401(k)',path}
   const primary = V3_PATHS.find(item => `/${item.id}` === path)
   if (primary) return {area:'learn', en:primary.title, zh:primary.titleZh, path}
   const title = pageNames[path] || (parts[1] === 'insights' ? ['Insight article','洞察文章'] : parts[1] === 'glossary' ? ['Glossary entry','词条阅读'] : ['Page not found','未找到页面'])
