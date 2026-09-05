@@ -8,7 +8,18 @@ import {
   calculateIncomeContinuity, calculateOptionalityRunway, getWellnessNode,
   LONG_TERM_AREAS, getLongTermArea,
   DOWNLOAD_TEMPLATES,
+  createContentRelationships, createVideoMetadata, hasContentRelationships,
 } from '../index.js'
+
+test('optional knowledge relationships stay empty until real content exists', () => {
+  const empty = createContentRelationships()
+  assert.equal(hasContentRelationships(empty), false)
+  assert.deepEqual(empty.videos, [])
+  const video = createVideoMetadata({videoId:'abc123',title:'Example',titleZh:'示例',description:'Educational example',descriptionZh:'教育示例',platform:'YouTube',url:'https://www.youtube.com/watch?v=abc123',thumbnail:'https://i.ytimg.com/vi/abc123/hqdefault.jpg',relatedNodeIds:['W10'],relatedDecisionIds:[],publishedAt:'2026-09-04'})
+  const linked = createContentRelationships({videos:[video], relatedEvents:['start-business']})
+  assert.equal(hasContentRelationships(linked), true)
+  assert.deepEqual(linked.videos[0].relatedNodeIds, ['W10'])
+})
 
 test('master architecture has six ordered stages and both domains', () => {
   assert.equal(LIFE_CAPITAL_STAGES.length, 6)

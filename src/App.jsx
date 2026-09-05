@@ -1,32 +1,34 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import HomePage from './components/HomePage'
-import ServicePage from './components/ServicePage'
-import ContactPage from './components/ContactPage'
-import SurveyPage from './components/SurveyPage'
-import PlaceholderPage from './components/PlaceholderPage'
-import PillarPage from './components/PillarPage'
-import NotFound from './components/NotFound'
-import InsightsIndexPage from './components/InsightsIndexPage'
-import InsightArticlePage from './components/LocalizedInsightPage'
-import GlossaryIndexPage from './components/GlossaryIndexPage'
-import GlossaryTermPage from './components/GlossaryTermPage'
-import CapitalAssessmentPage from './components/CapitalAssessmentPage'
-import CapitalAssessmentResultPreviewPage from './components/CapitalAssessmentResultPreviewPage'
-import CapitalMapPage from './components/CapitalMapPage'
-import CapitalNodePage from './components/CapitalNodePage'
-import CapitalEventPage from './components/CapitalEventPage'
-import WellnessNodePage from './components/WellnessNodePage'
-import FoundationV2Page from './components/FoundationV2Page'
-import LongTermPlanningPage from './components/LongTermPlanningPage'
-import NsFederationPage from './components/NsFederationPage'
-import JourneyIndexPage from './components/JourneyIndexPage'
-import JourneyScenarioPage from './components/JourneyScenarioPage'
-import KnowledgePathPage from './components/KnowledgePathPage'
-import AboutSammiPage from './components/AboutSammiPage'
-import KnowledgeGuidePage from './components/KnowledgeGuidePage'
-import DecisionGuidePage from './components/DecisionGuidePage'
 import { servicePages } from './data/content'
+
+const ServicePage = lazy(() => import('./components/ServicePage'))
+const ContactPage = lazy(() => import('./components/ContactPage'))
+const SurveyPage = lazy(() => import('./components/SurveyPage'))
+const PlaceholderPage = lazy(() => import('./components/PlaceholderPage'))
+const PillarPage = lazy(() => import('./components/PillarPage'))
+const NotFound = lazy(() => import('./components/NotFound'))
+const InsightsIndexPage = lazy(() => import('./components/InsightsIndexPage'))
+const InsightArticlePage = lazy(() => import('./components/LocalizedInsightPage'))
+const GlossaryIndexPage = lazy(() => import('./components/GlossaryIndexPage'))
+const GlossaryTermPage = lazy(() => import('./components/GlossaryTermPage'))
+const CapitalAssessmentPage = lazy(() => import('./components/CapitalAssessmentPage'))
+const CapitalAssessmentResultPreviewPage = lazy(() => import('./components/CapitalAssessmentResultPreviewPage'))
+const CapitalMapPage = lazy(() => import('./components/CapitalMapPage'))
+const CapitalNodePage = lazy(() => import('./components/CapitalNodePage'))
+const CapitalEventPage = lazy(() => import('./components/CapitalEventPage'))
+const WellnessNodePage = lazy(() => import('./components/WellnessNodePage'))
+const FoundationV2Page = lazy(() => import('./components/FoundationV2Page'))
+const LongTermPlanningPage = lazy(() => import('./components/LongTermPlanningPage'))
+const NsFederationPage = lazy(() => import('./components/NsFederationPage'))
+const JourneyIndexPage = lazy(() => import('./components/JourneyIndexPage'))
+const JourneyScenarioPage = lazy(() => import('./components/JourneyScenarioPage'))
+const KnowledgePathPage = lazy(() => import('./components/KnowledgePathPage'))
+const AboutSammiPage = lazy(() => import('./components/AboutSammiPage'))
+const KnowledgeGuidePage = lazy(() => import('./components/KnowledgeGuidePage'))
+const DecisionGuidePage = lazy(() => import('./components/DecisionGuidePage'))
 
 // Shared page routes rendered under both the unprefixed (English) branch
 // and the "/:locale" (zh / es / ko) branch, so every existing page and

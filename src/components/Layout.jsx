@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { Outlet, useParams } from 'react-router-dom'
 import Nav from './Nav'
 import Footer from './Footer'
@@ -44,7 +44,11 @@ function LayoutBody({ isValidLocale, activeVideo, openVideo, closeVideo }) {
       <ScrollToTop />
       <Nav />
       <div className={readingStyles.frame}>
-        <div className={readingStyles.content}>{isValidLocale ? <Outlet context={{ openVideo }} /> : <NotFound />}</div>
+        <div className={readingStyles.content}>
+          <Suspense fallback={<div role="status" aria-label="Loading page" />}>
+            {isValidLocale ? <Outlet context={{ openVideo }} /> : <NotFound />}
+          </Suspense>
+        </div>
         {isValidLocale && <ReadingNavigator />}
       </div>
       <Footer />

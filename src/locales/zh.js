@@ -27,7 +27,7 @@ export default {
   },
 
   footer: {
-    officialName: '黑曜财商俱乐部',
+    officialName: 'ONYX Wealth & Wellness',
     brandLine: '理解复杂世界，共建美好人生。',
     descriptor: '面向 W-2 工薪人士、1099 自雇人士和成长型家庭的教育优先决策导航平台。',
     domainLabel: 'ONYXWW.com',

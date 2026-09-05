@@ -146,3 +146,9 @@ Global Search is a structured discovery and navigation layer across ONYX decisio
 English and Chinese labels, common financial abbreviations, and deliberate aliases share the same concepts so a Chinese-site visitor can still search terms such as 401(k), S Corp, 529, pro-rata, and Backdoor Roth. Results always lead to an existing locale-aware page. When nothing matches, ONYX offers the Capital Map, Event Radar, and an Ask Sammi link that preserves only the search phrase as visible context.
 
 The initial analytics adapter is intentionally a no-op. Search phrases are neither transmitted nor persisted in Phase 3; future measurement requires a separate privacy and product decision.
+
+## V3.0 Release Principle
+
+The public architecture is stable. New knowledge should normally enrich an existing Capital Map node, event, decision, guide, or planning window rather than create another top-level system. Optional relationships may attach a quick insight, hidden question, before-you-act note, article, verified video, case, official source, calculator, related decision, related event, planning window, or contextual Sammi review. Empty relationships stay invisible; no placeholder knowledge is published.
+
+Verified video metadata uses `videoId`, bilingual titles and descriptions, `platform`, `url`, `thumbnail`, related node and decision IDs, and `publishedAt`. A video is added only when a real published URL and complete metadata exist.

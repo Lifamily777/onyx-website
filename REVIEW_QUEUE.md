@@ -1,5 +1,28 @@
 # ONYX Review Queue
 
+## V3.0 Release Candidate Classification
+
+### RELEASE BLOCKER
+
+- Replace the public Privacy Policy and Terms of Use placeholders with counsel-approved, binding text. The current pages explicitly state that complete terms are still being prepared.
+- Complete qualified tax review of the Phase 2.5 job-change / old-401(k) Decision Intelligence guide before production. Review rollover destinations, IRA and pro-rata interactions, Backdoor Roth awareness, conversions, Form 8606, plan availability, and all current-rule implications.
+- Resolve the protected Insight article presentation and publisher-metadata items below before declaring the complete bilingual V3 surface production-ready; the protected renderer files were not changed in this release-candidate pass.
+
+### POST-LAUNCH PROFESSIONAL REVIEW
+
+- Review Event Radar and rental-sale tax language, W-2/1099 and S corporation/payroll education, retirement-plan descriptions, education-funding/FAFSA language, and the public Family Capital Strategist descriptor before expanding or promoting those areas.
+- Review insurance and risk-transfer journeys for education-first sequencing, neutral alternatives, needs-analysis boundaries, suitability language, and prohibited guarantees before adding product discussion.
+
+### POST-LAUNCH PRODUCT IMPROVEMENT
+
+- Decide the final Wellness/USANA positioning, NS Federation embed configuration, optional analytics/privacy model, non-English locale roadmap, and whether Foundation or Journey answers should ever persist.
+- Continue editorial review of conversational Chinese, reading navigation, guide depth, contextual Sammi handoffs, and mobile visual polish.
+
+### FUTURE KNOWLEDGE CONTENT
+
+- Enrich established Capital Map nodes with verified Sammi videos, published Insights, real cases, official sources, calculators, related decisions, related events, and planning windows. Do not publish filler or empty attachment sections.
+- Continue toward the 72-node roadmap only when a node has enough useful, reviewed content to meet the quality gate.
+
 Use this file for decisions that should not be made autonomously. Items remain open until a decision and rationale are recorded.
 
 ## Needs Sammi Decision

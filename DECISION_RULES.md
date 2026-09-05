@@ -66,3 +66,7 @@ If tax content is uncertain:
 ## Reversible Implementation Decisions
 
 When an implementation decision is reversible and stays within the approved scope, choose the simplest maintainable option and continue. Document assumptions that materially affect later work.
+
+## V3.0 Release Principle
+
+Treat the current public information architecture as stable. Enrich established nodes and journeys before proposing new top-level systems. Do not publish empty attachment sections, invented cases, fake videos, placeholder knowledge, or unverified official-source claims.

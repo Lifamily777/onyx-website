@@ -1,7 +1,7 @@
 import { V3_PATHS } from '../../data/v3Brand.js'
 import { KNOWLEDGE_GUIDES } from '../knowledgeGuides/index.js'
 import { JOB_CHANGE_EVENT, OLD_401K_DECISION, ROLLOVER_KNOWLEDGE } from '../decisionIntelligence/index.js'
-import { LIFE_EVENTS, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, DOWNLOAD_TEMPLATES } from '../lifeCapitalMap/index.js'
+import { LIFE_EVENTS, WEALTH_HERO_NODES, WELLNESS_FOUNDATION_NODES, DOWNLOAD_TEMPLATES, LONG_TERM_AREAS } from '../lifeCapitalMap/index.js'
 import { getAllInsights } from '../../data/insights/index.js'
 
 const alias = {
@@ -41,9 +41,11 @@ const tools = [
   ...Object.entries(DOWNLOAD_TEMPLATES).map(([id,item])=>record({id:`tool:${id}`,type:'Tool',group:'TOOLS',title:item.title,titleZh:item.titleZh,description:'A private local-download working template.',descriptionZh:'一份在浏览器本地下载的工作底稿。',path:'/capital-map',priority:35})),
 ]
 
+const planningWindows = LONG_TERM_AREAS.map(item=>record({id:`planning:${item.id}`,type:'Planning Window',group:'TOOLS',title:item.title,titleZh:item.titleZh,description:item.summary,descriptionZh:item.summaryZh,keywords:item.topics,relatedTopics:[...(item.relatedNodes||[]),...(item.relatedEvents||[])],path:`/capital-map/long-term#${item.id}`,domain:item.id==='healthcare'?'wellness':'wealth',priority:62}))
+
 const insights = getAllInsights().map(item=>{
   const en=item.content.en||{}, zh=item.content.zh||{}
   return record({id:`insight:${item.slug}`,type:'Insight',group:'INSIGHTS',title:en.title||en.titleEn||item.title||item.slug,titleZh:zh.title||zh.titleZh||en.titleZh||'',description:en.subtitle||en.subtitleEn||en.seoDescription||'',descriptionZh:zh.subtitle||zh.subtitleZh||zh.seoDescription||'',keywords:item.keywords||[],keywordsZh:item.keywordsZh||[],aliases:[],relatedTopics:item.pillars||[],path:`/insights/${item.slug}`,domain:item.pillars?.[0],priority:45})
 })
 
-export const ONYX_SEARCH_INDEX = Object.freeze([...paths,...guides,decision,...knowledge,...events,...nodes,...tools,...insights])
+export const ONYX_SEARCH_INDEX = Object.freeze([...paths,...guides,decision,...knowledge,...events,...nodes,...tools,...planningWindows,...insights])

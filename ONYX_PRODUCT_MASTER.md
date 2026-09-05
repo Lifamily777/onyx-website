@@ -101,3 +101,7 @@ Internal commercial relevance may help prioritize development, but user-facing l
 ## 12. Key Principle
 
 Some pages exist mainly to help users, not to sell. Their value is trust, clarity, usefulness, and the user’s ability to make a better decision.
+
+## 13. V3.0 Release Principle
+
+The architecture is stable. Prefer enriching existing nodes with trustworthy articles, videos, cases, official sources, calculators, decisions, events, and planning windows over adding new top-level systems. Optional content must be real, attributable where appropriate, and omitted from the interface when empty.

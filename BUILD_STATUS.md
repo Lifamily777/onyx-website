@@ -1,5 +1,15 @@
 # ONYX Build Status
 
+## 2026-09-04 — V3.0 Release Candidate Closeout
+
+- Froze the current V3 public architecture and added an optional, data-driven knowledge relationship model for real articles, videos, cases, sources, calculators, decisions, events, planning windows, and contextual review handoffs. Empty relationships render nothing; no placeholder media or invented content was added.
+- Added complete verified-video metadata requirements without publishing a fake video, and indexed all seven long-term planning areas for locale-aware Global Search discovery.
+- Removed public-facing “prototype” wording from Journey and Decision pages, aligned the Chinese footer’s official brand with `ONYX Wealth & Wellness`, and preserved the descriptive `黑曜财商` language elsewhere.
+- Added route-level code splitting for non-home pages to reduce initial JavaScript and isolate large assessment, map, Insight, and guide surfaces.
+- Validation passed: 91/91 tests, production build, `git diff --check`, and capital validation (three PASS and two unchanged REVIEW profiles). The main JavaScript chunk is approximately 455 kB and the prior 500 kB warning is resolved.
+- Browser QA confirmed the Chinese long-term planning route renders all seven areas, related locale-aware links, the complete architecture navigator, and the updated `ONYX Wealth & Wellness` footer identity after code splitting.
+- Release review is **not yet clear for production**: counsel-approved Privacy/Terms text and qualified review of the old-401(k) Decision Intelligence guide remain explicit release blockers. Protected InsightArticlePage files were not modified.
+
 ## 2026-09-04 — Three-Part Homepage Narrative
 
 - Consolidated the homepage into three top-level sections: what ONYX Wealth & Wellness is, why a visitor might choose ONYX, and who Sammi Q is.
