@@ -79,6 +79,9 @@
 
 ## Completed
 
+- Family Capital Review Step 1 data foundation adds 12 bilingual root discovery questions, explicit conditional branches, eight explainable Foundation statuses, seven Capital Jobs, NOW / NEXT 12 MONTHS / ON TRACK actions, client-priority separation, contextual knowledge connections, and in-memory-only results.
+- Family Capital Review tests cover stable and incomplete W-2 households, employer no-match allocation review, job-change / rollover-IRA routing, W-2 + 1099, organized and unorganized businesses, education planning with and without an existing 529, economic protection exposure, rental-sale windows, debt interference, Capital Jobs, client priority versus ONYX observations, and prohibited product-based status logic.
+
 - V3 Phase 2 adds a reusable bilingual Knowledge Guide schema, renderer, non-persistent result model, and four interconnected Hero Knowledge Guides.
 - The Second Income guide distinguishes an entity from a genuine business and includes a transparent revenue-minus-expenses lens without calculating tax liability.
 - The Business / Payroll / Retirement guide explains profit, compensation, payroll, entity, cash-flow, employee, and retirement-plan interactions without ranking plans or promising savings.
@@ -115,6 +118,7 @@
 ## In Progress
 
 - V3 Phases 1–2 are awaiting product and professional-language review before production release.
+- Family Capital Review final client-facing UI and first-meeting workflow remain intentionally out of scope for Step 1; the deterministic engine foundation is implemented for integration.
 
 ## Blocked
 
@@ -149,4 +153,4 @@ No lint command is currently configured in `package.json`.
 
 ## Last Updated
 
-2026-09-03 (America/New_York)
+2026-09-08 (America/New_York)

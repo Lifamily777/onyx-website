@@ -34,6 +34,8 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Product Review Items
 
+- **Family Capital Review Step 1:** before the final client-facing UI is used in live meetings, review the 12-question conversational order, Foundation status explanations, “ONYX also noticed” prioritization, and contextual Sammi handoff. The engine intentionally has no overall score and stores no answers.
+
 - 2026-09-04: Review the first conversational-Chinese pass and new reading navigator. The structure follows the existing six-stage framework, not an official CFP assessment or certification claim. The dot marks the current topic, not financial readiness. Continue the remaining Chinese article/guide copy pass after tone review; protected editorial renderer still awaits explicit permission. Review phone and wide-desktop layout before publication.
 
 - **V3 Phase 2 Hero Guides:** review the four guide narratives, progressive-disclosure depth, family-capital connections, printable summaries, and contextual Sammi handoffs before production release.
@@ -51,6 +53,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Tax/Legal Verification Needed
 
+- **Family Capital Review:** professionally review W-2 withholding, estimated-tax process, business/payroll, old-plan destination, retirement-account, education-funding, rental-property, and estate-routing language before the final polished client workflow is released. Step 1 states no current rates, deadlines, eligibility conclusions, rollover recommendation, tax calculation, or legal conclusion.
+
 - **Phase 2.5 retirement prototype:** final professional tax review is required for rollover destination language, Traditional/Rollover IRA scope, IRA pro-rata considerations, Backdoor Roth awareness, Roth conversions, Form 8606, SEP/SIMPLE IRA references, plan-to-plan availability, and any implication about accounts included or excluded. IRS links were verified during implementation, but the prototype must not reach production before this language review.
 
 - Review W-2 / 1099 language, including legitimate business activity, ordinary business costs, estimated-tax awareness, and the boundary between education and individualized tax guidance.
@@ -65,6 +69,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Insurance/Compliance Review Needed
 
+- **Family Capital Review:** review Protection evidence and status explanations before live client use. The current engine derives attention only from stated economic exposure, current resources/coverage, and review timing; it makes no product or suitability recommendation.
+
 - Review future income-protection and risk-transfer journeys for education-first sequencing, neutral alternatives, needs-analysis boundaries, suitability language, and prohibited guarantees.
 - Review the public “Family Capital Strategist” descriptor and contextual handoff language for any jurisdiction-specific licensing or disclosure requirements before production release.
 - Review any future insurance-based education-funding material before it is added; Phase 2 deliberately names no insurance product and makes no suitability conclusion.
@@ -77,6 +83,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - NS Federation embed after source and configuration approval.
 
 ## Safe Work Completed Without Decision
+
+- Family Capital Review Step 1 data model, conditional question tree, deterministic Foundation / Capital Job / Action engines, evidence references, existing-route connections, and automated non-product tests implemented without persistence or final UI.
 
 - Four Phase 2 Hero Knowledge Guides implemented as bilingual, education-first decision maps with no scores, product ranking, promised tax savings, individualized advice, uploads, or persistent inputs.
 - Educational Business Profit and Cost of Waiting calculators implemented with visible assumptions and limitations; neither calculates tax liability or guaranteed returns.

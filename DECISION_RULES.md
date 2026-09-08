@@ -70,3 +70,14 @@ When an implementation decision is reversible and stays within the approved scop
 ## V3.0 Release Principle
 
 Treat the current public information architecture as stable. Enrich established nodes and journeys before proposing new top-level systems. Do not publish empty attachment sections, invented cases, fake videos, placeholder knowledge, or unverified official-source claims.
+
+## Family Capital Review Rules
+
+- Foundation statuses describe unresolved planning needs, planning windows, current organization, or missing applicability/information. They never grade product ownership.
+- Do not derive a negative status because a household lacks an IUL, annuity, 529, Roth IRA, maximum 401(k) contribution, or employer match.
+- No employer match creates an allocation-review connection only.
+- Derive Protection attention from economic exposure, obligations, current resources, and review timing—not from the absence of a named insurance product.
+- Treat existing assets and future contributions as separate decisions. Never create an automatic `529 → IUL` path.
+- Preserve the client's stated priority and expose additional observations separately with answer evidence.
+- Every result must be deterministic and explainable. Do not calculate an overall score or raw average.
+- Do not persist review answers or sensitive documents without a separate approved privacy decision.

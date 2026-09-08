@@ -152,3 +152,11 @@ The initial analytics adapter is intentionally a no-op. Search phrases are neith
 The public architecture is stable. New knowledge should normally enrich an existing Capital Map node, event, decision, guide, or planning window rather than create another top-level system. Optional relationships may attach a quick insight, hidden question, before-you-act note, article, verified video, case, official source, calculator, related decision, related event, planning window, or contextual Sammi review. Empty relationships stay invisible; no placeholder knowledge is published.
 
 Verified video metadata uses `videoId`, bilingual titles and descriptions, `platform`, `url`, `thumbnail`, related node and decision IDs, and `publishedAt`. A video is added only when a real published URL and complete metadata exist.
+
+## Thursday MVP — Family Capital Review Foundation
+
+The Family Capital Review is ONYX's primary first-meeting discovery framework. Twelve root questions use conditional W-2, 1099/business, education/future-opportunity, job-change, and rental-property branches. The engine produces an explainable Foundation Map, Capital Job Map, and Action Map without an overall score or product-based status rule.
+
+The client priority remains visible as stated. A separate “ONYX also noticed” field may surface an unresolved connected foundation without replacing the client's priority. Results connect to existing ONYX knowledge and Decision Intelligence routes before offering contextual review.
+
+This phase establishes data, branching, deterministic derivation, and tests only. It does not establish the final client-facing interface, persistence, an automated recommendation, or a suitability decision.

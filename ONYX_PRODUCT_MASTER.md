@@ -105,3 +105,29 @@ Some pages exist mainly to help users, not to sell. Their value is trust, clarit
 ## 13. V3.0 Release Principle
 
 The architecture is stable. Prefer enriching existing nodes with trustworthy articles, videos, cases, official sources, calculators, decisions, events, and planning windows over adding new top-level systems. Optional content must be real, attributable where appropriate, and omitted from the interface when empty.
+
+## 14. Family Capital Review
+
+The **ONYX Family Capital Review** is the primary discovery tool for a first family meeting. It is a deterministic, non-scoring conversation framework, not a product questionnaire or automated suitability determination.
+
+Its output model is:
+
+> Foundation Map + Capital Job Map + Action Map
+
+The Foundation Map covers Cash & Emergency, Income & Tax, Retirement, Education & Future Opportunity, Protection, Debt & Property, Business & Payroll, and Family & Estate Basics. Every status must show the answer evidence, why the item was flagged, what it connects to, information to gather, a suggested next step, and an existing ONYX route where available.
+
+The Capital Job Map uses **GROW, KEEP, ACCESS, PROTECT, INCOME, FUND, and LEGACY**. The Action Map separates **NOW, NEXT 12 MONTHS, and ON TRACK**, while preserving the client's stated priority separately from what ONYX also noticed.
+
+Retirement Planning and Education / Family Future Planning are ONYX's two deepest long-term service tracks. Payroll / Tax and Protection are supporting capabilities that connect those tracks to current cash flow and risk.
+
+The Family Capital Review follows these rules:
+
+- Don't start with the product. Start with the job.
+- One product does not need to solve every job.
+- Existing money and the next-dollar decision are separate questions.
+- Education Funding is broader than 529 planning.
+- An existing 529 is not evidence of a mistake.
+- No employer match creates an allocation-review question, not a predetermined answer to skip a 401(k).
+- Missing an IUL, annuity, 529, Roth IRA, or maximum 401(k) contribution never creates an automatic red or yellow status.
+- Product discussion follows identified need, education, alternatives, and a separate needs analysis.
+- Review answers remain in memory only unless a future privacy and product decision explicitly authorizes persistence.
