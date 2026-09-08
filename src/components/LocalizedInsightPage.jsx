@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import { getInsightBySlug } from '../data/insights'
 import InsightArticlePage from './InsightArticlePage'
+import TaxPenaltyArticlePage from './TaxPenaltyArticlePage'
 import useDocumentMeta from '../hooks/useDocumentMeta'
 import styles from './InsightsIndexPage.module.css'
 
@@ -14,6 +15,7 @@ export default function LocalizedInsightPage() {
   const unavailable = insight && !insight.content[locale]
   const title = locale === 'zh' ? '本文中文版尚未提供' : 'This article is not yet available in English'
   useDocumentMeta(unavailable ? title : undefined)
+  if (!unavailable && ['taxPenaltyEditorial', 'taxStoryEditorial'].includes(insight?.layout)) return <TaxPenaltyArticlePage insight={insight} />
   if (!unavailable) return <InsightArticlePage />
   return <main className={styles.wrap}>
     <h1 className={styles.title}>{title}</h1>

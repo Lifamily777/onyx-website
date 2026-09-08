@@ -3,6 +3,8 @@ import { waicAiSuperNodeAgentOsOpcAgi } from './waic-ai-super-node-agent-os-opc-
 import { whyChineseFamiliesLoveSavingButDistrustInsurance } from './why-chinese-families-love-saving-but-distrust-insurance.js'
 import { termVsGulVsIulFamilyCapital } from './term-vs-gul-vs-iul-family-capital.js'
 import { theThirdLedgerPartnershipBasis } from './the-third-ledger-partnership-basis.js'
+import { taxUnderpaymentPenalties } from './tax-underpayment-penalties.js'
+import { familyGiftLoanImputedInterest } from './family-gift-loan-imputed-interest.js'
 
 // One import per article file. Add a new line here when a new insight file
 // is created — this stays a one-line diff no matter how many articles exist.
@@ -14,6 +16,8 @@ const allInsights = [
   whyChineseFamiliesLoveSavingButDistrustInsurance,
   theThirdLedgerPartnershipBasis,
   termVsGulVsIulFamilyCapital,
+  taxUnderpaymentPenalties,
+  familyGiftLoanImputedInterest,
 ]
 
 // Only 'published' articles are ever surfaced through these three entry

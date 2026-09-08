@@ -2,6 +2,7 @@ import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { ONYX_SEARCH_INDEX, normalizeSearchTerm, searchOnyx } from '../../search/index.js'
+import { getInsightBySlug } from '../../../data/insights/index.js'
 
 const root = new URL('../../../../', import.meta.url)
 const source = path => readFileSync(new URL(path, root), 'utf8')
@@ -47,4 +48,24 @@ test('header search is accessible, keyboard-enabled, and non-persistent', () => 
   assert.match(ui, /event\.key === 'Escape'/)
   assert.match(ui, /localePath\(item\.path\)/)
   assert.doesNotMatch(`${ui}${engine}`, /localStorage|sessionStorage|fetch\(|XMLHttpRequest/)
+})
+
+test('tax penalty Insight is published in both active locales with authoritative sources', () => {
+  const insight = getInsightBySlug('tax-underpayment-penalties')
+  assert.equal(insight.layout, 'taxPenaltyEditorial')
+  assert.equal(insight.content.en.sections.length, 5)
+  assert.equal(insight.content.zh.sections.length, 5)
+  assert.equal(insight.content.en.comparison.length, 5)
+  assert.ok(insight.content.en.sources.every(source => source.href.startsWith('https://www.irs.gov/') || source.href.startsWith('https://uscode.house.gov/')))
+})
+
+test('family-loan Insight preserves the three distinct statutory markers', () => {
+  const insight = getInsightBySlug('family-gift-loan-imputed-interest')
+  assert.equal(insight.layout, 'taxStoryEditorial')
+  assert.equal(insight.content.en.sections.length, 7)
+  const formulas = insight.content.en.sections.map(section => section.formula).join(' ')
+  assert.match(formulas, /\$10,000/)
+  assert.match(formulas, /\$100,000/)
+  assert.match(formulas, /\$1,000/)
+  assert.equal(insight.content.zh.comparison.length, 5)
 })
