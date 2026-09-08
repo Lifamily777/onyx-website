@@ -136,7 +136,7 @@ function Completion({
     <h1><Localized en={<>Your Capital Map is ready.</>} zh={<>你的家庭资本地图已经生成。</>} /></h1>
     <p><Localized en={<>We’ve reviewed all six layers of your capital structure.</>} zh={<>我们已经梳理了你家庭资本结构的六个层次。</>} /></p>
     <div className={styles.previewList}><p><LocaleLabel value={"Next, we’ll show:"} /></p><ul><Localized en={<><li>your Capital Ladder</li><li>your Primary Capital Position</li><li>what your next dollar may need to do first</li></>} zh={<><p>接下来，我们将呈现：</p><ul><li>你的资本阶梯</li><li>你的首要资本位置</li><li>下一块钱可能最需要先完成什么任务</li></ul></>} /></ul></div>
-    <BilingualButton className={styles.primaryButton} onClick={onView} en="View My Capital Map" zh="查看我的资本地图" />
+    <BilingualButton className={styles.primaryButton} onClick={onView} en="View My Capital Map" zh="查看资本地图" />
     <BilingualButton className={styles.textButton} onClick={onRestart} en="Start Over" zh="重新开始" />
   </section>{confirmRestart && <RestartDialog onCancel={cancel} onConfirm={restart} />}</main>;
 }

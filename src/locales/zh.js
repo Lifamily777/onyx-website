@@ -52,16 +52,13 @@ export default {
 
   home: {
     hero: {
-      eyebrow: '什么是 ONYX Wealth & Wellness · 黑曜财商？',
-      headline1: '把钱赚明白，把税理清楚，',
-      headline2: '把未来安排好，把家保护好。',
-      supporting: '收入、税务、生意、退休和孩子，从来不是互不相关的几件事。',
+      eyebrow: 'PAYROLL · RETIREMENT · PROTECTION',
+      supporting: '收入、税务、生意、退休等人生目标，从来都不是彼此孤立的。',
       bridge:
-        'ONYX 帮助你发现容易忽略的问题，看清它们之间的联系，并围绕家庭真正需要解决的事情逐步搭建协调的解决方案。',
-      ctaPrimary: '探索我的资本地图',
+        '黑曜以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
+      ctaPrimary: '探索资本地图',
       ctaSecondary: '最近发生了变化',
       ctaTertiary: '4分钟资本检查',
-      supportingLine: '留下更多，为明天积累，为孩子准备，保护家庭计划。',
     },
     why: {
       label: '为什么选择 ONYX？',

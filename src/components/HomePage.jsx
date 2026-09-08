@@ -30,11 +30,6 @@ export default function HomePage() {
       {/* ── 1. HERO ── */}
       <section className={styles.hero}>
         <p className={styles.heroEyebrow}>{t('home.hero.eyebrow')}</p>
-        <h1 className={styles.heroTitle}>
-          {t('home.hero.headline1')}
-          <br />
-          <span className={styles.heroEmphasis}>{t('home.hero.headline2')}</span>
-        </h1>
         <p className={styles.heroSupporting}>{t('home.hero.supporting')}</p>
         <p className={styles.heroBridge}>{t('home.hero.bridge')}</p>
         <div className={styles.heroLinks}>
@@ -46,8 +41,6 @@ export default function HomePage() {
           </Link>
         </div>
         <Link className={styles.tertiaryLink} to={localePath('/foundation')}>{t('home.hero.ctaTertiary')} →</Link>
-        <p className={styles.heroLine}>{t('home.hero.supportingLine')}</p>
-
         {/* Compact three-entry module. Desktop keeps this natural DOM
             position (after the full Hero); the mobile media query in
             HomePage.module.css reassigns `order` so this — and the

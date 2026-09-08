@@ -50,17 +50,14 @@ export default {
 
   home: {
     hero: {
-      eyebrow: 'What is ONYX Wealth & Wellness?',
-      headline1: 'Earn Well. Keep More.',
-      headline2: 'Build Intentionally. Protect What Matters.',
+      eyebrow: 'PAYROLL · RETIREMENT · PROTECTION',
       supporting:
-        'Your income, taxes, business, retirement and children do not live separate financial lives.',
+        'Your income, taxes, business, retirement, and life goals do not exist in isolation.',
       bridge:
-        'ONYX helps you identify overlooked questions, understand what they connect to, and build coordinated solutions before important decisions become difficult to reverse.',
+        'Through the connected lenses of payroll, retirement, and protection, ONYX helps W-2 professionals, 1099 earners, and growing families understand how income, taxes, long-term accumulation, and risk fit together—and build a more coordinated plan.',
       ctaPrimary: 'Explore My Capital Map',
       ctaSecondary: 'Something Changed',
       ctaTertiary: '4-Minute Capital Check',
-      supportingLine: 'Keep more of what you earn. Build for tomorrow. Fund their future. Protect the plan.',
     },
     why: {
       label: 'WHY CHOOSE ONYX?',

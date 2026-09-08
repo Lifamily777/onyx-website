@@ -34,7 +34,7 @@ export default function KnowledgePathPage({ pathId }) {
     </section>
     <section className={styles.tools}>
       <div><p className={styles.eyebrow}>{zh ? '继续探索' : 'KEEP EXPLORING'}</p><h2>{zh ? '把知识放回你自己的资本地图。' : 'Put the knowledge back into your own Capital Map.'}</h2></div>
-      <div className={styles.actions}><Link to={localePath('/capital-map')}>{zh ? '探索我的资本地图' : 'Explore My Capital Map'}</Link><Link to={localePath('/capital-map/events')}>{zh ? '最近发生了变化' : 'Something Changed'}</Link></div>
+      <div className={styles.actions}><Link to={localePath('/capital-map')}>{zh ? '探索资本地图' : 'Explore My Capital Map'}</Link><Link to={localePath('/capital-map/events')}>{zh ? '最近发生了变化' : 'Something Changed'}</Link></div>
     </section>
     <nav className={styles.related} aria-label={zh ? '其他知识路径' : 'Other knowledge paths'}>{otherPaths.map((item) => <Link key={item.id} to={localePath(`/${item.id}`)}>{zh ? item.eyebrowZh : item.eyebrow}<small>{zh ? item.subtitleZh : item.subtitle}</small></Link>)}</nav>
     <footer className={styles.disclaimer}>{zh ? EDUCATIONAL_GUIDANCE_DISCLAIMER.zh : EDUCATIONAL_GUIDANCE_DISCLAIMER.en}</footer>

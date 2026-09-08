@@ -27,7 +27,7 @@ export default function CapitalMapPage({
       <p className={styles.eyebrow}><LocaleLabel value={"TRUST BEFORE TRANSACTION"} /></p>
       <h1><Localized en={<>ONYX Life Capital Map</>} zh={<>人生资本地图</>} /></h1>
       <p><Localized en={<>Wealth and Wellness are two forms of life capital operating across the same six stages.</>} zh={<>财富与健康，是贯穿同一组六个人生阶段的两种生命资本。</>} /></p>
-      {showEntry && <Link className={styles.foundationLink} to={localePath('/capital-map/journey')}><Localized en={<>Explore My Capital Journey</>} zh={<>探索我的资本旅程</>} /></Link>}
+      {showEntry && <Link className={styles.foundationLink} to={localePath('/capital-map/journey')}><Localized en={<>Explore My Capital Journey</>} zh={<>探索资本旅程</>} /></Link>}
     </header>
     <nav className={styles.axisNav} aria-label="Life Capital Map views">
       <Link to={localePath('/capital-map')} aria-current={view === 'map' ? 'page' : undefined}><Localized en={<>Map</>} zh={<>全景</>} /></Link>
@@ -38,7 +38,7 @@ export default function CapitalMapPage({
 
     {showEntry && <section className={styles.entryExperience}>
       <div className={styles.entryPaths}>
-        <article className={styles.primaryEntry}><span><Localized en={<>PRIMARY PATH</>} zh={<>主要入口</>} /></span><h2><Localized en={<>Explore My Capital Journey</>} zh={<>探索我的资本旅程</>} /></h2><p><Localized en={<>Explore real-life decisions, stories, trade-offs, and planning questions across Wealth and Wellness.</>} zh={<>通过真实生活决定、故事、取舍和规划问题，探索财富与健康。</>} /></p><Link to={localePath('/capital-map/journey')}><Localized en={<>Begin the Journey</>} zh={<>开始旅程 →</>} /></Link></article>
+        <article className={styles.primaryEntry}><span><Localized en={<>PRIMARY PATH</>} zh={<>主要入口</>} /></span><h2><Localized en={<>Explore My Capital Journey</>} zh={<>探索资本旅程</>} /></h2><p><Localized en={<>Explore real-life decisions, stories, trade-offs, and planning questions across Wealth and Wellness.</>} zh={<>通过真实生活决定、故事、取舍和规划问题，探索财富与健康。</>} /></p><Link to={localePath('/capital-map/journey')}><Localized en={<>Begin the Journey</>} zh={<>开始旅程 →</>} /></Link></article>
         <article><span><Localized en={<>LIFE EVENT</>} zh={<>生活事件</>} /></span><h2><Localized en={<>Something Changed</>} zh={<>有些事情发生了变化</>} /></h2><p><Localized en={<>A transaction, opportunity, family change, health change, move, or retirement window may need attention now.</>} zh={<>交易、机会、家庭或健康变化、搬迁或退休窗口，可能需要现在开始关注。</>} /></p><Link to={localePath('/capital-map/events')}><Localized en={<>Open Event Radar</>} zh={<>打开事件雷达 →</>} /></Link></article>
         <article><span><Localized en={<>OPTIONAL CHECK</>} zh={<>可选检查</>} /></span><h2><Localized en={<>4-Minute Foundation Check</>} zh={<>4分钟基础检查</>} /></h2><p><Localized en={<>Not sure where to begin? Let ONYX highlight areas worth exploring through the existing 18 questions.</>} zh={<>不确定从哪里开始？通过现有18个问题，让黑曜提示值得探索的领域。</>} /></p><Link to={localePath('/foundation')}><Localized en={<>Take the Foundation Check</>} zh={<>开始基础检查 →</>} /></Link></article>
       </div>

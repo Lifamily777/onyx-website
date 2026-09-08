@@ -13,13 +13,12 @@
 /* Black-gold night navigation */
 .nav { background: rgba(7, 11, 16, .82); border-bottom-color: rgba(210, 191, 150, .16); backdrop-filter: blur(22px); }
 .inner { max-width: 1380px; }
-.logo { display: flex; align-items: center; gap: 10px; color: #f7f0e2; }
-.logoEn { color: var(--gold-light); letter-spacing: .2em; }
-.logoName { color: rgba(245, 239, 227, .72); font-size: 11px; letter-spacing: .06em; white-space: nowrap; }
+.logo { display: flex; align-items: center; color: #f7f0e2; }
+.logoName { color: var(--gold-light); font-family: var(--font-editorial); font-size: 17px; font-weight: 600; letter-spacing: .045em; white-space: nowrap; }
 .nb { color: rgba(245, 239, 227, .72); }
 .nb:hover, .on { color: var(--gold-light); }
 .cta { color: #14110c; background: linear-gradient(135deg, #dfd0ad, #ae9568); border-radius: var(--radius-pill); box-shadow: 0 8px 24px rgba(184, 160, 113, .12); }
-@media (max-width: 760px) { .logoName { display: none; } }
+@media (max-width: 760px) { .logoName { font-size: 14px; letter-spacing: .02em; } }
 
 .inner {
   max-width: 1380px;
