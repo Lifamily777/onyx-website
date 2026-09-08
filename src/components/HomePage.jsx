@@ -40,7 +40,7 @@ export default function HomePage() {
             {t('home.hero.ctaSecondary')}
           </Link>
         </div>
-        <Link className={styles.tertiaryLink} to={localePath('/foundation')}>{t('home.hero.ctaTertiary')} →</Link>
+        <Link className={styles.tertiaryLink} to={localePath('/family-capital-review')}>{t('home.hero.ctaTertiary')} →</Link>
         {/* Compact three-entry module. Desktop keeps this natural DOM
             position (after the full Hero); the mobile media query in
             HomePage.module.css reassigns `order` so this — and the

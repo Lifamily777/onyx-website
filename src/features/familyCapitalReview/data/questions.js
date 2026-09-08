@@ -3,6 +3,19 @@ const option = (id, en, zh) => ({ id, label:pair(en, zh) })
 
 export const FAMILY_CAPITAL_REVIEW_VERSION = '1.0.0'
 
+export const reviewFieldLabels = {
+  'household.relationship':pair('Household','家庭状态'),'household.childrenStatus':pair('Children or future-child goals','孩子或未来生育计划'),'household.childAges':pair('Ages of dependent children','需抚养孩子的年龄'),'household.otherDependents':pair('Other caregiving responsibilities','其他照护责任'),
+  'income.sources':pair('Income sources','收入来源'),'income.range':pair('Optional broad household income range','可选的家庭收入区间'),
+  'w2.employerPlan':pair('Employer retirement plan','雇主退休计划'),'w2.match':pair('Employer contribution','雇主缴款'),'w2.fullMatch':pair('Current match use, if known','目前是否取得全部match（如知道）'),'w2.contributionType':pair('Contribution type','缴款类型'),'w2.hsa':pair('HSA access, if known','是否可使用HSA（如知道）'),'w2.withholdingReviewed':pair('Withholding review','预扣税检查'),'w2.recentJobChange':pair('Job transition','工作变化'),'w2.oldPlanDestination':pair('Old employer retirement money','原雇主退休资金去向'),
+  'business.stage':pair('Activity stage','业务阶段'),'business.separated':pair('Business and personal finances','企业与个人财务'),'business.tracked':pair('Income and expense records','收入与费用记录'),'business.estimatedTaxes':pair('Estimated-tax process','预估税流程'),'business.entity':pair('Current entity or tax form','目前实体或税务形式'),'business.payroll':pair('Payroll','Payroll'),'business.retirementPlan':pair('Business retirement plan','企业退休计划'),'business.employees':pair('Employees','员工'),'business.profitProcess':pair('Process when profit increases','利润增加后的处理流程'),
+  'liquidity.runway':pair('Liquid-resource runway','流动资源可维持时间'),'debt.types':pair('Debt types','债务类型'),'debt.interferes':pair('Effect on saving','对储蓄的影响'),
+  'retirement.direction':pair('Current direction','目前方向'),'retirement.accounts':pair('Current account types','现有账户类型'),'retirement.jobs':pair('Jobs retirement money may need to perform','退休资金可能需要承担的任务'),
+  'education.goals':pair('Possible future uses','未来可能用途'),'education.savingStatus':pair('Current saving pattern','目前储蓄情况'),'education.vehicles':pair('Where money is currently held','资金目前放在哪里'),'education.desiredJobs':pair('What the money should be able to do','希望资金能够完成什么'),'education.flexibility':pair('Importance of flexible use','灵活使用的重要性'),'education.aidAwareness':pair('Student-aid methodology awareness','助学金计算规则认知'),
+  'protection.goalsAtRisk':pair('Goals that may be interrupted','可能中断的目标'),'protection.coverage':pair('Current protection resources','现有保障资源'),'protection.lastReview':pair('Last protection review','上次保障检查'),
+  'property.ownership':pair('Property owned','现有房产'),'property.rentalChange':pair('Possible rental-property decision','可能的出租物业决定'),'estate.current':pair('Reasonably current documents and designations','目前大致有效的文件与指定'),
+  'priorities.taxExperience':pair('Recent tax experience','近期税务体验'),'priorities.events':pair('Possible changes in the next 12–24 months','未来12–24个月可能发生的变化'),'priorities.clientPriority':pair('Most important improvement','最希望改善的事项'),
+}
+
 export const familyCapitalReviewQuestions = [
   {
     id:'household', order:1, title:pair('Household and family stage','家庭与人生阶段'),

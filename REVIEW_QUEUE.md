@@ -34,7 +34,7 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Product Review Items
 
-- **Family Capital Review Step 1:** before the final client-facing UI is used in live meetings, review the 12-question conversational order, Foundation status explanations, “ONYX also noticed” prioritization, and contextual Sammi handoff. The engine intentionally has no overall score and stores no answers.
+- **Family Capital Review Thursday MVP:** before live client use, review the 12-question conversational order, conditional skips, Foundation status explanations, separate existing-money and next-dollar job maps, “ONYX also noticed” prioritization, and contextual Sammi handoff. The experience intentionally has no overall score, stores no answers, and makes no product recommendation.
 
 - 2026-09-04: Review the first conversational-Chinese pass and new reading navigator. The structure follows the existing six-stage framework, not an official CFP assessment or certification claim. The dot marks the current topic, not financial readiness. Continue the remaining Chinese article/guide copy pass after tone review; protected editorial renderer still awaits explicit permission. Review phone and wide-desktop layout before publication.
 
@@ -84,6 +84,7 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Safe Work Completed Without Decision
 
+- Family Capital Review client-facing bilingual workflow implemented and browser-checked end to end, including skipped-question visibility, result evidence, separate capital-job views, Action Map, and contextual Sammi summary. Inputs remain page-memory only.
 - Family Capital Review Step 1 data model, conditional question tree, deterministic Foundation / Capital Job / Action engines, evidence references, existing-route connections, and automated non-product tests implemented without persistence or final UI.
 
 - Four Phase 2 Hero Knowledge Guides implemented as bilingual, education-first decision maps with no scores, product ranking, promised tax savings, individualized advice, uploads, or persistent inputs.

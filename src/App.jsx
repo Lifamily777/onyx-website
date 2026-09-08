@@ -29,6 +29,7 @@ const KnowledgePathPage = lazy(() => import('./components/KnowledgePathPage'))
 const AboutSammiPage = lazy(() => import('./components/AboutSammiPage'))
 const KnowledgeGuidePage = lazy(() => import('./components/KnowledgeGuidePage'))
 const DecisionGuidePage = lazy(() => import('./components/DecisionGuidePage'))
+const FamilyCapitalReviewPage = lazy(() => import('./components/FamilyCapitalReviewPage'))
 
 // Shared page routes rendered under both the unprefixed (English) branch
 // and the "/:locale" (zh / es / ko) branch, so every existing page and
@@ -47,6 +48,7 @@ const pageRoutes = [
   <Route key="contact" path="contact" element={<ContactPage />} />,
   <Route key="survey" path="survey" element={<SurveyPage />} />,
   <Route key="capital-assessment" path="capital-assessment" element={<CapitalAssessmentPage />} />,
+  <Route key="family-capital-review" path="family-capital-review" element={<FamilyCapitalReviewPage />} />,
   <Route key="foundation" path="foundation" element={<FoundationV2Page />} />,
   <Route key="capital-assessment-preview" path="capital-assessment-preview" element={<CapitalAssessmentResultPreviewPage />} />,
   <Route key="capital-map" path="capital-map" element={<CapitalMapPage />} />,

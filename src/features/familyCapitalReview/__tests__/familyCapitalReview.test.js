@@ -1,5 +1,6 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { readFile } from 'node:fs/promises'
 import {
   familyCapitalReviewQuestions,
   getVisibleReviewQuestions,
@@ -148,6 +149,13 @@ test('Capital Jobs derive explainable review states without scoring products', (
   assert.ok(jobs.every((job)=>Array.isArray(job.evidenceIds)))
 })
 
+test('Capital Job Map separates existing money from the next-dollar decision', () => {
+  const answers=stable(); answers.retirement.jobs=['GROW','INCOME']; answers.liquidity.runway='1_3'
+  const jobs=calculateFamilyCapitalReview(answers).capitalJobs
+  assert.equal(jobs.existingMoney.find((job)=>job.id==='GROW').state,'represented')
+  assert.equal(jobs.nextDollar.find((job)=>job.id==='ACCESS').state,'needs_review')
+})
+
 test('client priority remains distinct from ONYX also noticed', () => {
   const answers=stable(); answers.priorities.clientPriority='retirement'; answers.protection={goalsAtRisk:['living'],coverage:['none'],lastReview:'never'}
   const result=calculateFamilyCapitalReview(answers)
@@ -168,4 +176,24 @@ test('answers round-trip only in the in-memory result and input is not mutated',
   const result=calculateFamilyCapitalReview(answers)
   assert.deepEqual(result.answers,before); assert.deepEqual(answers,before)
   assert.equal(JSON.stringify(result).includes('localStorage'),false)
+})
+
+test('contextual Sammi review summarizes healthy, attention, approaching, missing, and underserved areas', () => {
+  const answers=stable(); answers.liquidity.runway='1_3'; answers.debt.interferes='sometimes'; answers.estate.current=['unsure']
+  const review=calculateFamilyCapitalReview(answers).sammiReview
+  assert.ok(review.healthy.length); assert.ok(review.needsAttention.length); assert.ok(review.decisionsApproaching.length)
+  assert.ok(review.missingInformation.length); assert.ok(review.underservedCapitalJobs.some((job)=>job.id==='ACCESS'))
+})
+
+test('client-facing review route stays locale-aware and keeps answers in memory', async () => {
+  const [appSource,pageSource]=await Promise.all([
+    readFile(new URL('../../../App.jsx',import.meta.url),'utf8'),
+    readFile(new URL('../../../components/FamilyCapitalReviewPage.jsx',import.meta.url),'utf8'),
+  ])
+  assert.match(appSource,/path="family-capital-review"/)
+  assert.match(pageSource,/Foundation Map/)
+  assert.match(pageSource,/Capital Job Map/)
+  assert.match(pageSource,/Action Map/)
+  assert.match(pageSource,/Review This Map with Sammi/)
+  assert.doesNotMatch(pageSource,/localStorage|sessionStorage/)
 })

@@ -58,7 +58,7 @@ export default {
         '黑曜以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
       ctaPrimary: '探索资本地图',
       ctaSecondary: '最近发生了变化',
-      ctaTertiary: '4分钟资本检查',
+      ctaTertiary: '家庭资本梳理',
     },
     why: {
       label: '为什么选择 ONYX？',

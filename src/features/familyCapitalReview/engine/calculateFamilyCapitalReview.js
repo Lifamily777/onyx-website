@@ -126,8 +126,9 @@ const capitalJobLabels = {
 function deriveCapitalJobs(answers, foundations) {
   const selected = arr(answers.retirement?.jobs)
   const statusOf = (id) => foundations.find((item) => item.id === id)?.status
+  const existingMoney = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => ({id,label:capitalJobLabels[id],state:selected.includes(id) ? 'represented' : selected.includes('unsure') || !selected.length ? 'unclear' : 'not_selected',evidenceIds:selected.length ? [`retirement.jobs:${selected.join('|')}`] : []}))
   const jobs = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => {
-    let state = selected.includes(id) ? 'represented' : 'not_selected'
+    let state = 'not_selected'
     const reasons = []
     if (id === 'GROW' && ['red','yellow'].includes(statusOf('retirement'))) { state='needs_review'; reasons.push('retirement.direction') }
     if (id === 'KEEP' && ['red','yellow'].includes(statusOf('income_tax'))) { state='needs_review'; reasons.push('priorities.taxExperience') }
@@ -138,7 +139,7 @@ function deriveCapitalJobs(answers, foundations) {
     if (id === 'LEGACY' && ['gray','yellow'].includes(statusOf('estate'))) { state=statusOf('estate') === 'gray' ? 'unclear' : 'needs_review'; reasons.push('estate.current') }
     return {id,label:capitalJobLabels[id],state,evidenceIds:reasons}
   })
-  return {principle:pair('Different tools perform different jobs. Household facts determine which trade-offs matter.','不同工具承担不同任务。家庭事实决定哪些取舍最重要。'),jobs}
+  return {principle:pair('Different tools perform different jobs. Existing money and the next dollar are separate decisions. Household facts determine which trade-offs matter.','不同工具承担不同任务。现有资金与下一块钱是两个不同的决定。家庭事实决定哪些取舍最重要。'),existingMoney,nextDollar:jobs,jobs}
 }
 
 const priorityLabels = {
@@ -161,17 +162,24 @@ export function calculateFamilyCapitalReview(inputAnswers = {}) {
   const priorityFoundation = {keep:'income_tax',retirement:'retirement',future:'education',protect:'protection',debt:'debt_property',business:'business_payroll',flexibility:'cash',understand:null}[clientPriorityId]
   const also = foundations.find((item) => ['red','yellow'].includes(item.status) && item.id !== priorityFoundation)
   const knowledgeConnections = deriveKnowledgeConnections(answers)
+  const healthy = foundations.filter((item) => item.status === 'green')
+  const needsAttention = foundations.filter((item) => item.status === 'red')
+  const decisionsApproaching = foundations.filter((item) => item.status === 'yellow')
+  const missingInformation = foundations.filter((item) => item.status === 'gray' && !/Not applicable|不适用/.test(`${item.whyFlagged.en}${item.whyFlagged.zh}`))
+  const capitalJobs = deriveCapitalJobs(answers,foundations)
+  const underservedCapitalJobs = capitalJobs.nextDollar.filter((item) => ['needs_review','unclear'].includes(item.state))
   return {
     reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,
     answers,
     foundations,
     foundationMap:Object.fromEntries(foundations.map((item) => [item.id,item])),
-    capitalJobs:deriveCapitalJobs(answers,foundations),
+    capitalJobs,
     actionMap:{now:byBucket('now'),next12Months:byBucket('next_12_months'),onTrack:byBucket('on_track')},
     clientPriority:{id:clientPriorityId,label:priorityLabels[clientPriorityId] || priorityLabels.unsure},
     onyxAlsoNoticed:also ? {foundationId:also.id,title:also.title,why:also.whyFlagged,evidenceIds:also.evidenceIds} : null,
     planningWindows:foundations.filter((item) => item.status === 'yellow').map((item) => item.id),
     knowledgeConnections,
+    sammiReview:{healthy:healthy.map((item)=>({foundationId:item.id,title:item.title,evidenceIds:item.evidenceIds})),needsAttention:needsAttention.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),decisionsApproaching:decisionsApproaching.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),missingInformation:missingInformation.map((item)=>({foundationId:item.id,title:item.title,informationToGather:item.informationToGather})),underservedCapitalJobs,conversationTopics:unique([...needsAttention,...decisionsApproaching].map((item)=>item.id)).slice(0,5)},
     sammiConversationContext:{reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,clientPriority:clientPriorityId,focusFoundationIds:unique([...byBucket('now'),...byBucket('next_12_months')].map((item) => item.foundationId)),connectionIds:knowledgeConnections.map((item) => item.id),notice:pair('Context only; no sensitive documents or product recommendation.','仅提供背景；不包含敏感文件或产品推荐。')},
   }
 }

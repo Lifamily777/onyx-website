@@ -57,7 +57,7 @@ export default {
         'Through the connected lenses of payroll, retirement, and protection, ONYX helps W-2 professionals, 1099 earners, and growing families understand how income, taxes, long-term accumulation, and risk fit together—and build a more coordinated plan.',
       ctaPrimary: 'Explore My Capital Map',
       ctaSecondary: 'Something Changed',
-      ctaTertiary: '4-Minute Capital Check',
+      ctaTertiary: 'Family Capital Review',
     },
     why: {
       label: 'WHY CHOOSE ONYX?',
