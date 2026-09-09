@@ -72,6 +72,14 @@
 
 `codex/onyx-v2-platform`
 
+## 2026-09-09 — Family Capital Review logic closeout
+
+- Corrected conditional-answer handling so hidden W-2, business, education, and property answers cannot influence the result after a household path changes.
+- Separated desired Capital Jobs, evidence observed in current resources, and next-dollar decisions; a selected goal no longer implies that current money already covers it.
+- Tightened GREEN evidence for Retirement, Education, Protection, and Estate foundations, while preserving gray for missing information and N/A for inapplicable areas.
+- Corrected rental-only tax handling, added decision/trade-off context, excluded N/A foundations from Decision Intelligence, and made Action Map and Sammi handoff prompts decision-oriented.
+- English rental/no-child and Chinese self-employed/no-child paths were browser-checked end to end. Conditional skips, gray unknowns, N/A exclusions, localized results, and contextual handoff behaved as intended.
+
 ## Current Known Modified Files
 
 - `src/components/InsightArticlePage.jsx` — **Pre-existing user work — preserve and do not overwrite.**
@@ -154,4 +162,4 @@ No lint command is currently configured in `package.json`.
 
 ## Last Updated
 
-2026-09-08 (America/New_York)
+2026-09-09 (America/New_York)

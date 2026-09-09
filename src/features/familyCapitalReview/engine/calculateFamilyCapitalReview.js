@@ -1,4 +1,4 @@
-import { FAMILY_CAPITAL_REVIEW_VERSION } from '../data/questions.js'
+import { FAMILY_CAPITAL_REVIEW_VERSION, getActiveReviewAnswers } from '../data/questions.js'
 import { FOUNDATION_STATUSES, foundationDefinitions, reviewConnections } from '../data/foundations.js'
 
 const arr = (value) => Array.isArray(value) ? value : []
@@ -17,6 +17,7 @@ function foundation(id, statusKey, why, evidenceItems = [], nextStep) {
     evidenceIds:evidenceItems.map((item) => item.id), evidence:evidenceItems,
     whyFlagged:why, whatItConnectsTo:definition.connectsTo,
     informationToGather:definition.gather,
+    decisionToClarify:definition.decision, tradeoffToConsider:definition.tradeoff,
     suggestedNextStep:nextStep || pair('Review the available facts and decide whether deeper analysis is useful.','先梳理现有事实，再判断是否需要进一步分析。'),
     route:definition.route, actionBucket:status.actionBucket,
   }
@@ -33,16 +34,17 @@ function cashFoundation(answers) {
 
 function incomeTaxFoundation(answers) {
   const sources = arr(answers.income?.sources)
-  const nonW2 = hasAny(sources,['1099','business','rental'])
+  const businessIncome = hasAny(sources,['1099','business'])
+  const nonW2 = businessIncome || has(sources,'rental')
   const tax = answers.priorities?.taxExperience
   const estimated = answers.business?.estimatedTaxes
   const withholding = answers.w2?.withholdingReviewed
   const ev = [evidence('income','sources',sources)]
   if (tax != null) ev.push(evidence('priorities','taxExperience',tax))
-  if (nonW2 && estimated != null) ev.push(evidence('business','estimatedTaxes',estimated))
+  if (businessIncome && estimated != null) ev.push(evidence('business','estimatedTaxes',estimated))
   if (has(sources,'w2') && withholding != null) ev.push(evidence('w2','withholdingReviewed',withholding))
-  if (!sources.length || unknown(tax) || (nonW2 && unknown(estimated))) return foundation('income_tax','GRAY',pair('Income or tax-process information is incomplete.','收入或税务流程信息尚不完整。'),ev)
-  if (nonW2 && estimated === 'no') return foundation('income_tax','RED',pair('Non-W-2 income is present and an estimated-tax process has not been addressed. This does not calculate tax liability.','目前存在非W-2收入，但尚未安排预估税流程。本结果并不计算税负。'),ev,pair('Organize income records and review the tax-reserve process.','整理收入记录并检查税款储备流程。'))
+  if (!sources.length || unknown(tax) || (businessIncome && unknown(estimated))) return foundation('income_tax','GRAY',pair('Income or tax-process information is incomplete.','收入或税务流程信息尚不完整。'),ev)
+  if (businessIncome && estimated === 'no') return foundation('income_tax','RED',pair('1099 or business income is present and an estimated-tax process has not been addressed. This does not calculate tax liability.','目前存在1099或企业收入，但尚未安排预估税流程。本结果并不计算税负。'),ev,pair('Organize income records and review the tax-reserve process.','整理收入记录并检查税款储备流程。'))
   if (['surprised','high_unclear','mixed_complex','transaction'].includes(tax) || estimated === 'partly' || withholding === 'not_recent') return foundation('income_tax','YELLOW',pair('The reported tax experience or process creates a useful planning window.','目前的税务体验或流程形成了值得把握的规划窗口。'),ev)
   return foundation('income_tax','GREEN',pair('The reported income and tax process appears organized today.','据填写信息，目前收入与税务流程较有条理。'),ev)
 }
@@ -51,10 +53,11 @@ function retirementFoundation(answers) {
   const direction = answers.retirement?.direction
   const accounts = arr(answers.retirement?.accounts)
   const ev = direction == null ? [] : [evidence('retirement','direction',direction),evidence('retirement','accounts',accounts)]
-  if (unknown(direction)) return foundation('retirement','GRAY',pair('Retirement direction is not yet clear enough to assess.','退休方向尚不够清楚，无法判断。'),ev)
+  if (unknown(direction) || !accounts.length || unknown(accounts)) return foundation('retirement','GRAY',pair('Retirement direction or current account information is not yet clear enough to assess.','退休方向或现有账户信息还不够清楚，暂时无法判断。'),ev)
   if (direction === 'not_started') return foundation('retirement','RED',pair('Retirement planning has not meaningfully started. This finding is not based on owning or missing any particular account.','退休规划尚未真正开始。本判断不以是否拥有某一种账户为依据。'),ev)
   if (['saving_unsure','uncoordinated'].includes(direction)) return foundation('retirement','YELLOW',pair('Saving exists, but adequacy or coordination remains unresolved.','已有储蓄，但是否足够或如何协调仍未解决。'),ev)
-  return foundation('retirement','GREEN',pair('A clear direction and consistent saving were reported.','据填写信息，已有清晰方向并持续储蓄。'),ev)
+  if (has(accounts,'none')) return foundation('retirement','GRAY',pair('A clear direction was reported, but current retirement resources still need clarification.','目前的退休方向较清楚，但现有退休资金情况仍需进一步确认。'),ev)
+  return foundation('retirement','GREEN',pair('No immediate planning concern is indicated by the reported direction, saving pattern, and current account information; periodic review still matters.','根据目前填写的方向、储蓄习惯和账户信息，暂未发现需要立即处理的问题；仍应定期复核。'),ev,pair('Revisit the retirement timeline, contribution pattern, and account allocation periodically.','定期复核退休时间、缴款节奏和账户配置。'))
 }
 
 function educationFoundation(answers) {
@@ -62,11 +65,14 @@ function educationFoundation(answers) {
   if (!hasAny(children,['dependent','future'])) return foundation('education','GRAY',pair('Not applicable based on the current household stage.','根据目前家庭阶段，本项暂不适用。'),[evidence('household','childrenStatus',children)],pair('Revisit if future opportunities or family responsibilities change.','未来机会或家庭责任变化时再检查。'))
   const status = answers.education?.savingStatus
   const vehicles = arr(answers.education?.vehicles)
+  const goals = arr(answers.education?.goals)
+  const desiredJobs = arr(answers.education?.desiredJobs)
+  const flexibility = answers.education?.flexibility
   const ev = [evidence('household','childrenStatus',children)]
   if (status != null) ev.push(evidence('education','savingStatus',status),evidence('education','vehicles',vehicles))
-  if (unknown(status) || status === 'vehicle_unsure') return foundation('education','GRAY',pair('The future goal or funding approach needs more information.','未来目标或资金安排仍需要更多信息。'),ev)
+  if (unknown(status) || status === 'vehicle_unsure' || !goals.length || unknown(goals) || !desiredJobs.length || unknown(desiredJobs) || unknown(flexibility)) return foundation('education','GRAY',pair('The future goal, timing, or required flexibility needs more information.','未来目标、时间或所需灵活性仍需要更多信息。'),ev)
   if (['not_started','irregular'].includes(status)) return foundation('education','YELLOW',pair('A future opportunity is relevant and the funding process is not yet consistent. This does not imply that a 529 or any other product is required.','未来机会与家庭相关，但资金准备尚不稳定。这并不表示必须使用529或任何其他产品。'),ev)
-  return foundation('education','GREEN',pair('A consistent education or future-opportunity funding process was reported. Existing 529 assets, if any, are not treated as a mistake.','据填写信息，教育或未来机会资金正在持续准备。已有529（如有）不会被视为错误。'),ev)
+  return foundation('education','GREEN',pair('A consistent funding process and clear future-use priorities were reported. This does not establish that the goal is fully funded, and existing 529 assets, if any, are not treated as a mistake.','据填写信息，资金准备较持续，未来用途和灵活性也较清楚。这并不表示目标已经完全备足；已有529（如有）也不会被视为错误。'),ev,pair('Revisit the goal, timing, contribution pattern, and flexibility as circumstances change.','随着情况变化，定期复核目标、时间、储蓄节奏和灵活性。'))
 }
 
 function protectionFoundation(answers) {
@@ -76,10 +82,14 @@ function protectionFoundation(answers) {
   const ev = [evidence('protection','goalsAtRisk',risks),evidence('protection','coverage',coverage)]
   if (review != null) ev.push(evidence('protection','lastReview',review))
   if (!risks.length || unknown(risks) || unknown(coverage) || unknown(review)) return foundation('protection','GRAY',pair('Economic exposure or current resources need clarification before drawing a conclusion.','在得出结论前，需要进一步明确经济风险与现有资源。'),ev)
-  const exposed = risks.some((item) => !['none','unsure'].includes(item))
+  const exposed = risks.some((item) => !['none','adequately_covered','unsure'].includes(item))
+  const noCurrentExposure = has(risks,'none')
+  const reportsAdequate = has(risks,'adequately_covered')
   if (exposed && (has(coverage,'none') || review === 'never')) return foundation('protection','RED',pair('Important goals depend on earned income, while current protection is absent or has never been reviewed. This identifies a needs-analysis question, not a product recommendation.','重要目标依赖劳动收入，而现有保障为空或从未检查。这表示需要进行需求分析，并非产品推荐。'),ev,pair('Quantify obligations, existing resources, and the duration of the exposure before comparing alternatives.','比较工具前，先量化责任、现有资源与风险持续时间。'))
-  if (exposed && ['over_5','2_5'].includes(review)) return foundation('protection','YELLOW',pair('Economic exposure exists and the protection review may be aging.','目前存在经济风险，保障检查可能需要更新。'),ev)
-  return foundation('protection','GREEN',pair('The household reports adequate coverage or a recent review relative to identified goals.','相对于已识别目标，家庭报告已有充分安排或近期完成检查。'),ev)
+  if (noCurrentExposure && !exposed) return foundation('protection','GREEN',pair('No current goal was reported as depending on this income. Changes in obligations should prompt another review.','据填写信息，目前没有目标依赖这份收入；家庭责任变化时应重新检查。'),ev,pair('Revisit this area when income dependence or household obligations change.','收入依赖或家庭责任变化时重新检查。'))
+  if (reportsAdequate && !exposed && review === 'under_2') return foundation('protection','GREEN',pair('The household reports that identified goals appear covered and the review is recent; actual adequacy still depends on a separate needs analysis.','家庭报告相关目标似乎已有安排，且近期完成过检查；实际是否充分仍需另行进行需求分析。'),ev,pair('Keep the review current as income, obligations, and available resources change.','收入、家庭责任或可用资源变化时及时复核。'))
+  if (exposed || reportsAdequate) return foundation('protection','YELLOW',pair('Income-dependent goals exist or reported protection still needs to be confirmed against current obligations and resources.','目前存在依赖收入的目标，或现有保障仍需结合家庭责任和可用资源进一步确认。'),ev,pair('Confirm the protection period, obligations, existing resources, and current review assumptions.','确认需要保障的期限、家庭责任、现有资源和上次检查所依据的情况。'))
+  return foundation('protection','GRAY',pair('Current economic exposure and protection resources are not clear enough to assess.','目前的经济责任和保障资源还不够清楚，暂时无法判断。'),ev)
 }
 
 function debtPropertyFoundation(answers) {
@@ -112,8 +122,10 @@ function estateFoundation(answers) {
   const current = arr(answers.estate?.current)
   const ev = [evidence('estate','current',current)]
   if (!current.length || unknown(current)) return foundation('estate','GRAY',pair('Current document and beneficiary information is not yet known.','目前尚不清楚文件与受益人指定状况。'),ev)
-  if (has(current,'none')) return foundation('estate','YELLOW',pair('No current foundational documents or beneficiary designations were reported. This is an education and legal-review prompt, not legal advice.','未报告现行基础文件或受益人指定。本项仅作教育和法律审核提示，不构成法律意见。'),ev)
-  return foundation('estate','GREEN',pair('At least one current foundational document or designation was reported; relevance still depends on household facts.','据填写信息，至少有一项基础文件或指定；具体是否充分仍取决于家庭事实。'),ev)
+  if (has(current,'none')) return foundation('estate','YELLOW',pair('No current foundational documents or beneficiary designations were reported. This is an education and legal-review prompt, not legal advice.','目前没有报告有效的基础文件或受益人指定。本项仅用于教育和法律专业审核提示，不构成法律意见。'),ev,pair('Confirm which documents and beneficiary designations may require legal review.','确认哪些文件和受益人指定可能需要法律专业人士审核。'))
+  const coreKnown = has(current,'beneficiaries') && has(current,'poa') && has(current,'healthcare') && hasAny(current,['will','trust'])
+  if (!coreKnown) return foundation('estate','YELLOW',pair('Some foundational items were reported, but the overall document and beneficiary picture is not yet complete. This is not legal advice.','已经有部分基础安排，但文件与受益人指定的整体情况仍需补充确认。本项不构成法律意见。'),ev,pair('Confirm which documents and beneficiary designations are current and which need professional review.','确认哪些文件和受益人指定仍然有效，哪些需要专业审核。'))
+  return foundation('estate','GREEN',pair('No immediate gap is indicated across the reported core documents and beneficiary designations; legal relevance still depends on household facts.','根据目前填写的核心文件和受益人指定，暂未发现明显缺口；法律上的适用性仍取决于家庭实际情况。'),ev,pair('Revisit documents and beneficiary designations after material family or financial changes.','家庭或财务情况发生重大变化后，重新检查相关文件和受益人指定。'))
 }
 
 const capitalJobLabels = {
@@ -126,7 +138,13 @@ const capitalJobLabels = {
 function deriveCapitalJobs(answers, foundations) {
   const selected = arr(answers.retirement?.jobs)
   const statusOf = (id) => foundations.find((item) => item.id === id)?.status
-  const existingMoney = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => ({id,label:capitalJobLabels[id],state:selected.includes(id) ? 'represented' : selected.includes('unsure') || !selected.length ? 'unclear' : 'not_selected',evidenceIds:selected.length ? [`retirement.jobs:${selected.join('|')}`] : []}))
+  const foundationForJob = {GROW:'retirement',KEEP:'income_tax',ACCESS:'cash',PROTECT:'protection',INCOME:'retirement',FUND:'education',LEGACY:'estate'}
+  const desiredJobs = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => ({id,label:capitalJobLabels[id],state:selected.includes(id) ? 'desired' : selected.includes('unsure') || !selected.length ? 'unclear' : 'not_selected',evidenceIds:selected.length ? [`retirement.jobs:${selected.join('|')}`] : []}))
+  const existingMoney = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => {
+    const foundationId = foundationForJob[id]
+    const status = statusOf(foundationId)
+    return {id,label:capitalJobLabels[id],state:status === 'green' ? 'represented' : status === 'gray' ? 'unclear' : 'needs_review',evidenceIds:[`foundation.${foundationId}:${status}`]}
+  })
   const jobs = ['GROW','KEEP','ACCESS','PROTECT','INCOME','FUND','LEGACY'].map((id) => {
     let state = 'not_selected'
     const reasons = []
@@ -139,7 +157,7 @@ function deriveCapitalJobs(answers, foundations) {
     if (id === 'LEGACY' && ['gray','yellow'].includes(statusOf('estate'))) { state=statusOf('estate') === 'gray' ? 'unclear' : 'needs_review'; reasons.push('estate.current') }
     return {id,label:capitalJobLabels[id],state,evidenceIds:reasons}
   })
-  return {principle:pair('Different tools perform different jobs. Existing money and the next dollar are separate decisions. Household facts determine which trade-offs matter.','不同工具承担不同任务。现有资金与下一块钱是两个不同的决定。家庭事实决定哪些取舍最重要。'),existingMoney,nextDollar:jobs,jobs}
+  return {principle:pair('Desired jobs, current coverage, and the next dollar are three distinct questions. One tool does not need to perform every job.','希望资金完成什么、现有资源覆盖什么，以及下一块钱做什么，是三个不同的问题。一个工具不需要承担所有任务。'),desiredJobs,existingMoney,nextDollar:jobs,jobs}
 }
 
 const priorityLabels = {
@@ -155,9 +173,9 @@ function deriveKnowledgeConnections(answers) {
 }
 
 export function calculateFamilyCapitalReview(inputAnswers = {}) {
-  const answers = structuredClone(inputAnswers)
+  const answers = getActiveReviewAnswers(inputAnswers)
   const foundations = [cashFoundation(answers),incomeTaxFoundation(answers),retirementFoundation(answers),educationFoundation(answers),protectionFoundation(answers),debtPropertyFoundation(answers),businessFoundation(answers),estateFoundation(answers)]
-  const byBucket = (bucket) => foundations.filter((item) => item.actionBucket === bucket).map((item) => ({foundationId:item.id,title:item.title,why:item.whyFlagged,route:item.route,evidenceIds:item.evidenceIds}))
+  const byBucket = (bucket) => foundations.filter((item) => item.actionBucket === bucket).map((item) => ({foundationId:item.id,title:item.title,action:item.suggestedNextStep,why:item.whyFlagged,route:item.route,evidenceIds:item.evidenceIds}))
   const clientPriorityId = answers.priorities?.clientPriority || 'unsure'
   const priorityFoundation = {keep:'income_tax',retirement:'retirement',future:'education',protect:'protection',debt:'debt_property',business:'business_payroll',flexibility:'cash',understand:null}[clientPriorityId]
   const also = foundations.find((item) => ['red','yellow'].includes(item.status) && item.id !== priorityFoundation)
@@ -165,9 +183,21 @@ export function calculateFamilyCapitalReview(inputAnswers = {}) {
   const healthy = foundations.filter((item) => item.status === 'green')
   const needsAttention = foundations.filter((item) => item.status === 'red')
   const decisionsApproaching = foundations.filter((item) => item.status === 'yellow')
-  const missingInformation = foundations.filter((item) => item.status === 'gray' && !/Not applicable|不适用/.test(`${item.whyFlagged.en}${item.whyFlagged.zh}`))
+  const isNotApplicable = (item) => /Not applicable|不适用/.test(`${item.whyFlagged.en}${item.whyFlagged.zh}`)
+  const missingInformation = foundations.filter((item) => item.status === 'gray' && !isNotApplicable(item))
+  const decisionIntelligence = foundations.filter((item) => item.status !== 'green' && !isNotApplicable(item))
   const capitalJobs = deriveCapitalJobs(answers,foundations)
   const underservedCapitalJobs = capitalJobs.nextDollar.filter((item) => ['needs_review','unclear'].includes(item.state))
+  const questionForJob = {
+    GROW:pair('What retirement timeline should current and future saving support?','目前和未来的储蓄需要支持怎样的退休时间？'),
+    KEEP:pair('Which parts of the current income and tax process feel least predictable?','目前收入和税务流程中，哪一部分最难预估？'),
+    ACCESS:pair('How much capital may need to remain available within the next one to three years?','未来一到三年内，可能需要保留多少随时可用的资金？'),
+    PROTECT:pair('If one income stopped, what would the household most want to preserve?','如果一份收入中断，家庭最希望先保住哪些安排？'),
+    INCOME:pair('At what point would the household like earned work to become optional?','家庭希望从什么时候开始，可以不再完全依赖劳动收入？'),
+    FUND:pair('How much flexibility is needed if the future path changes?','如果未来选择发生变化，这笔资金需要保留多大灵活性？'),
+    LEGACY:pair('Which decisions or family intentions should remain clear if someone cannot act personally?','如果本人无法亲自作决定，哪些安排或家庭意愿需要保持清楚？'),
+  }
+  const followUpQuestions = unique(underservedCapitalJobs.map((job) => job.id)).slice(0,5).map((id) => ({id,question:questionForJob[id]}))
   return {
     reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,
     answers,
@@ -178,8 +208,9 @@ export function calculateFamilyCapitalReview(inputAnswers = {}) {
     clientPriority:{id:clientPriorityId,label:priorityLabels[clientPriorityId] || priorityLabels.unsure},
     onyxAlsoNoticed:also ? {foundationId:also.id,title:also.title,why:also.whyFlagged,evidenceIds:also.evidenceIds} : null,
     planningWindows:foundations.filter((item) => item.status === 'yellow').map((item) => item.id),
+    decisionIntelligence,
     knowledgeConnections,
-    sammiReview:{healthy:healthy.map((item)=>({foundationId:item.id,title:item.title,evidenceIds:item.evidenceIds})),needsAttention:needsAttention.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),decisionsApproaching:decisionsApproaching.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),missingInformation:missingInformation.map((item)=>({foundationId:item.id,title:item.title,informationToGather:item.informationToGather})),underservedCapitalJobs,conversationTopics:unique([...needsAttention,...decisionsApproaching].map((item)=>item.id)).slice(0,5)},
+    sammiReview:{healthy:healthy.map((item)=>({foundationId:item.id,title:item.title,evidenceIds:item.evidenceIds})),needsAttention:needsAttention.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),decisionsApproaching:decisionsApproaching.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),missingInformation:missingInformation.map((item)=>({foundationId:item.id,title:item.title,informationToGather:item.informationToGather})),underservedCapitalJobs,followUpQuestions,conversationTopics:unique([...needsAttention,...decisionsApproaching].map((item)=>item.id)).slice(0,5)},
     sammiConversationContext:{reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,clientPriority:clientPriorityId,focusFoundationIds:unique([...byBucket('now'),...byBucket('next_12_months')].map((item) => item.foundationId)),connectionIds:knowledgeConnections.map((item) => item.id),notice:pair('Context only; no sensitive documents or product recommendation.','仅提供背景；不包含敏感文件或产品推荐。')},
   }
 }

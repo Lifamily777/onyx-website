@@ -5,6 +5,7 @@ import {
   familyCapitalReviewQuestions,
   getVisibleReviewQuestions,
   getVisibleReviewFields,
+  getActiveReviewAnswers,
   calculateFamilyCapitalReview,
 } from '../index.js'
 
@@ -154,6 +155,85 @@ test('Capital Job Map separates existing money from the next-dollar decision', (
   const jobs=calculateFamilyCapitalReview(answers).capitalJobs
   assert.equal(jobs.existingMoney.find((job)=>job.id==='GROW').state,'represented')
   assert.equal(jobs.nextDollar.find((job)=>job.id==='ACCESS').state,'needs_review')
+})
+
+test('desired Capital Jobs do not automatically claim current coverage', () => {
+  const answers=stable(); answers.retirement.direction='saving_unsure'; answers.retirement.jobs=['GROW']
+  const jobs=calculateFamilyCapitalReview(answers).capitalJobs
+  assert.equal(jobs.desiredJobs.find((job)=>job.id==='GROW').state,'desired')
+  assert.equal(jobs.existingMoney.find((job)=>job.id==='GROW').state,'needs_review')
+})
+
+test('hidden conditional answers are removed before calculation', () => {
+  const answers=stable()
+  answers.income.sources=['rental']
+  answers.w2.withholdingReviewed='not_recent'
+  answers.property={ownership:['home'],rentalChange:'yes'}
+  answers.household.childrenStatus=['none']
+  answers.education={goals:['college'],savingStatus:'not_started',desiredJobs:['education_only'],flexibility:'not'}
+  const active=getActiveReviewAnswers(answers)
+  assert.equal('w2' in active,false)
+  assert.equal('education' in active,false)
+  assert.equal('rentalChange' in active.property,false)
+  const result=calculateFamilyCapitalReview(answers)
+  assert.equal(result.foundationMap.income_tax.status,'green')
+  assert.equal(result.foundationMap.debt_property.status,'green')
+  assert.equal(result.knowledgeConnections.some((item)=>item.id==='rental-change'),false)
+})
+
+test('rental-only income is a valid tax profile rather than automatically incomplete', () => {
+  const answers=stable(); answers.income.sources=['rental']; delete answers.w2
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.income_tax.status,'green')
+})
+
+test('1099 or business income still requires tax-process information', () => {
+  const answers=stable(); answers.income.sources=['1099']; delete answers.w2
+  answers.business={...organizedBusiness,estimatedTaxes:'unsure'}
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.income_tax.status,'gray')
+})
+
+test('Retirement GREEN requires direction plus identifiable current resources', () => {
+  const answers=stable(); answers.retirement.accounts=['none']
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.retirement.status,'gray')
+})
+
+test('Education GREEN requires known goals, desired jobs, and flexibility', () => {
+  const answers=stable(); answers.household.childrenStatus=['dependent']
+  answers.education={goals:['college'],savingStatus:'consistent',vehicles:['529'],desiredJobs:[],flexibility:'very',aidAwareness:'somewhat'}
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.education.status,'gray')
+})
+
+test('Protection GREEN requires no current exposure or recently reviewed reported adequacy', () => {
+  const answers=stable(); answers.protection={goalsAtRisk:['living'],coverage:['term_life'],lastReview:'under_2'}
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.protection.status,'yellow')
+  answers.protection={goalsAtRisk:['adequately_covered'],coverage:['term_life'],lastReview:'under_2'}
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.protection.status,'green')
+})
+
+test('Estate GREEN requires a coherent core set rather than one document', () => {
+  const answers=stable(); answers.estate.current=['beneficiaries']
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.estate.status,'yellow')
+  answers.estate.current=['will','beneficiaries','poa','healthcare']
+  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.estate.status,'green')
+})
+
+test('Action Map uses decision-oriented next steps', () => {
+  const answers=stable(); answers.liquidity.runway='1_3'
+  const action=calculateFamilyCapitalReview(answers).actionMap.now.find((item)=>item.foundationId==='cash')
+  assert.match(action.action.en,/^(Clarify|Review|Determine|Compare|Confirm|Estimate|Gather|Evaluate|Revisit)/)
+  assert.notEqual(action.action.en,action.why.en)
+})
+
+test('Sammi Review exposes underserved jobs and contextual follow-up questions', () => {
+  const answers=stable(); answers.liquidity.runway='1_3'
+  const review=calculateFamilyCapitalReview(answers).sammiReview
+  assert.ok(review.underservedCapitalJobs.some((job)=>job.id==='ACCESS'))
+  assert.match(review.followUpQuestions.find((item)=>item.id==='ACCESS').question.en,/one to three years/i)
+})
+
+test('Decision Intelligence excludes not-applicable domains', () => {
+  const result=calculateFamilyCapitalReview(stable())
+  assert.equal(result.decisionIntelligence.some((item)=>item.id==='education' || item.id==='business_payroll'),false)
 })
 
 test('client priority remains distinct from ONYX also noticed', () => {

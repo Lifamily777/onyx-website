@@ -101,9 +101,9 @@ export const familyCapitalReviewQuestions = [
   },
   {
     id:'protection', order:9, title:pair('Protection','保障'),
-    prompt:pair('If a primary earner died or could no longer earn, which goals would be difficult to continue?','如果主要收入者去世或无法继续工作，哪些目标会难以维持？'),
+    prompt:pair('If a primary income were interrupted by death, illness, or disability, what would the household want to preserve?','如果一份主要收入因身故、疾病或伤残而中断，家庭最希望哪些安排能够继续？'),
     fields:[
-      {id:'goalsAtRisk',type:'multi',options:[option('mortgage','Mortgage','房贷'),option('living','Living expenses','生活支出'),option('education','Education','教育'),option('retirement','Retirement saving','退休储蓄'),option('business','Business obligations','企业责任'),option('care','Care for family','家庭照护'),option('none','None or adequately covered','没有或已有充分安排'),option('unsure','Not sure','不确定')]},
+      {id:'goalsAtRisk',type:'multi',options:[option('mortgage','Mortgage','房贷'),option('living','Living expenses','生活支出'),option('education','Education','教育'),option('retirement','Retirement saving','退休储蓄'),option('business','Business obligations','企业责任'),option('care','Care for family','家庭照护'),option('none','No goal currently depends on this income','目前没有目标依赖这份收入'),option('adequately_covered','These goals appear adequately covered','这些目标似乎已有充分安排'),option('unsure','Not sure','不确定')]},
       {id:'coverage',type:'multi',options:[option('employer_life','Employer life','雇主寿险'),option('term_life','Individual term life','个人定期寿险'),option('permanent_life','Permanent life insurance','永久寿险'),option('disability','Disability coverage','伤残收入保障'),option('business','Business coverage','企业保障'),option('none','None','没有'),option('unsure','Not sure','不确定')]},
       {id:'lastReview',type:'single',options:[option('under_2','Within 2 years','两年内'),option('2_5','2–5 years','2–5年'),option('over_5','More than 5 years','超过5年'),option('never','Never','从未'),option('unsure','Not sure','不确定')]},
     ],
@@ -153,4 +153,14 @@ export function getVisibleReviewQuestions(answers = {}) {
 export function getVisibleReviewFields(question, answers = {}) {
   const localAnswer = answers[question.id] || {}
   return question.fields.filter((field) => conditionMatches(field.when, answers, localAnswer))
+}
+
+export function getActiveReviewAnswers(answers = {}) {
+  return Object.fromEntries(getVisibleReviewQuestions(answers).flatMap((question) => {
+    const source = answers[question.id]
+    if (!source || typeof source !== 'object') return []
+    const active = Object.fromEntries(getVisibleReviewFields(question, answers).flatMap((field) =>
+      Object.prototype.hasOwnProperty.call(source, field.id) ? [[field.id, structuredClone(source[field.id])]] : []))
+    return [[question.id, active]]
+  }))
 }
