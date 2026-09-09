@@ -7,12 +7,12 @@ export const reviewFieldLabels = {
   'household.relationship':pair('Household','家庭状态'),'household.childrenStatus':pair('Children or future-child goals','孩子或未来生育计划'),'household.childAges':pair('Ages of dependent children','需抚养孩子的年龄'),'household.otherDependents':pair('Other caregiving responsibilities','其他照护责任'),
   'income.sources':pair('Income sources','收入来源'),'income.range':pair('Optional broad household income range','可选的家庭收入区间'),
   'w2.employerPlan':pair('Employer retirement plan','雇主退休计划'),'w2.match':pair('Employer contribution','雇主缴款'),'w2.fullMatch':pair('Current match use, if known','目前是否取得全部match（如知道）'),'w2.contributionType':pair('Contribution type','缴款类型'),'w2.hsa':pair('HSA access, if known','是否可使用HSA（如知道）'),'w2.withholdingReviewed':pair('Withholding review','预扣税检查'),'w2.recentJobChange':pair('Job transition','工作变化'),'w2.oldPlanDestination':pair('Old employer retirement money','原雇主退休资金去向'),
-  'business.stage':pair('Activity stage','业务阶段'),'business.separated':pair('Business and personal finances','企业与个人财务'),'business.tracked':pair('Income and expense records','收入与费用记录'),'business.estimatedTaxes':pair('Estimated-tax process','预估税流程'),'business.entity':pair('Current entity or tax form','目前实体或税务形式'),'business.payroll':pair('Payroll','Payroll'),'business.retirementPlan':pair('Business retirement plan','企业退休计划'),'business.employees':pair('Employees','员工'),'business.profitProcess':pair('Process when profit increases','利润增加后的处理流程'),
+  'business.stage':pair('Activity stage','业务阶段'),'business.separated':pair('Business and personal finances','企业与个人财务'),'business.tracked':pair('Income and expense records','收入与费用记录'),'business.estimatedTaxes':pair('Estimated-tax review process','预估税检查流程'),'business.entity':pair('Legal structure and federal tax classification (select all that apply)','法律结构与联邦税务分类（可多选）'),'business.payroll':pair('Payroll status, if applicable','Payroll情况（如适用）'),'business.retirementPlan':pair('Business retirement plan, if any','企业退休计划（如有）'),'business.employees':pair('Workers other than the owner or spouse','除业主或配偶以外的工作人员'),'business.profitProcess':pair('Process when profit increases','利润增加后的处理流程'),
   'liquidity.runway':pair('Liquid-resource runway','流动资源可维持时间'),'debt.types':pair('Debt types','债务类型'),'debt.interferes':pair('Effect on saving','对储蓄的影响'),
   'retirement.direction':pair('Current direction','目前方向'),'retirement.accounts':pair('Current account types','现有账户类型'),'retirement.jobs':pair('Jobs retirement money may need to perform','退休资金可能需要承担的任务'),
   'education.goals':pair('Possible future uses','未来可能用途'),'education.savingStatus':pair('Current saving pattern','目前储蓄情况'),'education.vehicles':pair('Where money is currently held','资金目前放在哪里'),'education.desiredJobs':pair('What the money should be able to do','希望资金能够完成什么'),'education.flexibility':pair('Importance of flexible use','灵活使用的重要性'),'education.aidAwareness':pair('Student-aid methodology awareness','助学金计算规则认知'),
-  'protection.goalsAtRisk':pair('Goals that may be interrupted','可能中断的目标'),'protection.coverage':pair('Current protection resources','现有保障资源'),'protection.lastReview':pair('Last protection review','上次保障检查'),
-  'property.ownership':pair('Property owned','现有房产'),'property.rentalChange':pair('Possible rental-property decision','可能的出租物业决定'),'estate.current':pair('Reasonably current documents and designations','目前大致有效的文件与指定'),
+  'protection.goalsAtRisk':pair('Goals that may be interrupted','可能中断的目标'),'protection.coverage':pair('Protection resources reported','已报告的保障资源'),'protection.lastReview':pair('When protection needs were last reviewed','上次梳理保障需要的时间'),
+  'property.ownership':pair('Property owned','现有房产'),'property.rentalChange':pair('Possible rental-property decision','可能的出租物业决定'),'estate.current':pair('Documents and designations reported','已报告的文件与指定'),
   'priorities.taxExperience':pair('Recent tax experience','近期税务体验'),'priorities.events':pair('Possible changes in the next 12–24 months','未来12–24个月可能发生的变化'),'priorities.clientPriority':pair('Most important improvement','最希望改善的事项'),
 }
 
@@ -46,7 +46,7 @@ export const familyCapitalReviewQuestions = [
       {id:'hsa',type:'single',options:[option('yes','HSA access','可以使用HSA'),option('no','No HSA access','不能使用HSA'),option('unsure','Not sure','不确定')]},
       {id:'withholdingReviewed',type:'single',options:[option('recent','Reviewed recently','近期检查过'),option('not_recent','Not reviewed recently','近期没有检查'),option('unsure','Not sure','不确定')]},
       {id:'recentJobChange',type:'single',options:[option('yes','Changed jobs or may leave soon','近期换工作或可能离职'),option('no','No recent change','近期没有变化')]},
-      {id:'oldPlanDestination',type:'single',when:{field:'recentJobChange',equals:'yes'},options:[option('old_plan','Still in old plan','仍在原计划'),option('new_plan','Moved to new employer plan','转入新雇主计划'),option('rollover_ira','Traditional or Rollover IRA','Traditional或Rollover IRA'),option('elsewhere','Converted or moved elsewhere','转换或转至其他地方'),option('cashed_out','Cashed out','已取现'),option('unsure','Do not know','不清楚')]},
+      {id:'oldPlanDestination',type:'single',when:{field:'recentJobChange',equals:'yes'},options:[option('old_plan','Still in the former employer plan','仍在原雇主计划'),option('new_plan','Moved to a new employer plan','已转入新雇主计划'),option('rollover_ira','Moved to a Traditional or Rollover IRA','已转入Traditional或Rollover IRA'),option('elsewhere','Moved or converted elsewhere; details need review','已转至其他安排或完成转换；具体情况需确认'),option('cashed_out','Paid out in cash','已以现金方式取出'),option('unsure','Do not know','不清楚')]},
     ],
   },
   {
@@ -57,7 +57,7 @@ export const familyCapitalReviewQuestions = [
       {id:'separated',type:'single',options:[option('yes','Business and personal finances separated','企业与个人财务已分开'),option('partly','Partly','部分分开'),option('no','No','没有'),option('unsure','Not sure','不确定')]},
       {id:'tracked',type:'single',options:[option('yes','Income and expenses tracked','收入与费用有记录'),option('partly','Partly','部分记录'),option('no','No','没有'),option('unsure','Not sure','不确定')]},
       {id:'estimatedTaxes',type:'single',options:[option('yes','Estimated taxes addressed','已安排预估税'),option('partly','Partly','部分安排'),option('no','No','没有'),option('unsure','Not sure','不确定')]},
-      {id:'entity',type:'single',options:[option('sole_prop','Sole proprietor','独资经营'),option('llc','LLC','LLC'),option('s_corp','S corporation','S Corporation'),option('partnership','Partnership','Partnership'),option('corporation','Corporation','Corporation'),option('unsure','Not sure','不确定')]},
+      {id:'entity',type:'multi',options:[option('sole_prop','Sole proprietorship','独资经营'),option('llc','LLC legal structure','LLC法律结构'),option('s_corp','S corporation federal tax classification','S Corporation联邦税务分类'),option('partnership','Partnership legal or tax classification','Partnership法律或税务分类'),option('corporation','Corporation legal structure','Corporation法律结构'),option('unsure','Not sure','不确定')]},
       {id:'payroll',type:'single',options:[option('yes','Payroll in place','已有Payroll'),option('no','No payroll','没有Payroll'),option('na','Not applicable or not yet','不适用或尚未需要'),option('unsure','Not sure','不确定')]},
       {id:'retirementPlan',type:'single',options:[option('yes','Business retirement plan','已有企业退休计划'),option('no','No business retirement plan','没有企业退休计划'),option('unsure','Not sure','不确定')]},
       {id:'employees',type:'single',options:[option('yes','Employees besides self or spouse','有本人或配偶以外的员工'),option('no','No','没有')]},
@@ -93,7 +93,7 @@ export const familyCapitalReviewQuestions = [
     fields:[
       {id:'goals',type:'multi',options:[option('college','College','大学'),option('graduate','Graduate school','研究生教育'),option('first_home','First home','第一套住房'),option('business','Starting a business','创业'),option('general','General future opportunity','其他未来机会'),option('unsure','Not sure','不确定')]},
       {id:'savingStatus',type:'single',options:[option('consistent','Saving consistently','持续储蓄'),option('irregular','Saving irregularly','不定期储蓄'),option('not_started','Not yet','尚未开始'),option('vehicle_unsure','Not sure what vehicle to use','不确定使用什么工具')]},
-      {id:'vehicles',type:'multi',when:{field:'savingStatus',includesAny:['consistent','irregular']},options:[option('529','529','529'),option('cash_cd','Cash or CD','现金或CD'),option('brokerage','Taxable brokerage','应税投资账户'),option('utma_ugma','UTMA or UGMA','UTMA或UGMA'),option('permanent_life','Permanent life insurance','永久寿险'),option('other','Other','其他'),option('unsure','Not sure','不确定')]},
+      {id:'vehicles',type:'multi',when:{field:'savingStatus',includesAny:['consistent','irregular']},options:[option('529','529','529'),option('cash_cd','Cash or CD','现金或CD'),option('brokerage','Taxable brokerage','应税投资账户'),option('utma_ugma','UTMA or UGMA','UTMA或UGMA'),option('other','Other','其他'),option('unsure','Not sure','不确定')]},
       {id:'desiredJobs',type:'multi',options:[option('education_only','Education only','仅用于教育'),option('education_plus','Education and other opportunities','教育及其他机会'),option('parent_access','Remain accessible to parents','父母仍可灵活使用'),option('other_goals','Support other future goals','支持其他未来目标'),option('protection','Family protection also matters','也需要家庭保障'),option('unsure','Not sure','不确定')]},
       {id:'flexibility',type:'single',options:[option('very','Very important','非常重要'),option('somewhat','Somewhat important','比较重要'),option('not','Not important','不重要'),option('never_considered','Never considered this','从未考虑')]},
       {id:'aidAwareness',type:'single',options:[option('yes','Yes','了解'),option('somewhat','Somewhat','了解一些'),option('no','No','不了解'),option('assumed_same','Assumed everything counted the same','以为所有资产处理相同')]},
@@ -103,7 +103,7 @@ export const familyCapitalReviewQuestions = [
     id:'protection', order:9, title:pair('Protection','保障'),
     prompt:pair('If a primary income were interrupted by death, illness, or disability, what would the household want to preserve?','如果一份主要收入因身故、疾病或伤残而中断，家庭最希望哪些安排能够继续？'),
     fields:[
-      {id:'goalsAtRisk',type:'multi',options:[option('mortgage','Mortgage','房贷'),option('living','Living expenses','生活支出'),option('education','Education','教育'),option('retirement','Retirement saving','退休储蓄'),option('business','Business obligations','企业责任'),option('care','Care for family','家庭照护'),option('none','No goal currently depends on this income','目前没有目标依赖这份收入'),option('adequately_covered','These goals appear adequately covered','这些目标似乎已有充分安排'),option('unsure','Not sure','不确定')]},
+      {id:'goalsAtRisk',type:'multi',options:[option('mortgage','Mortgage','房贷'),option('living','Living expenses','生活支出'),option('education','Education','教育'),option('retirement','Retirement saving','退休储蓄'),option('business','Business obligations','企业责任'),option('care','Care for family','家庭照护'),option('none','No goal currently depends on this income','目前没有目标依赖这份收入'),option('unsure','Not sure','不确定')]},
       {id:'coverage',type:'multi',options:[option('employer_life','Employer life','雇主寿险'),option('term_life','Individual term life','个人定期寿险'),option('permanent_life','Permanent life insurance','永久寿险'),option('disability','Disability coverage','伤残收入保障'),option('business','Business coverage','企业保障'),option('none','None','没有'),option('unsure','Not sure','不确定')]},
       {id:'lastReview',type:'single',options:[option('under_2','Within 2 years','两年内'),option('2_5','2–5 years','2–5年'),option('over_5','More than 5 years','超过5年'),option('never','Never','从未'),option('unsure','Not sure','不确定')]},
     ],
@@ -118,9 +118,9 @@ export const familyCapitalReviewQuestions = [
   },
   {
     id:'estate', order:11, title:pair('Family and estate basics','家庭与遗产基础'),
-    prompt:pair('Which foundational documents and designations are reasonably current?','哪些基础文件和指定目前大致有效？'),
+    prompt:pair('Which foundational documents and designations are known to exist?','目前知道有哪些基础文件和指定？'),
     fields:[{id:'current',type:'multi',options:[option('will','Will','遗嘱'),option('beneficiaries','Beneficiary designations','受益人指定'),option('poa','Power of attorney','授权委托书'),option('healthcare','Healthcare directive','医疗指示'),option('guardian','Guardian planning where relevant','适用时的监护安排'),option('trust','Trust where applicable','适用时的信托'),option('none','None','没有'),option('unsure','Not sure','不确定')]}],
-    note:pair('This routes education and possible legal review; it does not provide legal advice.','本项仅用于教育与必要时的法律审核提示，不构成法律意见。'),
+    note:pair('This review records what was reported and may suggest review by qualified legal counsel. It does not determine legal validity or provide legal advice.','本次梳理只记录已报告的信息，并可能提示向具备资质的法律专业人士咨询；不会判断文件的法律效力，也不构成法律意见。'),
   },
   {
     id:'priorities', order:12, title:pair('Taxes, changes, and your priority','税务、变化与你的重点'),
@@ -136,7 +136,7 @@ export const familyCapitalReviewQuestions = [
 const valueMatches = (value, condition) => {
   if ('equals' in condition) return value === condition.equals
   if ('includes' in condition) return Array.isArray(value) && value.includes(condition.includes)
-  if ('includesAny' in condition) return Array.isArray(value) && condition.includesAny.some((item) => value.includes(item))
+  if ('includesAny' in condition) return Array.isArray(value) ? condition.includesAny.some((item) => value.includes(item)) : condition.includesAny.includes(value)
   return true
 }
 

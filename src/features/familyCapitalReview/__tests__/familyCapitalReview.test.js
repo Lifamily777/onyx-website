@@ -10,7 +10,7 @@ import {
 } from '../index.js'
 
 const organizedBusiness = {
-  stage:'ongoing',separated:'yes',tracked:'yes',estimatedTaxes:'yes',entity:'llc',payroll:'na',retirementPlan:'no',employees:'no',profitProcess:'yes',
+  stage:'ongoing',separated:'yes',tracked:'yes',estimatedTaxes:'yes',entity:['llc','s_corp'],payroll:'na',retirementPlan:'no',employees:'no',profitProcess:'yes',
 }
 
 const stable = () => ({
@@ -48,7 +48,7 @@ test('high-income W-2 household with no match gets allocation review, not skip-p
   const result=calculateFamilyCapitalReview(answers)
   const connection=result.knowledgeConnections.find((item)=>item.id==='no-employer-match')
   assert.equal(connection.kind,'allocation_review')
-  assert.match(connection.reason.en,/does not mean the plan should be skipped/i)
+  assert.match(connection.reason.en,/does not indicate whether the plan should be used or skipped/i)
   assert.notEqual(result.foundationMap.retirement.status,'red')
 })
 
@@ -71,7 +71,7 @@ test('growing business without tax and operating structure needs attention witho
   answers.business={...organizedBusiness,stage:'growing',separated:'no',tracked:'no',estimatedTaxes:'no',profitProcess:'no'}
   const result=calculateFamilyCapitalReview(answers)
   assert.equal(result.foundationMap.business_payroll.status,'red')
-  assert.match(result.foundationMap.business_payroll.whyFlagged.en,/does not imply that an S corporation is appropriate/i)
+  assert.match(result.foundationMap.business_payroll.whyFlagged.en,/not a conclusion about tax, payroll, or legal compliance/i)
 })
 
 test('organized business is on track even without a business retirement plan', () => {
@@ -85,7 +85,7 @@ test('young child with no education saving creates a planning window, not a prod
   answers.education={goals:['college'],savingStatus:'not_started',desiredJobs:['education_plus'],flexibility:'very',aidAwareness:'no'}
   const result=calculateFamilyCapitalReview(answers)
   assert.equal(result.foundationMap.education.status,'yellow')
-  assert.match(result.foundationMap.education.whyFlagged.en,/does not imply that a 529 or any other product is required/i)
+  assert.match(result.foundationMap.education.whyFlagged.en,/planning signal, not a product recommendation/i)
 })
 
 test('existing 529 with flexible goals is not automatically negative', () => {
@@ -93,7 +93,8 @@ test('existing 529 with flexible goals is not automatically negative', () => {
   answers.education={goals:['college','general'],savingStatus:'consistent',vehicles:['529'],desiredJobs:['education_plus'],flexibility:'very',aidAwareness:'somewhat'}
   const result=calculateFamilyCapitalReview(answers)
   assert.equal(result.foundationMap.education.status,'green')
-  assert.match(result.foundationMap.education.whyFlagged.en,/not treated as a mistake/i)
+  assert.match(result.foundationMap.education.whyFlagged.en,/Funding adequacy, account suitability, and student-aid effects were not evaluated/i)
+  assert.doesNotMatch(result.foundationMap.education.whyFlagged.en,/529/i)
 })
 
 test('no 529, Roth IRA, annuity, IUL, or maxed 401(k) never creates product-based status', () => {
@@ -107,7 +108,7 @@ test('protection need comes from economic exposure and current resources', () =>
   const answers=stable(); answers.protection={goalsAtRisk:['mortgage','living'],coverage:['none'],lastReview:'never'}
   const result=calculateFamilyCapitalReview(answers)
   assert.equal(result.foundationMap.protection.status,'red')
-  assert.match(result.foundationMap.protection.whyFlagged.en,/needs-analysis question, not a product recommendation/i)
+  assert.match(result.foundationMap.protection.whyFlagged.en,/needs-analysis question, not insurance inadequacy or a product recommendation/i)
 })
 
 test('rental sale creates a review-before-acting planning window', () => {
@@ -120,7 +121,8 @@ test('rental sale creates a review-before-acting planning window', () => {
 test('no children makes education not applicable rather than negative', () => {
   const result=calculateFamilyCapitalReview(stable())
   assert.equal(result.foundationMap.education.status,'gray')
-  assert.match(result.foundationMap.education.whyFlagged.en,/Not applicable/i)
+  assert.equal(result.foundationMap.education.isNotApplicable,true)
+  assert.match(result.foundationMap.education.statusLabel.en,/Not Applicable/i)
 })
 
 test('no business makes business foundation not applicable', () => {
@@ -203,18 +205,20 @@ test('Education GREEN requires known goals, desired jobs, and flexibility', () =
   assert.equal(calculateFamilyCapitalReview(answers).foundationMap.education.status,'gray')
 })
 
-test('Protection GREEN requires no current exposure or recently reviewed reported adequacy', () => {
+test('Protection self-report never establishes adequacy', () => {
   const answers=stable(); answers.protection={goalsAtRisk:['living'],coverage:['term_life'],lastReview:'under_2'}
   assert.equal(calculateFamilyCapitalReview(answers).foundationMap.protection.status,'yellow')
   answers.protection={goalsAtRisk:['adequately_covered'],coverage:['term_life'],lastReview:'under_2'}
-  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.protection.status,'green')
+  assert.notEqual(calculateFamilyCapitalReview(answers).foundationMap.protection.status,'green')
 })
 
-test('Estate GREEN requires a coherent core set rather than one document', () => {
+test('Estate document existence never establishes validity or completeness', () => {
   const answers=stable(); answers.estate.current=['beneficiaries']
   assert.equal(calculateFamilyCapitalReview(answers).foundationMap.estate.status,'yellow')
   answers.estate.current=['will','beneficiaries','poa','healthcare']
-  assert.equal(calculateFamilyCapitalReview(answers).foundationMap.estate.status,'green')
+  const estate=calculateFamilyCapitalReview(answers).foundationMap.estate
+  assert.equal(estate.status,'green')
+  assert.match(estate.whyFlagged.en,/legal effectiveness, coordination, completeness, and continued suitability were not evaluated/i)
 })
 
 test('Action Map uses decision-oriented next steps', () => {
@@ -274,6 +278,54 @@ test('client-facing review route stays locale-aware and keeps answers in memory'
   assert.match(pageSource,/Foundation Map/)
   assert.match(pageSource,/Capital Job Map/)
   assert.match(pageSource,/Action Map/)
-  assert.match(pageSource,/Review This Map with Sammi/)
+  assert.match(pageSource,/Discuss This Review with Sammi/)
   assert.doesNotMatch(pageSource,/localStorage|sessionStorage/)
+  assert.doesNotMatch(pageSource,/contact'\)}\?context|focusFoundationIds\.join/)
+})
+
+test('launch-safety question choices avoid product priming and adequacy claims', () => {
+  const protection=familyCapitalReviewQuestions.find((question)=>question.id==='protection')
+  const protectionGoals=protection.fields.find((field)=>field.id==='goalsAtRisk').options
+  assert.equal(protectionGoals.some((option)=>option.id==='adequately_covered'),false)
+  const education=familyCapitalReviewQuestions.find((question)=>question.id==='education')
+  const vehicles=education.fields.find((field)=>field.id==='vehicles').options
+  assert.equal(vehicles.some((option)=>option.id==='permanent_life'),false)
+  const visibleFields=getVisibleReviewFields(education,{education:{savingStatus:'consistent'}}).map((field)=>field.id)
+  assert.ok(visibleFields.includes('vehicles'))
+})
+
+test('1099 income without an estimated-tax process creates review, not a legal conclusion', () => {
+  const answers=stable(); answers.income.sources=['1099']; delete answers.w2
+  answers.business={...organizedBusiness,estimatedTaxes:'no'}
+  const tax=calculateFamilyCapitalReview(answers).foundationMap.income_tax
+  assert.equal(tax.status,'yellow')
+  assert.match(tax.whyFlagged.en,/Whether estimated payments are required depends/i)
+  assert.match(tax.whyFlagged.zh,/是否需要缴纳预估税，取决于/)
+})
+
+test('GREEN semantics do not claim retirement, insurance, estate, tax, or education adequacy', () => {
+  const result=calculateFamilyCapitalReview(stable())
+  const claims=['income_tax','retirement','protection','estate'].map((id)=>result.foundationMap[id].whyFlagged)
+  assert.match(result.foundationMap.retirement.whyFlagged.en,/Retirement adequacy and investment suitability were not evaluated/i)
+  assert.match(result.foundationMap.protection.whyFlagged.en,/No current goal was reported/i)
+  assert.ok(claims.every((copy)=>copy.en && copy.zh))
+  assert.doesNotMatch(result.foundationMap.protection.whyFlagged.en,/adequately insured|adequate coverage/i)
+})
+
+test('business structure allows legal structure and tax classification together', () => {
+  const business=familyCapitalReviewQuestions.find((question)=>question.id==='business')
+  const entity=business.fields.find((field)=>field.id==='entity')
+  assert.equal(entity.type,'multi')
+  assert.match(entity.options.find((option)=>option.id==='llc').label.en,/legal structure/i)
+  assert.match(entity.options.find((option)=>option.id==='s_corp').label.en,/federal tax classification/i)
+})
+
+test('launch copy preserves product neutrality and bilingual qualification', () => {
+  const result=calculateFamilyCapitalReview(stable())
+  const serialized=JSON.stringify({foundations:result.foundations,capitalJobs:result.capitalJobs,connections:result.knowledgeConnections})
+  assert.doesNotMatch(serialized,/recommendedProduct|productRecommendation|guaranteed|best product/i)
+  assert.equal(result.capitalJobs.principle.en.includes('current resources'),true)
+  assert.equal(result.capitalJobs.principle.zh.includes('现有资源'),true)
+  assert.match(result.sammiConversationContext.notice.en,/includes no answers, financial findings, or personal details/i)
+  assert.match(result.sammiConversationContext.notice.zh,/不包含回答、财务发现或个人信息/)
 })

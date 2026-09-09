@@ -34,6 +34,8 @@ Use this file for decisions that should not be made autonomously. Items remain o
 
 ## Product Review Items
 
+- **Family Capital Review launch candidate:** engineering review found no remaining launch-blocking defect after the limited safety patch. Human reviewers should still approve the exact bilingual wording and workflow before client use. In particular, confirm that GREEN consistently communicates only “no immediate signal from reported facts,” that gray and N/A are understood as different states, and that a neutral needs analysis precedes any product discussion.
+
 - **Family Capital Review logic closeout:** review the revised evidence thresholds and wording for Retirement, Education, Protection, Estate, rental-only income, the three-part Capital Job Map, and contextual Sammi questions. Automated and browser validation confirm deterministic behavior; this remains a professional-language and workflow review, not an engineering blocker.
 
 - **Family Capital Review Thursday MVP:** before live client use, review the 12-question conversational order, conditional skips, Foundation status explanations, separate existing-money and next-dollar job maps, “ONYX also noticed” prioritization, and contextual Sammi handoff. The experience intentionally has no overall score, stores no answers, and makes no product recommendation.
@@ -55,6 +57,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 
 ## Tax/Legal Verification Needed
 
+- **Family Capital Review launch candidate — exact review scope:** approve the bilingual screening boundaries for W-2 withholding, estimated-tax process, retirement contribution/resource coordination, business legal structure versus federal tax classification, education-funding flexibility, rental decisions, and reported estate documents. Confirm that no statement implies tax/payroll/legal compliance, retirement adequacy, account or investment suitability, student-aid outcome, document validity, or current-law eligibility. No current rates, thresholds, deadlines, or savings claims are present.
+
 - **Family Capital Review:** professionally review W-2 withholding, estimated-tax process, business/payroll, old-plan destination, retirement-account, education-funding, rental-property, and estate-routing language before the final polished client workflow is released. Step 1 states no current rates, deadlines, eligibility conclusions, rollover recommendation, tax calculation, or legal conclusion.
 
 - **Phase 2.5 retirement prototype:** final professional tax review is required for rollover destination language, Traditional/Rollover IRA scope, IRA pro-rata considerations, Backdoor Roth awareness, Roth conversions, Form 8606, SEP/SIMPLE IRA references, plan-to-plan availability, and any implication about accounts included or excluded. IRS links were verified during implementation, but the prototype must not reach production before this language review.
@@ -70,6 +74,8 @@ These are existing, non-blocking V1 validation review items. Do not change scori
 - Review the Sell a Rental Property Journey before public launch. The prototype uses illustrative purchase, offer, and mortgage figures but deliberately gives no individualized tax calculation, threshold, rate, or eligibility conclusion.
 
 ## Insurance/Compliance Review Needed
+
+- **Family Capital Review launch candidate — protection sequence:** confirm that the revised flow correctly follows economic exposure → reported protection resources → review timing → needs analysis → insurance and non-insurance alternatives. The client can no longer self-classify as “adequately covered,” and the result makes no coverage-adequacy, product, or suitability conclusion.
 
 - **Family Capital Review:** review Protection evidence and status explanations before live client use. The current engine derives attention only from stated economic exposure, current resources/coverage, and review timing; it makes no product or suitability recommendation.
 

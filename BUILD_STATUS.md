@@ -72,6 +72,17 @@
 
 `codex/onyx-v2-platform`
 
+## 2026-09-09 — Family Capital Review launch hardening
+
+- Reframed every Foundation result as a limited screening signal rather than a conclusion about tax or legal compliance, retirement or insurance adequacy, estate-document validity, investment suitability, or product suitability.
+- Removed product-priming and self-rated-adequacy choices from the initial education and protection discovery path. Protection follow-up now begins with economic exposure, reported resources, review timing, and a needs analysis before any insurance or non-insurance alternative is discussed.
+- Distinguished business legal structure from federal tax classification, allowed both to be reported, and clarified that the review does not assess payroll, tax, or legal compliance.
+- Made Education / Family Future optional for households without a child-focused goal, preserved other future goals as a separate planning conversation, and kept all education-funding results product-neutral.
+- Clarified that GREEN means no immediate coordination signal from the limited reported facts; N/A and missing information now have distinct client-facing labels.
+- Removed review answers and financial findings from the Sammi contact URL. The result remains visible only on the current page and is not persisted or transmitted by the contact link.
+- Browser QA completed for the English W-2 / dependent-child path through the green-heavy result, including education conditional fields, neutral protection choices, estate limitations, result disclaimers, and the plain `/contact` handoff. Automated scenarios cover W-2, 1099, business-owner, rental-only, child/no-child, missing-information, N/A, red, yellow, green, and bilingual copy behavior.
+- Validation passed: 133/133 tests, production build, `git diff --check`, and capital validation (three PASS and two unchanged REVIEW profiles). Vite reports the existing non-blocking NotFound import warning.
+
 ## 2026-09-09 — Family Capital Review logic closeout
 
 - Corrected conditional-answer handling so hidden W-2, business, education, and property answers cannot influence the result after a household path changes.
@@ -127,7 +138,7 @@
 ## In Progress
 
 - V3 Phases 1–2 are awaiting product and professional-language review before production release.
-- Family Capital Review is ready for Sammi's workflow and professional-language review before live client use.
+- Family Capital Review engineering launch hardening is complete. Final human professional-content review remains required for tax, retirement, protection/insurance, education/family-future, estate/legacy, and business-owner wording before live client use.
 
 ## Blocked
 
@@ -162,4 +173,4 @@ No lint command is currently configured in `package.json`.
 
 ## Last Updated
 
-2026-09-09 (America/New_York)
+2026-09-09 (America/New_York) — Family Capital Review launch-hardening candidate

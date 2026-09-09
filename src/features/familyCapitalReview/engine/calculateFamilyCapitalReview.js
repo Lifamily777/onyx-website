@@ -23,6 +23,10 @@ function foundation(id, statusKey, why, evidenceItems = [], nextStep) {
   }
 }
 
+function notApplicableFoundation(id, why, evidenceItems = [], nextStep) {
+  return {...foundation(id,'GRAY',why,evidenceItems,nextStep),statusLabel:pair('Not Applicable','不适用'),isNotApplicable:true}
+}
+
 function cashFoundation(answers) {
   const runway = answers.liquidity?.runway
   const ev = runway == null ? [] : [evidence('liquidity','runway',runway)]
@@ -44,9 +48,9 @@ function incomeTaxFoundation(answers) {
   if (businessIncome && estimated != null) ev.push(evidence('business','estimatedTaxes',estimated))
   if (has(sources,'w2') && withholding != null) ev.push(evidence('w2','withholdingReviewed',withholding))
   if (!sources.length || unknown(tax) || (businessIncome && unknown(estimated))) return foundation('income_tax','GRAY',pair('Income or tax-process information is incomplete.','收入或税务流程信息尚不完整。'),ev)
-  if (businessIncome && estimated === 'no') return foundation('income_tax','RED',pair('1099 or business income is present and an estimated-tax process has not been addressed. This does not calculate tax liability.','目前存在1099或企业收入，但尚未安排预估税流程。本结果并不计算税负。'),ev,pair('Organize income records and review the tax-reserve process.','整理收入记录并检查税款储备流程。'))
+  if (businessIncome && estimated === 'no') return foundation('income_tax','YELLOW',pair('1099 or business income was reported without an established estimated-tax review process. Whether estimated payments are required depends on the full income mix, withholding, and applicable tax facts.','已报告1099或企业收入，但尚未建立预估税检查流程。是否需要缴纳预估税，取决于完整的收入结构、预扣税及适用的税务事实。'),ev,pair('Organize income and withholding records, then review whether a tax-reserve or payment process is relevant.','整理收入与预扣税资料，再检查是否需要税款预留或缴税流程。'))
   if (['surprised','high_unclear','mixed_complex','transaction'].includes(tax) || estimated === 'partly' || withholding === 'not_recent') return foundation('income_tax','YELLOW',pair('The reported tax experience or process creates a useful planning window.','目前的税务体验或流程形成了值得把握的规划窗口。'),ev)
-  return foundation('income_tax','GREEN',pair('The reported income and tax process appears organized today.','据填写信息，目前收入与税务流程较有条理。'),ev)
+  return foundation('income_tax','GREEN',pair('Based only on the reported process, this screening identified no immediate tax-coordination question. Tax compliance, liability, and possible savings were not evaluated.','仅根据已报告的流程，本次初步梳理未发现需要立即处理的税务协调问题；本次梳理未评估税务合规、实际税负或潜在节税。'),ev)
 }
 
 function retirementFoundation(answers) {
@@ -57,12 +61,12 @@ function retirementFoundation(answers) {
   if (direction === 'not_started') return foundation('retirement','RED',pair('Retirement planning has not meaningfully started. This finding is not based on owning or missing any particular account.','退休规划尚未真正开始。本判断不以是否拥有某一种账户为依据。'),ev)
   if (['saving_unsure','uncoordinated'].includes(direction)) return foundation('retirement','YELLOW',pair('Saving exists, but adequacy or coordination remains unresolved.','已有储蓄，但是否足够或如何协调仍未解决。'),ev)
   if (has(accounts,'none')) return foundation('retirement','GRAY',pair('A clear direction was reported, but current retirement resources still need clarification.','目前的退休方向较清楚，但现有退休资金情况仍需进一步确认。'),ev)
-  return foundation('retirement','GREEN',pair('No immediate planning concern is indicated by the reported direction, saving pattern, and current account information; periodic review still matters.','根据目前填写的方向、储蓄习惯和账户信息，暂未发现需要立即处理的问题；仍应定期复核。'),ev,pair('Revisit the retirement timeline, contribution pattern, and account allocation periodically.','定期复核退休时间、缴款节奏和账户配置。'))
+  return foundation('retirement','GREEN',pair('Based only on the reported direction, contribution pattern, and account information, this screening identified no immediate coordination question. Retirement adequacy and investment suitability were not evaluated.','仅根据已报告的退休方向、缴款情况和账户信息，本次初步梳理未发现需要立即处理的协调问题；本次梳理未评估退休资金是否充足或投资是否适合。'),ev,pair('Revisit the retirement timeline, contribution approach, and retirement-resource coordination periodically.','定期复核退休时间、缴款方式和退休资源之间的协调情况。'))
 }
 
 function educationFoundation(answers) {
   const children = arr(answers.household?.childrenStatus)
-  if (!hasAny(children,['dependent','future'])) return foundation('education','GRAY',pair('Not applicable based on the current household stage.','根据目前家庭阶段，本项暂不适用。'),[evidence('household','childrenStatus',children)],pair('Revisit if future opportunities or family responsibilities change.','未来机会或家庭责任变化时再检查。'))
+  if (!hasAny(children,['dependent','future'])) return notApplicableFoundation('education',pair('The child-focused education review does not apply based on the current household answers. Other personal or family-future goals can be reviewed separately.','根据目前家庭情况，以孩子为重点的教育规划梳理不适用；个人或家庭的其他未来目标仍可另行讨论。'),[evidence('household','childrenStatus',children)],pair('Revisit this area if child-related goals or other family-future priorities change.','如与孩子有关的目标或其他家庭未来重点发生变化，可重新梳理。'))
   const status = answers.education?.savingStatus
   const vehicles = arr(answers.education?.vehicles)
   const goals = arr(answers.education?.goals)
@@ -71,8 +75,9 @@ function educationFoundation(answers) {
   const ev = [evidence('household','childrenStatus',children)]
   if (status != null) ev.push(evidence('education','savingStatus',status),evidence('education','vehicles',vehicles))
   if (unknown(status) || status === 'vehicle_unsure' || !goals.length || unknown(goals) || !desiredJobs.length || unknown(desiredJobs) || unknown(flexibility)) return foundation('education','GRAY',pair('The future goal, timing, or required flexibility needs more information.','未来目标、时间或所需灵活性仍需要更多信息。'),ev)
-  if (['not_started','irregular'].includes(status)) return foundation('education','YELLOW',pair('A future opportunity is relevant and the funding process is not yet consistent. This does not imply that a 529 or any other product is required.','未来机会与家庭相关，但资金准备尚不稳定。这并不表示必须使用529或任何其他产品。'),ev)
-  return foundation('education','GREEN',pair('A consistent funding process and clear future-use priorities were reported. This does not establish that the goal is fully funded, and existing 529 assets, if any, are not treated as a mistake.','据填写信息，资金准备较持续，未来用途和灵活性也较清楚。这并不表示目标已经完全备足；已有529（如有）也不会被视为错误。'),ev,pair('Revisit the goal, timing, contribution pattern, and flexibility as circumstances change.','随着情况变化，定期复核目标、时间、储蓄节奏和灵活性。'))
+  if (status === 'not_started') return foundation('education','YELLOW',pair('A future opportunity was identified and a funding approach has not yet been started. This is a planning signal, not a product recommendation.','已识别出一项未来目标，但资金准备尚未开始。这是一项规划提示，并非产品推荐。'),ev)
+  if (status === 'irregular') return foundation('education','GRAY',pair('An irregular saving pattern was reported, but this screening does not know whether that pattern is intentional or appropriate for the goal.','已报告不定期储蓄，但本次初步梳理无法判断这种方式是否出于有意安排，或是否适合相关目标。'),ev)
+  return foundation('education','GREEN',pair('Based only on the reported saving process and future-use priorities, this screening identified no immediate coordination question. Funding adequacy, account suitability, and student-aid effects were not evaluated.','仅根据已报告的储蓄流程和未来用途，本次初步梳理未发现需要立即处理的协调问题；本次梳理未评估资金是否充足、账户是否适合或对助学金的影响。'),ev,pair('Revisit the goal, timing, contribution pattern, and flexibility as circumstances change.','随着情况变化，定期复核目标、时间、储蓄节奏和灵活性。'))
 }
 
 function protectionFoundation(answers) {
@@ -82,13 +87,12 @@ function protectionFoundation(answers) {
   const ev = [evidence('protection','goalsAtRisk',risks),evidence('protection','coverage',coverage)]
   if (review != null) ev.push(evidence('protection','lastReview',review))
   if (!risks.length || unknown(risks) || unknown(coverage) || unknown(review)) return foundation('protection','GRAY',pair('Economic exposure or current resources need clarification before drawing a conclusion.','在得出结论前，需要进一步明确经济风险与现有资源。'),ev)
-  const exposed = risks.some((item) => !['none','adequately_covered','unsure'].includes(item))
+  const exposed = risks.some((item) => !['none','unsure'].includes(item))
   const noCurrentExposure = has(risks,'none')
-  const reportsAdequate = has(risks,'adequately_covered')
-  if (exposed && (has(coverage,'none') || review === 'never')) return foundation('protection','RED',pair('Important goals depend on earned income, while current protection is absent or has never been reviewed. This identifies a needs-analysis question, not a product recommendation.','重要目标依赖劳动收入，而现有保障为空或从未检查。这表示需要进行需求分析，并非产品推荐。'),ev,pair('Quantify obligations, existing resources, and the duration of the exposure before comparing alternatives.','比较工具前，先量化责任、现有资源与风险持续时间。'))
+  if (exposed && has(coverage,'none')) return foundation('protection','RED',pair('Important goals were reported as depending on earned income, and no listed protection resource was reported. This identifies a needs-analysis question, not insurance inadequacy or a product recommendation.','已报告有重要目标依赖劳动收入，同时未报告任何所列保障资源。这表示需要进一步进行需求分析，并不代表已判断保障不足，也不是产品推荐。'),ev,pair('Quantify obligations, available resources, and the duration of the exposure before comparing insurance and non-insurance alternatives.','比较保险与非保险方案前，先量化家庭责任、可用资源和风险持续时间。'))
+  if (exposed && review === 'never') return foundation('protection','RED',pair('Important goals were reported as depending on earned income, and protection needs have never been reviewed. This is a review signal, not a conclusion about insurance adequacy.','已报告有重要目标依赖劳动收入，同时从未梳理过相关保障需要。这是一项需要检查的提示，并不代表已判断保险保障是否充足。'),ev,pair('Review the obligations, available resources, and duration of the exposure before comparing insurance and non-insurance alternatives.','比较保险与非保险方案前，先梳理家庭责任、可用资源和风险持续时间。'))
   if (noCurrentExposure && !exposed) return foundation('protection','GREEN',pair('No current goal was reported as depending on this income. Changes in obligations should prompt another review.','据填写信息，目前没有目标依赖这份收入；家庭责任变化时应重新检查。'),ev,pair('Revisit this area when income dependence or household obligations change.','收入依赖或家庭责任变化时重新检查。'))
-  if (reportsAdequate && !exposed && review === 'under_2') return foundation('protection','GREEN',pair('The household reports that identified goals appear covered and the review is recent; actual adequacy still depends on a separate needs analysis.','家庭报告相关目标似乎已有安排，且近期完成过检查；实际是否充分仍需另行进行需求分析。'),ev,pair('Keep the review current as income, obligations, and available resources change.','收入、家庭责任或可用资源变化时及时复核。'))
-  if (exposed || reportsAdequate) return foundation('protection','YELLOW',pair('Income-dependent goals exist or reported protection still needs to be confirmed against current obligations and resources.','目前存在依赖收入的目标，或现有保障仍需结合家庭责任和可用资源进一步确认。'),ev,pair('Confirm the protection period, obligations, existing resources, and current review assumptions.','确认需要保障的期限、家庭责任、现有资源和上次检查所依据的情况。'))
+  if (exposed) return foundation('protection','YELLOW',pair('Income-dependent goals were reported. The listed resources and review timing do not establish insurance adequacy, so the obligations and available resources still need to be compared.','已报告有依赖收入的目标。所列资源和检查时间不能证明保险保障是否充足，仍需结合家庭责任和可用资源进一步梳理。'),ev,pair('Clarify the period of need, obligations, available resources, and prior review assumptions before comparing alternatives.','比较方案前，先明确需要保障的时间、家庭责任、可用资源和上次梳理所依据的情况。'))
   return foundation('protection','GRAY',pair('Current economic exposure and protection resources are not clear enough to assess.','目前的经济责任和保障资源还不够清楚，暂时无法判断。'),ev)
 }
 
@@ -107,29 +111,46 @@ function debtPropertyFoundation(answers) {
 
 function businessFoundation(answers) {
   const sources = arr(answers.income?.sources)
-  if (!hasAny(sources,['1099','business'])) return foundation('business_payroll','GRAY',pair('Not applicable because no 1099 or business income was reported.','未报告1099或企业收入，本项暂不适用。'),[evidence('income','sources',sources)])
+  if (!hasAny(sources,['1099','business'])) return notApplicableFoundation('business_payroll',pair('Not applicable because no self-employed or business activity was reported.','未报告自雇或企业经营活动，本项暂不适用。'),[evidence('income','sources',sources)])
   const business = answers.business || {}
   const fields = ['stage','separated','tracked','estimatedTaxes','entity','payroll','retirementPlan','employees','profitProcess']
   const ev = fields.filter((field) => business[field] != null).map((field) => evidence('business',field,business[field]))
-  if (fields.some((field) => business[field] == null || unknown(business[field]))) return foundation('business_payroll','GRAY',pair('Business organization information is incomplete.','企业组织信息尚不完整。'),ev)
-  const severe = ['no'].includes(business.separated) || business.tracked === 'no' || business.estimatedTaxes === 'no' || (['ongoing','growing'].includes(business.stage) && business.profitProcess === 'no')
-  if (severe) return foundation('business_payroll','RED',pair('An active business has unresolved recordkeeping, tax, or owner-pay processes. This does not imply that an S corporation is appropriate.','活跃企业仍有记录、税务或业主薪酬流程未解决。本结果不表示S Corporation一定适合。'),ev)
-  if (['partly'].includes(business.separated) || business.tracked === 'partly' || business.estimatedTaxes === 'partly' || business.profitProcess === 'somewhat') return foundation('business_payroll','YELLOW',pair('Core business processes exist but are not yet fully coordinated.','企业核心流程已有基础，但尚未完全协调。'),ev)
-  return foundation('business_payroll','GREEN',pair('The reported business, tax, and owner-pay processes appear organized.','据填写信息，企业、税务与业主薪酬流程较有条理。'),ev)
+  if (fields.some((field) => business[field] == null || unknown(business[field]))) return foundation('business_payroll','GRAY',pair('More reported facts are needed before this screening can identify a business-planning signal.','需要补充更多已知情况，本次初步梳理才能判断是否存在企业规划提示。'),ev)
+  const redIssue = business.separated === 'no'
+    ? pair('Business and personal finances were reported as not separated.','已报告企业与个人财务尚未分开。')
+    : business.tracked === 'no'
+      ? pair('Income and expenses were reported as not tracked.','已报告收入与费用尚未记录。')
+      : ['ongoing','growing'].includes(business.stage) && business.profitProcess === 'no'
+        ? pair('An ongoing or growing activity was reported without a process for deciding how additional profit is used.','已报告业务正在持续或增长，但尚无安排新增利润用途的流程。')
+        : null
+  if (redIssue) return foundation('business_payroll','RED',pair(`${redIssue.en} This identifies an organization question, not a conclusion about tax, payroll, or legal compliance.`,`${redIssue.zh} 这是一项组织流程提示，并不代表已判断税务、Payroll或法律合规情况。`),ev)
+  const yellowIssue = business.estimatedTaxes === 'no'
+    ? pair('No estimated-tax review process was reported; whether payments are required depends on the full tax facts.','未报告预估税检查流程；是否需要缴税取决于完整的税务事实。')
+    : business.separated === 'partly'
+      ? pair('Business and personal finances were reported as only partly separated.','已报告企业与个人财务仅部分分开。')
+      : business.tracked === 'partly'
+        ? pair('Income and expense tracking was reported as partial.','已报告收入与费用记录尚不完整。')
+        : business.estimatedTaxes === 'partly'
+          ? pair('The estimated-tax review process was reported as partial.','已报告预估税检查流程仅完成一部分。')
+          : business.profitProcess === 'somewhat'
+            ? pair('The process for deciding how additional profit is used was reported as partial.','已报告新增利润用途的安排流程仅完成一部分。')
+            : null
+  if (yellowIssue) return foundation('business_payroll','YELLOW',pair(`${yellowIssue.en} This screening does not determine tax, payroll, or legal compliance.`,`${yellowIssue.zh} 本次初步梳理不判断税务、Payroll或法律合规情况。`),ev)
+  return foundation('business_payroll','GREEN',pair('Based only on the reported organization and review processes, this screening identified no immediate coordination question. Tax, payroll, legal compliance, and plan suitability were not evaluated.','仅根据已报告的组织与检查流程，本次初步梳理未发现需要立即处理的协调问题；本次梳理未评估税务、Payroll、法律合规或计划是否适合。'),ev)
 }
 
 function estateFoundation(answers) {
   const current = arr(answers.estate?.current)
   const ev = [evidence('estate','current',current)]
   if (!current.length || unknown(current)) return foundation('estate','GRAY',pair('Current document and beneficiary information is not yet known.','目前尚不清楚文件与受益人指定状况。'),ev)
-  if (has(current,'none')) return foundation('estate','YELLOW',pair('No current foundational documents or beneficiary designations were reported. This is an education and legal-review prompt, not legal advice.','目前没有报告有效的基础文件或受益人指定。本项仅用于教育和法律专业审核提示，不构成法律意见。'),ev,pair('Confirm which documents and beneficiary designations may require legal review.','确认哪些文件和受益人指定可能需要法律专业人士审核。'))
+  if (has(current,'none')) return foundation('estate','YELLOW',pair('No foundational documents or beneficiary designations were reported. This screening does not determine what is legally required.','未报告任何基础文件或受益人指定；本次初步梳理不判断法律上需要哪些文件或指定。'),ev,pair('Discuss with qualified legal counsel which documents or designations may be relevant.','向具备资质的法律专业人士了解哪些文件或指定可能与家庭情况相关。'))
   const coreKnown = has(current,'beneficiaries') && has(current,'poa') && has(current,'healthcare') && hasAny(current,['will','trust'])
-  if (!coreKnown) return foundation('estate','YELLOW',pair('Some foundational items were reported, but the overall document and beneficiary picture is not yet complete. This is not legal advice.','已经有部分基础安排，但文件与受益人指定的整体情况仍需补充确认。本项不构成法律意见。'),ev,pair('Confirm which documents and beneficiary designations are current and which need professional review.','确认哪些文件和受益人指定仍然有效，哪些需要专业审核。'))
-  return foundation('estate','GREEN',pair('No immediate gap is indicated across the reported core documents and beneficiary designations; legal relevance still depends on household facts.','根据目前填写的核心文件和受益人指定，暂未发现明显缺口；法律上的适用性仍取决于家庭实际情况。'),ev,pair('Revisit documents and beneficiary designations after material family or financial changes.','家庭或财务情况发生重大变化后，重新检查相关文件和受益人指定。'))
+  if (!coreKnown) return foundation('estate','YELLOW',pair('Some foundational documents or designations were reported. Their legal effectiveness, coordination, and continued suitability were not evaluated.','已报告部分基础文件或指定；本次梳理未评估其法律效力、相互协调情况或是否仍然适合。'),ev,pair('Discuss with qualified legal counsel whether any reported or missing item warrants review.','向具备资质的法律专业人士了解已报告或未报告的项目是否需要审核。'))
+  return foundation('estate','GREEN',pair('Several foundational documents and designations were reported. Their legal effectiveness, coordination, completeness, and continued suitability were not evaluated by this screening.','已报告多项基础文件和指定；本次初步梳理未评估其法律效力、相互协调、完整性或是否仍然适合。'),ev,pair('Consider qualified legal review after material family or financial changes.','家庭或财务情况发生重大变化后，可考虑请具备资质的法律专业人士审核。'))
 }
 
 const capitalJobLabels = {
-  GROW:pair('Grow long-term capital','增长长期资本'), KEEP:pair('Keep more through organized tax decisions','通过有序税务决策留住更多'),
+  GROW:pair('Grow long-term capital','增长长期资本'), KEEP:pair('Coordinate taxes and avoid preventable surprises','协调税务并减少可避免的意外'),
   ACCESS:pair('Maintain access and flexibility','保持可用性与灵活性'), PROTECT:pair('Protect people and obligations','保障人员与责任'),
   INCOME:pair('Create future income','形成未来收入'), FUND:pair('Fund education and future opportunities','支持教育与未来机会'),
   LEGACY:pair('Carry intent forward','延续家庭意愿'),
@@ -157,7 +178,7 @@ function deriveCapitalJobs(answers, foundations) {
     if (id === 'LEGACY' && ['gray','yellow'].includes(statusOf('estate'))) { state=statusOf('estate') === 'gray' ? 'unclear' : 'needs_review'; reasons.push('estate.current') }
     return {id,label:capitalJobLabels[id],state,evidenceIds:reasons}
   })
-  return {principle:pair('Desired jobs, current coverage, and the next dollar are three distinct questions. One tool does not need to perform every job.','希望资金完成什么、现有资源覆盖什么，以及下一块钱做什么，是三个不同的问题。一个工具不需要承担所有任务。'),desiredJobs,existingMoney,nextDollar:jobs,jobs}
+  return {principle:pair('Desired jobs, current resources, and the next dollar are three distinct questions. One tool does not need to perform every job.','希望资金完成什么、现有资源有哪些，以及下一块钱做什么，是三个不同的问题。一个工具不需要承担所有任务。'),desiredJobs,existingMoney,nextDollar:jobs,jobs}
 }
 
 const priorityLabels = {
@@ -183,7 +204,7 @@ export function calculateFamilyCapitalReview(inputAnswers = {}) {
   const healthy = foundations.filter((item) => item.status === 'green')
   const needsAttention = foundations.filter((item) => item.status === 'red')
   const decisionsApproaching = foundations.filter((item) => item.status === 'yellow')
-  const isNotApplicable = (item) => /Not applicable|不适用/.test(`${item.whyFlagged.en}${item.whyFlagged.zh}`)
+  const isNotApplicable = (item) => item.isNotApplicable === true
   const missingInformation = foundations.filter((item) => item.status === 'gray' && !isNotApplicable(item))
   const decisionIntelligence = foundations.filter((item) => item.status !== 'green' && !isNotApplicable(item))
   const capitalJobs = deriveCapitalJobs(answers,foundations)
@@ -211,6 +232,6 @@ export function calculateFamilyCapitalReview(inputAnswers = {}) {
     decisionIntelligence,
     knowledgeConnections,
     sammiReview:{healthy:healthy.map((item)=>({foundationId:item.id,title:item.title,evidenceIds:item.evidenceIds})),needsAttention:needsAttention.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),decisionsApproaching:decisionsApproaching.map((item)=>({foundationId:item.id,title:item.title,why:item.whyFlagged,evidenceIds:item.evidenceIds})),missingInformation:missingInformation.map((item)=>({foundationId:item.id,title:item.title,informationToGather:item.informationToGather})),underservedCapitalJobs,followUpQuestions,conversationTopics:unique([...needsAttention,...decisionsApproaching].map((item)=>item.id)).slice(0,5)},
-    sammiConversationContext:{reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,clientPriority:clientPriorityId,focusFoundationIds:unique([...byBucket('now'),...byBucket('next_12_months')].map((item) => item.foundationId)),connectionIds:knowledgeConnections.map((item) => item.id),notice:pair('Context only; no sensitive documents or product recommendation.','仅提供背景；不包含敏感文件或产品推荐。')},
+    sammiConversationContext:{reviewVersion:FAMILY_CAPITAL_REVIEW_VERSION,clientPriority:clientPriorityId,focusFoundationIds:unique([...byBucket('now'),...byBucket('next_12_months')].map((item) => item.foundationId)),connectionIds:knowledgeConnections.map((item) => item.id),notice:pair('Review context stays on this page. The contact link includes no answers, financial findings, or personal details.','梳理背景仅保留在本页面；联系链接不包含回答、财务发现或个人信息。')},
   }
 }
