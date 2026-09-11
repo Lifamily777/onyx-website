@@ -109,6 +109,7 @@ const zh = {
 }
 
 export const taxUnderpaymentPenalties = {
+  learning: {"categories": [], "topics": [], "audiences": ["w2", "1099", "small-business"], "generalLearning": true},
   slug:'tax-underpayment-penalties', publishDate:'2026-09-04', status:'published', layout:'taxPenaltyEditorial',
   category:'Tax & Compliance', pillars:['wealth'], insightNumber:6, pillarLabel:'Tax & Compliance',
   keywords:['tax underpayment','accuracy-related penalty','negligence','substantial understatement','valuation misstatement','civil fraud penalty','税务罚金','少缴税款'],

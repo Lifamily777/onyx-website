@@ -188,6 +188,7 @@ const zh = {
 }
 
 export const termVsGulVsIulFamilyCapital = {
+  learning: {"categories": ["tax-now"], "topics": ["iul"], "audiences": ["w2", "1099", "small-business"], "generalLearning": false},
   slug: 'term-vs-gul-vs-iul-family-capital',
   publishDate: '2026-08-10',
   status: 'published',

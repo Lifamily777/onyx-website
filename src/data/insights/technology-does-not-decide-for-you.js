@@ -1,4 +1,5 @@
 export const technologyDoesNotDecideForYou = {
+  learning: {"categories": [], "topics": [], "audiences": [], "generalLearning": true},
   slug: 'technology-does-not-decide-for-you',
   publishDate: '2026-07-16',
   status: 'published',

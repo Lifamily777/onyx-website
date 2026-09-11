@@ -1,5 +1,5 @@
 import { Suspense, useState } from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { Outlet, useParams, useLocation } from 'react-router-dom'
 import Nav from './Nav'
 import Footer from './Footer'
 import VideoModal from './VideoModal'
@@ -36,6 +36,9 @@ export default function Layout({ forceLocale }) {
 }
 
 function LayoutBody({ isValidLocale, activeVideo, openVideo, closeVideo }) {
+  const { pathname } = useLocation()
+  const simplePath = pathname.replace(/^\/zh(?=\/|$)/, '') || '/'
+  const showMap = !['/', '/profile', '/build', '/learn'].includes(simplePath) && !simplePath.startsWith('/strategies')
   useHreflangTags()
   useCanonicalTag()
 
@@ -43,13 +46,13 @@ function LayoutBody({ isValidLocale, activeVideo, openVideo, closeVideo }) {
     <>
       <ScrollToTop />
       <Nav />
-      <div className={readingStyles.frame}>
+      <div className={showMap ? readingStyles.frame : undefined}>
         <div className={readingStyles.content}>
           <Suspense fallback={<div role="status" aria-label="Loading page" />}>
             {isValidLocale ? <Outlet context={{ openVideo }} /> : <NotFound />}
           </Suspense>
         </div>
-        {isValidLocale && <ReadingNavigator />}
+        {isValidLocale && showMap && <ReadingNavigator />}
       </div>
       <Footer />
       {activeVideo && <VideoModal video={activeVideo} onClose={closeVideo} />}

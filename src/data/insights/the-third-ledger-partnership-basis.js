@@ -157,6 +157,7 @@ const zh = {
 }
 
 export const theThirdLedgerPartnershipBasis = {
+  learning: {"categories": ["tax-architecture"], "topics": ["existing-business", "business-structure"], "audiences": ["small-business"], "generalLearning": false},
   slug: 'the-third-ledger-partnership-basis', publishDate: '2026-08-10', status: 'published', layout: 'partnershipEditorial',
   pillars: ['wealth'], insightNumber: 5, pillarLabel: 'Wealth', pillarNumber: 4,
   keywords: ['partnership basis', 'outside basis', 'partner basis tracking', 'Schedule K-1', 'Form 1065', 'partnership distributions', 'partner loans'],

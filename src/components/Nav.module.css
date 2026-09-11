@@ -150,3 +150,6 @@
 .nb.on { color:var(--gold-light); background:rgba(211,193,153,.1); }
 .cta { color:#14110c; background:linear-gradient(135deg,#dfd0ad,#ae9568); border-color:transparent; border-radius:var(--radius-pill); }
 @media (max-width:760px) { .logoName { display:none; } }
+
+/* Keep the four primary paths reachable on phones. */
+@media(max-width:768px) { .inner { flex-wrap:wrap; gap:8px; } .logoName { display:block; font-size:18px; } .links { display:flex; order:3; flex-basis:100%; justify-content:space-between; } .nb { padding:10px 8px; font-size:12px; } }

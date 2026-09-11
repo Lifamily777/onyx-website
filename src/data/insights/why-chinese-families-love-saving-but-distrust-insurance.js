@@ -165,6 +165,7 @@ const sharedContent = {
 }
 
 export const whyChineseFamiliesLoveSavingButDistrustInsurance = {
+  learning: {"categories": ["tax-now"], "topics": ["iul"], "audiences": ["w2", "1099", "small-business"], "generalLearning": true},
   slug: 'why-chinese-families-love-saving-but-distrust-insurance',
   publishDate: '2026-08-10',
   status: 'published',

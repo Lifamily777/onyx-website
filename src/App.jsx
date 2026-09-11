@@ -1,8 +1,13 @@
+import { ProfileSessionProvider } from './features/onyxProfile/ProfileSessionContext'
 import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import HomePage from './components/HomePage'
 import { servicePages } from './data/content'
+
+const OnyxProfilePage = lazy(() => import('./components/OnyxProfilePage'))
+const StrategyPage = lazy(() => import('./components/StrategyPage'))
+const PhaseOneResourcePage = lazy(() => import('./components/PhaseOneResourcePage'))
 
 const ServicePage = lazy(() => import('./components/ServicePage'))
 const ContactPage = lazy(() => import('./components/ContactPage'))
@@ -35,6 +40,13 @@ const FamilyCapitalReviewPage = lazy(() => import('./components/FamilyCapitalRev
 // and the "/:locale" (zh / es / ko) branch, so every existing page and
 // URL continues to resolve in every supported language.
 const pageRoutes = [
+  <Route key="profile" path="profile" element={<OnyxProfilePage />} />,
+  <Route key="strategies" path="strategies" element={<StrategyPage />} />,
+  <Route key="strategy-category" path="strategies/:categoryId" element={<StrategyPage />} />,
+  <Route key="strategy-topic" path="strategies/:categoryId/:topicId" element={<StrategyPage />} />,
+  <Route key="strategy-module" path="strategies/:categoryId/:topicId/:moduleId" element={<StrategyPage />} />,
+  <Route key="build" path="build" element={<PhaseOneResourcePage mode="build" />} />,
+  <Route key="learn" path="learn" element={<PhaseOneResourcePage mode="learn" />} />,
   <Route key="index" index element={<HomePage />} />,
   <Route key="tax" path="tax" element={<ServicePage data={servicePages.tax} />} />,
   <Route key="keep-more" path="keep-more" element={<KnowledgePathPage pathId="keep-more" />} />,
@@ -78,6 +90,7 @@ const pageRoutes = [
 
 export default function App() {
   return (
+    <ProfileSessionProvider>
     <Routes>
       <Route path="/" element={<Layout forceLocale="en" />}>
         {pageRoutes}
@@ -86,5 +99,6 @@ export default function App() {
         {pageRoutes}
       </Route>
     </Routes>
+    </ProfileSessionProvider>
   )
 }

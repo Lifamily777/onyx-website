@@ -1,4 +1,5 @@
 export const waicAiSuperNodeAgentOsOpcAgi = {
+  learning: {"categories": ["tax-architecture"], "topics": ["one-person-company", "new-income"], "audiences": ["1099", "small-business"], "generalLearning": true},
   slug: 'waic-ai-super-node-agent-os-opc-agi',
   publishDate: '2026-07-18',
   status: 'published',

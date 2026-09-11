@@ -5,13 +5,13 @@ import { instagramUrl, youtubeChannelUrl } from '../data/content'
 import styles from './Footer.module.css'
 
 export default function Footer() {
-  const { t, localePath } = useLocale()
+  const { t, locale, localePath } = useLocale()
 
   const columns = [
-    { label: t('nav.keepMore'), to: localePath('/keep-more') },
-    { label: t('nav.buildTomorrow'), to: localePath('/build-for-tomorrow') },
-    { label: t('nav.fundFuture'), to: localePath('/fund-their-future') },
-    { label: t('nav.protectPlan'), to: localePath('/protect-the-plan') },
+    { label: locale === 'zh' ? '了解现状' : 'Assess', to: localePath('/profile') },
+    { label: locale === 'zh' ? '理解策略' : 'Strategize', to: localePath('/strategies') },
+    { label: locale === 'zh' ? '构建未来' : 'Build', to: localePath('/build') },
+    { label: locale === 'zh' ? '持续学习' : 'Learn', to: localePath('/learn') },
     { label: t('footer.columns.about'), to: localePath('/about') },
     { label: t('footer.columns.insights'), to: localePath('/insights') },
     { label: t('footer.columns.assessment'), to: localePath('/capital-map') },
@@ -31,7 +31,7 @@ export default function Footer() {
         <div className={styles.top}>
           <div className={styles.brandBlock}>
             <span className={styles.officialName}>{t('footer.officialName')}</span>
-            <span className={styles.descriptor}>{t('footer.descriptor')}</span>
+            <span className={styles.descriptor}>{locale === 'zh' ? '为 W-2 专业人士、1099 收入者与小企业主提供以教育为先的指导。' : 'Education-first guidance for W-2 professionals, 1099 earners and small business owners.'}</span>
             <span className={styles.domain}>ONYXWW.com</span>
             <div className={styles.socialLinks}>
               <a
