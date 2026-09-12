@@ -15,7 +15,7 @@ const COPY = {
     groups: { DECISIONS:'Decisions', KNOWLEDGE:'Knowledge', 'LIFE EVENTS':'Life Events', TOOLS:'Tools', INSIGHTS:'Insights' },
   },
   zh: {
-    open: '搜索黑曜', title: '搜索黑曜知识库', placeholder: '试试 401(k)、S Corp、529、换工作…',
+    open: '搜索ONYX 黑曜财商', title: '搜索ONYX 黑曜财商知识库', placeholder: '试试 401(k)、S Corp、529、换工作…',
     hint: '搜索决策、知识、人生事件、工具和洞察。', close: '关闭搜索',
     popular: '常用搜索', noResult: '暂时没有完全匹配的内容。', noResultHelp: '你可以浏览完整地图、查看人生事件，或带着这个主题联系 Sammi。',
     map: '浏览人生资本地图', events: '浏览事件雷达', ask: '联系 Sammi', matched: '匹配主题',

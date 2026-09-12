@@ -212,13 +212,13 @@ growth|成长
 strategic|战略
 wellness|健康
 wealth|财富
-ONYX Event Radar|黑曜事件雷达
-ONYX Life Capital Map|黑曜人生资本地图
-ONYX Wellness Map|黑曜健康地图
-ONYX Life Capital Journey|黑曜人生资本旅程
-ONYX Capital Priority Assessment|黑曜资本优先级自测
+ONYX Event Radar|ONYX 黑曜财商事件雷达
+ONYX Life Capital Map|ONYX 黑曜财商人生资本地图
+ONYX Wellness Map|ONYX 黑曜财商健康地图
+ONYX Life Capital Journey|ONYX 黑曜财商人生资本旅程
+ONYX Capital Priority Assessment|ONYX 黑曜财商资本优先级自测
 Wealth & Wellness|财富与健康
-ONYX 4-Minute Foundation Check · 18 Questions|黑曜四分钟基础自测 · 18个问题
+ONYX 4-Minute Foundation Check · 18 Questions|ONYX 黑曜财商四分钟基础自测 · 18个问题
 Explore Wealth and Wellness across six life-capital stages with educational tools, events, and practical next steps.|通过教育工具、生活事件与实用下一步，探索六个人生资本阶段中的财富与健康。
 Explore retirement, healthcare, protection, assets, business, legacy, and work optionality as an educational planning horizon.|从教育性规划视角，探索退休、医疗、保障、资产、企业、传承与工作选择权。
 An optional bilingual check that highlights financial foundations, planning events, organization, and long-term capital areas worth exploring.|一项可选自测，帮助了解值得探索的财务基础、规划事件、资料整理与长期资本主题。

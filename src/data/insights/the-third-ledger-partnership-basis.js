@@ -104,7 +104,7 @@ const zhTexts = [
   '第二套账——Capital Account——可能反映 contributions、income、losses、distributions 和其他 ownership changes。它讲述 ownership story 的重要一部分，但 Capital Account ≠ Outside Basis。',
   'Outside Basis 还可能包含 Partner 对某些 Partnership liabilities 的份额，以及其他 partner-level adjustments。这些内容不一定会整齐地出现在普通经营账里。',
   '第三套账——Partner Basis Ledger——记录的是每位 Partner ownership interest 持续变化的税务历史。它回答：“从税务角度看，我今天在这家 Partnership 里到底有多少 basis？”',
-  '“第三套账”是黑曜提出的教育框架，不是一张额外的 IRS 法定表格。但背后的责任是真实的：IRS guidance 表明，每位 Partner 都有责任保存计算 adjusted Outside Basis 所需的信息。',
+  '“第三套账”是黑曜财商提出的教育框架，不是一张额外的 IRS 法定表格。但背后的责任是真实的：IRS guidance 表明，每位 Partner 都有责任保存计算 adjusted Outside Basis 所需的信息。',
   'Lee 的 Basis：一年一年算清楚',
   '',
   '这是简化示例，不是完整的 basis worksheet。一般来说，income 增加 basis；distributions 和 losses 减少 basis；某些 qualifying Partnership liabilities 的增加会提高 basis，而相关负债份额的减少会降低 basis。',
@@ -121,7 +121,7 @@ const zhTexts = [
   '当“少掉的这本账”开始变贵',
   '',
   '记录不完整可能导致 Partnership loss 扣除报得过高、cash distribution 的 taxable gain 报得过低、退出时的 gain or loss 计算错误，或 Partner records、Schedule K-1、debt allocations 与以前年度税表之间出现矛盾。',
-  '多年后重建历史还可能带来专业费用、amended returns、additional tax、statutory interest，以及视具体事实和适用法律而定的 penalties。仅仅没有一份黑曜所说的“第三套账”，不会自动产生处罚；真正的问题是错误申报。',
+  '多年后重建历史还可能带来专业费用、amended returns、additional tax、statutory interest，以及视具体事实和适用法律而定的 penalties。仅仅没有一份黑曜财商所说的“第三套账”，不会自动产生处罚；真正的问题是错误申报。',
   'IRS 不会因为大家对当年的事情各有一个版本，就替你选择最顺耳的那个。很多年以后，记忆并不等于记录。',
   '为什么普通经营账可能会漏掉它',
   '会计可能收到 POS reports、vendor invoices 和 bank statements。但这些资料未必说明 Lee 的 $20,000 是 contribution 还是 loan，Maya 的冰柜是贡献给公司还是只借给公司使用，它的 adjusted tax basis 是多少，或 David 的个人垫付款应该如何归类。',
@@ -140,12 +140,12 @@ const zhTexts = [
   '不确定自己的 Partnership Basis 有没有被持续、正确地记录？',
   '如果您的企业过去几年发生过 Partner contributions、distributions、个人垫付款、Partner Loans、property contributions、债务变化或 ownership changes，那么在真正发生退出、出售、大额 Distribution 或税务检查之前，把这些历史整理清楚，通常比事后重建容易得多。',
   'ONYX Wealth & Wellness 可以帮助小企业主整理 partner-level records、识别缺失资料、建立 Partner Basis Tracking Ledger，并把相关信息协调到可以交由适当税务或法律专业人士审核的程度。',
-  '如果您对自己的 Partnership 记录有疑问，可以联系黑曜与我们讨论。',
+  '如果您对自己的 Partnership 记录有疑问，可以联系黑曜财商与我们讨论。',
 ]
 
 const zh = {
   title: '第三套账', subtitle: '很多 Partnership 老板平时不知道它存在，等真正需要时，往往已经有点晚了。',
-  seoTitle: '第三套账：为什么 Partnership 老板需要持续记录 Tax Basis | 黑曜',
+  seoTitle: '第三套账：为什么 Partnership 老板需要持续记录 Tax Basis | 黑曜财商',
   seoDescription: '很多 Partnership 老板有经营账、每年也收到 K-1，却没有持续维护完整的 Outside Basis 记录。了解 Partner basis 如何影响 losses、distributions、debt 与退出。',
   readingTime: 20,
   blocks: en.blocks.map((block, index) => {

@@ -1,10 +1,10 @@
 // Simplified Chinese — human-authored initial translation (not machine-translated).
 export default {
   brand: {
-    shortName: '黑曜',
+    shortName: 'ONYX 黑曜财商',
   },
   meta: {
-    title: 'ONYX Wealth & Wellness｜成长型家庭资本',
+    title: 'ONYX 黑曜财商｜成长型家庭资本',
     description:
       '面向 W-2 工薪人士、1099 自雇人士和成长型家庭的知识教育与财务决策导航平台。',
   },
@@ -27,7 +27,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness',
+    officialName: 'ONYX 黑曜财商',
     brandLine: '理解复杂世界，共建美好人生。',
     descriptor: '面向 W-2 工薪人士、1099 自雇人士和成长型家庭的教育优先决策导航平台。',
     domainLabel: 'ONYXWW.com',
@@ -55,7 +55,7 @@ export default {
       eyebrow: 'PAYROLL · RETIREMENT · PROTECTION',
       supporting: '收入、税务、生意、退休等人生目标，从来都不是彼此孤立的。',
       bridge:
-        '黑曜以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
+        'ONYX 黑曜财商以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
       ctaPrimary: '探索资本地图',
       ctaSecondary: '最近发生了变化',
       ctaTertiary: '家庭资本梳理',
@@ -121,7 +121,7 @@ export default {
     learningTogether: {
       headline: '一起学习',
       paragraphs: [
-        '黑曜并不是建立在"一个人拥有所有答案"这个假设之上。',
+        'ONYX 黑曜财商并不是建立在"一个人拥有所有答案"这个假设之上。',
         '它建立在这样一个信念上：终身学习者在公开分享所学时，会变得更加强大。',
         '在这里，我记录自己正在研究的内容，把它整理成实用的知识，在合适的地方加以验证，并分享那些看起来真正有用的部分。',
         '每一篇文章、每一支视频、每一个框架、每一次尝试和每一个教训，都是这段旅程中的一步。',
@@ -172,13 +172,13 @@ export default {
   placeholders: {
     about: {
       eyebrow: '关于我们',
-      title: '关于黑曜',
+      title: '关于ONYX 黑曜财商',
       body: 'ONYX Wealth & Wellness 是一个以知识教育和财务决策导航为核心的平台，主要服务 W-2 工薪人士、1099 自雇人士和处于事业与家庭成长阶段的家庭。',
     },
     insights: {
       eyebrow: '洞察',
       title: '洞察 · 即将上线',
-      body: '这里将陆续发布黑曜关于财富、健康与智能的文章、学习笔记与视频。目前还没有正式内容——比起用占位内容填满页面，我们更愿意先把这里留白。',
+      body: '这里将陆续发布ONYX 黑曜财商关于财富、健康与智能的文章、学习笔记与视频。目前还没有正式内容——比起用占位内容填满页面，我们更愿意先把这里留白。',
     },
     intelligence: {
       eyebrow: '智能',
@@ -188,17 +188,17 @@ export default {
     privacy: {
       eyebrow: '法律信息',
       title: '隐私政策',
-      body: '黑曜完整的隐私政策正在准备中。本页面为占位内容，尚不构成具有约束力的隐私政策，请稍后再查看。',
+      body: 'ONYX 黑曜财商完整的隐私政策正在准备中。本页面为占位内容，尚不构成具有约束力的隐私政策，请稍后再查看。',
     },
     terms: {
       eyebrow: '法律信息',
       title: '使用条款',
-      body: '黑曜完整的使用条款正在准备中。本页面为占位内容，尚不构成具有约束力的条款，请稍后再查看。',
+      body: 'ONYX 黑曜财商完整的使用条款正在准备中。本页面为占位内容，尚不构成具有约束力的条款，请稍后再查看。',
     },
     disclosures: {
       eyebrow: '法律信息',
       title: '信息披露',
-      body: '黑曜提供的是通用教育内容，并不构成个性化的财务、税务、法律、医疗、投资或保险建议，除非通过明确声明的、具备相应资质的专业服务关系提供。完整的信息披露页面（包括相关商业合作关系）正在准备中。',
+      body: 'ONYX 黑曜财商提供的是通用教育内容，并不构成个性化的财务、税务、法律、医疗、投资或保险建议，除非通过明确声明的、具备相应资质的专业服务关系提供。完整的信息披露页面（包括相关商业合作关系）正在准备中。',
     },
   },
 
@@ -233,7 +233,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: '前往 YouTube 观看税务视频 ↗',
-    latestVideosLabel: '黑曜频道最新视频',
+    latestVideosLabel: 'ONYX 黑曜财商频道最新视频',
     targetProfileLabel: '适配人群',
     fieldDataLabel: '真实场景',
   },
@@ -261,7 +261,7 @@ export default {
 
   glossaryPage: {
     eyebrow: '术语表',
-    indexTitle: '黑曜术语库',
+    indexTitle: 'ONYX 黑曜财商术语库',
     indexSubtitle: '用清晰、准确的语言，解释正在塑造财富、健康与智能时代的重要概念。',
     indexEmpty: '目前还没有正式发布的术语。',
     noResultsLabel: '未找到相关术语。',
@@ -300,7 +300,7 @@ export default {
       comingSoonLabel: '即将上线',
       knowledgeBaseLabel: '知识库',
       keyTopicsLabel: '核心主题',
-      exploreGlossaryCta: '探索黑曜术语库',
+      exploreGlossaryCta: '探索ONYX 黑曜财商术语库',
       bookAppointmentCta: '预约咨询',
     },
     wealth: {

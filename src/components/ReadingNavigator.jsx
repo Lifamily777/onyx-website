@@ -21,7 +21,7 @@ export default function ReadingNavigator() {
   return <aside className={styles.panel} aria-label={zh ? '全站架构与当前位置' : 'Site architecture and current position'}>
     <p className={styles.title}>{zh ? '全站架构' : 'The whole ONYX map'}</p>
     <nav aria-label={zh ? '完整架构导航' : 'Full architecture navigation'}>
-      <div className={styles.root}>{tile({path:'/',en:'ONYX · Home',zh:'黑曜 · 首页'},false,position.path === '/')}</div>
+      <div className={styles.root}>{tile({path:'/',en:'ONYX · Home',zh:'ONYX 黑曜财商 · 首页'},false,position.path === '/')}</div>
       <section className={styles.branch}><h2>{zh ? '四个家庭规划方向' : 'Four planning paths'}</h2><div className={styles.paths}>{ARCHITECTURE_PATHS.map(item=>tile(item))}</div></section>
       <section className={styles.branch}><h2>{tile({path:'/capital-map',en:'Life Capital Map',zh:'人生资本地图'},false,position.path === '/capital-map')}</h2>
         <div className={styles.columns}><span>{zh ? '六个层次' : 'Six layers'}</span><span>{zh ? '财富' : 'Wealth'}</span><span>{zh ? '健康' : 'Wellness'}</span></div>
