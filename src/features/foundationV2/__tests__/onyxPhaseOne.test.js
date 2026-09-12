@@ -26,7 +26,8 @@ test('all eight discovery areas have unique fields, bilingual choices and explic
  for (const field of fields) {
   assert.ok(field.label.en && field.label.zh)
   assert.ok(field.options.some(o => o.id === 'unknown'))
-  assert.ok(field.options.some(o => o.id === 'private'))
+  if (['has-trust', 'estate-priority'].includes(field.id)) assert.deepEqual(field.options.map(o => o.id), ['yes', 'no', 'unknown'])
+  else assert.ok(field.options.some(o => o.id === 'private'))
   assert.equal(new Set(field.options.map(o => o.id)).size, field.options.length)
   field.options.forEach(o => assert.ok(o.label.en && o.label.zh))
  }

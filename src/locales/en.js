@@ -199,12 +199,12 @@ export default {
     privacy: {
       eyebrow: 'LEGAL',
       title: 'Privacy Policy',
-      body: 'A complete privacy policy is being prepared for ONYX. This page is a placeholder and does not yet constitute a binding privacy policy. Please check back soon.',
+      body: "The ONYX Profile stores selected answers and progress in this browser tab’s temporary session storage. In the current implementation, Profile answers are not sent to ONYX servers, a CRM, analytics platforms or an external PDF service. Internal navigation, language changes and refresh preserve answers when browser storage is available. Use Clear My Profile or End Session to explicitly remove the Profile record; clearing it does not delete PDF copies you have saved. Closing a tab normally ends its session, but browser recovery may restore it. Storage can be blocked or fail, and browser leave warnings are not guaranteed. Save a local PDF if you need a permanent copy. PDF generation happens on your device and requests a static font file from this site; it does not include your answers in that request. Do not enter passwords, Social Security numbers, account numbers or other sensitive identifiers. This describes the Profile, not a promise that browsing is anonymous: hosting, security and site analytics may process technical visit information. External links and videos involve other providers and their policies. The hosting and analytics configuration, operator contact details and applicable privacy obligations require confirmation before production publication.",
     },
     terms: {
       eyebrow: 'LEGAL',
       title: 'Terms of Use',
-      body: 'Complete terms of use are being prepared for ONYX. This page is a placeholder and does not yet constitute binding terms. Please check back soon.',
+      body: "ONYX provides general education and tools for organizing questions. Website use, a Profile answer or a generated PDF does not create an attorney-client, tax-advisory, investment-advisory or insurance-service relationship. ONYX does not draft trusts or determine whether legal documents are valid. Consult qualified professionals in the relevant jurisdiction before acting on tax, legal, investment, insurance or benefits questions. Examples and educational outlines do not establish eligibility, suitability or a particular financial outcome. Content and external resources may change; confirm current information before making decisions. Local summaries reflect the answers supplied and are not verified financial plans. Keep your own records and do not rely on browser storage as a permanent archive. These website-use guidelines do not claim to be counsel-approved contractual terms. Operator details and jurisdiction-specific terms require legal review before production publication.",
     },
     disclosures: {
       eyebrow: 'LEGAL',

@@ -1377,6 +1377,68 @@ export const profileSections = [
             }
           }
         ]
+      },
+      {
+        "id": "has-trust",
+        "label": {
+          "en": "Do you currently have a trust?",
+          "zh": "您目前是否已有信托？"
+        },
+        "type": "select",
+        "options": [
+          {
+            "id": "yes",
+            "label": {
+              "en": "Yes",
+              "zh": "是"
+            }
+          },
+          {
+            "id": "no",
+            "label": {
+              "en": "No",
+              "zh": "否"
+            }
+          },
+          {
+            "id": "unknown",
+            "label": {
+              "en": "Not sure",
+              "zh": "不确定"
+            }
+          }
+        ]
+      },
+      {
+        "id": "estate-priority",
+        "label": {
+          "en": "Is estate / inheritance planning currently a priority?",
+          "zh": "遗产与传承规划目前是否是您关注的重点？"
+        },
+        "type": "select",
+        "options": [
+          {
+            "id": "yes",
+            "label": {
+              "en": "Yes",
+              "zh": "是"
+            }
+          },
+          {
+            "id": "no",
+            "label": {
+              "en": "No",
+              "zh": "否"
+            }
+          },
+          {
+            "id": "unknown",
+            "label": {
+              "en": "Not sure",
+              "zh": "不确定"
+            }
+          }
+        ]
       }
     ]
   },

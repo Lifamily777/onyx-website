@@ -3,7 +3,7 @@ import ContentLibraryView from './ContentLibraryView'
 import { Link, useParams } from 'react-router-dom'
 import { useLocale } from '../i18n/LocaleContext'
 import useDocumentMeta from '../hooks/useDocumentMeta'
-import { strategies, realEstateModules, learningSections, resolveStrategy, textFor } from '../features/onyxProfile/strategies'
+import { strategies, learningSections, resolveStrategy, textFor, strategyModules, trustLearningSections, trustEducationNotice } from '../features/onyxProfile/strategies'
 import NotFound from './NotFound'
 import styles from './PhaseOne.module.css'
 
@@ -27,17 +27,20 @@ export default function StrategyPage() {
  const zh = locale === 'zh'
  const text = value => textFor(value, locale)
  const { category, topic } = resolveStrategy(categoryId, topicId)
- const module = realEstateModules.find(item => item.id === moduleId)
+ const modules = strategyModules(categoryId, topicId)
+ const module = modules.find(item => item.id === moduleId)
+ const isTrustEstate = categoryId === 'tax-architecture' && topicId === 'trust-estate'
  const isRealEstate = categoryId === 'tax-advantage' && topicId === 'real-estate'
- const title = moduleId && isRealEstate && module ? text(module.title) : topic ? text(topic.title) : category ? text(category.title) : (zh ? '税务策略中心' : 'Tax Strategy Hub')
+ const title = moduleId && module ? text(module.title) : topic ? text(topic.title) : category ? text(category.title) : (zh ? '税务策略中心' : 'Tax Strategy Hub')
  useDocumentMeta(title + ' · ONYX', zh ? '先理解选择，再讨论适合自己的策略。' : 'Understand the choices before discussing what fits your situation.')
- if ((categoryId && !category) || (topicId && !topic) || (moduleId && (!isRealEstate || !module))) return <NotFound />
+ if ((categoryId && !category) || (topicId && !topic) || (moduleId && !module)) return <NotFound />
  const base = '/strategies/' + categoryId
  const outlineId = moduleId || topicId
  return <main className={styles.page}>
   <p className={styles.eyebrow}>{zh ? '策略 · 教育先于实施' : 'Strategize · Education before implementation'}</p>
-  {category && <Link to={localePath(moduleId ? base + '/real-estate' : topicId ? base : '/strategies')}>← {moduleId ? (zh ? '房地产策略' : 'Real Estate Strategies') : topicId ? text(category.title) : (zh ? '策略中心' : 'Strategy Hub')}</Link>}
+  {category && <Link to={localePath(moduleId ? base + '/' + topicId : topicId ? base : '/strategies')}>← {moduleId ? text(topic.title) : topicId ? text(category.title) : (zh ? '策略中心' : 'Strategy Hub')}</Link>}
   <h1>{title}</h1>
+  {isTrustEstate && <p className={styles.note}>{text(trustEducationNotice)}</p>}
   {!category ? <>
    <p>{zh ? '四类策略可以同时发挥不同作用，而不是四种互斥的产品选择。先理解每一类的任务，再结合完整情况与专业人士讨论。' : 'Four categories can do different jobs at the same time. They are not mutually exclusive product choices. Understand each role, then discuss it in the context of your whole financial life.'}</p>
    <div className={styles.grid}>{strategies.map(item => <Link className={styles.card} key={item.id} to={localePath('/strategies/' + item.id)}><h2>{text(item.title)} →</h2><p>{text(item.description)}</p></Link>)}</div>
@@ -48,18 +51,18 @@ export default function StrategyPage() {
    <p>{text(category.description)}</p>
    {category.id === 'tax-now' && <p className={styles.note}>{zh ? '退休账户与保险解决不同问题。IUL 属于寿险，不是 Roth、退休账户、投资账户或 Roth 的直接替代品。' : 'Retirement accounts and insurance address different needs. IUL is life insurance, not a Roth account, retirement account, investment account or direct Roth substitute.'}</p>}
    {category.groups.map(group => <section key={group.title.en}><h2>{text(group.title)}</h2><div className={styles.grid}>{group.items.map(item => <Link className={styles.card} to={localePath(base + '/' + item.id)} key={item.id}><h3>{text(item.title)} →</h3><p>{zh ? '查看教育主题纲要' : 'Explore the educational outline'}</p></Link>)}</div></section>)}
-  </> : isRealEstate && !moduleId ? <>
-   <p>{zh ? '房地产首先是一种资本配置选择：考虑现金流、增值、融资与管理责任。实际税务待遇取决于个人事实与适用法律；不能仅凭问卷判断。' : 'Real estate is first a capital allocation choice: consider cash flow, appreciation, financing and management responsibilities. Its actual tax treatment depends on individual facts and applicable law; a questionnaire cannot determine it.'}</p>
-   <div className={styles.grid}>{realEstateModules.map(item => <Link className={styles.card} to={localePath(base + '/real-estate/' + item.id)} key={item.id}><h2>{text(item.title)} →</h2><p>{zh ? '未来教育路径 · 查看纲要' : 'Future learning pathway · View outline'}</p></Link>)}</div>
+  </> : (isRealEstate || isTrustEstate) && !moduleId ? <>
+   {!isTrustEstate && <p>{zh ? '房地产首先是一种资本配置选择：考虑现金流、增值、融资与管理责任。实际税务待遇取决于个人事实与适用法律；不能仅凭问卷判断。' : 'Real estate is first a capital allocation choice: consider cash flow, appreciation, financing and management responsibilities. Its actual tax treatment depends on individual facts and applicable law; a questionnaire cannot determine it.'}</p>}
+   <div className={styles.grid}>{modules.map(item => <Link className={styles.card} to={localePath(base + '/' + topicId + '/' + item.id)} key={item.id}><h2>{text(item.title)} →</h2><p>{zh ? '未来教育路径 · 查看纲要' : 'Future learning pathway · View outline'}</p></Link>)}</div>
 
   </> : <>
    <p>{zh ? '教育纲要 · 详细内容尚未发布。以下主题将在核实资料并完成专业审阅后逐步补充。' : 'Educational outline · Detailed guidance is not yet published. These topics will be developed after source verification and professional review.'}</p>
    {topics[outlineId] && <div className={styles.note}><h2>{zh ? '计划涵盖的主题' : 'Planned learning topics'}</h2><p>{topics[outlineId][zh ? 1 : 0]}</p></div>}
    {topicId === 'iul' && <div className={styles.note}><p>{zh ? 'IUL 是寿险，而不是 Roth、退休账户、投资账户或 Roth 的直接替代品。未来内容先从风险、需求与替代方案开始，再讨论产品、成本与保单风险。' : 'IUL is life insurance, not a Roth account, retirement account, investment account or direct Roth substitute. Future education begins with risk, needs and alternatives before products, costs and policy risks.'}</p><h2>{zh ? '探索演示方案' : 'Explore an Illustration'}</h2><p>{zh ? '未来功能，尚未开放。没有接入保险公司或演示引擎。' : 'Future feature, not yet available. No carrier or illustration engine is connected.'}</p></div>}
-   <div className={styles.grid}>{learningSections.filter(item => !['ONYX articles', 'ONYX videos', 'Authoritative resources'].includes(item.en)).map(item => <section className={styles.card} key={item.en}><h2>{text(item)}</h2><p>{zh ? '教育内容筹备中。' : 'Educational content forthcoming.'}</p>{item.en === 'ONYX articles' && <Link to={localePath('/insights')}>{zh ? '浏览现有 Insights' : 'Browse existing Insights'} →</Link>}{item.en === 'Authoritative resources' && <Link to={localePath('/learn')}>{zh ? '浏览资源目录' : 'Browse the resource directory'} →</Link>}</section>)}</div>
+   <div className={styles.grid}>{(isTrustEstate ? trustLearningSections : learningSections).filter(item => !['ONYX articles', 'ONYX videos', 'Authoritative resources'].includes(item.en)).map(item => <section className={styles.card} key={item.en}><h2>{text(item)}</h2><p>{zh ? '教育内容筹备中。' : 'Educational content forthcoming.'}</p>{item.en === 'ONYX articles' && <Link to={localePath('/insights')}>{zh ? '浏览现有 Insights' : 'Browse existing Insights'} →</Link>}{item.en === 'Authoritative resources' && <Link to={localePath('/learn')}>{zh ? '浏览资源目录' : 'Browse the resource directory'} →</Link>}</section>)}</div>
   </>}
   {category && <ContentLibraryView key={`${categoryId}/${topicId || ''}/${moduleId || ''}`} contextual categoryId={categoryId} topicId={moduleId || topicId || ''} />}
-  {categoryId === 'tax-architecture' && <div className={styles.note}><p>{zh ? '商业路径应以真实经营与盈利目的为出发点，不能用于制造扣除。设立 LLC、发生费用或出现亏损，不会自动产生抵减 W-2 收入的资格。未来内容将讨论普通且必要的费用、盈利动机、被动活动、税基、风险承担限制及其他适用要求。' : 'Business pathways begin with genuine activity and a profit motive, not manufactured deductions. Forming an LLC, incurring expenses or having losses does not automatically establish W-2 offsets. Future education will address ordinary and necessary expenses, profit motive, passive activity, basis, at-risk limits and other applicable requirements.'}</p></div>}
+  {categoryId === 'tax-architecture' && !isTrustEstate && <div className={styles.note}><p>{zh ? '商业路径应以真实经营与盈利目的为出发点，不能用于制造扣除。设立 LLC、发生费用或出现亏损，不会自动产生抵减 W-2 收入的资格。未来内容将讨论普通且必要的费用、盈利动机、被动活动、税基、风险承担限制及其他适用要求。' : 'Business pathways begin with genuine activity and a profit motive, not manufactured deductions. Forming an LLC, incurring expenses or having losses does not automatically establish W-2 offsets. Future education will address ordinary and necessary expenses, profit motive, passive activity, basis, at-risk limits and other applicable requirements.'}</p></div>}
   <p className={styles.note}>{zh ? '这是教育框架，不是个性化财务、税务或投资建议。适用性、资格与限制需要结合事实及现行规则审阅。' : 'This is an educational framework, not personalized financial, tax or investment advice. Fit, eligibility and limitations require review of your facts and current rules.'}</p>
   <div className={styles.actions}><Link className={styles.button} to={localePath('/profile')}>{zh ? '了解我的概况' : 'Understand my profile'}</Link><Link to={localePath('/learn')}>{zh ? '继续学习' : 'Keep learning'} →</Link></div>
  </main>

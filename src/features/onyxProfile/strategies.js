@@ -237,6 +237,21 @@ export const strategies = [
             }
           }
         ]
+      },
+      {
+        "title": {
+          "en": "Trust & estate coordination",
+          "zh": "信托与传承协调"
+        },
+        "items": [
+          {
+            "id": "trust-estate",
+            "title": {
+              "en": "Trust & Estate Structure",
+              "zh": "信托与传承架构"
+            }
+          }
+        ]
       }
     ]
   }
@@ -316,4 +331,34 @@ export function resolveStrategy(categoryId, topicId) {
  const category = strategies.find(item => item.id === categoryId)
  const topic = category?.groups.flatMap(group => group.items).find(item => item.id === topicId)
  return { category, topic }
+}
+
+// Educational route metadata only. Published resources stay in the canonical Content Library.
+export const trustEstateModules = [
+ { id: 'revocable-living-trust', title: { en: 'Revocable Living Trust', zh: '可撤销生前信托' } },
+ { id: 'irrevocable-trust', title: { en: 'Irrevocable Trust', zh: '不可撤销信托' } },
+ { id: 'ilit', title: { en: 'Irrevocable Life Insurance Trust (ILIT)', zh: '不可撤销寿险信托（ILIT）' } },
+ { id: 'special-needs-trust', title: { en: 'Special Needs Trust', zh: '特殊需要信托' } },
+ { id: 'beneficiary-estate-coordination', title: { en: 'Beneficiary & Estate Coordination', zh: '受益人与传承安排协调' } },
+ { id: 'family-business-asset-transfer', title: { en: 'Family / Business Asset Transfer', zh: '家庭与企业资产传承' } },
+]
+export const trustLearningSections = [
+ { en: 'What is it?', zh: '这是什么？' },
+ { en: 'Who might need to understand it?', zh: '谁可能需要了解？' },
+ { en: 'What problem may it address?', zh: '可能涉及哪些问题？' },
+ { en: 'Ownership and control considerations', zh: '所有权与控制权考量' },
+ { en: 'Tax and estate considerations', zh: '税务与传承考量' },
+ { en: 'Important limitations', zh: '重要限制' },
+ { en: 'When it may fit', zh: '哪些情况值得进一步了解？' },
+ { en: 'When it may not fit', zh: '哪些情况可能不适合？' },
+ { en: 'Future professional coordination', zh: '未来的专业协调' },
+]
+export const trustEducationNotice = {
+ en: 'These are educational pathways, not trust recommendations or legal drafting services. ONYX does not determine whether a trust is needed, valid or suitable. An attorney qualified in the relevant jurisdiction must review legal documents, ownership and beneficiary arrangements; tax and benefits questions may need separate qualified review. No tax savings, asset protection or benefits eligibility is promised.',
+ zh: '这些路径仅供学习，不是信托推荐或法律文件起草服务。ONYX 不判断是否需要信托，也不判断信托的效力或适用性。法律文件、所有权与受益人安排需要由相关司法辖区具备资格的律师审阅；税务与福利问题可能还需另行接受专业审阅。不承诺节税、资产保护或福利资格。',
+}
+export function strategyModules(categoryId, topicId) {
+ if (categoryId === 'tax-advantage' && topicId === 'real-estate') return realEstateModules
+ if (categoryId === 'tax-architecture' && topicId === 'trust-estate') return trustEstateModules
+ return []
 }

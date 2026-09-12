@@ -25,6 +25,8 @@ function renderInline(block, localePath, styles) {
 }
 
 function TableMetaphor() {
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
   const functions = [
     ['Liquidity', '流动性'],
     ['Growth', '增长'],
@@ -38,30 +40,29 @@ function TableMetaphor() {
       <div className={styles.tableLegs}>
         {functions.map(([en, zh]) => (
           <div key={en} className={styles.tableLeg}>
-            <span>{en}</span>
-            <small lang="zh-CN">{zh}</small>
+            <span>{isChinese ? zh : en}</span>
           </div>
         ))}
       </div>
-      <figcaption>
+      <figcaption>{isChinese ? <>不同的任务，共同支撑一个家庭。</> : <>
         Different functions. Shared stability.
-        <span lang="zh-CN">不同的任务，共同支撑一个家庭。</span>
+        </>}
       </figcaption>
     </figure>
   )
 }
 
 function BilingualEditorialArticle({ data, t, localePath }) {
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
   return (
     <div className={`${styles.wrap} ${styles.editorialWrap} page-enter`}>
       <article>
         <header className={styles.editorialHero}>
           <p className={styles.editorialEyebrow}>ONYX INSIGHT</p>
-          <h1 className={styles.editorialTitle}>{data.titleEn}</h1>
-          <p className={styles.editorialTitleZh} lang="zh-CN">{data.titleZh}</p>
+          <h1 className={styles.editorialTitle}>{isChinese ? data.titleZh : data.titleEn}</h1>
           <div className={styles.editorialSubtitle}>
-            <p>{data.subtitleEn}</p>
-            <p lang="zh-CN">{data.subtitleZh}</p>
+            <p>{isChinese ? data.subtitleZh : data.subtitleEn}</p>
           </div>
           <div className={styles.editorialByline}>
             <strong>{data.author}</strong>
@@ -75,8 +76,7 @@ function BilingualEditorialArticle({ data, t, localePath }) {
             if (block.type === 'pairHeading') {
               return (
                 <section key={i} className={`${styles.pairHeading} ${block.climax ? styles.climaxHeading : ''}`}>
-                  <h2>{block.en}</h2>
-                  <p lang="zh-CN">{block.zh}</p>
+                  <h2>{isChinese ? block.zh : block.en}</h2>
                 </section>
               )
             }
@@ -86,16 +86,14 @@ function BilingualEditorialArticle({ data, t, localePath }) {
                 key={i}
                 className={`${styles.pair} ${block.lead ? styles.pairLead : ''} ${block.short ? styles.pairShort : ''} ${block.emphasis ? styles.pairEmphasis : ''}`}
               >
-                <p className={styles.pairEn}>{block.en}</p>
-                <p className={styles.pairZh} lang="zh-CN">{block.zh}</p>
+                <p className={styles.pairEn}>{isChinese ? block.zh : block.en}</p>
               </div>
             )
           })}
         </div>
 
         <blockquote className={styles.editorialQuote}>
-          <p>{data.closingQuote.en}</p>
-          <p lang="zh-CN">{data.closingQuote.zh}</p>
+          <p>{isChinese ? data.closingQuote.zh : data.closingQuote.en}</p>
         </blockquote>
 
         <footer className={styles.editorialFooter}>
@@ -104,8 +102,7 @@ function BilingualEditorialArticle({ data, t, localePath }) {
             <span>{data.authorTitle}</span>
           </div>
           <div className={styles.editorialDisclosure}>
-            <p>{data.disclosure.en}</p>
-            <p lang="zh-CN">{data.disclosure.zh}</p>
+            <p>{isChinese ? data.disclosure.zh : data.disclosure.en}</p>
           </div>
           <Link to={localePath('/insights')} className={styles.backLink}>
             {t('insightsPage.backToIndex')}
@@ -168,6 +165,8 @@ const insuranceLabels = {
 }
 
 function InsuranceVisual({ type, block }) {
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
   const labels = insuranceLabels.en
   const labelsZh = insuranceLabels.zh
 
@@ -175,7 +174,7 @@ function InsuranceVisual({ type, block }) {
     return (
       <figure className={`${styles.jobsVisual} ${block.strong ? styles.jobsStrong : ''}`}>
         {labels.jobs.map(([tool, job], i) => (
-          <div key={tool}><strong>{tool}</strong><span>{job}</span><small lang="zh-CN">{labelsZh.jobs[i][1]}</small></div>
+          <div key={tool}><strong>{tool}</strong><span>{isChinese ? labelsZh.jobs[i][1] : job}</span></div>
         ))}
       </figure>
     )
@@ -188,10 +187,10 @@ function InsuranceVisual({ type, block }) {
           const familyZh = labelsZh.families[i]
           return (
           <section key={family.title}>
-            <p className={styles.visualTag}>{family.tag}<small lang="zh-CN">{familyZh.tag}</small></p>
-            <h3>{family.title}<small lang="zh-CN">{familyZh.title}</small></h3>
-            <ul>{family.facts.map((item, j) => <li key={item}>{item}<small lang="zh-CN">{familyZh.facts[j]}</small></li>)}</ul>
-            <div className={styles.familyPath}>{family.path.map((item, j) => <span key={item}>{item}<small lang="zh-CN">{familyZh.path[j]}</small></span>)}</div>
+            <p className={styles.visualTag}>{isChinese ? familyZh.tag : family.tag}</p>
+            <h3>{isChinese ? familyZh.title : family.title}</h3>
+            <ul>{family.facts.map((item, j) => <li key={item}>{isChinese ? familyZh.facts[j] : item}</li>)}</ul>
+            <div className={styles.familyPath}>{family.path.map((item, j) => <span key={item}>{isChinese ? familyZh.path[j] : item}</span>)}</div>
           </section>
           )
         })}
@@ -202,9 +201,9 @@ function InsuranceVisual({ type, block }) {
   if (type === 'ladder') {
     return (
       <figure className={styles.capitalLadder}>
-        <figcaption>{labels.ladderTitle}<small lang="zh-CN">{labelsZh.ladderTitle}</small></figcaption>
-        <ol>{labels.ladder.map((item, i) => <li key={item} className={i === labels.ladder.length - 1 ? styles.advancedStep : ''}>{item}<small lang="zh-CN">{labelsZh.ladder[i]}</small></li>)}</ol>
-        <p>{labels.advanced}<small lang="zh-CN">{labelsZh.advanced}</small></p>
+        <figcaption>{isChinese ? labelsZh.ladderTitle : labels.ladderTitle}</figcaption>
+        <ol>{labels.ladder.map((item, i) => <li key={item} className={i === labels.ladder.length - 1 ? styles.advancedStep : ''}>{isChinese ? labelsZh.ladder[i] : item}</li>)}</ol>
+        <p>{isChinese ? labelsZh.advanced : labels.advanced}</p>
       </figure>
     )
   }
@@ -212,61 +211,60 @@ function InsuranceVisual({ type, block }) {
   return (
     <div className={styles.matrixScroll} role="region" aria-label="Term, GUL and IUL decision matrix / Term、GUL 与 IUL 决策矩阵" tabIndex="0">
       <table className={styles.decisionMatrix}>
-        <thead><tr>{labels.columns.map((item, i) => <th key={item}>{item}<small lang="zh-CN">{labelsZh.columns[i]}</small></th>)}</tr></thead>
-        <tbody>{labels.matrixRows.map((row, rowIndex) => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th key={`${row[0]}-${i}`} scope="row">{cell}<small lang="zh-CN">{labelsZh.matrixRows[rowIndex][i]}</small></th> : <td key={`${row[0]}-${i}`}>{cell}<small lang="zh-CN">{labelsZh.matrixRows[rowIndex][i]}</small></td>)}</tr>)}</tbody>
+        <thead><tr>{labels.columns.map((item, i) => <th key={item}>{isChinese ? labelsZh.columns[i] : item}</th>)}</tr></thead>
+        <tbody>{labels.matrixRows.map((row, rowIndex) => <tr key={row[0]}>{row.map((cell, i) => i === 0 ? <th key={`${row[0]}-${i}`} scope="row">{isChinese ? labelsZh.matrixRows[rowIndex][i] : cell}</th> : <td key={`${row[0]}-${i}`}>{isChinese ? labelsZh.matrixRows[rowIndex][i] : cell}</td>)}</tr>)}</tbody>
       </table>
     </div>
   )
 }
 
 function InsuranceEditorialArticle({ insight, data, englishData, chineseData, t, localePath, isFallback }) {
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
 
   return (
     <div className={`${styles.wrap} ${styles.insuranceWrap} page-enter`}>
-      <article lang="en">
+      <article lang={isChinese ? 'zh-CN' : 'en'}>
         <header className={styles.insuranceHero}>
           <p className={styles.editorialEyebrow}>ONYX INSIGHT #{String(insight.insightNumber).padStart(3, '0')}</p>
           {isFallback && <p className={styles.languageNotice}>{t('insightsPage.languageNotice')}</p>}
-          <h1>{englishData.title}</h1>
-          <p className={styles.insuranceTitleZh} lang="zh-CN">{chineseData.title}</p>
+          <h1>{isChinese ? chineseData.title : englishData.title}</h1>
           <div className={styles.insuranceSubtitle}>
-            <p>{englishData.subtitle}</p>
-            <p lang="zh-CN">{chineseData.subtitle}</p>
+            <p>{isChinese ? chineseData.subtitle : englishData.subtitle}</p>
           </div>
           <div className={styles.editorialByline}>
             <strong>{insight.author}</strong><span>{insight.authorTitle}</span>
-            <small>{englishData.readingTime} {t('insightsPage.minReadSuffix')}</small>
+            <small>{(isChinese ? chineseData : englishData).readingTime} {t('insightsPage.minReadSuffix')}</small>
           </div>
         </header>
 
         <Link to={localePath(`/insights/${insight.previousSlug}`)} className={styles.previousInsight}>
-          <span>{englishData.previousLabel} · <span lang="zh-CN">{chineseData.previousLabel}</span></span>
-          <strong>{englishData.previousTitle}</strong>
-          <small lang="zh-CN">{chineseData.previousTitle}</small>
+          <span>{isChinese ? <>{chineseData.previousLabel}</> : <>{englishData.previousLabel} · </>}</span>
+          <strong>{isChinese ? chineseData.previousTitle : englishData.previousTitle}</strong>
         </Link>
 
         <div className={styles.insuranceBody}>
           {englishData.blocks.map((block, i) => {
             const blockZh = chineseData.blocks[i]
-            if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{block.title}</h2><p lang="zh-CN">{blockZh.title}</p></section>
+            if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{isChinese ? blockZh.title : block.title}</h2></section>
             if (['jobs', 'families', 'ladder', 'matrix'].includes(block.type)) return <InsuranceVisual key={i} type={block.type} block={block} />
-            if (block.type === 'definitions') return <section key={i} className={styles.definitionGrid}>{block.items.map((item, j) => <article key={item.term}><h2>{item.term}</h2><p>{item.text}</p><h3 lang="zh-CN">{blockZh.items[j].term}</h3><p lang="zh-CN">{blockZh.items[j].text}</p></article>)}</section>
-            if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{block.text}</p><p lang="zh-CN">{blockZh.text}</p></aside>
-            if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item, j) => <li key={item}><span>{item}</span><small lang="zh-CN">{blockZh.items[j]}</small></li>)}</ul>
-            if (block.type === 'questions') return <div key={i} className={styles.questionGrid}>{block.items.map((item, j) => <section key={item.q}><span>0{j + 1}</span><h3>{item.q}</h3><p>{item.a}</p><h4 lang="zh-CN">{blockZh.items[j].q}</h4><p lang="zh-CN">{blockZh.items[j].a}</p></section>)}</div>
-            if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{block.text}</p><p lang="zh-CN">{blockZh.text}</p></blockquote>
-            if (block.type === 'closing') return <div key={i} className={styles.insuranceClosing}><p>{block.text}</p><p lang="zh-CN">{blockZh.text}</p></div>
-            return <div key={i} className={`${styles.insurancePair} ${block.lead ? styles.insuranceLead : ''}`}><p>{block.text}</p><p lang="zh-CN">{blockZh.text}</p></div>
+            if (block.type === 'definitions') return <section key={i} className={styles.definitionGrid}>{block.items.map((item, j) => <article key={item.term}><h2>{isChinese ? blockZh.items[j].term : item.term}</h2><p>{isChinese ? blockZh.items[j].text : item.text}</p></article>)}</section>
+            if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{isChinese ? blockZh.text : block.text}</p></aside>
+            if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item, j) => <li key={item}><span>{isChinese ? blockZh.items[j] : item}</span></li>)}</ul>
+            if (block.type === 'questions') return <div key={i} className={styles.questionGrid}>{block.items.map((item, j) => <section key={item.q}><span>0{j + 1}</span><h3>{isChinese ? blockZh.items[j].q : item.q}</h3><p>{isChinese ? blockZh.items[j].a : item.a}</p></section>)}</div>
+            if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{isChinese ? blockZh.text : block.text}</p></blockquote>
+            if (block.type === 'closing') return <div key={i} className={styles.insuranceClosing}><p>{isChinese ? blockZh.text : block.text}</p></div>
+            return <div key={i} className={`${styles.insurancePair} ${block.lead ? styles.insuranceLead : ''}`}><p>{isChinese ? blockZh.text : block.text}</p></div>
           })}
         </div>
 
         <footer className={styles.insuranceFooter}>
           <section className={styles.sourceList}>
-            <h2>{englishData.sourcesTitle}<small lang="zh-CN">{chineseData.sourcesTitle}</small></h2>
+            <h2>{isChinese ? chineseData.sourcesTitle : englishData.sourcesTitle}</h2>
             <ul>{englishData.sources.map((source) => <li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul>
           </section>
           <div className={styles.authorSignature}><strong>{insight.author}</strong><span>{insight.authorTitle}</span></div>
-          <div className={styles.insuranceDisclaimer}><p>{englishData.disclaimer}</p><p lang="zh-CN">{chineseData.disclaimer}</p></div>
+          <div className={styles.insuranceDisclaimer}><p>{isChinese ? chineseData.disclaimer : englishData.disclaimer}</p></div>
           <Link to={localePath('/insights')} className={styles.backLink}>{t('insightsPage.backToIndex')}</Link>
         </footer>
       </article>
@@ -275,14 +273,16 @@ function InsuranceEditorialArticle({ insight, data, englishData, chineseData, t,
 }
 
 function PartnershipVisual({ type }) {
-  if (type === 'restaurant') return <figure className={styles.restaurantStory}><div><span>LEE</span><strong>Supplier whisperer</strong><small lang="zh-CN">最会和供应商谈价格</small></div><div><span>MAYA</span><strong>Customer instinct</strong><small lang="zh-CN">客人结账前就知道他会不会再来</small></div><div><span>DAVID</span><strong>Duct-tape confidence</strong><small lang="zh-CN">螺丝刀、胶带，以及不太合理的自信</small></div></figure>
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
+  if (type === 'restaurant') return <figure className={styles.restaurantStory}><div><span>LEE</span><strong>{isChinese ? <>最会和供应商谈价格</> : <>Supplier whisperer</>}</strong></div><div><span>MAYA</span><strong>{isChinese ? <>客人结账前就知道他会不会再来</> : <>Customer instinct</>}</strong></div><div><span>DAVID</span><strong>{isChinese ? <>螺丝刀、胶带，以及不太合理的自信</> : <>Duct-tape confidence</>}</strong></div></figure>
   if (type === 'ledgers') return (
     <figure className={styles.ledgerGrid} aria-label="Three complementary partnership records">
       {[
         ['01', 'Business Books', '经营账', 'How is the business doing?', '公司经营得怎么样？'],
         ['02', 'Capital Account', '资本账户', 'Part of the ownership story', 'ownership story 的一部分'],
         ['03', 'Partner Basis Ledger', 'Partner Basis 记录', 'The Partner’s tax story', '每位 Partner 的税务故事'],
-      ].map(([n, en, zh, desc, descZh]) => <section key={n}><span>{n}</span><h3>{en}</h3><h4 lang="zh-CN">{zh}</h4><p>{desc}</p><small lang="zh-CN">{descZh}</small></section>)}
+      ].map(([n, en, zh, desc, descZh]) => <section key={n}><span>{n}</span><h3>{isChinese ? zh : en}</h3><p>{isChinese ? descZh : desc}</p></section>)}
     </figure>
   )
   if (type === 'rollforward') {
@@ -295,36 +295,38 @@ function PartnershipVisual({ type }) {
       ['Cash Distribution', '现金 Distribution', '−$8,000', 'down'],
       ['Allocated Partnership Loss', '分配到的 Partnership Loss', '−$5,000', 'down'],
     ]
-    return <figure className={styles.basisRollforward}><figcaption>Lee’s simplified Outside Basis rollforward<small lang="zh-CN">Lee 的简化 Outside Basis 变动表</small></figcaption>{rows.map(([en, zh, amount, tone]) => <div key={en}><p>{en}<small lang="zh-CN">{zh}</small></p><strong className={tone ? styles[tone] : ''}>{amount}</strong></div>)}<div className={styles.basisTotal}><p>Ending Outside Basis<small lang="zh-CN">期末 Outside Basis</small></p><strong>$83,000</strong></div></figure>
+    return <figure className={styles.basisRollforward}><figcaption>{isChinese ? <>Lee 的简化 Outside Basis 变动表</> : <>Lee’s simplified Outside Basis rollforward</>}</figcaption>{rows.map(([en, zh, amount, tone]) => <div key={en}><p>{isChinese ? zh : en}</p><strong className={tone ? styles[tone] : ''}>{amount}</strong></div>)}<div className={styles.basisTotal}><p>{isChinese ? <>期末 Outside Basis</> : <>Ending Outside Basis</>}</p><strong>$83,000</strong></div></figure>
   }
-  if (type === 'basisRule') return <figure className={styles.basisRule}><div><span>+$30,000</span><strong>Income builds basis.</strong><small lang="zh-CN">Income 在建立 basis。</small></div><div><span>−$10,000</span><strong>Distribution uses basis.</strong><small lang="zh-CN">Distribution 在使用 basis。</small></div></figure>
-  if (type === 'consequences') return <figure className={styles.consequenceGrid}>{[['01','Loss deductions','Loss deductions'],['02','Cash distributions','现金 distributions'],['03','Sale or exit','出售或退出'],['04','Debt changes','债务变化']].map(([n,en,zh])=><div key={n}><span>{n}</span><strong>{en}</strong><small lang="zh-CN">{zh}</small></div>)}</figure>
-  if (type === 'missingLedger') return <figure className={styles.missingLedgerCard}>{[['Loss deduction','可能报得过高'],['Distribution gain','可能报得过低'],['Sale gain or loss','可能计算错误'],['Historical reconstruction','可能昂贵又费时']].map(([en,zh])=><div key={en}><strong>{en}</strong><small lang="zh-CN">{zh}</small></div>)}<p>Incorrect reporting may mean additional tax, statutory interest, and—depending on the facts—potential penalties.<small lang="zh-CN">错误申报可能带来 additional tax、statutory interest，以及视具体事实而定的 penalties。</small></p></figure>
-  if (type === 'transaction') return <figure className={styles.transactionFlow}><div><strong>PARTNER</strong><small lang="zh-CN">合伙人</small></div><p><span>Money · Property · Debt</span><small lang="zh-CN">资金 · 财产 · 债务</small></p><div><strong>PARTNERSHIP</strong><small lang="zh-CN">合伙企业</small></div></figure>
-  if (type === 'storyClose') return <figure className={styles.storyClose}><p>Three years later, Lee asks:</p><blockquote>“What is my basis?”</blockquote><p lang="zh-CN">三年后，Lee 再次问：“我的 basis 是多少？”</p><strong>This time, nobody stares at the ceiling.<br />Someone opens the Third Ledger. The history is there.</strong><small lang="zh-CN">这一次，没有人抬头盯着天花板。有人打开第三套账，历史都在那里。</small></figure>
+  if (type === 'basisRule') return <figure className={styles.basisRule}><div><span>+$30,000</span><strong>{isChinese ? <>Income 在建立 basis。</> : <>Income builds basis.</>}</strong></div><div><span>−$10,000</span><strong>{isChinese ? <>Distribution 在使用 basis。</> : <>Distribution uses basis.</>}</strong></div></figure>
+  if (type === 'consequences') return <figure className={styles.consequenceGrid}>{[['01','Loss deductions','Loss deductions'],['02','Cash distributions','现金 distributions'],['03','Sale or exit','出售或退出'],['04','Debt changes','债务变化']].map(([n,en,zh])=><div key={n}><span>{n}</span><strong>{isChinese ? zh : en}</strong></div>)}</figure>
+  if (type === 'missingLedger') return <figure className={styles.missingLedgerCard}>{[['Loss deduction','可能报得过高'],['Distribution gain','可能报得过低'],['Sale gain or loss','可能计算错误'],['Historical reconstruction','可能昂贵又费时']].map(([en,zh])=><div key={en}><strong>{en}</strong>{isChinese && <small>{zh}</small>}</div>)}<p>{isChinese ? <>错误申报可能带来 additional tax、statutory interest，以及视具体事实而定的 penalties。</> : <>Incorrect reporting may mean additional tax, statutory interest, and—depending on the facts—potential penalties.</>}</p></figure>
+  if (type === 'transaction') return <figure className={styles.transactionFlow}><div><strong>{isChinese ? <>合伙人</> : <>PARTNER</>}</strong></div><p><span>{isChinese ? <>资金 · 财产 · 债务</> : <>Money · Property · Debt</>}</span></p><div><strong>{isChinese ? <>合伙企业</> : <>PARTNERSHIP</>}</strong></div></figure>
+  if (type === 'storyClose') return <figure className={styles.storyClose}>{!isChinese && <p>Three years later, Lee asks:</p>}<blockquote>{isChinese ? <>三年后，Lee 再次问：“我的 basis 是多少？”</> : <>“What is my basis?”</>}</blockquote><strong>{isChinese ? <>这一次，没有人抬头盯着天花板。有人打开第三套账，历史都在那里。</> : <>This time, nobody stares at the ceiling.<br />Someone opens the Third Ledger. The history is there.</>}</strong></figure>
   if (type === 'takeaway') return <figure className={styles.thirdLedgerTakeaway}>{[
     ['Business books tell you what the company did.', '公司的经营账，告诉你公司做了什么。'],
     ['Capital accounts tell you part of the ownership story.', 'Capital accounts，告诉你 ownership story 的一部分。'],
     ["Basis tells you the Partner's tax story.", 'Basis，告诉你每一位 Partner 自己的税务故事。'],
     ['A good Partnership should know where all three stories are being kept.', '一个经营得好的 Partnership，应该知道这三个故事分别被记录在哪里。'],
-  ].map(([en,zh])=><div key={en}><p>{en}</p><small lang="zh-CN">{zh}</small></div>)}</figure>
+  ].map(([en,zh])=><div key={en}><p>{isChinese ? zh : en}</p></div>)}</figure>
   return null
 }
 
 function PartnershipEditorialArticle({ insight, englishData, chineseData, t, localePath, isFallback }) {
-  return <div className={`${styles.wrap} ${styles.insuranceWrap} ${styles.partnershipWrap} page-enter`}><article lang="en">
-    <header className={styles.insuranceHero}><p className={styles.editorialEyebrow}>ONYX INSIGHT #{String(insight.insightNumber).padStart(3, '0')}</p>{isFallback && <p className={styles.languageNotice}>{t('insightsPage.languageNotice')}</p>}<h1>{englishData.title}</h1><p className={styles.insuranceTitleZh} lang="zh-CN">{chineseData.title}</p><div className={styles.insuranceSubtitle}><p>{englishData.subtitle}</p><p lang="zh-CN">{chineseData.subtitle}</p></div><div className={styles.editorialByline}><strong>{insight.author}</strong><span>{insight.authorTitle}</span><small>{englishData.readingTime} {t('insightsPage.minReadSuffix')}</small></div></header>
+  const { locale } = useLocale()
+  const isChinese = locale === 'zh'
+  return <div className={`${styles.wrap} ${styles.insuranceWrap} ${styles.partnershipWrap} page-enter`}><article lang={isChinese ? 'zh-CN' : 'en'}>
+    <header className={styles.insuranceHero}><p className={styles.editorialEyebrow}>ONYX INSIGHT #{String(insight.insightNumber).padStart(3, '0')}</p>{isFallback && <p className={styles.languageNotice}>{t('insightsPage.languageNotice')}</p>}<h1>{isChinese ? chineseData.title : englishData.title}</h1><div className={styles.insuranceSubtitle}><p>{isChinese ? chineseData.subtitle : englishData.subtitle}</p></div><div className={styles.editorialByline}><strong>{insight.author}</strong><span>{insight.authorTitle}</span><small>{(isChinese ? chineseData : englishData).readingTime} {t('insightsPage.minReadSuffix')}</small></div></header>
     <div className={styles.insuranceBody}>{englishData.blocks.map((block, i) => {
       const zh = chineseData.blocks[i]
-      if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{block.title}</h2><p lang="zh-CN">{zh.title}</p></section>
+      if (block.type === 'h2') return <section key={i} className={styles.insuranceHeading}><span>{block.eyebrow}</span><h2>{isChinese ? zh.title : block.title}</h2></section>
       if (['restaurant','ledgers','rollforward','basisRule','consequences','missingLedger','transaction','storyClose','takeaway'].includes(block.type)) return <PartnershipVisual key={i} type={block.type} />
-      if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></aside>
-      if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></blockquote>
-      if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item,j)=><li key={item}><span>{item}</span><small lang="zh-CN">{zh.items[j]}</small></li>)}</ul>
-      if (block.type === 'cta') return <aside key={i} className={styles.partnershipCta}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p><Link to={localePath('/contact')}>Contact ONYX · 联系黑曜财商</Link></aside>
-      return <div key={i} className={`${styles.insurancePair} ${block.lead ? styles.insuranceLead : ''}`}><p>{block.text}</p><p lang="zh-CN">{zh.text}</p></div>
+      if (block.type === 'callout') return <aside key={i} className={styles.insuranceCallout}><p>{isChinese ? zh.text : block.text}</p></aside>
+      if (block.type === 'quote') return <blockquote key={i} className={styles.insuranceQuote}><p>{isChinese ? zh.text : block.text}</p></blockquote>
+      if (block.type === 'list') return <ul key={i} className={styles.insuranceList}>{block.items.map((item,j)=><li key={item}><span>{isChinese ? zh.items[j] : item}</span></li>)}</ul>
+      if (block.type === 'cta') return <aside key={i} className={styles.partnershipCta}><p>{isChinese ? zh.text : block.text}</p><Link to={localePath('/contact')}>{isChinese ? '联系黑曜财商' : 'Contact ONYX'}</Link></aside>
+      return <div key={i} className={`${styles.insurancePair} ${block.lead ? styles.insuranceLead : ''}`}><p>{isChinese ? zh.text : block.text}</p></div>
     })}</div>
-    <footer className={styles.insuranceFooter}><section className={styles.sourceList}><h2>{englishData.sourcesTitle}<small lang="zh-CN">{chineseData.sourcesTitle}</small></h2><ul>{englishData.sources.map(source=><li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section><div className={styles.authorSignature}><strong>{insight.author}</strong><span>{insight.authorTitle}</span></div><div className={styles.insuranceDisclaimer}><p>{englishData.disclaimer}</p><p lang="zh-CN">{chineseData.disclaimer}</p></div><Link to={localePath('/insights')} className={styles.backLink}>{t('insightsPage.backToIndex')}</Link></footer>
+    <footer className={styles.insuranceFooter}><section className={styles.sourceList}><h2>{isChinese ? chineseData.sourcesTitle : englishData.sourcesTitle}</h2><ul>{englishData.sources.map(source=><li key={source.href}><a href={source.href} target="_blank" rel="noreferrer">{source.label}</a></li>)}</ul></section><div className={styles.authorSignature}><strong>{insight.author}</strong><span>{insight.authorTitle}</span></div><div className={styles.insuranceDisclaimer}><p>{isChinese ? chineseData.disclaimer : englishData.disclaimer}</p></div><Link to={localePath('/insights')} className={styles.backLink}>{t('insightsPage.backToIndex')}</Link></footer>
   </article></div>
 }
 
@@ -345,12 +347,12 @@ export default function InsightArticlePage() {
         structuredData: {
           '@context': 'https://schema.org',
           '@type': 'Article',
-          headline: data.titleEn || data.title,
+          headline: (locale === 'zh' ? data.titleZh : data.titleEn) || data.title,
           description: data.seoDescription,
           datePublished: insight.publishDate,
           inLanguage: resolvedLocale === 'zh' ? 'zh-CN' : 'en-US',
           author: { '@type': 'Person', name: data.author || insight.author },
-          publisher: { '@type': 'Organization', name: 'ONYX Wealth & Wellness Club' },
+          publisher: { '@type': 'Organization', name: t('footer.officialName') },
         },
       }
     : {}
