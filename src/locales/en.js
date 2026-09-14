@@ -147,7 +147,7 @@ export default {
         'Finance Systems & Digital Transformation',
         'Small Business Building & Operations',
         'Restaurant & Home Service Experience',
-        'U.S. Tax Student (EA Candidate)',
+        'U.S. Tax Student',
         'AI & Business Process Practice',
       ],
       paragraphs: [
@@ -199,33 +199,90 @@ export default {
     privacy: {
       eyebrow: 'LEGAL',
       title: 'Privacy Policy',
-      body: "The ONYX Profile stores selected answers and progress in this browser tab’s temporary session storage. In the current implementation, Profile answers are not sent to ONYX servers, a CRM, analytics platforms or an external PDF service. Internal navigation, language changes and refresh preserve answers when browser storage is available. Use Clear My Profile or End Session to explicitly remove the Profile record; clearing it does not delete PDF copies you have saved. Closing a tab normally ends its session, but browser recovery may restore it. Storage can be blocked or fail, and browser leave warnings are not guaranteed. Save a local PDF if you need a permanent copy. PDF generation happens on your device and requests a static font file from this site; it does not include your answers in that request. Do not enter passwords, Social Security numbers, account numbers or other sensitive identifiers. This describes the Profile, not a promise that browsing is anonymous: hosting, security and site analytics may process technical visit information. External links and videos involve other providers and their policies. The hosting and analytics configuration, operator contact details and applicable privacy obligations require confirmation before production publication.",
+      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual, not an ONYX LLC or corporation. Contact and privacy inquiries are handled through tiantian.qian7@gmail.com.",
+      sections: [
+  {
+    "title": "Contact inquiries",
+    "body": "When you submit the Contact form, your name, email address, language preference, selected situation and message are sent through Cloudflare Pages Functions and Resend to the operator’s Gmail inbox so the operator can review and respond. Your email address is used as the Reply-To address. Submission identifiers and basic request checks help prevent duplicate messages and abuse. A success message means the email provider accepted the request; it does not guarantee inbox delivery or a response time. Do not include passwords, Social Security numbers, account numbers, medical records or other sensitive documents."
+  },
+  {
+    "title": "Profile and browser storage",
+    "body": "The ONYX Profile stores selected answers and progress in the current browser tab’s session storage when available. In the current implementation, Profile answers are not automatically sent to ONYX servers or an external PDF service. Navigation, language changes and refresh preserve this record when storage is available. Clear My Profile or End Session removes the Profile record, but does not necessarily clear unrelated storage used by other ONYX tools, including capital assessment progress in local storage, or PDF copies you have saved. Closing a tab normally ends its session, but browser recovery may restore it. Storage can be blocked or fail; it is not a permanent archive."
+  },
+  {
+    "title": "PDF files",
+    "body": "Profile PDF generation happens locally in your browser. It requests a static font file from this website without including Profile answers in that request. Saved PDFs remain wherever you choose to store or share them."
+  },
+  {
+    "title": "Hosting and other providers",
+    "body": "Cloudflare Pages hosts the production website. Cloudflare processes technical request information to deliver and protect the site. The reviewed application code does not include an analytics SDK; this is not a promise of anonymous browsing or an absence of hosting logs. Opening external links or playing embedded YouTube videos involves other providers, which may process technical information and use cookies under their own policies. Contact delivery involves Resend and Gmail; their processing and retention practices also apply."
+  },
+  {
+    "title": "Questions and updates",
+    "body": "Contact the operator at tiantian.qian7@gmail.com with questions or requests about information you have submitted. Browser records and downloaded PDFs must also be managed on your device. This policy may be updated as ONYX services and integrations evolve."
+  }
+],
     },
     terms: {
       eyebrow: 'LEGAL',
       title: 'Terms of Use',
-      body: "ONYX provides general education and tools for organizing questions. Website use, a Profile answer or a generated PDF does not create an attorney-client, tax-advisory, investment-advisory or insurance-service relationship. ONYX does not draft trusts or determine whether legal documents are valid. Consult qualified professionals in the relevant jurisdiction before acting on tax, legal, investment, insurance or benefits questions. Examples and educational outlines do not establish eligibility, suitability or a particular financial outcome. Content and external resources may change; confirm current information before making decisions. Local summaries reflect the answers supplied and are not verified financial plans. Keep your own records and do not rely on browser storage as a permanent archive. These website-use guidelines do not claim to be counsel-approved contractual terms. Operator details and jurisdiction-specific terms require legal review before production publication.",
+      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual. The website provides general education and tools for organizing questions across wealth, wellness and family capital. Contact: tiantian.qian7@gmail.com.",
+      sections: [
+  {
+    "title": "Professional boundaries",
+    "body": "Website use, a Contact inquiry, a Profile answer or a generated PDF does not by itself establish an attorney-client, tax-advisory, investment-advisory or insurance-service relationship. ONYX does not draft trusts or determine legal-document validity. Consult appropriately qualified professionals before acting on tax, legal, investment, insurance, medical or benefits questions."
+  },
+  {
+    "title": "Using the information and tools",
+    "body": "Examples and educational outlines do not establish eligibility, suitability or a financial outcome. Local summaries reflect the answers supplied and are not verified financial plans. Content and external resources may change; confirm current information before making decisions. Keep your own records and do not rely on browser storage as a permanent archive. Do not submit sensitive identifiers or confidential documents through Contact, and do not use the form for spam or abusive messages."
+  },
+  {
+    "title": "Related information",
+    "body": "The Privacy Policy explains current information handling. Disclosures describe the operator’s insurance license, commercial interests and educational boundaries. A Contact acceptance message is not an appointment confirmation or a promise of response within a particular time."
+  }
+],
     },
     disclosures: {
       eyebrow: 'LEGAL',
       title: 'Disclosures',
-      body: 'ONYX provides general educational content and does not provide individualized financial, tax, legal, medical, investment, or insurance advice unless explicitly stated through an appropriately licensed professional relationship. A complete disclosures page, including any relevant commercial relationships, is being prepared.',
+      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual. ONYX provides educational information and tools about financial, tax, retirement, insurance, real-estate, business, trust/estate and family-capital concepts. General website content does not by itself constitute individualized tax, legal, investment, insurance or medical advice.",
+      sections: [
+  {
+    "title": "Life insurance license and compensation",
+    "body": "Sammi Q / TianTian Qian holds California Life Insurance License No. 4565444. Insurance-related activity may result in commissions or other compensation when an insurance product is purchased. ONYX is not an insurance carrier. This website does not establish a carrier appointment, employment relationship, endorsement or exclusive representation. Product discussions require appropriate licensing and review of individual needs and alternatives."
+  },
+  {
+    "title": "USANA relationship",
+    "body": "Sammi Q is an independent USANA Associate and may receive compensation from qualifying USANA product sales or business activity. This creates a financial interest in that activity. USANA is an optional resource, not the assumed answer to a wellness assessment. Business activity does not guarantee income. Any future recommendation or business-opportunity content should include a clear disclosure near that content."
+  },
+  {
+    "title": "Professional boundaries",
+    "body": "ONYX is not presented as a law firm, CPA firm, registered investment adviser, insurance carrier or tax preparation firm. Sammi Q is a U.S. tax student, not represented as an Enrolled Agent. Trust and estate material is educational, does not create an attorney-client relationship and is not trust drafting. Tax information depends on individual facts and applicable federal and state law. Investment education is not individualized securities advice; wellness education is not medical diagnosis or treatment."
+  },
+  {
+    "title": "Examples, tools and further review",
+    "body": "Assessments, Family Capital Review and Profile summaries help organize questions; they do not determine eligibility or provide a verified professional plan. No tax savings, investment returns, business income or insurance outcomes are promised. Insurance illustrations, if introduced, must distinguish assumptions and non-guaranteed values from contractual guarantees. Advanced educational outlines retain their source-verification and qualified-review requirements."
+  }
+],
     },
   },
 
   contact: {
-    sammiRole: 'Finance Systems & Digital Transformation · Small Business Operations · U.S. Tax Student (EA Candidate)',
+    sending: 'Sending…',
+    failure: 'We could not confirm acceptance. Your message remains below. Please wait and retry without changing it, or contact us by email. A delayed request may still arrive.',
+    privacyNote: 'Your inquiry is processed by our email services so we can respond. Please review our',
+    sammiRole: 'Finance Systems & Digital Transformation · Small Business Operations · U.S. Tax Student',
     headline: 'Start with a structured conversation.',
     supporting:
       "We'll begin with what you are trying to understand, identify useful questions and resources, and clarify a practical next step—without pressure or an immediate product recommendation.",
     languagesLine: 'English & Mandarin',
     modalityLine: 'Virtual or in-person',
-    responseLine: 'Response within 24 hours',
+    responseLine: 'Follow-up as soon as reasonably possible',
     form: {
       fullNameLabel: 'Full Name',
       fullNamePlaceholder: 'Your name',
-      contactLabel: 'Contact',
-      contactPlaceholder: 'Email, phone, or WeChat ID',
+      contactLabel: 'Email',
+      contactPlaceholder: 'you@example.com',
       languageLabel: 'Preferred Language',
       languageOptions: ['English', 'Chinese (Mandarin)', 'Both'],
       situationLabel: 'Your Situation',
@@ -236,11 +293,11 @@ export default {
         'All three — full planning',
       ],
       moreLabel: 'Tell Us More (optional)',
-      morePlaceholder: "e.g. High blood sugar, overpaying taxes, child's immunity...",
+      morePlaceholder: "Briefly describe your question. Please omit sensitive personal information.",
       submit: 'Submit',
     },
-    thanksTitle: 'Thank you',
-    thanksSub: "We'll be in touch within 24 hours.",
+    thanksTitle: 'Message accepted',
+    thanksSub: "Your message was accepted by our email provider. We’ll review it and follow up as soon as reasonably possible.",
   },
 
   servicePage: {

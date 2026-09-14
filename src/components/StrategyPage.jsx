@@ -23,7 +23,7 @@ const topics = {
 }
 export default function StrategyPage() {
  const { categoryId, topicId, moduleId } = useParams()
- const { locale, localePath } = useLocale()
+ const { locale, localePath, t } = useLocale()
  const zh = locale === 'zh'
  const text = value => textFor(value, locale)
  const { category, topic } = resolveStrategy(categoryId, topicId)
@@ -58,6 +58,7 @@ export default function StrategyPage() {
   </> : <>
    <p>{zh ? '教育纲要 · 详细内容尚未发布。以下主题将在核实资料并完成专业审阅后逐步补充。' : 'Educational outline · Detailed guidance is not yet published. These topics will be developed after source verification and professional review.'}</p>
    {topics[outlineId] && <div className={styles.note}><h2>{zh ? '计划涵盖的主题' : 'Planned learning topics'}</h2><p>{topics[outlineId][zh ? 1 : 0]}</p></div>}
+   {outlineId === 'wellness-business' && <p className={styles.note}>{t('placeholders.disclosures.sections')[1].body} <Link to={localePath('/disclosures')}>{t('placeholders.disclosures.title')}</Link></p>}
    {topicId === 'iul' && <div className={styles.note}><p>{zh ? 'IUL 是寿险，而不是 Roth、退休账户、投资账户或 Roth 的直接替代品。未来内容先从风险、需求与替代方案开始，再讨论产品、成本与保单风险。' : 'IUL is life insurance, not a Roth account, retirement account, investment account or direct Roth substitute. Future education begins with risk, needs and alternatives before products, costs and policy risks.'}</p><h2>{zh ? '探索演示方案' : 'Explore an Illustration'}</h2><p>{zh ? '未来功能，尚未开放。没有接入保险公司或演示引擎。' : 'Future feature, not yet available. No carrier or illustration engine is connected.'}</p></div>}
    <div className={styles.grid}>{(isTrustEstate ? trustLearningSections : learningSections).filter(item => !['ONYX articles', 'ONYX videos', 'Authoritative resources'].includes(item.en)).map(item => <section className={styles.card} key={item.en}><h2>{text(item)}</h2><p>{zh ? '教育内容筹备中。' : 'Educational content forthcoming.'}</p>{item.en === 'ONYX articles' && <Link to={localePath('/insights')}>{zh ? '浏览现有 Insights' : 'Browse existing Insights'} →</Link>}{item.en === 'Authoritative resources' && <Link to={localePath('/learn')}>{zh ? '浏览资源目录' : 'Browse the resource directory'} →</Link>}</section>)}</div>
   </>}
