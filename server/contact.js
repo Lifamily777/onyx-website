@@ -35,8 +35,8 @@ async function readBody(request) {
 export async function handleContact({ request, env }, fetchEmail = fetch, now = Date.now()) {
   const url = new URL(request.url)
   if (request.method !== 'POST') return json(405, 'method')
-  // RC2 is deliberately Preview-only, even if a secret is accidentally added elsewhere.
-  if (!/^([a-f0-9]{8}|codex-onyx-rc2)\.onyxww\.pages\.dev$/.test(url.hostname) || !env.RESEND_API_KEY) return json(503, 'unavailable')
+  // Allow the existing Preview hosts and the two approved production domains.
+  if (!/^(?:([a-f0-9]{8}|codex-onyx-rc2)\.onyxww\.pages\.dev|onyxww\.com|www\.onyxww\.com)$/.test(url.hostname) || !env.RESEND_API_KEY) return json(503, 'unavailable')
   if (request.headers.get('origin') !== url.origin || request.headers.get('content-type')?.split(';')[0].trim() !== 'application/json') return json(403, 'request')
   if (!allow(request.headers.get('CF-Connecting-IP') || 'unknown', now)) return json(429, 'rate')
   let data

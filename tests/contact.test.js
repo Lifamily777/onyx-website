@@ -27,8 +27,8 @@ test('provider accepts fixed recipient/sender and validated Reply-To; retries re
  assert.equal(calls[0].headers['Idempotency-Key'], calls[1].headers['Idempotency-Key'])
  assert.equal(calls[0].body, calls[1].body)
 })
-test('production and other projects fail closed even with a secret', async () => {
- for (const host of ['onyxww.com', 'www.onyxww.com', 'onyxww.pages.dev', 'main.onyxww.pages.dev', 'abcd1234.onyx-website-dqb.pages.dev', 'evil.onyxww.pages.dev']) {
+test('unapproved hosts fail closed even with a secret', async () => {
+ for (const host of ['onyxww.com.evil.example', 'evil.onyxww.com', 'wwwonyxww.com', 'onyxww.pages.dev', 'main.onyxww.pages.dev', 'abcd1234.onyx-website-dqb.pages.dev', 'evil.onyxww.pages.dev']) {
   assert.equal((await handleContact(context(undefined, { url: `https://${host}/api/contact` }), never, now)).status, 503)
  }
 })
@@ -67,3 +67,26 @@ test('Chinese message is preserved in plain-text email', async () => {
  }, now)
  assert.equal(response.status, 200)
 })
+
+const allowedHosts = ['codex-onyx-rc2.onyxww.pages.dev', 'ad9c0477.onyxww.pages.dev', 'onyxww.com', 'www.onyxww.com']
+for (const host of allowedHosts) {
+ test(`approved host ${host} reaches provider and accepts confirmation`, async () => {
+  let called = false
+  const response = await handleContact(context(undefined, { url: `https://${host}/api/contact` }), async () => {
+   called = true
+   return Response.json({ id: 'accepted-id' })
+  }, now)
+  assert.equal(called, true)
+  assert.equal(response.status, 200)
+  assert.equal((await response.json()).accepted, true)
+ })
+ test(`approved host ${host} fails safely with missing or rejected secret`, async () => {
+  const make = () => context(undefined, { url: `https://${host}/api/contact` })
+  const missing = make(); missing.env = {}
+  assert.equal((await handleContact(missing, never, now)).status, 503)
+  const invalid = make(); invalid.env = { RESEND_API_KEY: 'invalid-test-only' }
+  const response = await handleContact(invalid, async () => Response.json({ message: 'Invalid API key' }, { status: 401 }), now)
+  assert.equal(response.status, 502)
+  assert.deepEqual(await response.json(), { accepted: false, code: 'provider' })
+ })
+}
