@@ -4,6 +4,7 @@ import useDocumentMeta from '../hooks/useDocumentMeta'
 import { getInsightBySlug, resolveInsightContent } from '../data/insights'
 import { getTermsByInsightSlug, resolveTermContent } from '../data/glossary'
 import NotFound from './NotFound'
+import LocalizedEditorialArticle from './LocalizedEditorialArticle'
 import styles from './InsightArticlePage.module.css'
 
 // Renders a text block's inline content. Most blocks carry plain `text`;
@@ -340,7 +341,7 @@ export default function InsightArticlePage() {
   const { data, isFallback, resolvedLocale } = resolveInsightContent(insight, locale)
   const relatedTerms = getTermsByInsightSlug(insight.slug)
 
-  const isEditorialLayout = ['bilingualEditorial', 'insuranceEditorial', 'partnershipEditorial'].includes(insight.layout)
+  const isEditorialLayout = ['bilingualEditorial', 'insuranceEditorial', 'partnershipEditorial', 'localizedEditorial'].includes(insight.layout)
   const metaOptions = isEditorialLayout
     ? {
         siteName: t('footer.officialName'),
@@ -351,13 +352,19 @@ export default function InsightArticlePage() {
           description: data.seoDescription,
           datePublished: insight.publishDate,
           inLanguage: resolvedLocale === 'zh' ? 'zh-CN' : 'en-US',
-          author: { '@type': 'Person', name: data.author || insight.author },
+          author: data.author || insight.author
+            ? { '@type': 'Person', name: data.author || insight.author }
+            : { '@type': 'Organization', name: 'ONYX Insight' },
           publisher: { '@type': 'Organization', name: t('footer.officialName') },
         },
       }
     : {}
 
   useDocumentMeta(data.seoTitle || `${data.title} · ${t('brand.shortName')}`, data.seoDescription, metaOptions)
+
+  if (insight.layout === 'localizedEditorial') {
+    return <LocalizedEditorialArticle data={data} resolvedLocale={resolvedLocale} isFallback={isFallback} t={t} localePath={localePath} />
+  }
 
   if (insight.layout === 'insuranceEditorial') {
     return <InsuranceEditorialArticle insight={insight} data={data} englishData={insight.content.en} chineseData={insight.content.zh} t={t} localePath={localePath} isFallback={isFallback} />

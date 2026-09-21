@@ -1,3 +1,4 @@
+import { familyCapitalArchitectureTradeoffs } from './family-capital-architecture-tradeoffs.js'
 import { technologyDoesNotDecideForYou } from './technology-does-not-decide-for-you.js'
 import { waicAiSuperNodeAgentOsOpcAgi } from './waic-ai-super-node-agent-os-opc-agi.js'
 import { whyChineseFamiliesLoveSavingButDistrustInsurance } from './why-chinese-families-love-saving-but-distrust-insurance.js'
@@ -11,6 +12,7 @@ import { familyGiftLoanImputedInterest } from './family-gift-loan-imputed-intere
 // Display order is driven by publishDate (see getAllInsights below), not by
 // this array's order.
 const allInsights = [
+  familyCapitalArchitectureTradeoffs,
   technologyDoesNotDecideForYou,
   waicAiSuperNodeAgentOsOpcAgi,
   whyChineseFamiliesLoveSavingButDistrustInsurance,

@@ -1,0 +1,10 @@
+.article { overflow-wrap: anywhere; }
+.article header { margin-bottom: 56px; }
+.article h1, .article h2 { text-wrap: balance; }
+.article aside p { color: var(--ivory-muted); font-size: 14px; line-height: 1.8; }
+.buckets h4 { margin: 0 0 16px; color: var(--ivory-ink); font-family: var(--font-editorial); font-size: 22px; font-weight: 500; line-height: 1.4; }
+.buckets p + p { margin-top: 12px; }
+.article :lang(zh-Hans) { line-height: 1.85; }
+@media (max-width: 680px) {
+  .buckets { grid-template-columns: 1fr; }
+}

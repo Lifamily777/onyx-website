@@ -31,6 +31,7 @@ export default function InsightsIndexPage() {
                     </p>
                   )}
                   <h2 className={styles.itemTitle}>{data.title}</h2>
+                  {data.category && <p className={styles.itemBadges}><span className={styles.badge}>{data.category}</span></p>}
                   <p className={styles.itemSub}>{data.subtitle}</p>
                   <p className={styles.itemMeta}>
                     {data.readingTime} {t('insightsPage.minReadSuffix')}
