@@ -22,9 +22,9 @@ export default function OnyxProfilePage() {
  const complete = step === total
  const section = profileSections[step]
  const profile = buildCapitalProfile(answers)
- const title = complete ? (zh ? 'ONYX 客户资本概况' : 'ONYX Client Capital Profile') : (zh ? 'ONYX 财务概况问卷' : 'Your ONYX Profile')
+ const title = complete ? (zh ? 'ONYX WW 客户资本概况' : 'ONYX WW Client Capital Profile') : (zh ? 'ONYX WW 财务概况问卷' : 'Your ONYX WW Profile')
  const disclosure = profileDisclosure[zh ? 'zh' : 'en']
- useDocumentMeta(title + ' · ONYX', disclosure)
+ useDocumentMeta(title + ' · ONYX WW', disclosure)
  useEffect(() => { if (step >= 0) heading.current?.focus() }, [step])
  const change = (id, value) => update({ answers: { ...answers, [id]: value } })
  return <main className={styles.page}>
@@ -36,7 +36,7 @@ export default function OnyxProfilePage() {
    <h2>{zh ? '先了解您，再讨论策略。' : 'Understand you before discussing strategies.'}</h2>
    <p>{zh ? '涵盖收入、账户、保障、资产、房地产、债务、偏好与流动性。所有问题均可跳过，也可选择不确定或暂不回答。无需姓名、联系方式、账号或精确余额。' : 'Explore income, accounts, protection, assets, real estate, debt, preferences and liquidity. Every question is optional; skip it or choose “Not sure” or “Prefer not to say.” No name, contact details, account numbers or exact balances are needed.'}</p>
 
-   <button className={styles.button} onClick={() => setStep(0)}>{zh ? '开始填写 ONYX 概况' : 'Start Your ONYX Profile'}</button>
+   <button className={styles.button} onClick={() => setStep(0)}>{zh ? '开始填写 ONYX WW 概况' : 'Start Your ONYX WW Profile'}</button>
   </> : complete ? <>
    <p>{zh ? '以下仅汇总您提供的资料。未回答不代表没有；此概况不包含评分、资格判断或产品推荐。可返回任一部分修改。' : 'This summarizes only what you shared. Unanswered does not mean absent. There are no scores, eligibility decisions or product recommendations. You can return to any section to edit.'}</p>
    {profileSections.map((group, index) => <details className={styles.summary} open key={group.id}><summary>{text(group.title)}</summary><dl>{group.fields.map(field => {

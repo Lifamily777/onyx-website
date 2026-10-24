@@ -17,9 +17,9 @@ export default function ContentLibraryView({ categoryId = '', topicId = '', cont
  const resources = queryContentLibrary({ category: categoryId || category, topic: topicId, type, language, audience, general, query, locale })
  const typeLabel = { article: zh ? '文章' : 'Article', video: zh ? '视频' : 'Video', external: zh ? '外部资源' : 'External resource' }
  const languageLabel = code => code === 'en' ? (zh ? '英文' : 'English') : code === 'zh' ? (zh ? '中文' : 'Chinese') : (zh ? '语言尚未核实' : 'Language not verified')
- return <section aria-label={zh ? 'ONYX 教育内容库' : 'ONYX educational content library'}>
-  <h2>{contextual ? (zh ? '进一步了解此策略' : 'Learn more about this strategy') : (zh ? 'ONYX 内容库' : 'ONYX Content Library')}</h2>
-  <p>{contextual ? (zh ? '这些资源来自同一 ONYX 内容库，并根据当前主题筛选。' : 'These resources come from the ONYX Content Library, filtered for this topic.') : (zh ? '浏览文章、视频及权威资源，涵盖策略与更广泛的教育主题。切换语言不会建立另一个内容库；资源按实际可用语言标注。' : 'Browse articles, videos and authoritative resources across strategies and broader learning. Resources are labeled by their available languages; changing the interface language does not create a separate library.')}</p>
+ return <section aria-label={zh ? 'ONYX WW 教育内容库' : 'ONYX WW educational content library'}>
+  <h2>{contextual ? (zh ? '进一步了解此策略' : 'Learn more about this strategy') : (zh ? 'ONYX WW 内容库' : 'ONYX WW Content Library')}</h2>
+  <p>{contextual ? (zh ? '这些资源来自同一 ONYX WW 内容库，并根据当前主题筛选。' : 'These resources come from the ONYX WW Content Library, filtered for this topic.') : (zh ? '浏览文章、视频及权威资源，涵盖策略与更广泛的教育主题。切换语言不会建立另一个内容库；资源按实际可用语言标注。' : 'Browse articles, videos and authoritative resources across strategies and broader learning. Resources are labeled by their available languages; changing the interface language does not create a separate library.')}</p>
   {!contextual && <div className={styles.filters}>
    <label className={styles.field}><span>{zh ? '搜索内容' : 'Search library'}</span><input type="search" value={query} onChange={event=>setQuery(event.target.value)} /></label>
    <label className={styles.field}><span>{zh ? '策略类别' : 'Strategy category'}</span><select value={category} onChange={event=>setCategory(event.target.value)}><option value="">{zh ? '所有类别' : 'All categories'}</option>{strategies.map(item=><option key={item.id} value={item.id}>{textFor(item.title,locale)}</option>)}</select></label>

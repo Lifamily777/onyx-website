@@ -47,7 +47,7 @@ export default function CapitalAssessmentPage() {
                 <BilingualButton className={styles.textButton} onClick={() => setConfirmRestart(true)} en="Start Over" zh="重新开始" />
               </> : <BilingualButton className={styles.primaryButton} onClick={assessment.start} en="Start Assessment" zh="开始自测" />}
           </div>
-          <p className={styles.storageNote}><Localized en={<>We’ll try to save your assessment progress in this browser so you can continue later. ONYX does not need to collect your individual answers for the assessment to generate your Capital Map.</>} zh={<>我们会尝试将自测进度保存在当前浏览器中，方便稍后继续。生成家庭资本地图并不需要 ONYX 收集你的个人回答。</>} /></p>
+          <p className={styles.storageNote}><Localized en={<>We’ll try to save your assessment progress in this browser so you can continue later. ONYX WW does not need to collect your individual answers for the assessment to generate your Capital Map.</>} zh={<>我们会尝试将自测进度保存在当前浏览器中，方便稍后继续。生成家庭资本地图并不需要 ONYX WW 收集你的个人回答。</>} /></p>
         </section>
         {confirmRestart && <RestartDialog onCancel={() => setConfirmRestart(false)} onConfirm={() => {
         assessment.restart();

@@ -45,7 +45,7 @@ export default function ProfileSessionActions() {
   {notice && !working && <p role="status">{notice}</p>}
   <dialog ref={ref} className={styles.dialog} aria-labelledby="profile-dialog-title" onCancel={event => { event.preventDefault(); if (!busy) setDialog(null) }}>
    <h2 id="profile-dialog-title">{dialog?.mode === 'end' ? (zh ? '结束概况会话' : 'End profile session') : dialog?.mode === 'save' ? (zh ? '保存个人 PDF 快照' : 'Save a personal PDF snapshot') : (zh ? '清除我的概况' : 'Clear My Profile')}</h2>
-   {dialog?.downloaded ? <p>{zh ? 'PDF 下载已发起。请确认文件已保存且可打开，再继续。浏览器无法替您确认下载是否完成。' : 'The PDF download was started. Confirm the file is saved and opens correctly before continuing. The browser cannot confirm download completion for you.'}</p> : <p>{dialog?.mode === 'save' ? (zh ? 'PDF 在此设备本地生成。您的概况不会上传。' : 'The PDF is generated on this device. Your profile is not uploaded.') : (zh ? '您有一份正在填写的 ONYX 概况。清除前，是否希望保存一份 PDF？' : 'You have an ONYX Profile in progress. Would you like to save a PDF copy before clearing it?')}</p>}
+   {dialog?.downloaded ? <p>{zh ? 'PDF 下载已发起。请确认文件已保存且可打开，再继续。浏览器无法替您确认下载是否完成。' : 'The PDF download was started. Confirm the file is saved and opens correctly before continuing. The browser cannot confirm download completion for you.'}</p> : <p>{dialog?.mode === 'save' ? (zh ? 'PDF 在此设备本地生成。您的概况不会上传。' : 'The PDF is generated on this device. Your profile is not uploaded.') : (zh ? '您有一份正在填写的 ONYX WW 概况。清除前，是否希望保存一份 PDF？' : 'You have an ONYX WW Profile in progress. Would you like to save a PDF copy before clearing it?')}</p>}
    {error && <p role="alert">{error}</p>}
    {busy && <p role="status">{zh ? '正在本地生成 PDF…' : 'Generating PDF locally…'}</p>}
    <div className={styles.actions}>

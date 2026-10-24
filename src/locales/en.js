@@ -1,8 +1,8 @@
 // English — default and fallback locale.
 export default {
-  brand: { shortName: 'ONYX' },
+  brand: { shortName: 'ONYX WW' },
   meta: {
-    title: 'ONYX Wealth & Wellness | Working Family Capital',
+    title: 'Onyx Wealth and Wellness | Working Family Capital',
     description:
       'Education-first financial planning and decision guidance for W-2 professionals, 1099 earners, and modern growing families.',
   },
@@ -25,7 +25,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX Wealth & Wellness',
+    officialName: 'Onyx Wealth and Wellness',
     brandLine: 'Understand a complex world. Build a better life together.',
     descriptor: 'Education-first guidance for W-2 professionals, 1099 earners, and modern growing families.',
     domainLabel: 'ONYXWW.com',
@@ -54,13 +54,13 @@ export default {
       supporting:
         'Your income, taxes, business, retirement, and life goals do not exist in isolation.',
       bridge:
-        'Through the connected lenses of payroll, retirement, and protection, ONYX helps W-2 professionals, 1099 earners, and growing families understand how income, taxes, long-term accumulation, and risk fit together—and build a more coordinated plan.',
+        'Through the connected lenses of payroll, retirement, and protection, ONYX WW helps W-2 professionals, 1099 earners, and growing families understand how income, taxes, long-term accumulation, and risk fit together—and build a more coordinated plan.',
       ctaPrimary: 'Explore My Capital Map',
       ctaSecondary: 'Something Changed',
       ctaTertiary: 'Family Capital Review',
     },
     why: {
-      label: 'WHY CHOOSE ONYX?',
+      label: 'WHY CHOOSE ONYX WW?',
       headline: "The most expensive financial question may be the one you didn't know to ask.",
       body:
         'Tax, insurance, investing, artificial intelligence, entrepreneurship, health, and retirement planning all involve an increasing amount of information. The real difficulty is not a shortage of information. It is knowing what to trust and how to combine different ideas into a system that works for your own life.',
@@ -74,7 +74,7 @@ export default {
     brandStatement: {
       headline: 'Discover → Understand → Decide',
       body:
-        'ONYX brings learning, practical frameworks, and trusted resource connections into one place—so families, small businesses, and community professionals can move from information to better decisions.',
+        'ONYX WW brings learning, practical frameworks, and trusted resource connections into one place—so families, small businesses, and community professionals can move from information to better decisions.',
     },
     // Compact three-entry module rendered near the top of the Hero, so
     // Wealth/Wellness/Intelligence are reachable within the first viewport
@@ -110,20 +110,20 @@ export default {
         title: 'Wellness',
         descriptor: 'True wealth cannot be separated from health.',
         body:
-          "Physical health, emotional well-being, lifestyle, and long-term fulfillment all influence a family's choices and future. ONYX treats wellness as an important part of long-term life planning, not as a topic entirely separate from wealth.",
+          "Physical health, emotional well-being, lifestyle, and long-term fulfillment all influence a family's choices and future. ONYX WW treats wellness as an important part of long-term life planning, not as a topic entirely separate from wealth.",
         cta: 'Explore Wellness',
       },
       intelligence: {
         title: 'Intelligence',
         descriptor: 'Artificial intelligence is changing the world.',
         body:
-          'ONYX aims to help more people learn how to use AI to improve learning, productivity, and decision-making. Here, Intelligence does not refer only to technology. It also means the ability to find information, evaluate it, and make sound long-term judgments.',
+          'ONYX WW aims to help more people learn how to use AI to improve learning, productivity, and decision-making. Here, Intelligence does not refer only to technology. It also means the ability to find information, evaluate it, and make sound long-term judgments.',
         cta: 'Explore Intelligence',
       },
     },
     assessment: {
       label: 'SEE THE WHOLE FAMILY FIRST',
-      headline: 'ONYX Family Financial Map',
+      headline: 'ONYX WW Family Financial Map',
       body:
         'Bring income, business, taxes, protection, assets, debt, education, health, and long-term goals into one view. This structured learning entry point helps you see where you are, what may deserve deeper understanding, and which questions to ask next.',
       cta: 'Build My Financial Map',
@@ -132,7 +132,7 @@ export default {
     learningTogether: {
       headline: 'Learning Together',
       paragraphs: [
-        'ONYX is not built on the idea that one person has all the answers.',
+        'ONYX WW is not built on the idea that one person has all the answers.',
         'It is built on the belief that lifelong learners become stronger when they openly share what they discover.',
         'Here, I document what I am studying, organize it into practical knowledge, test ideas where appropriate, and share what appears useful.',
         'Every article, video, framework, experiment, and lesson is another step in that journey.',
@@ -142,7 +142,7 @@ export default {
     },
     founder: {
       name: 'WHO IS SAMMI Q?',
-      headline: 'Founder, ONYX Wealth & Wellness · Family Capital Strategist',
+      headline: 'Founder, Onyx Wealth and Wellness · Family Capital Strategist',
       roles: [
         'Finance Systems & Digital Transformation',
         'Small Business Building & Operations',
@@ -156,11 +156,11 @@ export default {
         'Restaurants, repair work, and home services taught me that a business is never just about a product or a service. It is also about people, cash flow, taxes, risk, health, family, and the systems behind everyday decisions.',
         'A tax decision can affect a family. A health challenge can affect a business. An insurance choice can shape long-term stability. Education and technology can change what becomes possible next.',
         'That is why I do not see these subjects as separate boxes.',
-        'ONYX grew from a desire to bring them into one clearer, more practical picture.',
+        'ONYX WW grew from a desire to bring them into one clearer, more practical picture.',
         'I do not want to stand above people and tell them what to do.',
         'I would rather help connect the dots—between family and business, learning and action, complex systems and practical next steps.',
         'Understand first. Connect with the right resources. Then act with greater clarity.',
-        'That is what I hope ONYX can make easier.',
+        'That is what I hope ONYX WW can make easier.',
       ],
     },
     mission: {
@@ -183,13 +183,13 @@ export default {
   placeholders: {
     about: {
       eyebrow: 'ABOUT',
-      title: 'About ONYX',
-      body: 'ONYX is a learning and resource community for families, small businesses, and community professionals. It connects practical education, useful frameworks, and clearer next steps across wealth, wellness, tax, business, and AI.',
+      title: 'About ONYX WW',
+      body: 'ONYX WW is a learning and resource community for families, small businesses, and community professionals. It connects practical education, useful frameworks, and clearer next steps across wealth, wellness, tax, business, and AI.',
     },
     insights: {
       eyebrow: 'INSIGHTS',
       title: 'Insights — Coming Soon',
-      body: 'This is where ONYX articles, learning notes, and videos on Wealth, Wellness, and Intelligence will live as they are published. Nothing is posted here yet — we would rather leave this page empty than fill it with placeholder content.',
+      body: 'This is where ONYX WW articles, learning notes, and videos on Wealth, Wellness, and Intelligence will live as they are published. Nothing is posted here yet — we would rather leave this page empty than fill it with placeholder content.',
     },
     intelligence: {
       eyebrow: 'INTELLIGENCE',
@@ -199,7 +199,7 @@ export default {
     privacy: {
       eyebrow: 'LEGAL',
       title: 'Privacy Policy',
-      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual, not an ONYX LLC or corporation. Contact and privacy inquiries are handled through tiantian.qian7@gmail.com.",
+      body: "ONYX WW is operated by Sammi Q / TianTian Qian as an individual, not an ONYX WW LLC or corporation. Contact and privacy inquiries are handled through tiantian.qian7@gmail.com.",
       sections: [
   {
     "title": "Contact inquiries",
@@ -207,7 +207,7 @@ export default {
   },
   {
     "title": "Profile and browser storage",
-    "body": "The ONYX Profile stores selected answers and progress in the current browser tab’s session storage when available. In the current implementation, Profile answers are not automatically sent to ONYX servers or an external PDF service. Navigation, language changes and refresh preserve this record when storage is available. Clear My Profile or End Session removes the Profile record, but does not necessarily clear unrelated storage used by other ONYX tools, including capital assessment progress in local storage, or PDF copies you have saved. Closing a tab normally ends its session, but browser recovery may restore it. Storage can be blocked or fail; it is not a permanent archive."
+    "body": "The ONYX WW Profile stores selected answers and progress in the current browser tab’s session storage when available. In the current implementation, Profile answers are not automatically sent to ONYX WW servers or an external PDF service. Navigation, language changes and refresh preserve this record when storage is available. Clear My Profile or End Session removes the Profile record, but does not necessarily clear unrelated storage used by other ONYX WW tools, including capital assessment progress in local storage, or PDF copies you have saved. Closing a tab normally ends its session, but browser recovery may restore it. Storage can be blocked or fail; it is not a permanent archive."
   },
   {
     "title": "PDF files",
@@ -219,18 +219,18 @@ export default {
   },
   {
     "title": "Questions and updates",
-    "body": "Contact the operator at tiantian.qian7@gmail.com with questions or requests about information you have submitted. Browser records and downloaded PDFs must also be managed on your device. This policy may be updated as ONYX services and integrations evolve."
+    "body": "Contact the operator at tiantian.qian7@gmail.com with questions or requests about information you have submitted. Browser records and downloaded PDFs must also be managed on your device. This policy may be updated as ONYX WW services and integrations evolve."
   }
 ],
     },
     terms: {
       eyebrow: 'LEGAL',
       title: 'Terms of Use',
-      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual. The website provides general education and tools for organizing questions across wealth, wellness and family capital. Contact: tiantian.qian7@gmail.com.",
+      body: "ONYX WW is operated by Sammi Q / TianTian Qian as an individual. The website provides general education and tools for organizing questions across wealth, wellness and family capital. Contact: tiantian.qian7@gmail.com.",
       sections: [
   {
     "title": "Professional boundaries",
-    "body": "Website use, a Contact inquiry, a Profile answer or a generated PDF does not by itself establish an attorney-client, tax-advisory, investment-advisory or insurance-service relationship. ONYX does not draft trusts or determine legal-document validity. Consult appropriately qualified professionals before acting on tax, legal, investment, insurance, medical or benefits questions."
+    "body": "Website use, a Contact inquiry, a Profile answer or a generated PDF does not by itself establish an attorney-client, tax-advisory, investment-advisory or insurance-service relationship. ONYX WW does not draft trusts or determine legal-document validity. Consult appropriately qualified professionals before acting on tax, legal, investment, insurance, medical or benefits questions."
   },
   {
     "title": "Using the information and tools",
@@ -245,11 +245,11 @@ export default {
     disclosures: {
       eyebrow: 'LEGAL',
       title: 'Disclosures',
-      body: "ONYX is operated by Sammi Q / TianTian Qian as an individual. ONYX provides educational information and tools about financial, tax, retirement, insurance, real-estate, business, trust/estate and family-capital concepts. General website content does not by itself constitute individualized tax, legal, investment, insurance or medical advice.",
+      body: "ONYX WW is operated by Sammi Q / TianTian Qian as an individual. ONYX WW provides educational information and tools about financial, tax, retirement, insurance, real-estate, business, trust/estate and family-capital concepts. General website content does not by itself constitute individualized tax, legal, investment, insurance or medical advice.",
       sections: [
   {
     "title": "Life insurance license and compensation",
-    "body": "Sammi Q / TianTian Qian holds California Life Insurance License No. 4565444. Insurance-related activity may result in commissions or other compensation when an insurance product is purchased. ONYX is not an insurance carrier. This website does not establish a carrier appointment, employment relationship, endorsement or exclusive representation. Product discussions require appropriate licensing and review of individual needs and alternatives."
+    "body": "Sammi Q / TianTian Qian holds California Life Insurance License No. 4565444. Insurance-related activity may result in commissions or other compensation when an insurance product is purchased. ONYX WW is not an insurance carrier. This website does not establish a carrier appointment, employment relationship, endorsement or exclusive representation. Product discussions require appropriate licensing and review of individual needs and alternatives."
   },
   {
     "title": "USANA relationship",
@@ -257,7 +257,7 @@ export default {
   },
   {
     "title": "Professional boundaries",
-    "body": "ONYX is not presented as a law firm, CPA firm, registered investment adviser, insurance carrier or tax preparation firm. Sammi Q is a U.S. tax student, not represented as an Enrolled Agent. Trust and estate material is educational, does not create an attorney-client relationship and is not trust drafting. Tax information depends on individual facts and applicable federal and state law. Investment education is not individualized securities advice; wellness education is not medical diagnosis or treatment."
+    "body": "ONYX WW is not presented as a law firm, CPA firm, registered investment adviser, insurance carrier or tax preparation firm. Sammi Q is a U.S. tax student, not represented as an Enrolled Agent. Trust and estate material is educational, does not create an attorney-client relationship and is not trust drafting. Tax information depends on individual facts and applicable federal and state law. Investment education is not individualized securities advice; wellness education is not medical diagnosis or treatment."
   },
   {
     "title": "Examples, tools and further review",
@@ -302,7 +302,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: 'Watch Tax Videos on YouTube ↗',
-    latestVideosLabel: 'Latest from the ONYX channel',
+    latestVideosLabel: 'Latest from the ONYX WW channel',
     targetProfileLabel: 'Target Profile',
     fieldDataLabel: 'Field Data',
   },
@@ -321,7 +321,7 @@ export default {
     minReadSuffix: 'min read',
     takeawayLabel: "Today's Takeaway",
     continueLearningLabel: 'Continue Learning',
-    workWithOnyxLabel: 'Work With ONYX',
+    workWithOnyxLabel: 'Work With ONYX WW',
     languageNotice: 'This article is currently available in Chinese only. We do not publish machine-translated articles — an English version will be added when a human translation is ready.',
     languageNoticeShort: 'Chinese only',
     relatedTermsLabel: 'Related Terms',
@@ -330,7 +330,7 @@ export default {
 
   glossaryPage: {
     eyebrow: 'GLOSSARY',
-    indexTitle: 'ONYX Glossary',
+    indexTitle: 'ONYX WW Glossary',
     indexSubtitle:
       'Clear, precise explanations of the concepts shaping the age of wealth, wellness, and intelligence.',
     indexEmpty: 'Nothing has been published yet.',
@@ -370,7 +370,7 @@ export default {
       comingSoonLabel: 'Coming Soon',
       knowledgeBaseLabel: 'Knowledge Base',
       keyTopicsLabel: 'Key Topics',
-      exploreGlossaryCta: 'Explore the ONYX Glossary',
+      exploreGlossaryCta: 'Explore the ONYX WW Glossary',
       bookAppointmentCta: 'Book a Conversation',
     },
     wealth: {
@@ -409,7 +409,7 @@ export default {
 
   survey: {
     meta: {
-      title: 'ONYX Family Financial Map',
+      title: 'ONYX WW Family Financial Map',
       subtitle: 'Bring your family’s income, business, taxes, protection, assets, debt, education, health, and long-term goals into one view.',
     },
     intro: {

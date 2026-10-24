@@ -29,7 +29,7 @@ export default function CapitalAssessmentResult({
   const nextExplanation = NEXT_DOLLAR_EXPLANATIONS[primaryLayer?.id || 'all_solid'];
   return <main className={`${styles.resultPage} page-enter`}>
     <header className={styles.hero}>
-      <p className={styles.eyebrow}><Localized en={<>ONYX Capital Map </>} zh={<>ONYX 家庭资本地图</>} /></p>
+      <p className={styles.eyebrow}><Localized en={<>ONYX WW Capital Map </>} zh={<>ONYX WW 家庭资本地图</>} /></p>
       <h1><Localized en={<>Your Capital Ladder</>} zh={<>你的家庭资本阶梯</>} /></h1>
       <p><Localized en={<>A structural view of what your household capital may need to do next.</>} zh={<>从结构出发，看清家庭资本下一步可能最需要完成什么。</>} /></p>
     </header>
@@ -110,7 +110,7 @@ export default function CapitalAssessmentResult({
 
       <footer className={styles.resultFooter}>
         <h2><Localized en={<>Use your Capital Map as a starting point for a deeper financial conversation.</>} zh={<>把这张家庭资本地图，当作下一次深入财务讨论的起点。</>} /></h2>
-        <Link className={styles.educationLink} to={localePath('/wealth')}><Localized en={<>Explore ONYX Wealth Education</>} zh={<>继续了解 ONYX 财富教育</>} /></Link>
+        <Link className={styles.educationLink} to={localePath('/wealth')}><Localized en={<>Explore ONYX WW Wealth Education</>} zh={<>继续了解 ONYX WW 财富教育</>} /></Link>
         <button type="button" className={styles.retakeButton} onClick={onRetake}><Localized en={<>Retake Assessment</>} zh={<>重新自测</>} /></button>
         <p className={styles.disclaimer}><Localized en={<>This assessment is designed for educational and self-reflection purposes. It does not provide individualized investment, tax, legal, or insurance advice.</>} zh={<>本自测仅用于教育与自我梳理，不构成针对个人情况的投资、税务、法律或保险建议。</>} /></p>
       </footer>

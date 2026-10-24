@@ -11,7 +11,7 @@ export default function LanguageSwitcher({ className = '' }) {
   function handleChange(e) {
     const nextLocale = e.target.value
     const { subpath } = parseLocaleFromPath(location.pathname)
-    navigate(buildLocalePath(nextLocale, subpath))
+    navigate(buildLocalePath(nextLocale, subpath) + location.search + location.hash)
   }
 
   return (
