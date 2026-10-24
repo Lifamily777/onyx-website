@@ -1,10 +1,10 @@
 // Simplified Chinese — human-authored initial translation (not machine-translated).
 export default {
   brand: {
-    shortName: 'ONYX 黑曜财商',
+    shortName: 'ONYX WW 黑曜财康',
   },
   meta: {
-    title: 'ONYX 黑曜财商｜成长型家庭资本',
+    title: 'ONYX WW 黑曜财康｜成长型家庭资本',
     description:
       '面向 W-2 工薪人士、1099 自雇人士和成长型家庭的知识教育与财务决策导航平台。',
   },
@@ -27,7 +27,7 @@ export default {
   },
 
   footer: {
-    officialName: 'ONYX 黑曜财商',
+    officialName: '黑曜财康',
     brandLine: '理解复杂世界，共建美好人生。',
     descriptor: '面向 W-2 工薪人士、1099 自雇人士和成长型家庭的教育优先决策导航平台。',
     domainLabel: 'ONYXWW.com',
@@ -55,13 +55,13 @@ export default {
       eyebrow: 'PAYROLL · RETIREMENT · PROTECTION',
       supporting: '收入、税务、生意、退休等人生目标，从来都不是彼此孤立的。',
       bridge:
-        'ONYX 黑曜财商以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
+        'ONYX WW 黑曜财康以 Payroll、Retirement 和 Protection 为重要切入点，帮助 W-2 工薪人士、1099 自雇人士及成长型家庭看清收入、税务、长期积累与风险保障之间的联系，逐步建立系统、协调的规划。',
       ctaPrimary: '探索资本地图',
       ctaSecondary: '最近发生了变化',
       ctaTertiary: '家庭资本梳理',
     },
     why: {
-      label: '为什么选择 ONYX？',
+      label: '为什么选择 ONYX WW？',
       headline: '真正昂贵的，往往不是没有答案，而是你还不知道该问什么。',
       body:
         '税务、保险、投资、人工智能、创业、健康和退休规划等领域，都包含越来越多的信息。真正困难的，不是信息太少，而是不知道哪些值得相信，更不知道如何把它们组合成属于自己的系统。',
@@ -101,13 +101,13 @@ export default {
       wellness: {
         title: '健康',
         descriptor: '真正的财富，离不开健康。',
-        body: '身体、心理、生活方式和长期幸福感，都会影响一个家庭的选择与未来。ONYX 把健康视为财务计划背后的人力承载能力，而不是与财富完全分开的议题。',
+        body: '身体、心理、生活方式和长期幸福感，都会影响一个家庭的选择与未来。ONYX WW 把健康视为财务计划背后的人力承载能力，而不是与财富完全分开的议题。',
         cta: '探索健康',
       },
       intelligence: {
         title: '智能',
         descriptor: '人工智能正在改变世界。',
-        body: 'ONYX 希望帮助更多普通人真正学会利用 AI，提升学习能力、工作效率和决策质量。这里的 Intelligence 不只代表技术，也代表获取信息、辨别信息和作出长期判断的能力。',
+        body: 'ONYX WW 希望帮助更多普通人真正学会利用 AI，提升学习能力、工作效率和决策质量。这里的 Intelligence 不只代表技术，也代表获取信息、辨别信息和作出长期判断的能力。',
         cta: '探索智能',
       },
     },
@@ -121,7 +121,7 @@ export default {
     learningTogether: {
       headline: '一起学习',
       paragraphs: [
-        'ONYX 黑曜财商并不是建立在"一个人拥有所有答案"这个假设之上。',
+        'ONYX WW 黑曜财康并不是建立在"一个人拥有所有答案"这个假设之上。',
         '它建立在这样一个信念上：终身学习者在公开分享所学时，会变得更加强大。',
         '在这里，我记录自己正在研究的内容，把它整理成实用的知识，在合适的地方加以验证，并分享那些看起来真正有用的部分。',
         '每一篇文章、每一支视频、每一个框架、每一次尝试和每一个教训，都是这段旅程中的一步。',
@@ -131,7 +131,7 @@ export default {
     },
     founder: {
       name: '谁是 Sammi Q？',
-      headline: 'ONYX Wealth & Wellness 创始人 · 家庭资本策略师',
+      headline: 'Onyx Wealth and Wellness 创始人 · 家庭资本策略师',
       roles: [
         '企业财务与数字化实践者',
         '小企业经营实践者',
@@ -145,11 +145,11 @@ export default {
         '餐饮、维修服务、税务、保险、家庭财务和人工智能，这些领域看起来各不相同，但真正进入家庭生活以后，我越来越发现，它们从来都不是彼此独立的。',
         '一家小企业的税务决定，可能影响一个家庭的现金流；保险安排会影响风险承受能力；孩子的教育、父母的健康和退休计划，又会改变家庭今天应该如何配置资源。',
         '所以我开始学习，如何把这些问题放在同一张图里看。',
-        'ONYX 也由此而来。',
+        'ONYX WW 也由此而来。',
         '我不希望把自己包装成一个知道所有答案的人。',
         '我更愿意成为一个长期学习者、实践者和连接者——把复杂的问题拆开，把真实的经验记录下来，也把拥有不同专业能力的人连接起来。',
         '先理解，再选择。先看见整个家庭，再讨论某一个产品。',
-        '这就是我希望 ONYX 慢慢成为的样子。',
+        '这就是我希望 ONYX WW 慢慢成为的样子。',
       ],
     },
     mission: {
@@ -172,13 +172,13 @@ export default {
   placeholders: {
     about: {
       eyebrow: '关于我们',
-      title: '关于ONYX 黑曜财商',
-      body: 'ONYX Wealth & Wellness 是一个以知识教育和财务决策导航为核心的平台，主要服务 W-2 工薪人士、1099 自雇人士和处于事业与家庭成长阶段的家庭。',
+      title: '关于ONYX 黑曜财康',
+      body: 'Onyx Wealth and Wellness 是一个以知识教育和财务决策导航为核心的平台，主要服务 W-2 工薪人士、1099 自雇人士和处于事业与家庭成长阶段的家庭。',
     },
     insights: {
       eyebrow: '洞察',
       title: '洞察 · 即将上线',
-      body: '这里将陆续发布ONYX 黑曜财商关于财富、健康与智能的文章、学习笔记与视频。目前还没有正式内容——比起用占位内容填满页面，我们更愿意先把这里留白。',
+      body: '这里将陆续发布ONYX 黑曜财康关于财富、健康与智能的文章、学习笔记与视频。目前还没有正式内容——比起用占位内容填满页面，我们更愿意先把这里留白。',
     },
     intelligence: {
       eyebrow: '智能',
@@ -188,7 +188,7 @@ export default {
     privacy: {
       eyebrow: '法律信息',
       title: '隐私政策',
-      body: "ONYX 由 Sammi Q / TianTian Qian 以个人身份运营，并非 ONYX 有限责任公司或股份公司。联系与隐私相关事宜通过 tiantian.qian7@gmail.com 处理。",
+      body: "ONYX WW 由 Sammi Q / TianTian Qian 以个人身份运营，并非 ONYX WW 有限责任公司或股份公司。联系与隐私相关事宜通过 tiantian.qian7@gmail.com 处理。",
       sections: [
   {
     "title": "联系留言",
@@ -196,7 +196,7 @@ export default {
   },
   {
     "title": "概况与浏览器存储",
-    "body": "浏览器存储可用时，ONYX 概况将所选答案和进度保存在当前标签页的会话存储中。当前实现不会自动将概况答案发送至 ONYX 服务器或外部 PDF 服务。站内导航、语言切换与刷新会保留可用的会话记录。“清除我的概况”或“结束会话”会移除概况记录，但不一定清除其他 ONYX 工具的存储（例如保存在本地存储中的资本评估进度），也不会删除已保存的 PDF。关闭标签页通常会结束会话，但浏览器恢复功能可能还原记录。存储可能被阻止或失效，不能作为永久档案。"
+    "body": "浏览器存储可用时，ONYX WW 概况将所选答案和进度保存在当前标签页的会话存储中。当前实现不会自动将概况答案发送至 ONYX WW 服务器或外部 PDF 服务。站内导航、语言切换与刷新会保留可用的会话记录。“清除我的概况”或“结束会话”会移除概况记录，但不一定清除其他 ONYX WW 工具的存储（例如保存在本地存储中的资本评估进度），也不会删除已保存的 PDF。关闭标签页通常会结束会话，但浏览器恢复功能可能还原记录。存储可能被阻止或失效，不能作为永久档案。"
   },
   {
     "title": "PDF 文件",
@@ -208,18 +208,18 @@ export default {
   },
   {
     "title": "咨询与更新",
-    "body": "如对已提交的信息有疑问或相关请求，请联系 tiantian.qian7@gmail.com。浏览器记录与下载的 PDF 也需要在您的设备上管理。本政策可能随 ONYX 服务与集成的变化而更新。"
+    "body": "如对已提交的信息有疑问或相关请求，请联系 tiantian.qian7@gmail.com。浏览器记录与下载的 PDF 也需要在您的设备上管理。本政策可能随 ONYX WW 服务与集成的变化而更新。"
   }
 ],
     },
     terms: {
       eyebrow: '法律信息',
       title: '使用条款',
-      body: "ONYX 由 Sammi Q / TianTian Qian 以个人身份运营。网站提供财富、健康与家庭资本的一般教育内容及整理问题的工具。联系方式：tiantian.qian7@gmail.com。",
+      body: "ONYX WW 由 Sammi Q / TianTian Qian 以个人身份运营。网站提供财富、健康与家庭资本的一般教育内容及整理问题的工具。联系方式：tiantian.qian7@gmail.com。",
       sections: [
   {
     "title": "专业服务边界",
-    "body": "浏览网站、发送联系留言、填写概况或生成 PDF，本身不会建立律师与客户、税务顾问、投资顾问或保险服务关系。ONYX 不起草信托，也不判断法律文件的效力。涉及税务、法律、投资、保险、医疗或福利的行动，请先咨询具备相应资格的专业人士。"
+    "body": "浏览网站、发送联系留言、填写概况或生成 PDF，本身不会建立律师与客户、税务顾问、投资顾问或保险服务关系。ONYX WW 不起草信托，也不判断法律文件的效力。涉及税务、法律、投资、保险、医疗或福利的行动，请先咨询具备相应资格的专业人士。"
   },
   {
     "title": "信息与工具的使用",
@@ -234,11 +234,11 @@ export default {
     disclosures: {
       eyebrow: '法律信息',
       title: '信息披露',
-      body: "ONYX 由 Sammi Q / TianTian Qian 以个人身份运营，提供财务、税务、退休、保险、房地产、商业、信托与遗产以及家庭资本概念的教育信息和工具。一般网站内容本身不构成个性化税务、法律、投资、保险或医疗建议。",
+      body: "ONYX WW 由 Sammi Q / TianTian Qian 以个人身份运营，提供财务、税务、退休、保险、房地产、商业、信托与遗产以及家庭资本概念的教育信息和工具。一般网站内容本身不构成个性化税务、法律、投资、保险或医疗建议。",
       sections: [
   {
     "title": "寿险执照与报酬",
-    "body": "Sammi Q / TianTian Qian 持有加利福尼亚州寿险执照，编号 4565444。购买保险产品时，相关保险业务可能产生佣金或其他报酬。ONYX 不是保险公司。本网站不确立任何保险公司的委任、雇佣、背书或独家代理关系。产品讨论需要适当执照，并结合个人需求与替代方案进行审阅。"
+    "body": "Sammi Q / TianTian Qian 持有加利福尼亚州寿险执照，编号 4565444。购买保险产品时，相关保险业务可能产生佣金或其他报酬。ONYX WW 不是保险公司。本网站不确立任何保险公司的委任、雇佣、背书或独家代理关系。产品讨论需要适当执照，并结合个人需求与替代方案进行审阅。"
   },
   {
     "title": "USANA 关系",
@@ -246,7 +246,7 @@ export default {
   },
   {
     "title": "专业服务边界",
-    "body": "ONYX 不以律师事务所、注册会计师事务所、注册投资顾问、保险公司或报税机构的身份提供本网站。Sammi Q 是美国税务学习者，不以美国注册税务师（Enrolled Agent）身份提供服务。信托与遗产内容仅供教育，不建立律师与客户关系，也不构成信托起草。税务信息取决于个人事实及适用的联邦与州法律。投资教育不是个性化证券建议；健康教育不是医疗诊断或治疗。"
+    "body": "ONYX WW 不以律师事务所、注册会计师事务所、注册投资顾问、保险公司或报税机构的身份提供本网站。Sammi Q 是美国税务学习者，不以美国注册税务师（Enrolled Agent）身份提供服务。信托与遗产内容仅供教育，不建立律师与客户关系，也不构成信托起草。税务信息取决于个人事实及适用的联邦与州法律。投资教育不是个性化证券建议；健康教育不是医疗诊断或治疗。"
   },
   {
     "title": "示例、工具与进一步审阅",
@@ -290,7 +290,7 @@ export default {
 
   servicePage: {
     youtubeChannelLabel: '前往 YouTube 观看税务视频 ↗',
-    latestVideosLabel: 'ONYX 黑曜财商频道最新视频',
+    latestVideosLabel: 'ONYX WW 黑曜财康频道最新视频',
     targetProfileLabel: '适配人群',
     fieldDataLabel: '真实场景',
   },
@@ -318,7 +318,7 @@ export default {
 
   glossaryPage: {
     eyebrow: '术语表',
-    indexTitle: 'ONYX 黑曜财商术语库',
+    indexTitle: 'ONYX WW 黑曜财康术语库',
     indexSubtitle: '用清晰、准确的语言，解释正在塑造财富、健康与智能时代的重要概念。',
     indexEmpty: '目前还没有正式发布的术语。',
     noResultsLabel: '未找到相关术语。',
@@ -357,7 +357,7 @@ export default {
       comingSoonLabel: '即将上线',
       knowledgeBaseLabel: '知识库',
       keyTopicsLabel: '核心主题',
-      exploreGlossaryCta: '探索ONYX 黑曜财商术语库',
+      exploreGlossaryCta: '探索ONYX 黑曜财康术语库',
       bookAppointmentCta: '预约咨询',
     },
     wealth: {

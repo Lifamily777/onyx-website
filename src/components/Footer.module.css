@@ -146,7 +146,7 @@
   }
 }
 
-.footer { color:#eee8dd; background:radial-gradient(circle at 85% 20%,rgba(51,76,96,.2),transparent 30rem),#070b10; border-top:1px solid rgba(211,193,153,.18); }
+.footer { color:#eee8dd; background:#111515; border-top:1px solid rgba(211,193,153,.18); }
 .inner { max-width:1200px; }
 .brandName { color:var(--gold-light); letter-spacing:.18em; }
 .officialName { color:#f2ede3; font-family:var(--font-editorial); font-size:18px; }
